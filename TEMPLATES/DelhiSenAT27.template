@@ -1,0 +1,23 @@
+######################################################
+cleanopt = 1    # [ 0 / 1 / 2 / 3 4]   0: no cleaning, 1: largest files, 2: merged/etc, PROCESS dirs, 3: SLC,RAW, 4: everything
+ssaraopt = --platform=SENTINEL-1A,SENTINEL-1B -r 27 -f 86,87,88,89,90,91,92 -s 2016-01-01  -e 2018-01-30
+
+processor                      = isce
+
+sentinelStack.boundingBox      = '-1 0.15 -91.6 -90.9'
+sentinelStack.boundingBox      = '28.25 28.95 76.8 77.7'
+sentinelStack.subswath         = 2   # comment 
+sentinelStack.numConnections   = 5   # comment
+sentinelStack.azimuthLooks     = 4   # comment
+sentinelStack.rangeLooks       = 12  # comment
+sentinelStack.filtStrength     = 0.2  # comment
+sentinelStack.unwMethod        = snaphu  # comment
+sentinelStack.coregistration   = auto  # comment
+
+pysar.network.coherenceBased   = no  #[yes / no], auto for yes, exclude interferograms with coherence < minCoherence
+pysar.timeseriesInv.weightFunc = variance #[variance / no / coherence], auto for no
+
+pysar.troposphericDelay.method = height_correlation # pyaps  #[pyaps / height_correlation / base_trop_cor / no], auto for pyaps
+pysar.save.hdfEos5             = yes   #[yes / update / no], auto for no, save timeseries to UNAVCO InSAR Archive format
+pysar.save.hdfEos5.update      = yes   #[yes / no], auto for no, put XXXXXXXX as endDate in output filename
+######################################################

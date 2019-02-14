@@ -1,0 +1,30 @@
+######################################################
+ssaraopt            = --platform=SENTINEL-1A,SENTINEL-1B -r 131 -f 1063,1064,1065,1066,1067,1068,1069  -s 2017-09-01 -e 2017-11-30
+ssaraopt            = --platform=SENTINEL-1A,SENTINEL-1B -r 131 -f 1063,1064,1065,1066,1067,1068,1069  
+processor                      = isce
+cleanopt                       = 2
+######################################################
+sentinelStack.boundingBox      = '-34.3 -33.5 18.9 19.5' 
+sentinelStack.boundingBox      = '-34.3 -33.5 18.9 20.9' 
+sentinelStack.subswath         = 3   # comment 
+sentinelStack.numConnections   = 4   # comment
+sentinelStack.azimuthLooks     = 5   # comment
+sentinelStack.rangeLooks       = 15  # comment
+sentinelStack.filtStrength     = 0.2  # comment
+sentinelStack.unwMethod        = snaphu  # comment
+sentinelStack.coregistration   = auto  # comment
+
+pysar.network.coherenceBased   = no  #[yes / no], auto for yes, exclude interferograms with coherence < minCoherence
+pysar.network.maskAoi.lalo     = auto  #  -0.2:-0.1,-78.6:-78.3  #[lat0:lat1,lon0:lon1 / no], auto for no - use the whole area
+pysar.network.minCoherence     = auto #0.63  #[0.0-1.0], auto for 0.7
+pysar.networkInversion.weightFunc = variance #[variance / no / coherence], auto for no
+pysar.networkInversion.minTempCoh = auto #[0.0-1.0], auto for 0.7, min temporal coherence for mask
+
+pysar.reference.lalo           = auto   # 15 km N of Chiles
+pysar.deramp            = plane # ['quadratic', 'plane', 'quardatic_range', 'quadratic_azimiuth', 'plane_range', 'plane_azimuth','baselineCor','BaseTropCor']
+
+pysar.troposphericDelay.method = no # pyaps  #[pyaps / height_correlation / base_trop_cor / no], auto for pyaps
+pysar.save.hdfEos5             = yes   #[yes / update / no], auto for no, save timeseries to UNAVCO InSAR Archive format
+pysar.save.hdfEos5.update      = yes   #[yes / no], auto for no, put XXXXXXXX as endDate in output filename
+######################################################
+insarmaps.cityNames='Cape Town'

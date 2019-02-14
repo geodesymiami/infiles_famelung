@@ -1,0 +1,28 @@
+######################################################
+cleanopt            = 1    # [ 0 / 1 / 2 / 3 4]   0: no cleaning, 1: largest files, 2: merged/etc dirs, 3: SLC, 4: everything
+ssaraopt            = --platform=SENTINEL-1A,SENTINEL-1B -r 150 -f 100,101,102,103,104,105  -s 2017-10-01 -e 2018-02-28
+ssaraopt            = --platform=SENTINEL-1A,SENTINEL-1B -r 150 -f 100,101,102,103,104,105  -s 2016-04-19 
+processor           = isce
+######################################################
+sentinelStack.boundingBox      = '32.75 33.0 -80.1 -79.9' #
+sentinelStack.subswath         = 2   # '1 2'
+sentinelStack.numConnections   = 4   # comment
+sentinelStack.azimuthLooks     = 5   # comment
+sentinelStack.rangeLooks       = 12  # comment
+sentinelStack.filtStrength     = 0.3  # comment
+sentinelStack.unwMethod        = snaphu   # comment
+sentinelStack.coregistration   = geometry # [NESD geometry], auto for NESD
+######################################################
+pysar.network.coherenceBased   = no  #[yes / no], auto for yes, exclude interferograms with coherence < minCoherence
+pysar.network.minCoherence     = auto #0.63  #[0.0-1.0], auto for 0.7
+pysar.networkInversion.weightFunc = variance #[variance / no / coherence], auto for no
+pysar.networkInversion.minTempCoh = auto #[0.0-1.0], auto for 0.7, min temporal coherence for mask
+
+pysar.reference.lalo           = 32.783,-79.9345   #32.78,-79.93   # 15 km N of Chiles
+pysar.deramp                   = plane # ['quadratic', 'plane', 'quardatic_range', 'quadratic_azimiuth', 'plane_range', 'plane_azimuth','baselineCor','BaseTropCor']
+
+pysar.troposphericDelay.method = no # pyaps  #[pyaps / height_correlation / base_trop_cor / no], auto for pyaps
+pysar.save.hdfEos5             = yes   #[yes / update / no], auto for no, save timeseries to UNAVCO InSAR Archive format
+pysar.save.hdfEos5.update      = yes   #[yes / no], auto for no, put XXXXXXXX as endDate in output filename
+######################################################
+insarmaps.cityName='Charleston'

@@ -1,0 +1,16 @@
+ssaraopt                 = --platform=SENTINEL-1A,SENTINEL-1B -r 40 --intersectsWith='POINT(-78.598 -0.171)' --print -s 2016-01-01 -e 2016-12-31 --parallel=20 --download
+pysar.insarProcessor     = isce
+pysar.unwrapFiles        = /scratch/projects/insarlab/famelung/PichinchaT120SenVVA/merged/interferograms/*/filt*.unw
+pysar.corFiles           = /scratch/projects/insarlab/famelung/PichinchaT120SenVVA/merged/interferograms/*/filt*.cor
+pysar.lookupFile         = /scratch/projects/insarlab/famelung/PichinchaT120SenVVA/merged/geom_master/l*.rdr
+pysar.demFile.radarCoord = /scratch/projects/insarlab/famelung/PichinchaT120SenVVA/merged/geom_master/hgt.rdr
+pysar.demFile.geoCoord   = /scratch/projects/insarlab/famelung/PichinchaT120SenVVA/DEM/demLat_S01_N02_Lon_W079_W077.dem.wgs84
+
+pysar.network.coherenceBased = yes  #[yes / no], auto for yes, exclude interferograms with coherence < minCoherence
+pysar.network.minCoherence    = 0.4  #[0.0-1.0], auto for 0.7
+
+
+pysar.network.startDate  =  no   #[20090101 / no], auto for no
+pysar.network.endDate  =    no   #[20090101 / no], auto for no
+pysar.troposphericDelay.method       = no  #[pyaps / height_correlation / base_trop_cor / no], auto for pyaps
+

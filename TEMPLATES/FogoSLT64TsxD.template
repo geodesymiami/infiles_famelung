@@ -1,0 +1,77 @@
+##### getSAR, raw2slc and createBaselineList  options ###############################
+#walltime            = 4:00
+memoryCoregist      = 3700
+memoryProcessFilt   = 3700
+memoryProcessDone   = 3700
+#source              = asf
+#satellite           = Alos
+#boundingBox         = 3.33,98.30,3.00,98.60
+#track               = 495
+#frame               = 50
+#startFrame          = 50
+#endFrame            = 50
+#endDate             = 080516
+#endDate             = 110116
+platform            = Tsx
+ssaraopt            = scp dms.gfz-potsdam.de:/data/VOLCAPSE/SAR_data/Popocatepetl_TSX/orig_tars/\*/\*/dims_op_oc_dfd2_47\*gz  .
+ssaraopt            = track_64_DES_spot_025_2012*
+ssaraopt            = ssh-keygen -R dms.gfz-potsdam.de; scp dms.gfz-potsdam.de:/data/VOLCAPSE/SAR_data/new_SAR_archive/Popo/track_143_DES_strip_014_20\{1409\*,141\*,15\*\} .
+ssaraopt            = ssh-keygen -R dms.gfz-potsdam.de; scp dms.gfz-potsdam.de:/data/VOLCAPSE/SAR_data/new_SAR_archive/Fogo/track_64_DES_spot_025_201\{2\*,3\*,40\*,410\*,4110\*,4111\*\} .
+ssaraopt            = ssh-keygen -R dms.gfz-potsdam.de; scp dms.gfz-potsdam.de:/data/VOLCAPSE/SAR_data/new_SAR_archive/Fogo/track_64_DES_spot_025_201\{3\*,40\*,410\*,4110\*,4111\*\} .
+ssaraopt            = ssh-keygen -R dms.gfz-potsdam.de; scp dms.gfz-potsdam.de:/data/VOLCAPSE/SAR_data/new_SAR_archive/Fogo/track_64_DES_spot_025_201\{40\*,410\*,4110\*,4111\*\} .
+ssaraopt            = scp visx.ccs.miami.edu:/famelung/data/Tsx_Potsdam/Fogo/track_64_DES_spot_025_201\{40\*,410\*,4110\*,4111\*\} .
+masterDate          = 140307
+raw2slc_OrbitType   = HDR 
+selectMethod        = delaunay
+selectMethod        = all
+perpBaseMax         = 50     
+perpBaseMax         = 200     
+lengthDayMax        = 77
+lengthDayMin        = 0
+#lengthDayMax        = 395 #To select Pairs within the same month, regardless of year
+DopOverlapThresh    = 15
+#interferogramList  = [090106-100928]
+
+####### ROI_PAC OPTIONS ##############################
+DEM                =  /nethome/famelung/insarlab/DEMDIR/CotopaxiIGEPN_CSK_0.0001/output.dem
+DEM                =  /home/famelung/insarlab/DEMDIR/Fogo_highres/output.dem
+DEM                =  $HOME/insarlab/DEMDIR/Fogo_Tdx5m/output.dem
+flattening         = orbit
+Rlooks_sim         = 2
+Rlooks_int         = 4
+Rlooks_unw         = 4
+unw_method         = treef
+unw_method         = snaphu
+#snap_conncomthresh = 60
+Filt_method        = psfilt
+FilterStrength     = 0.4
+UnwrappedThreshold = 0.10
+maskingwith0height = TRUE
+#synthoffsetopt     = 40
+ampmagFineopt      = 70/70/128/64
+ampmagFineopt      = 10/10/512/64
+ampmagFineopt      = 50/50/128/64
+#ampmagCoarseopt    = 10/10/512/64
+pixel_ratio        = 1
+#tiltdegree         = 2
+cleanopt            = 1
+
+######################################################R options ##############################
+pysar.unwrapError                    = no
+pysar.troposphericDelay              = no
+pysar.troposphericDelay.method       = pyaps  # ['height-correlation', 'pyaps']
+pysar.troposphericDelay.polyOrder    = 1
+pysar.troposphericDelay.weatherModel = ECMWF  # ['ECMWF', 'MERRA', 'NARR']
+pysar.acquisitionTime                = 12:00  # ['00:00', '06:00', '12:00', '18:00']
+
+pysar.topographicResidual           = yes
+pysar.orbitError          = yes
+pysar.orbitError.method   = plane       # ['quadratic', 'plane', 'quadratic_range', 'quadratic_azimiuth', 'plane_range', 'plane_azimuth','baselineCor','BaseTropCor']
+
+pysar.mask                 = yes
+pysar.mask.threshold       = 0.7
+pysar.geocode              = yes
+
+######### process_rsmas options ##############################
+#pysar_subset_lalo        = 31.7000:32.1000,130.5000:131.1000
+#pysar_geocode_timeseries = 1

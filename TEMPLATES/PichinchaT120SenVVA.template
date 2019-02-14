@@ -1,0 +1,29 @@
+ssaraopt                 = --platform=SENTINEL-1A,SENTINEL-1B -r 120 --intersectsWith='POINT(-78.598 -0.171)' --print -s 2016-01-01 -e 2016-12-31 --parallel=20 --download
+pysar.insarProcessor     = isce
+pysar.unwrapFiles        = /scratch/projects/insarlab/famelung/PichinchaT120SenVVA/merged/interferograms/*/filt*.unw
+pysar.corFiles           = /scratch/projects/insarlab/famelung/PichinchaT120SenVVA/merged/interferograms/*/filt*.cor
+pysar.lookupFile         = /scratch/projects/insarlab/famelung/PichinchaT120SenVVA/merged/geom_master/l*.rdr
+pysar.demFile.radarCoord = /scratch/projects/insarlab/famelung/PichinchaT120SenVVA/merged/geom_master/hgt.rdr
+pysar.demFile.geoCoord   = /scratch/projects/insarlab/famelung/PichinchaT120SenVVA/DEM/demLat_S01_N02_Lon_W079_W077.dem.wgs84
+
+pysar.network.coherenceBased = yes  #[yes / no], auto for yes, exclude interferograms with coherence < minCoherence
+pysar.network.maskAoi.lalo    =  -0.2:-0.1,-78.6:-78.3  #[lat0:lat1,lon0:lon1 / no], auto for no - use the whole area
+pysar.network.minCoherence    = 0.63  #[0.0-1.0], auto for 0.7
+
+pysar.subset.lalo = no # -0.25:-0.00,-78.65:-78.40
+
+pysar.network.startDate  =  no   #[20090101 / no], auto for no
+pysar.network.endDate  =    no   #[20090101 / no], auto for no
+pysar.troposphericDelay.method  = no  #[pyaps / height_correlation / base_trop_cor / no], auto for pyaps
+pysar.save.unavco      =   yes   #[yes / update / no], auto for no, save timeseries to UNAVCO InSAR Archive format
+
+######################################################
+unavco.mission        = SENTINEL1-A
+unavco.relative_orbit = 120 
+unavco.frame          = 0000
+unavco.beam_mode      = IW
+unavco.beam_swath     = 1
+unavco.processing_software= ISCE
+unavco.processing_type  = LOS_TIMESERIES
+
+

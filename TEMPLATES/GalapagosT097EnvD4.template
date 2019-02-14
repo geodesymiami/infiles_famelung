@@ -1,0 +1,42 @@
+####### ssara, raw2slc, SelectPairs  options ###############################
+memoryCoregist      = 3700
+memoryProcessFilt   = 3700
+memoryProcessDone   = 3700
+ssaraopt            = --platform=Envisat -r 097  --intersectsWith='POINT(-91.13  -0.81)' --print -s 2002-01-01  -e 2015-12-31
+ssaraopt            = --platform=Envisat -r 097  --intersectsWith='POLYGON((-91.5 0.1,-90.9 0.1,-90.9 -0.9,-91.5 -0.9,-91.5 0.1))' --print -s 2002-01-01  -e 2015-12-31
+raw2slc_OrbitType  = DOR
+masterDate         = 061225
+#excludeDate       =  040522 040904 060107 070407
+selectMethod       = Delaunay
+perpBaseMax        = 250
+DopOverlapThresh   = 15    
+boundingBox        = 0.1,-91.7,-1.1,-90.8
+####### ROI_PAC OPTIONS ##############################
+DEM                = $PARENTDIR/data/testdata/roi_pac/GalapagosT061EnvA2/DEMDIR/Galapagos_SRTM3g_1i_merged.dem
+DEM                = $PARENTDIR/data/testdata/roi_pac/GalapagosT061EnvA2/DEMDIR/output.dem
+OrbitType          = DOR
+flattening         = orbit
+Rlooks_sim         = 1
+Rlooks_int         = 4
+Rlooks_unw         = 4
+meter_per_cycle    = 6.283
+ampmagFineopt      = 70/70/64/32
+unw_method         = treef
+unw_method         = snaphu
+snap_conncomthresh = 60
+Filt_method        = psfilt
+FilterStrength     = 0.2
+UnwrappedThreshold = 0.10
+maskingwith0height = TRUE
+cleanopt            = 1
+######################################################
+######## PySAR   OPTIONS ##############################
+#######################################################
+
+pysar.topographicResidual = yes
+pysar.orbitError = no
+pysar.orbitError.method = plane # ['quadratic', 'plane', 'quardatic_range', 'quadratic_azimiuth', 'plane_range', 'plane_azimuth','baselineCor','BaseTropCor']
+pysar.troposphericDelay = no
+pysar.mask=yes
+pysar.mask.threshold = 0.7
+pysar.geocode = yes

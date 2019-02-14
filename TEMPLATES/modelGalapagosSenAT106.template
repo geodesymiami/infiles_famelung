@@ -1,0 +1,30 @@
+process_flag                        = TRUE                                                                                                
+login                               = pegasus.ccs.miami.edu                                                                               
+user                                = famelung                                                                                            
+####################
+every_day_flag                      = yes                                                                                                 
+ssaraopt                            = --platform=SENTINEL-1A,SENTINEL-1B -r 106 -f 1174-1181 -s 2018-06-01 -e 2018-08-31
+processor                           = isce                                                                                                
+cleanopt                            = 0                                                                                                   
+####################
+sentinelStack.boundingBox           = '-1 -0.6 -91.6 -90.9'                             # '-1 0.15 -91.6 -90.9'                           
+sentinelStack.subswath              = 3                                                 # '1 2'                                           
+sentinelStack.numConnections        = 2                                                 # comment                                         
+sentinelStack.azimuthLooks          = 3                                                 # comment                                         
+sentinelStack.rangeLooks            = 9                                                 # comment                                         
+sentinelStack.filtStrength          = 0.2                                               # comment                                         
+sentinelStack.unwMethod             = snaphu                                            # comment                                         
+sentinelStack.coregistration        = auto                                              # [NESD geometry], auto for NESD                  
+####################
+pysar.reference.lalo                =  -0.7,-91.3                                                                                         
+pysar.troposphericDelay.method      = no                                                #[pyaps / height_correlation / base_trop_cor / no], auto for pyaps
+pysar.network.coherenceBased        = no                                                # [yes / no], auto for yes, exclude interferograms with coherence < minCoherence
+pysar.network.minCoherence          = auto                                              # 0.63 #[0.0-1.0], auto for 0.7                   
+pysar.networkInversion.weightFunc   = fim                                               # [fim / variance / coherence / no], auto for no  
+pysar.pysar.network.startDate       = auto                                              # [20090101 / no], auto for no                    
+pysar.network.endDate               = auto                                              # [20090101 / no], auto for no                    
+pysar.geocode.latStep               = 0.0004
+pysar.geocode.lonStep               = 0.0004
+pysar.save.hdfEos5                  = yes                                               # [yes / update / no], auto for no, save timeseries to UNAVCO InSAR Archive format
+pysar.save.hdfEos5.update           = yes                                               # [yes / no], auto for no, put XXXXXXXX as endDate in output filename
+pysar.pysar.save.kml                = yes                                               # [yes / no], auto for yes, save geocoded velocity to Google Earth KMZ file

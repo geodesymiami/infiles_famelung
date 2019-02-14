@@ -1,0 +1,49 @@
+### Tungurahua, fails in synth_offsets in 10% of cases  ####
+####oregist      = 3700
+memoryCoregist      = 3700
+memoryProcessFilt   = 3700
+memoryProcessDone   = 3700
+satellite           = Alos
+track               = 446
+#boundingBox        = 16.83,-62.25,16.68,-62.14
+ssaraopt            = --platform=Alos -r 446 -f 10 -s 2006-12-01  -e 2011-12-31 --beamSwath=7
+raw2slc_OrbitType   = HDR
+selectMethod        = delaunay
+perpBaseMax         = 100
+perpBaseMax         = 1000
+lengthDayMin        = 0
+lengthDayMax        = 365
+masterDate          = 061231
+DopOverlapThresh    = 15
+####### ROI_PAC OPTIONS ##############################
+DEM                = /nethome/yzhang1/insarlab/DEMDIR/Indonesia/NorthCelebes/NorthCelebes.dem
+flattening         = orbit
+OrbitType          = HDR
+Rlooks_sim         = 1
+Rlooks_int         = 4
+Rlooks_unw         = 4
+#ampmagFineopt      = 100/100/64/32
+#meter_per_cycle    = 6.283
+unw_method         = snaphu
+#snap_conncomthresh = 60
+#Filt_method        = psfilt
+#FilterStrength     = 0.2
+Filt_method        = psfilt_adapt_filt
+FilterStrength     = 0.5/4
+UnwrappedThreshold = 0.10
+maskingwith0height = TRUE
+cleanopt           = 1
+######################################################
+
+#PySAR.seed.yx = 1050, 710
+
+PySAR.unwrap_error       = no
+PySAR.topo_error         = yes
+PySAR.orbit_error        = yes
+PySAR.orbit_error.method = plane
+# ['quadratic', 'plane', 'quardatic_range', 'quadratic_azimiuth', 'plane_range', 'plane_azimuth','baselineCor','BaseTropCor']
+PySAR.tropospheric_delay = no
+PySAR.tropospheric_delay.method = height-correlation
+PySAR.mask               = yes
+PySAR.mask.threshold     = 0.7
+PySAR.geocode            = yes

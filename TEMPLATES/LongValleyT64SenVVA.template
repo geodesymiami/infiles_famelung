@@ -1,0 +1,32 @@
+######################################################
+ssaraopt            = --platform=SENTINEL-1A,SENTINEL-1B -r 64 --intersectsWith='POLYGON((-119.0 38.4,-118.7 38.4,-118.7 37.3,-119.0 37.3,-119.0 38.4))' -e 2017-09-31
+ssaraopt            = --platform=SENTINEL-1A,SENTINEL-1B -r 64 -f 118,119,120 -e 2017-09-31
+ALOOKS   = 3
+RLOOKS   = 15
+
+######################################################
+pysar.insarProcessor     = isce
+pysar.unwrapFiles        = /scratch/projects/insarlab/famelung/LongValleyT64SenVVA/merged/interferograms/*/filt*.unw
+pysar.corFiles           = /scratch/projects/insarlab/famelung/LongValleyT64SenVVA/merged/interferograms/*/filt*.cor
+pysar.lookupFile         = /scratch/projects/insarlab/famelung/LongValleyT64SenVVA/merged/geom_master/l*.rdr
+pysar.demFile.radarCoord = /scratch/projects/insarlab/famelung/LongValleyT64SenVVA/merged/geom_master/hgt.rdr
+pysar.demFile.geoCoord   = /scratch/projects/insarlab/famelung/LongValleyT64SenVVA/DEM/demLat_N37_N39_Lon_W120_W118.dem.wgs84
+
+pysar.network.coherenceBased    = no  #[yes / no], auto for yes, exclude interferograms with coherence < minCoherence
+pysar.network.minCoherence      = 0.4 # 0.4  #[0.0-1.0], auto for 0.7
+pysar.networkInversion.weightFunc  = variance #[variance / no / linear / normal], auto for no, coherence to weight
+pysar.networkInversion.minTempCoh  = auto #[0.0-1.0], auto for 0.7, min temporal coherence for mask
+pysar.deramp                    = no #[no / plane / quadratic], auto for no - no ramp will be removed
+
+pysar.network.startDate = no #  20160501   #[20090101 / no], auto for no
+pysar.troposphericDelay.method = no  #[pyaps / height_correlation / base_trop_cor / no], auto for pyaps
+pysar.save.unavco  = update
+######################################################
+unavco.mission        = S1
+unavco.relative_orbit = 64 
+unavco.frame          = 0000
+unavco.beam_mode      = IW
+unavco.beam_swath     = 1
+unavco.processing_software= ISCE
+unavco.processing_type  = LOS_TIMESERIES
+

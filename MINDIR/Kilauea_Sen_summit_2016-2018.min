@@ -1,0 +1,122 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+dir_out_parent                               =  strcat(getenv('GEODMOD_TESTBENCH'))
+prepareopt.demfile                           =  /nethome/bkv3/test2/rsmas_insar/data/testdata/geodmod/Kilaueasen_summit_2015-2018/Dem/geo_geometryRadar.dem
+prepareopt.ShadedRelieffile                  =  /nethome/bkv3/test2/rsmas_insar/data/testdata/geodmod/Kilaueasen_summit_2015-2018/Dem/geo_geometryRadar.dem.jpeg
+%makesaropt.subset.lalo                       =  [19.55 -155.70 19.35 -155.50]    %%%[ N W S E]
+prepareopt.linefile                          =  /nethome/bkv3/test2/rsmas_insar/data/testdata/geodmod/Kilaueasen_summit_2015-2018/Lines/hawaii_lines_new.mat
+%prepareopt.GPStxtfile                       =  /nethome/bkv3/test2/rsmas_insar/data/testdata/geodmod/MaunaLoa2013-2017/Data/GPS/GPS_BenBrooks_13-17full.txt 
+prepareopt.Shadefac                          =  0.1 
+prepareopt.CLim                              =  [-0.05 0.05]
+prepareopt.Profile.xy                       =  [8.62 12.91; 15.68 5.84]
+%prepareopt.Cmap                             =  dismphF
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+makesaropt.dir_inlist{1}                    =  /nethome/bkv3/test2/rsmas_insar/data/testdata/geodmod/Kilaueasen_summit_2015-2018/Data/SenA
+makesaropt.dir_inlist{2}                    = /nethome/bkv3/test2/rsmas_insar/data/testdata/geodmod/Kilaueasen_summit_2015-2018/Data/SenD
+makesaropt.pattern                           =  geo*.unw  
+%makesaropt.subset.ji                        =  [30 300 30 300]          ;% LL
+makesaropt.data2igramopt.corfile             =  geo*.cor                  
+makesaropt.data2igramopt.cormask_thresh{1}      =  0.7
+makesaropt.data2igramopt.cormask_thresh{2}      =  0.7       
+makesaropt.data2igramopt.cormask_area_open   =  500                  
+%makesaropt.data2igramopt.Unit = radian
+%makesaropt.igram2motionopt.Unit = m
+%makesaropt.igram2motionopt.plotdataopt.CLim = [-0.05 0.05]
+makesaropt.igram2motionopt.RateMethod        =  Rand
+makesaropt.igram2motionopt.RateMethod        =  SimpleAverage
+makesaropt.igram2motionopt.NumStacks         =  1
+makesaropt.igram2motionopt.StackSortMethod   =  MeanRating
+%makesaropt.igram2motionopt.MedFiltSize      =  11
+makesaropt.samplesaropt.Method               =  Grid
+makesaropt.samplesaropt.Method               =  Quadtree
+makesaropt.samplesaropt.QtTolerance          =  0.003
+makesaropt.samplesaropt.QtStartlevel         =  2
+makesaropt.samplesaropt.GridRowsCols         =  [40 40]
+makesaropt.samplesaropt.GridRowsCols         =  [200 200]
+%makesaropt.samplesaropt.QtEndlevel          =  8
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+makegpsopt.GPStxtfile            =  /nethome/bkv3/test2/rsmas_insar/data/testdata/geodmod/Kilaueasen_summit_2015-2018/Data/Gps/Kilauea_2015jun_2018may.txt
+makegpsopt.filetype			     =  rates
+makegpsopt.Unit                  =  m
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+makedatasetopt.GPShorz                       = true
+makedatasetopt.GPSvert                       = false
+makedatasetopt.sigphi.SAR{1}                 = 0.01
+makedatasetopt.sigphi.SAR{2}                 = 0.01
+makedatasetopt.sigphi.GPShorz                =  30
+%makedatasetopt.sigphi.GPSvert               =  0.005
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%modelopt.Topo                                = 3
+modelopt.N_disloc                            =  1
+%modelopt.N_mogi                              =  1
+% Dislocation source                           ['Len' 'Wid' 'Dep' 'Dip' 'Strike' 'xE' 'xN' 'ss' 'ds' 'op']
+%inverseopt.disloc_bounds.xy (1:10,1)        =  [ 8.4   4.10  1.62 -92.21  23.00  15.48 16.16 0.0  0.0  0.27 ];
+%inverseopt.disloc_bounds.xy (1:10,2)        =  [ 8.4   4.10  1.62 -92.21  23.00  15.48 16.16 0.0  0.0  0.27 ];
+inverseopt.disloc_bounds.xy(1:10,1)        =  [  3.0  1.0  0.1    -1.0 05.75  10.5  5.0  0.0  0.0  0.20  ];
+inverseopt.disloc_bounds.xy(1:10,2)        =  [  7.0  7.0  5.0    -1.0 180.75  20.5 15.0  0.0  0.0 1.50  ];
+inverseopt.mogi_bounds.xy(1:4,1)            =  [ 10.0 5.0  0.1  0.1 ]                                   ; %lower bound
+inverseopt.mogi_bounds.xy(1:4,2)            =  [ 20.0 20.0  5.0 10.0 ] 
+%inverseopt.mogi_bounds.xy(1:4,1)            =  [ 16.90  16.97 2.10  1.0 ]                                   ; %lower bound
+%inverseopt.mogi_bounds.xy(1:4,2)            =  [ 16.90  16.97 2.10  1.0]     
+%decollement                                 ['Len' 'Wid' 'Dep' 'Dip' 'Strike' 'xE' 'xN' 'ss' 'ds' 'op']
+inverseopt.disloc_bounds.xy(11:20,1)      =  [ 10.0 10.0   10.835  -5.0  202.75 -10.00  25.00  0.0  -0.25  0.0  ];
+inverseopt.disloc_bounds.xy(11:20,2)      =  [ 10.0 10.0   10.835  -5.0  202.75  10.00  35.00  0.0  -0.01  0.0  ];
+inverseopt.disloc_bounds.xy(21:30,1)      =  [ 10.0 10.0   10.835  -5.0  22.75   30.07  -5.00  0.0  -0.25  0.0  ];
+inverseopt.disloc_bounds.xy(21:30,2)      =  [ 10.0 10.0   10.835  -5.0  22.75   40.07  15.00  0.0  -0.01  0.0  ];
+%inverseopt.disloc_bounds.lola(1:10,1)        =  [  4.0  2.0  1.0 -120.0 25.0 -155.70  19.35  0.0  0.0 999  ];
+%inverseopt.disloc_bounds.lola(1:10,2)        =  [ 12.0 12.0  5.0  -60.0 35.0 -155.50  19.55  0.0  0.0 999  ];
+%inverseopt.disloc_bounds.lola(11:20,1)      =  [  4.0   4.0 10.0  -10.0 25.0 -155.70  19.35  0.0 -0.5 0.0  ];
+%inverseopt.disloc_bounds.lola(11:20,2)      =  [ 20.0  20.0 15.0    0.0 35.0 -155.50  19.55  0.0  0.5 0.0  ];
+%inverseopt.disloc_bounds.lola(21:30,1)      =  [  4.0   4.0 10.0    0.0 145.0 -155.70  19.35  0.0 -0.5 0.0  ];
+%inverseopt.disloc_bounds.lola(21:30,2)      =  [ 20.0  20.0 15.0   10.0 155.0 -155.50  19.55  0.0  0.5 0.0  ];
+%inverseopt.disloc_bounds.lola(1:10,1)        =  [  4.0  4.0  10.0  0.0 25.0 -155.70  19.35  0.0  0.0 999  ];
+%inverseopt.disloc_bounds.lola(1:10,2)        =  [ 12.0 15.0  15.0 -10.0 35.0 -155.50  19.55  0.0  0.0 999  ];
+%mogi source                                     ['xE'  'xN' 'Dep' 'Stren']
+%inverseopt.mogi_bounds.lola(1:4,1)           =  [ -155.70 19.35  1.0  999 ]                                   ; %lower bound
+%inverseopt.mogi_bounds.lola(1:4,2)           =  [ -155.50 19.55  6.0  999 ]      
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%inverseopt.algorithm               =  Gibbs
+inverseopt.algorithm               =  Anneal
+inverseopt.FollowGradient          =  on
+inverseopt.rstate                  =  1
+inverseopt.annealopt               =  1
+inverseopt.gibbsopt.TcStart = 0.5
+inverseopt.gibbsopt.TcEnd   = 0.5
+inverseopt.gibbsopt.CoolSweeps   = 500.0
+inverseopt.gibbsopt.GsSweeps   = 20000.0
+%inverseopt.gibbsopt.Tschedopt     =  0
+%inverseopt.gibbsopt.Tschedopt      =   [ -1.0   0.5  5  2  100 1000 ]
+%inverseopt.gibbsopt.Tschedopt      =  [ -3.8  -2.9  8  3  5   50  ]
+inverseopt.gibbsopt.igrid = 10
+%% Default is 8 - grid density at each sweep
+
+inverseopt.gibbsopt.plot_bins = 20
+%% Default is 20 - binning parameter for plotting ppds
+
+inverseopt.gibbsopt.plot_ninterp = 100
+%% Default is 100 - interpolation paramater for plotting 2D ppds
+
+inverseopt.gibbsopt.nsave =1000
+%% Default is 1000 - number of sweeps for each save
+
+inverseopt.gibbsopt.runs = 1
+% Default is 1 - number of gibbs sampling runs
+
+inverseopt.gridsearchopt = 3
+% Default is 3
+
+inverseopt.gibbsopt.nsave          =  100
+inverseopt.PhaseRamp               =  off
+inverseoptlin.DoInverseLin         =  off
+inverseoptlin.DoIt                 =  off
+inverseoptlin.ExtendSize           =  off
+inverseoptlin.ExtendToSurface      =  off
+
+%inverseopt.plotdataopt.modulo =0.1
+inverseopt.QuickStop          = false
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%inverseopt.QuickStop               = true
+plotthemodelopt.DoIt               =  on
+%plotthemodelopt.SaveModelEnu       =  MLTCsk2013-2017
+
+

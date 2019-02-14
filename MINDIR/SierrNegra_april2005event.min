@@ -1,0 +1,103 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+dir_out_parent                               =  strcat(getenv('GEODMOD_TESTBENCH'))
+prepareopt.demfile                           =  /nethome/famelung/insarlab/SierraNegra/modelGalapagosSenAT106/PYSAR_1_3/GEOCODE/height.dem
+prepareopt.ShadedRelieffile                  =  /nethome/famelung/insarlab/SierraNegra/modelGalapagosSenAT106/PYSAR_1_3/GEOCODE/height.dem.jpeg
+%makesaropt.subset.lalo                       =  [-0.77 -91.22 ; -0.90 -91.00]    %%%[ N W S E]
+makesaropt.subset.ji                         =  [100 160 420 460]    %%%[ N W S E]
+makesaropt.subset.ji                         =  [150 240 300 340]    %%%[ N W S E]
+makesaropt.subset.ji                         =  [170 260 260 300]    %%%[ N W S E]
+prepareopt.ShadeFac                          =  0.01 
+prepareopt.CLim                              =  [-0.5 0.5]
+%prepareopt.Profile.xy                       =  [5.8 10.0; 8.2 0.5]
+%prepareopt.Cmap                             =  dismphF
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%makesaropt.dir_inlist{1}                    =  /nethome/famelung/insarlab/SierraNegra/modelGalapagosSenAT106/PYSAR_1_3/GEOCODE/jun30
+%makesaropt.dir_inlist{2}                    =  /nethome/famelung/insarlab/SierraNegra/modelGalapagosSenDT128/PYSAR_1_3/GEOCODE/jun30
+makesaropt.pattern                           =  2*.unw  
+makesaropt.data2igramopt.corfile             =  *.cor                  
+makesaropt.data2igramopt.cormask_thresh{1}      =  0.7
+makesaropt.data2igramopt.cormask_thresh{2}      =  0.7       
+makesaropt.data2igramopt.cormask_area_open   =  500                  
+makesaropt.data2igramopt.reference.lalo      = [-0.76 -91.15]
+makesaropt.igram2motionopt.Unit = m
+makesaropt.igram2motionopt.plotdataopt.CLim  = [-0.5 0.5]
+makesaropt.igram2motionopt.RateMethod        =  Rand
+makesaropt.igram2motionopt.RateMethod        =  SimpleAverage
+makesaropt.igram2motionopt.NumStacks         =  1
+makesaropt.igram2motionopt.StackSortMethod   =  MeanRating
+
+%makesaropt.igram2motionopt.MedFiltSize      =  11
+makesaropt.samplesaropt.Method               =  Quadtree
+makesaropt.samplesaropt.Method               =  Grid
+makesaropt.samplesaropt.QtTolerance          =  0.003
+makesaropt.samplesaropt.QtStartlevel         =  2
+makesaropt.samplesaropt.GridRowsCols         =  [200 200]
+makesaropt.samplesaropt.GridRowsCols         =  [25 25]
+%makesaropt.samplesaropt.QtEndlevel          =  8
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+makegpsopt.GPStxtfile                        =  /nethome/famelung/insarlab/SierraNegra/cGPS_displacements/april2005_neu.txt
+makegpsopt.Unit                  =  m
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+makedatasetopt.GPShorz                       = true
+makedatasetopt.GPSvert                       = true
+makedatasetopt.sigphi.SAR{1}                 =  1.0  
+makedatasetopt.sigphi.SAR{2}                 =  1.0  
+makedatasetopt.sigphi.GPShorz                =  30
+makedatasetopt.sigphi.GPSvert                =  30
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%modelopt.Topo                                = 3
+modelopt.N_disloc                            =  1
+%modelopt.N_mogi                              =  1
+% Dislocation source                           ['Len' 'Wid' 'Dep' 'Dip' 'Strike' 'xE' 'xN' 'ss' 'ds' 'op']
+inverseopt.disloc_bounds.xy (1:10,1)       =  [ 1.0    2.0  2.0  60.0    260.0      4    1  0.0  2.0   0.0 ];
+inverseopt.disloc_bounds.xy (1:10,2)       =  [ 6.0    2.0  4.5  75.0    280.0      8    5  0.0  7.0   0.0 ];
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%inverseopt.algorithm               =  Gibbs
+inverseopt.algorithm               =  Anneal
+inverseopt.FollowGradient          =  on
+inverseopt.rstate                  =  1
+inverseopt.annealopt               =  1
+inverseopt.gibbsopt.TcStart = 0.5
+inverseopt.gibbsopt.TcEnd   = 0.5
+inverseopt.gibbsopt.CoolSweeps   = 500.0
+inverseopt.gibbsopt.GsSweeps   = 20000.0
+%inverseopt.gibbsopt.Tschedopt     =  0
+%inverseopt.gibbsopt.Tschedopt      =   [ -1.0   0.5  5  2  100 1000 ]
+%inverseopt.gibbsopt.Tschedopt      =  [ -3.8  -2.9  8  3  5   50  ]
+inverseopt.gibbsopt.igrid = 10
+%% Default is 8 - grid density at each sweep
+
+inverseopt.gibbsopt.plot_bins = 20
+%% Default is 20 - binning parameter for plotting ppds
+
+inverseopt.gibbsopt.plot_ninterp = 100
+%% Default is 100 - interpolation paramater for plotting 2D ppds
+
+inverseopt.gibbsopt.nsave =1000
+%% Default is 1000 - number of sweeps for each save
+
+inverseopt.gibbsopt.runs = 1
+% Default is 1 - number of gibbs sampling runs
+
+inverseopt.gridsearchopt = 3
+% Default is 3
+
+inverseopt.gibbsopt.nsave          =  100
+inverseopt.PhaseRamp               =  off
+inverseoptlin.DoInverseLin         =  off
+inverseoptlin.DoIt                 =  off
+inverseoptlin.ExtendSize           =  off
+inverseoptlin.ExtendToSurface      =  off
+
+inverseopt.plotmodelopt.modulo = 0.2
+inverseopt.plotmodelopt.modulo_res = 0.2
+inverseopt.plotmodelopt.hscale     = 0.15
+inverseopt.plotmodelopt.vscale     = 0.15
+inverseopt.QuickStop          = false
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%inverseopt.QuickStop               = true
+plotthemodelopt.DoIt               =  off
+%plotthemodelopt.SaveModelEnu       =  MLTCsk2013-2017
+
+

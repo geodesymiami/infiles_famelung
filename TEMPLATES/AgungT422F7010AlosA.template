@@ -1,0 +1,82 @@
+##### getSAR, raw2slc and createBaselineList  options ###############################
+memoryCoregist      = 3700
+memoryProcessFilt   = 3700
+memoryProcessDone   = 3700
+ssaraopt            = --platform=Alos -r 422 -f 7010,7020 -s 2007-02-20 -e 2007-12-31 --beamSwath=7 --print
+ssaraopt            = --platform=Alos -r 422 -f 7010,7020 -s 2007-02-20 -e 2011-12-31 --beamSwath=7 --print
+ssaraopt            = scp visx.ccs.miami.edu:/famelung/data/Alos/422_7010/4\* .
+masterDate          = 070824
+raw2slc_OrbitType   = HDR 
+
+select.network.perpBaseMax = 1400
+select.network.tempBaseMax = 1000
+select.network.method       = hierarchical
+select.network.tempPerpList = 92,1800;400,1000;1300,400
+select.network.seasonal    = no
+select.network.dopOverlapThresh = 15
+
+####### ROI_PAC OPTIONS ##############################
+DEM                = /nethome/famelung/insarlab/DEMDIR/Agung_Alos/output.dem
+flattening         = orbit
+OrbitType          = HDR
+Rlooks_sim         = 1
+Rlooks_int         = 8
+Rlooks_unw         = 8
+unw_method         = treef
+unw_method         = snaphu
+#snap_conncomthresh = 60
+#Filt_method        = psfilt
+Filt_method        = psfilt_adapt_filt
+FilterStrength     = 0.5/4
+Filt_method        = psfilt
+FilterStrength     = 0.4
+UnwrappedThreshold = 0.10
+maskingwith0height = TRUE
+ampmagFineopt      = 80/80/64/32
+pixel_ratio        = 3
+#tiltdegree         = 2
+cleanopt            = 1
+
+######################################################
+pysar.network.coherenceBased   = no  #[yes / no], auto for yes, exclude interferograms with coherence < minCoherence
+pysar.network.minCoherence     = auto # 0.4  #[0.0-1.0], auto for 0.7
+pysar.networkInversion.weightFunc = variance #[variance / no / linear / normal], auto for no, coherence to weight
+pysar.networkInversion.minTempCoh = 0.6 #[0.0-1.0], auto for 0.7, min temporal coherence for mask
+pysar.deramp                   = quadratic  #[no / plane / quadratic], auto for no - no ramp will be removed
+
+pysar.troposphericDelay.method       = pyaps  # pyaps  # ['height-correlation', 'pyaps']
+pysar.troposphericDelay.weatherModel = ECMWF  # ['ECMWF', 'MERRA', 'NARR']
+pysar.unwrapError.method   = auto   #[bridging / phase_closure / no], auto for no
+pysar.reference.lalo = -8.375,115.710    # -8.2416,115.5476     # N of Agung, little hill near coast
+
+pysar.residualRms.threshold   = 0.01  #[0.0-inf], auto for 0.02, minimum RMS in meter for exclude date(s)
+
+pysar.troposphericDelay.method       = pyaps # pyaps  # ['height-correlation', 'pyaps']
+pysar.troposphericDelay.weatherModel = ECMWF  # ['ECMWF', 'MERRA', 'NARR']
+
+pysar.topographicResidual   = yes
+
+pysar.geocode     = yes
+pysar.save.hdfEos5= yes
+pysar.topographicResidual   = yes
+######################################################
+unavco.mission            = ALOS                 # ERS,ENV,S1,RS1,RS2,CSK,TSX,JERS,ALOS,ALOS2
+unavco.relative_orbit     = 422
+unavco.frame              = 7010
+unavco.beam_mode          = SM                   # S2,FB08,IW
+unavco.beam_swath         = 7
+unavco.processing_type    = LOS_TIMESERIES
+unavco.processing_software= ROI_PAC
+
+#title              = Agung
+#reference          = 'Chaussard, E., Amelung, F., & Aoki, Y. (2013). Characterization of open and closed volcanic systems in Indonesia and Mexico using InSAR time series. Journal of Geophysical Research: Solid Earth, 118(8), 3957-3969.'
+#referencePdf       = http://www.rsmas.miami.edu/personal/famelung/Publications_files/ChaussardAmelungAoki_VolcanoCycles_JGR_2013.pdf
+#downloadUnavco     = default
+#discipline         = Volcano
+#plot.colorscale    = -5,5,cm,jet
+
+#> preset plot 1
+#plot.title =  'Chaussard et al.2013, Fig 3'
+#plot.colorscale  = -5,5,cm,jet
+#plot.subset.lalo = -8.42:-8.28,115.445:115.57
+

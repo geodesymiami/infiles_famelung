@@ -1,0 +1,57 @@
+##### getSAR, raw2slc and createBaselineList  options ###############################
+memoryCoregist      = 3700
+memoryProcessFilt   = 3700
+memoryProcessDone   = 3700
+ssaraopt            = --platform=Alos -r 449 -f 260,270 -s 2007-01-01 -e 2008-07-31 --beamSwath=7 --print
+ssaraopt            = --platform=Alos -r 449 -f 260,270 -s 2007-01-01 -e 2011-12-31 --beamSwath=7 --print
+masterDate          = 070708
+raw2slc_OrbitType   = HDR 
+
+selectPairs.method      = delaunay
+selectPairs.method      = all
+selectPairs.perpBaseMax = 70
+selectPairs.perpBaseMax = 1400     
+selectPairs.lengthDayMax= 366
+selectPairs.lengthDayMax= 1000
+selectPairs.lengthDayMin= 0
+selectPairs.seasonal    = no
+selecPairs.DopOverlapThresh = 15
+#selectPairs.excludeDate  = 991231,000101 
+selectPairs.excludeDate  = 070708
+
+####### ROI_PAC OPTIONS ##############################
+DEM                = /nethome/famelung/insarlab/DEMDIR/TaalT449F260-270AlosA/output.dem
+DEMg               = /nethome/famelung/insarlab/DEMDIR/TaalT449F260-270AlosA50m/output.dem
+flattening         = orbit
+OrbitType          = HDR
+Rlooks_sim         = 1
+Rlooks_int         = 8
+Rlooks_unw         = 8
+unw_method         = treef
+unw_method         = snaphu
+#snap_conncomthresh = 60
+#Filt_method        = psfilt
+Filt_method        = psfilt_adapt_filt
+FilterStrength     = 0.5/4
+Filt_method        = psfilt
+FilterStrength     = 0.5
+UnwrappedThreshold = 0.10
+maskingwith0height = TRUE
+ampmagFineopt      = 80/80/64/32
+pixel_ratio        = 3
+#tiltdegree         = 2
+cleanopt            = 1
+
+######################################################
+pysar.network.coherenceBase  = yes    #search and use input coherence file
+
+pysar.subset.lalo            = no # 33.05:33.15, 131.15:131.27
+pysar.reference.lalo         = no #33.06,131.21
+
+pysar.troposphericDelay.method       = pyaps # pyaps  # ['height-correlation', 'pyaps']
+pysar.troposphericDelay.weatherModel = ECMWF  # ['ECMWF', 'MERRA', 'NARR']
+
+pysar.topographicResidual  = yes
+pysar.deramp     = quadratic    # [quadratic plane quardatic_range quadratic_azimiuth plane_range plane_azimuth baselineCor BaseTropCor]
+
+pysar.geocode    = yes

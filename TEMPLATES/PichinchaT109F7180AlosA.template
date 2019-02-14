@@ -1,0 +1,66 @@
+### Tungurahua, fails in synth_offsets in 10% of cases  ####
+####coregist      = 3700
+memoryCoregist      = 3700
+memoryProcessFilt   = 3700
+memoryProcessDone   = 3700
+#boundingBox        = 16.83,-62.25,16.68,-62.14
+ssaraopt            = --platform=Alos --relativeOrbit=109 --frame=7180 -s 2006-12-01  -e 2011-12-31 --beamSwath=7
+raw2slc_OrbitType   = HDR
+pysar.network.method       = all
+pysar.network.perpBaseMax  = 1400
+pysar.network.tempBaseMax  = 1800
+pysar.network.keepSeasonal = no
+pysar.network.dopOverlapMin= 15
+masterDate          = 101101
+####### ROI_PAC OPTIONS ##############################
+DEM                = /nethome/amorales/insarlab/DEMDIR/Ecuador/EcuadorT110F7170AlosA/EcuadorT110F7170AlosA.dem
+DEM                = /nethome/amorales/insarlab/DEMDIR/Ecuador/EcuadorT109F7180AlosA/EcuadorT109F7180AlosA.dem
+flattening         = orbit
+#OrbitType          = ODR
+Rlooks_sim         = 1
+Rlooks_int         = 4
+Rlooks_unw         = 4
+#ampmagFineopt      = 100/100/64/32
+#meter_per_cycle    = 6.283
+unw_method         = snaphu
+#snap_conncomthresh = 60
+#Filt_method        = psfilt
+#FilterStrength     = 0.2
+Filt_method        = psfilt_adapt_filt
+FilterStrength     = 0.5/4
+UnwrappedThreshold = 0.10
+maskingwith0height = TRUE
+cleanopt           = 1
+######################################################
+
+######################################################
+pysar.network.coherenceBase  = yes    #search and use input coherence file
+pysar.network.dropDate       =080425,100316,100616,101217 
+pysar.network.dropDate       =20080425 20100316 20100616 20101217 
+pysar.subset.lalo            = no # 32.84:33.60,131.09:131.97
+pysar.reference.lalo         =  -0.19, -78.59
+
+pysar.troposphericDelay.method       =  pyaps  # ['height-correlation', 'pyaps']
+pysar.troposphericDelay.weatherModel = ECMWF  # ['ECMWF', 'MERRA', 'NARR']
+pysar.unwrapError = yes
+pysar.topographicResidual   = yes
+pysar.deramp      = quadratic
+pysar.geocode     = yes
+pysar.save.unavco = yes
+
+######################################################
+
+unavco.mission            = ALOS
+unavco.relative_orbit     = 109
+unavco.frame              = 7180
+unavco.beam_mode          = FB07              # S2,FB08,IW
+unavco.beam_swath         = 7
+unavco.processing_type    = LOS_TIMESERIES
+unavco.processing_software= ROI_PAC
+
+title              = Pichincha
+referenceText      = 'Morales Rivera*, A. M., F. Amelung, and P. Mothes (2016), Volcano deformation survey over the Northern and Central Andes with ALOS InSAR time series, Geochem. Geophys. Geosyst., 17, 2869–2883, doi:10.1002/2016GC006393.'
+referencePdf       = http://www.rsmas.miami.edu/personal/famelung/Publications_files/MoralesAmelungMothes_NorthernAndes_GCubed_2016.pdf
+downloadUnavco     = default
+discipline         = Volcano
+

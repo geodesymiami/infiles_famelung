@@ -1,0 +1,69 @@
+##### getSAR, raw2slc and createBaselineList  options ###############################
+#walltime            = 4:00
+memoryCoregist      = 3700
+memoryProcessFilt   = 3700
+memoryProcessDone   = 3700
+#source              = asf
+#satellite           = Alos
+#boundingBox         = 3.33,98.30,3.00,98.60
+#track               = 495
+#frame               = 50
+#startFrame          = 50
+#endFrame            = 50
+#endDate             = 080516
+#endDate             = 110116
+platform            = Alos
+startDate           = 060101               # the 2006 imagery does not work
+ssaraopt            = --platform=Alos --beamMode=FBS,FBD -r 154 -f 440 -s 2006-01-01  -e 2011-12-31
+masterDate          = 071007
+raw2slc_OrbitType   = HDR 
+selectMethod        = delaunay
+perpBaseMax         = 1800     
+lengthDayMax        = 600
+#lengthDayMax        = 395 #To select Pairs within the same month, regardless of year
+#lengthDayMin        = 367
+DopOverlapThresh    = 15
+#interferogramList  = [090106-100928]
+
+####### ROI_PAC OPTIONS ##############################
+DEM                = /nethome/sxf506/insarlab/DEMDIR/havana_1arc_merged/havana_1arc_merged.dem
+#flattening         = topo
+flattening         = orbit
+#OrbitType          = HDR
+Rlooks_sim         = 1
+Rlooks_int         = 8
+Rlooks_unw         = 8
+#unw_method         = treef
+unw_method         = snaphu
+Filt_method        = psfilt_adapt_filt
+Filt_method        = psfilt
+FilterStrength     = 0.5/4
+FilterStrength     = 0.5
+UnwrappedThreshold = 0.15
+maskingwith0height = TRUE
+ampmagFineopt      = 60/60/512/64
+pixel_ratio        = 3
+#tiltdegree         = 2
+cleanopt            = 1
+boundingBox = 23.214179, -82.910171, 22.490175, -82
+
+######################################################
+#pysar.subset.yx = 1800:2000,700:800
+#pysar.seed.ll=31.5, 67  or  pysar.seed.yx=257 , 151
+pysar.seed.yx = 1050, 710
+
+
+pysar.unwrapError                    = no
+pysar.troposphericDelay              = no
+pysar.troposphericDelay.method       = pyaps  # ['height-correlation', 'pyaps']
+pysar.troposphericDelay.polyOrder    = 1
+pysar.troposphericDelay.weatherModel = ECMWF  # ['ECMWF', 'MERRA', 'NARR']
+pysar.acquisitionTime                = 12:00  # ['00:00', '06:00', '12:00', '18:00']
+
+pysar.topographicResidual           = yes
+pysar.orbitError          = yes
+pysar.orbitError.method   = plane       # ['quadratic', 'plane', 'quadratic_range', 'quadratic_azimiuth', 'plane_range', 'plane_azimuth','baselineCor','BaseTropCor']
+
+pysar.mask                 = yes
+pysar.mask.threshold       = 0.7
+pysar.geocode              = yes

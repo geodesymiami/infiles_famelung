@@ -1,0 +1,28 @@
+######################################################
+cleanopt = 2
+ssaraopt = --platform=SENTINEL-1A,SENTINEL-1B -r 127 -f 1151-1157 -s 2017-06-01
+ssaraopt = --platform=SENTINEL-1A,SENTINEL-1B -r 127 -f 1151-1160 -e 2018-05-15 
+
+processor                      = isce
+
+sentinelStack.boundingBox      = '-7.8 -7.2 110.10 111.1'
+sentinelStack.boundingBox      = '-7.8 -6.9 110.05 111.1'
+sentinelStack.subswath         = 1   # comment 
+sentinelStack.numConnections   = 5   # comment
+sentinelStack.azimuthLooks     = 4   # comment
+sentinelStack.rangeLooks       = 12  # comment
+sentinelStack.filtStrength     = 0.2  # comment
+sentinelStack.unwMethod        = snaphu  # comment
+sentinelStack.coregistration   = auto  # comment
+
+pysar.network.coherenceBased      = no  #[yes / no], auto for yes, exclude interferograms with coherence < minCoherence
+pysar.networkInversion.weightFunc = fim #[variance / no / coherence], auto for no
+pysar.reference.lalo              = -7.80716,110.364014 # 
+pysar.network.startDate           = no # 20170730   #[20090101 / no], auto for no
+pysar.troposphericDelay.method    = no   # pyaps  #[pyaps / height_correlation / base_trop_cor / no], auto for pyaps
+pysar.deramp                      = plane # ['quadratic', 'plane', 'quardatic_range', 'quadratic_azimiuth', 'plane_range', 'plane_azimuth','baselineCor','BaseTropCor']
+pysar.save.hdfEos5                = yes  #[yes / update / no], auto for no, save timeseries to UNAVCO InSAR Archive format
+pysar.save.hdfEos5.update         = yes  #[yes / no], auto for no, put XXXXXXXX as endDate in output filename
+pysar.save.kml                 = no  #[yes / no], auto for yes, save geocoded velocity to Google Earth KMZ file
+######################################################
+insarmaps.volcanoName='Merapi'

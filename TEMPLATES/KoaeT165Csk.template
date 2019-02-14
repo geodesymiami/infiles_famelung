@@ -1,0 +1,58 @@
+##### getSAR, raw2slc and createBaselineList  options ###############################
+#walltime            = 4:00
+memoryCoregist      = 8000
+memoryProcessFilt   = 8000
+memoryProcessDone   = 3700
+satellite            = Csk
+#endDate             = 110116
+platform            = Csk
+startDate           = 070220               # the 2006 imagery does not work
+ssaraopt            = -r 165 --collectionName= "Supersites CSK Hawaii" -s 2011-12-01 -e 2013-01-31 
+#ssaraopt            = --platform=Alos -r 109 -f 7180 -s 2007-02-20  -e 2011-12-31 --beamSwath=7
+masterDate          = 120515
+raw2slc_OrbitType   = HDR
+selectMethod        = delaunay  # ['all','delaunay','all+delaunay']
+perpBaseMax         = 400	# max perpendicular baseline
+lengthDayMax        = 100     # max temporal baseline
+lengthDayMin        = 0       # min temporal baseline
+seasonal            = no     # seasonal temporal baseline
+DopOverlapThresh    = 15      # min dopploer overlap percentage
+#interferogramList  = [090106-100928]
+####### ROI_PAC OPTIONS ##############################
+flattening         = orbit
+OrbitType          = HDR
+DEM		   = /nethome/sge/insarlab/DEMDIR/10m_koae/koae.dem
+Rlooks_sim         = 4
+Rlooks_int         = 8
+Rlooks_unw         = 8
+#Rlooks_sim         = 4
+#Rlooks_int         = 8
+#Rlooks_unw         = 8
+#unw_method         = treef
+unw_method         = snaphu
+#snap_conncomthresh = 60
+#Filt_method        = psfilt_adapt_filt
+Filt_method        = psfilt
+FilterStrength     = 0.5/4
+FilterStrength     = 0.5
+UnwrappedThreshold = 0.15
+maskingwith0height = TRUE
+ampmagFineopt	   = 50/50/256/64
+pixel_ratio        = 1
+#tiltdegree         = 2
+cleanopt            = 1
+
+######################################################
+
+processor = roipac
+pysar.network.coherenceBased      = no  #[yes / no], auto for yes, exclude interferograms with coherence < minCoherence
+pysar.networkInversion.weightFunc = fim #[variance / no / coherence], auto for no
+pysar.unwrapError.method          = phase_closure  #[bridging / phase_closure / bridging+phase_closure / no], auto for no
+pysar.troposphericDelay.method    = no # pyaps  #[pyaps / height_correlation / base_trop_cor / no], auto for pyaps
+pysar.topographicResidual.stepFuncDate  = 20120605  #[20080529,20100611 / no], auto for no, date of step jump
+pysar.deramp          = quadratic  #[no / linear / quadratic], auto for no - no ramp will be removed
+pysar.save.hdfEos5                = yes   #[yes / update / no], auto for no, save timeseries to UNAVCO InSAR Archive format
+pysar.save.hdfEos5.update         = no   #[yes / no], auto for no, put XXXXXXXX as endDate in output filename
+pysar.save.kml                    = yes  #[yes / no], auto for yes, save geocoded velocity to Google Earth KMZ file
+
+

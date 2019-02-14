@@ -1,0 +1,149 @@
+dir_out_parent                               =  $SCRATCHDIR/GEODMOD
+makesaropt.subset.lalo = [ -0.5733 -78.5800 ; -0.8340 -78.30 ]     %[ N W S E]
+prepareopt.demfile                           =  /nethome/amorales/insarlab/DEMDIR/Ecuador/Cotopaxi_latlong/Cotopaxi_original_latlon_test/output.dem
+prepareopt.ShadedRelieffile                  =  /nethome/amorales/insarlab/DEMDIR/Ecuador/Cotopaxi_latlong/Cotopaxi_original_latlon_test/output.dem.jpeg
+prepareopt.demfile                           =  /nethome/famelung/insarlab/DEMDIR/test/Cotopaxi_subset/subset_output.dem
+prepareopt.ShadedRelieffile                  =  /nethome/famelung/insarlab/DEMDIR/test/Cotopaxi_subset/subset_output.dem.jpeg
+prepareopt.CLim                              =  [-0.07 0.07]
+%prepareopt.Profile.xy                       =  [4.0 9.0; 14.0 9.0]
+makesaropt.dir_inlist{1}                     =  /nethome/amorales/geodmod_tests/Cotopaxi/test2_CSK/data/CotopaxiT6CskA/
+makesaropt.dir_inlist{2}                     =  /nethome/amorales/geodmod_tests/Cotopaxi/test2_CSK/data/CotopaxiT58CskD/
+makesaropt.pattern                           =  geo*.unw
+makesaropt.corfile = geo*.cor
+
+makesaropt.data2igramopt.cormask_thresh{1}   =  0.70
+makesaropt.data2igramopt.cormask_thresh{2}   =  0.70
+makesaropt.data2igramopt.Unit = radian
+%makesaropt.data2igramopt.plotdataopt.CLim = [0 0.5]
+%makesaropt.data2igramopt.plotdataopt.Fringe = 3.14
+
+makesaropt.igram2motionopt.Unit = m
+makesaropt.igram2motionopt.plotdataopt.Cmap = dismph
+makesaropt.igram2motionopt.plotdataopt.CLim = [-0.07 0.07]
+%makesaropt.igram2motionopt.plotdataopt.PlotUnit = m/yr
+makesaropt.igram2motionopt.RateMethod        =  SimpleAverage
+makesaropt.igram2motionopt.NumStacks         = 1
+makesaropt.igram2motionopt.StackSortMethod   =  MeanRating
+%makesaropt.igram2motionopt.MedFiltSize       =  5
+
+%makesaropt.samplesaropt.Method               =  Quadtree
+makesaropt.samplesaropt.Method               =  Grid
+%makesaropt.samplesaropt.Medfiltsize = 1
+makesaropt.samplesaropt.QtTolerance          =  0.003
+makesaropt.samplesaropt.QtStartlevel         =  4
+makesaropt.samplesaropt.QtEndlevel           =  9
+makesaropt.samplesaropt.GridRowsCols         =  [75 75]
+makegpsopt.GPStxtfile                        =  /nethome/famelung/insarlab/GPSDATA/Cotopaxi/Cotopaxi_2015_mmratesall.txt
+makegpsopt.GPStxtfile                        =  /nethome/famelung/insarlab/GPSDATA/Cotopaxi/qCotopaxi_2015_mmratesall.txt
+makegpsopt.GPStxtfile                        = /nethome/famelung/insarlab/GPSDATA/Cotopaxi/Cotopaxi_deform2015_mmrates.txt
+
+makedatasetopt.GPShorz                       =  true
+%makedatasetopt.GPSvert                      =  true
+%makedatasetopt.sigphi                       =  1
+%makedatasetopt.sigphi.GPShorz               =  1
+%makedatasetopt.sigphi.GPSvert               =  1
+
+makedatasetopt.sigphi.SAR{1}             =  1.00
+makedatasetopt.sigphi.SAR{2}             =  1.00
+makedatasetopt.sigphi.GPShorz            =  2.2
+
+inverseopt.plotdataopt.modulo =0.1
+inverseopt.QuickStop          = true
+
+%++++++++++++++++
+% modelopt.
+%++++++++++++++++
+%modelopt.Topo                                =  10
+modelopt.N_disloc                            =  1
+modelopt.N_mogi                              =  0
+modelopt.N_yang                              =  1
+%modelopt.N_fault = 1
+%modelopt.N_penny = 1
+modelopt.N_mctigue = 0
+modelopt.N_multidisloc = 0
+modelopt.N_visco1d = 0
+modelopt.N_lockedandcreep = 0
+modelopt.N_peas = 0
+
+% mogi source                      ['xE'  'xN'   'Dep'  'Stren']
+inverseopt.mogi_bounds.xy(1:4,1) = [12.0  11.0    0.5      0   ];
+inverseopt.mogi_bounds.xy(1:4,2) = [16.0  16.0    2.0     999  ];
+
+% bigger area disloc source           ['Len'   'Wid'   'Dep'  'Dip'    'Strike'   'xE'  'xN'   'ss'  'ds'  'op']
+%inverseopt.disloc_bounds.xy(1:10,1) = [ 5.55  13.54    9.37    34.33     38.43    24.5   15.0  0.00  0.00  0.09  ];
+%inverseopt.disloc_bounds.xy(1:10,2) = [ 5.56  13.55    9.38    34.34     38.44    25.5   18.0  0.00  0.00  0.1  ];
+
+inverseopt.disloc_bounds.xy(1:10,1) = [ 2.5   9.9    6.2      13    30.5    14.1    7.5   0     0    0.17  ];
+inverseopt.disloc_bounds.xy(1:10,2) = [ 3.5  11.9   10.2      53    40.5    19.1   13.5   0     0    0.17  ];
+
+inverseopt.disloc_bounds.xy(1:10,1) = [ 2.5   9.9    6.2      13    30.5    14.1    7.5   0     0    0.10  ];
+inverseopt.disloc_bounds.xy(1:10,2) = [ 3.5  11.9   10.2      53    60.5    19.1   13.5   0     0    0.30  ];
+
+%fault                                        ['xE'  'xN'  'Strike' 'Dip'  'Rake' 'Length' 'Top'  'bottom' 'slip']
+inverseopt.fault_bounds.xy (1:9,1)         =  [ 0.0   0.00     1      1     -179    0.1      0       0       999]                 % preferred solution
+inverseopt.fault_bounds.xy (1:9,2)         =  [ 20.0  35.0    359    90      179     20      20      20      999]
+
+% yang source                      ['xE'   'xN'   'Dep' 'Press' 'majAx' 'AxRatio' 'Strike' 'Plunge' ]
+inverseopt.yang_bounds.xy(1:8,1) = [12.0    13.0   0.1     0     4.0    0.05      90.1     89.9 ];
+inverseopt.yang_bounds.xy(1:8,2) = [15.0    16.0   6.0    10    10.0    0.05     90.1     89.9 ];
+
+%penny source                                   ['xE'   'xN'   'Dep'  'radius'  'Stren']
+inverseopt.penny_bounds.xy(1:5,1)            =  [ 2.0   2.00    0.1      0.1       999 ] ; %lower bound
+inverseopt.penny_bounds.xy(1:5,2)            =  [ 20.0  20.0    15.0     10.0      999 ] ; %upper bound
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+inverseopt.algorithm                         =  Anneal  
+inverseopt.annealopt                         =  3
+inverseopt.FollowGradient                    =  on
+%%inverseopt.rstate                            =  1
+%%inverseopt.PhaseRamp                         =  off
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%inverseopt.gibbsopt.TcStart = -1.0
+inverseopt.gibbsopt.TcStart = -2.5
+inverseopt.gibbsopt.TcEnd   = -4.9
+inverseopt.gibbsopt.TcRobustNum   = 6
+inverseopt.gibbsopt.CoolNum   = 10
+inverseopt.gibbsopt.CoolSweeps   = 100
+inverseopt.gibbsopt.GsSweeps    = 10000
+
+inverseopt.gibbsopt.igrid = 10
+%% Default is 8 - grid density at each sweep
+
+inverseopt.gibbsopt.plot_bins = 100
+%% Default is 20 - binning parameter for plotting ppds
+
+inverseopt.gibbsopt.plot_ninterp = 100
+%% Default is 100 - interpolation paramater for plotting 2D ppds
+
+inverseopt.gibbsopt.nsave = 1000
+%% Default is 1000 - number of sweeps for each save
+
+inverseopt.gibbsopt.runs = 1
+% Default is 1 - number of gibbs sampling runs
+
+inverseopt.gridsearchopt = 3
+% Default is 3
+
+inverseopt.PhaseRamp = off
+% Default is 'Ramp'
+
+%inverseopt.QuickStop = 'off'
+% Default is 'off' -
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+inverseopt.distribopt.ExtendedSize = [50 20]
+
+inverseopt.distribopt.PatchSize = [2 2]
+
+inverseopt.distribopt.kappa = 0.2
+
+inverseopt.distribopt.PlotTresh = 0.1
+
+inverseopt.distribopt.slip = [0 0 1]
+
+inverseopt.distribopt.InverseSign = off
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+plotthemodelopt.DoIt       =  off
+

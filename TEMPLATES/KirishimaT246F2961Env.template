@@ -1,0 +1,51 @@
+##### getSAR, raw2slc and createBaselineList  options ###############################
+memoryCoregist      = 7000
+memoryProcessFilt   = 3700
+memoryProcessDone   = 3700
+ssaraopt            = ssara_federated_query.py --platform=ENVISAT -r 246 -f 2961 --collection="Supersites VA4" --download --print
+masterDate          = 030307
+
+selectMethod        = delaunay
+#selectMethod        = all
+perpBaseMax         = 400
+lengthDayMax        = 1800
+lengthDayMin        = 0
+seasonal            = yes
+#interferogramList  = [090106-100928]
+DopOverlapThresh    = 15
+
+####### ROI_PAC OPTIONS ##############################
+DEM                = /nethome/yzhang1/insarlab/DEM/Japan/KirishimaT246F2961Env/gsi10m.dem
+DEMg               = /nethome/yzhang1/insarlab/DEM/Japan/KirishimaT246F2961Env/gsi30m.dem
+flattening         = orbit
+Rlooks_sim         = 1
+Rlooks_int         = 8
+Rlooks_unw         = 8
+unw_method         = snaphu
+Filt_method        = psfilt_adapt_filt
+FilterStrength     = 0.5/4
+Filt_method        = psfilt
+FilterStrength     = 0.5
+maskingwith0height = TRUE
+UnwrappedThreshold = 0.10
+cleanopt           = 1
+
+######################################################
+####### PYSSAR  OPTIONS ##############################
+######################################################
+
+#pysar.seed.ll=31.991667, 130.966667
+
+pysar.unwrapError       = no
+pysar.troposphericDelay = no
+pysar.topographicResidual         = yes
+pysar.orbitError        = no
+#pysar.troposphericDelay.method = pyaps		# ['height-correlation', 'pyaps']
+#pysar.Numerical_Weather_Model = ECMWF		# ['ECMWF', 'MERRA', 'NARR']
+#pysar.acquisition_time = 12:00			# ['00:00', '06:00', '12:00', '18:00']
+
+#pysar.orbitError.method = quadratic		# ['quadratic', 'plane', 'quadratic_range', 'quadratic_azimiuth', 'plane_range', 'plane_azimuth','baselineCor','BaseTropCor']
+
+pysar.mask = yes
+pysar.mask.threshold = 0.7
+pysar.geocode = yes

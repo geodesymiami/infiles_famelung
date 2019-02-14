@@ -1,0 +1,143 @@
+##### getSAR, raw2slc and createBaselineList  options ###############################
+#walltime            = 4:00
+memoryCoregist      = 3700
+memoryProcessFilt   = 3700
+memoryProcessDone   = 3700
+walltimeProcessDone = 3:00
+ssaraopt            = ssh-keygen -R dms.gfz-potsdam.de; scp dms.gfz-potsdam.de:/data/VOLCAPSE/SAR_data/Popocatepetl_TSX/orig_tars/\*/\*/dims_op_oc_dfd2_47\*gz  .
+ssaraopt            = ssh-keygen -R dms.gfz-potsdam.de; scp dms.gfz-potsdam.de:/data/VOLCAPSE/SAR_data/new_SAR_archive/Popo/track_143_DES_strip_014_20\{1409\*,141\*,15\*\} .
+ssaraopt            = scp  visx.ccs.miami.edu:/famelung/yzhang1/L0data/Alos/PIXEL/417_660/\* .
+ssaraopt            = scp  visx.ccs.miami.edu:/famelung/data/Tsx_Potsdam/Popo/track_143_DES_spot_062_201\{5,6\}\* .
+ssaraopt            = scp  visx.ccs.miami.edu:/famelung/data/Tsx_Potsdam/Popo/track_143_DES_strip_014_201\{2,3,4\}\* .
+strip_014_2012
+masterDate          = 140904
+raw2slc_OrbitType   = HDR 
+selectPairs.method        = delaunay
+selectPairs.method        = all
+selectPairs.method        = sequential
+selectPairs.incrementNum  = 2
+selectPairs.perpBaseMax   = 50     
+selectPairs.perpBaseMax   = 300     
+selectPairs.lengthDayMax  = 122
+selectPairs.lengthDayMin  = 0
+selectPairs.seasonal      = no
+selectPairs.method        = hierarchical
+selectPairs.dayPerpList   = 11,200;22,150;33,75;44,50;66,20;122,12
+#lengthDayMax        = 395 #To select Pairs within the same month, regardless of year
+#lengthDayMin        = 367
+DopOverlapThresh    = 15
+#interferogramList  = [090106-100928]
+polType             = HH
+processor           = gamma
+
+####### ROI_PAC OPTIONS ##############################
+DEM                =  $HOME/insarlab/DEMDIR/Popo_highres/apopo5msll5.dem
+DEM                =  $HOME/insarlab/DEMDIR/Popo_highres/apopo5msll5_swap.dem
+flattening         = orbit
+#OrbitType          = HDR
+Rlooks_sim         = 2
+Rlooks_int         = 4
+Rlooks_unw         = 4
+unw_method         = snaphu
+#snap_conncomthresh = 60
+Filt_method        = psfilt
+FilterStrength     = 0.5
+UnwrappedThreshold = 0.10
+maskingwith0height = TRUE
+#synthoffsetopt     = 40
+ampmagFineopt      = 70/70/256/64
+ampmagFineopt      = 110/110/128/64
+pixel_ratio        = 1
+#tiltdegree         = 2
+#clean              = --KeepSBASgeo --removedir --keepSBASradargeo --keepSBASradar
+cleanopt            = 1
+
+######## GAMMA OPTIONS ##############################
+######## COREGISTRATION 
+#   Coreg_Master              = 120818   # This is replaced by "masterDate"
+#Coreg_Method              = DEM     # or amplitude
+Coreg_Method              = amplitude     # or amplitude
+Coreg_Coarse              = orbit   # orbit: orbit only, ampcor: ampcor only, both: both orbit and ampcor
+#Coreg_Rcenter             = 5000   # if not declare, it use center of image - 
+#Coreg_Acenter             = 10000  # if not declare, it use center of image -
+Coreg_Coarse_Rlooks       = 4       # number of range looks 
+Coreg_Coarse_Alooks       = 4       # number of azimuth looks
+Coreg_Fine_Rwin           = 64      # 
+Coreg_Fine_Azwin          = 128     #
+Coreg_Fine_Novr           = 2       #
+Coreg_Fine_Rnwin          = 100     #
+Coreg_Fine_Aznwin         = 100     #
+Coreg_Fine_Snr            = 0.7     # 
+
+######### INTERFEROGRAM
+Igram_Flag                = Y
+Igram_Rlooks              = 2
+Igram_Alooks              = 2
+Igram_Spsflg              = 1          # range spectral filter        1: apply      0: do not apply 
+Igram_Azfflg              = 1          # azimuth common band filter   1: apply      0: do not apply
+Igram_Rp1flg              = 1          # SLC-1 range phase mode       1: doppler centroid      0: zero doppler
+Igram_Rp2flg              = 1          # SLC-2 range phase mode       1: doppler centroid      0: zero doppler  
+Igram_Flag_TDM            = N
+Igram_Cor_Rwin            = 5
+Igram_Cor_Awin            = 5
+Igram_Flattening          = orbit       # orbit: orbit only, fft: residual fringe removal with fft estimation 
+Igram_FilterMethod        = adaptfilt  # adaptfilt, adf
+Igram_FilterStrength      = 0.8/4
+Igram_FFTLength           = 512 
+
+######### TOPO CONVERSION  is not written yet...
+Topo_Flag                 = N 
+Topo_UnwrappedThreshold   = 0.3
+
+######### SIMULATION PHASE
+Simphase_Flag             = Y
+Simphase_DEM              = /STORAGE1/scratch/shong/insarlab/DEMDIR/Greenland/Greenland_T163_PS.dem 
+Simphase_Lat_Ovr          = 8
+Simphase_Lon_Ovr          = 8
+Simphase_rlks             = 2
+Simphase_azlks            = 2
+Simphase_rpos             = -
+Simphase_azpos            = -
+Simphase_patch             = -
+Simphase_rwin             = 256
+Simphase_azwin            = 256
+
+######### DIFFERENTIAL
+Diff_Flag                 = Y
+Diff_Method               = subphase   # lsfit: use unwrapped phase, subphase: use wrapped phase
+Diff_Flattening           = orbit      # fft: residual fringe removal with fft estimation, quadfit: quad-fit model estimation, and orbit: orbit only
+Diff_FilterMethod         = adaptfilt  # adaptfilt, adf  if not declared, same as Igram option
+Diff_FilterStrength       = 0.8/4      #                 if not declared, same as Igram option
+Diff_FFTLength            = 512        #                 if not declared, same as Igram option
+
+######### UNWRAP
+Unwrap_Flag               = Y
+
+######### GEOCODE
+Geocode_Flag              = Y
+
+######### OFFSET PWR TRACKING
+Offset_pwr_Flag           = Y
+Offset_pwr_tracking_Rwin  = 128
+Offset_pwr_tracking_Awin  = 256
+Offset_pwr_tracking_Novr  = 1
+Offset_pwr_tracking_Cycle = 10
+Offset_pwr_tracking_Thres = 0.7
+Offset_pwr_tracking_Rstep = 10
+Offset_pwr_tracking_Astep = 20
+
+######################################################
+#pysar.subset.yx = 1800:2000,700:800
+#pysar.seed.yx = 1050, 710
+#pysar.seed.ll            = 31.9920:130.9665
+pysar.unwrap_error       = no
+pysar.topo_error         = yes
+pysar.orbit_error        = yes
+pysar.orbit_error.method = plane # ['quadratic', 'plane', 'quardatic_range', 'quadratic_azimiuth', 'plane_range', 'plane_azimuth','baselineCor','BaseTropCor']
+pysar.tropospheric_delay = no
+pysar.tropospheric_delay.method = height-correlation
+pysar.mask               = yes
+pysar.mask.threshold     = 0.7
+pysar.geocode            = yes
+pysar_subset_lalo        = 31.7000:32.1000,130.5000:131.1000
+pysar_geocode_timeseries = 1

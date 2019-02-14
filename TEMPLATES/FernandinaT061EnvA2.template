@@ -1,0 +1,62 @@
+####### ssara, raw2slc, SelectPairs  options ###############################
+memoryCoregist      = 3700
+memoryProcessFilt   = 3700
+memoryProcessDone   = 3700
+ssaraopt            = --platform=Envisat -r 061  --intersectsWith='POINT(-91.13  -0.81)' --print -s 2002-01-01  -e 2015-12-31
+ssaraopt            = --platform=Envisat -r 061  --intersectsWith='POLYGON((-91.5 0.1,-90.9 0.1,-90.9 -0.9,-91.5 -0.9,-91.5 0.1))' --print -s 2002-01-01  -e 2015-12-31
+raw2slc_OrbitType  = DOR
+subsetSLC           = -1.1:0.1,-91.7:-90.8
+masterDate          = 050226
+select.network.method       = all
+select.network.perpBaseMax   = 300
+select.network.tempBaseMax   = 200
+select.network.method       = hierarchical
+select.network.tempPerpList = 500,500;9000,100
+select.network.startDate    = 030101
+select.network.endDate      = 151022
+#select.network.excludeDate  = 981220,061015   # Focussing failure
+
+####### ROI_PAC OPTIONS ##############################
+DEM                = $PARENTDIR/data/testdata/roi_pac/GalapagosT061EnvA2/DEMDIR/Galapagos_SRTM3g_1i_merged.dem
+DEM                = $PARENTDIR/data/testdata/roi_pac/GalapagosT061EnvA2/DEMDIR/output.dem
+OrbitType         = ODR
+flattening         = orbit
+Rlooks_sim         = 1
+Rlooks_int         = 4
+Rlooks_unw         = 4
+meter_per_cycle    = 6.283
+ampmagFineopt      = 70/70/64/32
+unw_method         = treef
+unw_method         = snaphu
+snap_conncomthresh = 60
+Filt_method        = psfilt
+FilterStrength     = 0.3
+UnwrappedThreshold = 0.20
+maskingwith0height = TRUE
+cleanopt            = 1
+######################################################
+######## PySAR   OPTIONS ##############################
+#######################################################
+pysar.network.coherenceBased = yes  # yes    #search and use input coherence file
+pysar.troposphericDelay.method       = pyaps  # ['height-correlation', 'pyaps']
+pysar.troposphericDelay.weatherModel = ECMWF  # ['ECMWF', 'MERRA', 'NARR']
+pysar.network.maskFile=no
+pysar.network.maskAoi.lalo=-0.99:-0.9,-91.43:-91.31
+pysar.reference.lalo = -0.7,-91.3 
+pysar.unwrapError = no
+pysar.topographicResidual   = yes
+pysar.deramp      = plane # ['quadratic', 'plane', 'quardatic_range', 'quadratic_azimiuth', 'plane_range', 'plane_azimuth','baselineCor','BaseTropCor']
+pysar.subset.lalo = no # -0.18:-0.16,-78.62:-78.60
+pysar.temporalCoherence.threshold  = auto    #[0.0-1.0], auto for 0.7
+pysar.geocode     = yes
+pysar.save.unavco = yes
+######################################################
+######## unavco OPTIONS ##############################
+######################################################
+unavco.mission            = ENV                 # ERS,ENV,S1,RS1,RS2,CSK,TSX,JERS,ALOS,ALOS2
+unavco.relative_orbit     = 061
+unavco.frame              = 7173
+unavco.beam_mode          = S                   # S2,FB08,IW
+unavco.beam_swath         = 2
+unavco.processing_type    = LOS_TIMESERIES
+unavco.processing_software= ROI_PAC

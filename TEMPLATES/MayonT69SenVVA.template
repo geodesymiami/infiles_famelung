@@ -1,0 +1,32 @@
+######################################################
+cleanopt = 1
+ssaraopt = --platform=SENTINEL-1A,SENTINEL-1B -r 69 -f 34,35,36,37,38,39 -s 2017-08-01 
+
+processor                      = isce
+
+sentinelStack.demDir           = /nethome/famelung/insarlab/DEMDIR/MayonT69SenVVA/DEM
+sentinelStack.boundingBox      = '13.1 13.4 123.55 123.80'
+sentinelStack.subswath         = 2   # comment 
+sentinelStack.numConnections   = 5   # comment
+sentinelStack.azimuthLooks     = 4   # comment
+sentinelStack.rangeLooks       = 12  # comment
+sentinelStack.filtStrength     = 0.4  # comment
+sentinelStack.unwMethod        = snaphu  # comment
+sentinelStack.coregistration   = auto  # comment
+
+pysar.network.coherenceBased   = no  #[yes / no], auto for yes, exclude interferograms with coherence < minCoherence
+pysar.network.maskAoi.lalo     = auto #13.22:13.29,123.65:123.71  #  -0.2:-0.1,-78.6:-78.3  #[lat0:lat1,lon0:lon1 / no], auto for no - use the whole area
+pysar.network.minCoherence     = auto # 0.35 # 0.35   #0.63  #[0.0-1.0], auto for 0.7
+pysar.networkInversion.weightFunc = variance #[variance / no / coherence], auto for no
+pysar.networkInversion.minTempCoh = 0.6 #[0.0-1.0], auto for 0.7, min temporal coherence for mask
+
+pysar.reference.lalo           = 13.147,123.754     # Legazpi
+pysar.deramp                   = plane  #[no / plane / quadratic], auto for no - no ramp will be removed
+
+pysar.network.startDate        = no   #[20090101 / no], auto for no
+pysar.network.endDate          = no   #[20090101 / no], auto for no
+pysar.troposphericDelay.method = no # pyaps  #[pyaps / height_correlation / base_trop_cor / no], auto for pyaps
+pysar.save.hdfEos5             = yes   #[yes / update / no], auto for no, save timeseries to UNAVCO InSAR Archive format
+pysar.save.hdfEos5.update      = yes   #[yes / no], auto for no, put XXXXXXXX as endDate in output filename
+
+######################################################

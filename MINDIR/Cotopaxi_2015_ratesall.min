@@ -1,0 +1,149 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+#dir_out_parent                               =  /nethome/amorales/geodmod_tests/Cotopaxi
+prepareopt.demfile                           =  /nethome/amorales/insarlab/DEMDIR/Ecuador/EcuadorT109F7170AlosA/Cotopaxi_geodmod/output.dem
+prepareopt.ShadedRelieffile                  =  /nethome/amorales/insarlab/DEMDIR/Ecuador/EcuadorT109F7170AlosA/Cotopaxi_geodmod/output.dem.jpeg
+%prepareopt.faults_shapefile                  =  /nethome/amorales/geodmod_tests/Cotopaxi/Data/fault/fault.shp
+prepareopt.Shadefac                          =  0.1
+prepareopt.CLim                              =  [-0.02 0.02]
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+makegpsopt.GPStxtfile                        =  /nethome/amorales/geodmod_tests/Cotopaxi/Data/GPS/Cotopaxi_2015_ratesall.txt
+makegpsopt.GPStxtfile                        = /nethome/famelung/insarlab/GPSDATA/Cotopaxi/Cotopaxi_deform2015_mmrates.txt
+makegpsopt.filetype                          =  rates		% 'tmsr', 'rates' by default
+makegpsopt.Unit                              =  mm		% 'm' by default
+%makegpsopt.Unit                              =  m             % 'm' by default
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+makedatasetopt.GPShorz                       =  true
+makedatasetopt.GPSvert                       =  true
+%makedatasetopt.sigphi                        =  1
+makedatasetopt.sigphi.GPShorz                =  3000
+makedatasetopt.sigphi.GPSvert                =  2000
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%modelopt.Topo                                =  20
+%modelopt.N_disloc                            =  1
+modelopt.N_squaredisloc                      =  0
+modelopt.N_mogi                              =  1
+modelopt.N_yang                              =  0
+modelopt.N_penny                             =  0
+
+inverseopt.mogi_bounds.xy(1:4,1) = [15  20  5.00    0];
+inverseopt.mogi_bounds.xy(1:4,2) = [40  45  30.0   200];
+
+%% disloc_bounds options               Len   Wid   Dep   Dip  Strike  xE   xN    ss   ds    op
+%inverseopt.disloc_bounds.xy(1:10,1) = [0.2   0.1   0.1  0.10  0.10    10   20   0.1  0.10   0 ];
+%inverseopt.disloc_bounds.xy(1:10,2) = [6.0   6.0   5.0  89.9  359.1   20   30   6.0  6.00   0 ];
+%inverseopt.squaredisloc_bounds.xy(1:9,1) = [ 1.0   1.0  -0.05  147.0   20  17  0.00  0.00   999  ];
+%inverseopt.squaredisloc_bounds.xy(1:9,2) = [20.0  20.0  -0.05  147.0   33  30  0.00  0.00   999  ];
+
+%% yang source                      ['xE'  'xN'  'Dep' 'Press' 'majAx' 'AxRatio' 'Strike' 'Plunge']
+%inverseopt.yang_bounds.xy(1:8,1) = [2.9   2.5    0.3    999    0.20     0.50     270.00   -0.01  ];
+%inverseopt.yang_bounds.xy(1:8,2) = [3.9   2.5    5.0    999    2.00     0.90     359.00    0.01  ];
+
+                        % penny                 [ xE    xN     Dep   Rad  Stren ]
+inverseopt.penny_bounds.xy(1:5,1)            =  [ 26.0  24.0  10.0  0.0  999 ]; %lower bound
+inverseopt.penny_bounds.xy(1:5,2)            =  [ 31.0  29.0  15.0  5.0  999 ]; %upper bound
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%inverseopt.algorithm                         =  Anneal
+%inverseopt.annealopt                         =  0
+inverseopt.algorithm                         =  Gibbs
+%inverseopt.gibbsopt.Tschedopt                =  1
+inverseopt.gibbsopt.Tschedopt                =  [-1.0  -4.9  6  10 100 10000]
+inverseopt.gibbsopt.igrid                    =  10
+inverseopt.gibbsopt.plot_bins                =  100
+%inverseopt.gibbsopt.plot_ninterp             =  100
+%inverseopt.gibbsopt.nsave                    =  500
+%inverseopt.gibbsopt.runs                     =  1
+inverseopt.FollowGradient                    =  on
+inverseopt.rstate                            =  1
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+plotthemodelopt.DoIt                         =  on
+
+
+
+
+%%%----------------------------- Help ------------------------------%%%
+%inverseopt.algorithm = 'Gibbs'
+% Default is 'anneal' - Options: 'Anneal' 'Gibbs' 'gradient' - algorithm is
+% followed by gradient unless  FollowGradient='off'
+
+%inverseopt.rstate = 
+% Default is sum(100*clock) - random generator initialization
+
+%%%%%inverseopt.FollowGradient = 'on'
+% Default is 'off' -
+
+%inverseopt.annealopt = 1
+% Default is 0 -     0  for   [1  1 1 2.5 0 0 1]
+%                    1  for   [2  2 1 2.5 0 0 1]
+%                    2  for   [4  3 2 2.5 0 0 1]
+%                    3  for   [4  3 4 2.5 0 0 1]
+%                    4  for   [10 5 4 2   0 0 1]
+%                    5  for   [25 7 6 2   0 0 1]
+%                    for an explanation of the options : help anneal
+
+%inverseopt.gibbsopt.TcStart = -2.5
+%inverseopt.gibbsopt.TcEnd   = -2.5
+%inverseopt.gibbsopt.TcRobustNum = 10
+%inverseopt.gibbsopt.CoolNum = 10
+%inverseopt.gibbsopt.CoolSweeps  = 100
+%inverseopt.gibbsopt.GsSweeps    = 2500
+
+%inverseopt.gibbsopt.Tschedopt = 5
+%           N or [TcStart TcEnd TcRobustNum CoolNum CoolSweeps GsSweeps]  (default 1)
+%
+%           if N is given  the following default parameters are set
+%           0   for    [-3.9  -3.9  1  1  10  10   ]    (very fast, for testing)      
+%           1   for    [-3.5  -4.9  3  1  10  10   ]    (very rapid Tc estimation)
+%           2   for    [-3.5  -4.9  5  2  100 1000 ]    (very rapid Tc estimation)
+%           3   for    [-3.5  -4.9  6  5  100 2000 ]
+%           4   for    [-3.5  -4.9  6  10 100 10000 ]
+%           5   for    [-3.5  -4.9  6  10 100 100000 ]
+%
+%           TcStart       start temperature for Tc estimation  (e.g. -3.5,-4.7)
+%           TcEnd         end temperature  (TcStart=TcEnd to set Tc for Gibbs Sampling ) 
+%           TcRobustNum   Number of temperature steps for Tc estimation   
+%           CoolNum       Number of temperature steps to cool to Tc for Gibbs Sampling 
+%           CoolSweeps    Sweeps at each temperature for cooling to Tc  
+%           GsSweeps      Sweeps at Tc (actual Gibbs Sampling)   
+
+%inverseopt.gibbsopt.igrid = 8
+% Default is 8 - grid density at each sweep
+
+%inverseopt.gibbsopt.plot_bins = 100
+% Default is 20 - binning parameter for plotting ppds
+
+%inverseopt.gibbsopt.plot_ninterp = 100
+% Default is 100 - interpolation paramater for plotting 2D ppds
+
+%inverseopt.gibbsopt.nsave = 500
+% Default is 1000 - number of sweeps for each save
+
+%inverseopt.gibbsopt.runs = 1
+% Default is 1 - number of gibbs sampling runs
+
+%inverseopt.gridsearchopt = 3
+% Default is 3
+
+%inverseopt.PhaseRamp = off
+% Default is 'Ramp'
+
+%inverseopt.QuickStop = on
+% Default is 'off' -
+
+%inverseopt.plotmodelopt.modulo        = 0.0258
+%inverseopt.plotmodelopt.modulo_res    = 0.0258
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%inverseopt.distribopt.DoIt = on
+%inverseopt.distribopt.ExtendedSize = [50 20]
+%inverseopt.distribopt.PatchSize = [2 2]
+%inverseopt.distribopt.kappa = 0.2
+%inverseopt.distribopt.PlotTresh = 0.1
+%inverseopt.distribopt.slip = [0 0 1]
+%inverseopt.distribopt.InverseSign = off
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%plotthemodelopt.DoIt               =  on
+

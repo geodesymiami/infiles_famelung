@@ -1,0 +1,63 @@
+##### getSAR, raw2slc and createBaselineList  options ###############################
+#walltime            = 4:00
+memoryCoregist      = 3700
+memoryProcessFilt   = 3700
+memoryProcessDone   = 3700
+#source              = asf
+#satellite           = Alos
+#boundingBox         = 3.33,98.30,3.00,98.60
+#track               = 495
+#frame               = 50
+#startFrame          = 50
+#endFrame            = 50
+#endDate             = 080516
+#endDate             = 110116
+platform            = Alos
+startDate           = 070220               # the 2006 imagery does not work
+ssaraopt            = --platform=Alos -r 174 -f 280 -s 2007-02-20  -e 2011-12-31 --beamSwath=7
+masterDate          = 070725
+raw2slc_OrbitType   = HDR
+selectMethod        = delaunay  # ['all','delaunay','all+delaunay']
+perpBaseMax         = 400     # max perpendicular baseline
+lengthDayMax        = 1800    # max temporal baseline
+lengthDayMin        = 0       # min temporal baseline
+seasonal            = yes     # seasonal temporal baseline
+DopOverlapThresh    = 15      # min dopploer overlap percentage
+#interferogramList  = [090106-100928]
+
+####### ROI_PAC OPTIONS ##############################
+DEM                = /nethome/j.lebowitz1/insarlab/DEMDIR/SantaMariaSantiaguito/SantaMariaUSGS.dem
+#flattening         = topo
+flattening         = orbit
+#OrbitType          = HDR
+Rlooks_sim         = 1
+Rlooks_int         = 4
+Rlooks_unw         = 4
+#meter_per_cycle    = 6.283
+#unw_method         = old
+unw_method         = treef
+unw_method         = snaphu
+#snap_conncomthresh = 60
+#Filt_method        = psfilt_adapt_filt
+Filt_method        = psfilt
+FilterStrength     = 0.5/4
+FilterStrength     = 0.5
+UnwrappedThreshold = 0.10
+maskingwith0height = TRUE
+ampmagFineopt      = 50/50/128/32
+pixel_ratio        = 3
+#tiltdegree         = 2
+cleanopt            = 1
+
+########PySAR Options##############################################
+#
+pysar.unwrap_error       = no
+pysar.topo_error         = yes
+pysar.orbit_error        = yes
+pysar.orbit_error.method = plane    # ['quadratic', 'plane', 'quardatic_range', 'quadratic_azimiuth', 'plane_range', 'plane_azimuth','baselineCor','BaseTropCor']
+pysar.tropospheric_delay = no
+pysar.tropospheric_delay.method = height-correlation
+pysar.mask               = yes
+pysar.mask.threshold     = 0.7
+#pysar.geocode            = yes
+

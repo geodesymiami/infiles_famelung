@@ -1,0 +1,35 @@
+######################################################
+ssaraopt            = --platform=SENTINEL-1A,SENTINEL-1B -r 120 --intersectsWith='POLYGON((-78.56 1.5,-78.32 1.5,-78.32 -1.5,-78.56 -1.5,-78.56 1.5))'
+ssaraopt            = --platform=SENTINEL-1A,SENTINEL-1B -r 120 --intersectsWith='POLYGON((-77.5 1.7,-77.3 1.7,-77.3 -1.5,-77.5 -1.5,-77.5 1.7))'
+######################################################
+beam_mode           = IW 
+swathNumber         = 3
+masterDate          = 20170106
+connections         = 3
+ALOOKS              = 3
+RLOOKS              = 15
+boundingBox         = -1.1:0.65:-78.6:-78.3  
+excludeDates        = 20170729,20170822,20160815,20160417,20160324,20160229,20160112,20151219,20151101,20150914,20150821,20150728,20150704,20150517,20150330,20150306,20150117,20141224,20141130,20141106,20141013
+unwmethod           = snaphu
+filtStrength        = 0.5
+######################################################
+pysar.insarProcessor     = isce
+pysar.unwrapFiles        = /scratch/projects/insarlab/famelung/GalerasT120SenVVA/merged/interferograms/*/filt*.unw
+pysar.corFiles           = /scratch/projects/insarlab/famelung/GalerasT120SenVVA/merged/interferograms/*/filt*.cor
+pysar.lookupFile         = /scratch/projects/insarlab/famelung/GalerasT120SenVVA/merged/geom_master/l*.rdr
+pysar.demFile.radarCoord = /scratch/projects/insarlab/famelung/GalerasT120SenVVA/merged/geom_master/hgt.rdr
+pysar.demFile.geoCoord   = /scratch/projects/insarlab/famelung/GalerasT120SenVVA/DEM/demLat_S01_N02_Lon_W079_W077.dem.wgs84
+
+pysar.network.coherenceBased   = yes  #[yes / no], auto for yes, exclude interferograms with coherence < minCoherence
+pysar.network.minCoherence     = 0.3 # 0.4  #[0.0-1.0], auto for 0.7
+pysar.networkInversion.weightFunc = no  #[variance / no / linear / normal], auto for no, coherence to weight
+pysar.deramp                   = plane  #[no / plane / quadratic], auto for no - no ramp will be removed
+
+pysar.network.startDate = no #  20160501   #[20090101 / no], auto for no
+pysar.network.endDate   = 20170928 # [20090101 / no], auto for no
+pysar.troposphericDelay.method  = no  #[pyaps / height_correlation / base_trop_cor / no], auto for pyaps
+pysar.save.unavco         = yes
+pysar.save.unavco.update  = yes
+######################################################
+unavco.processing_software= ISCE
+

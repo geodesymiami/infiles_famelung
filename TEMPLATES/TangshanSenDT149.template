@@ -1,0 +1,34 @@
+process_flag                        = TRUE                                                                                                
+login                               = pegasus.ccs.miami.edu                                                                               
+user                                = famelung                                                                                            
+####################
+email_pysar                         = famelung@rsmas.miami.edu 
+email_insarmaps                     = famelung@rsmas.miami.edu
+####################
+every_day_flag                      = yes                                                                                                 
+ssaraopt                            = --platform=SENTINEL-1A,SENTINEL-1B -r 47 -f 607-614 -s 2017-07-01 
+ssaraopt                            = --platform=SENTINEL-1A,SENTINEL-1B -r 149 -f 453-465 -e 2016-12-31
+parallel_download                   = 20                                                                                                  
+processor                           = isce                                                                                                
+cleanopt                            = 0                                                                                                   
+####################
+sentinelStack.boundingBox           = '39.46 39.82 118.2 118.9'                            # '-1 0.15 -91.6 -90.9'                           
+sentinelStack.boundingBox           = '38.8 40.8 117.1 119.9'                            # '-1 0.15 -91.6 -90.9'                           
+sentinelStack.subswath              = '1 2 3'                                                 # '1 2'                                           
+sentinelStack.numConnections        = 3                                                 # comment                                         
+sentinelStack.azimuthLooks          = 7                                                 # comment                                         
+sentinelStack.rangeLooks            = 21                                                # comment                                         
+sentinelStack.filtStrength          = 0.2                                               # comment                                         
+sentinelStack.unwMethod             = snaphu                                            # comment                                         
+sentinelStack.coregistration        = geometry                                              # [NESD geometry], auto for NESD                  
+####################
+pysar.troposphericDelay.method      = no                                                #[pyaps / height_correlation / base_trop_cor / no], auto for pyaps
+pysar.network.coherenceBased        = auto                                              #[yes / no], auto for no, exclude interferograms with coherence < minCoherence
+pysar.network.minCoherence          = auto                                              # 0.63 #[0.0-1.0], auto for 0.7                   
+pysar.networkInversion.weightFunc   = fim                                               # [fim / variance / coherence / no], auto for no  
+pysar.network.startDate             = auto                                              # [20090101 / no], auto for no                    
+pysar.network.endDate               = auto                                              # [20090101 / no], auto for no                    
+pysar.save.hdfEos5                  = yes                                               # [yes / update / no], auto for no, save timeseries to UNAVCO InSAR Archive format
+pysar.save.hdfEos5.update           = yes                                               # [yes / no], auto for no, put XXXXXXXX as endDate in output filename
+pysar.save.kml                      = yes                                               # [yes / no], auto for yes, save geocoded velocity to Google Earth KMZ file
+pysar.network.excludeDate           = 20160829,20161010,20161115  #[20080520,20090817 / no], auto for no

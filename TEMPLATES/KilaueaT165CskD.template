@@ -1,0 +1,52 @@
+##### getSAR, raw2slc and createBaselineList  options ###############################
+#walltime            = 4:00
+memoryCoregist      = 8000
+memoryProcessFilt   = 8000
+memoryProcessDone   = 3700
+platform            = Csk
+excludeDate         = 121104,130123,131209,130819,130413 # FA 2/2018:   should be removed before running the SLCs
+ssaraopt            = -r 165 --collectionName="Supersites CSK Hawaii" --beamSwath=H4-10 -s 2012-01-01 -e 2012-12-31 
+masterDate          = 120104
+select.network.method       = hierarchical
+select.network.tempPerpList = 50,400;100,300;400,30
+select.network.tempPerpList = 50,350
+select.network.dopOverlapThresh = 15
+#select.network.startDate = 020101 
+#select.network.endDate   = 021231 
+#interferogramList  = [090106-100928]
+####### ROI_PAC OPTIONS ##############################
+flattening         = orbit
+OrbitType          = HDR
+DEM                =/nethome/sge/insarlab/DEMDIR/10m_koae/koae.dem
+Rlooks_sim         = 4
+Rlooks_int         = 8
+Rlooks_unw         = 8
+#unw_method         = treef
+unw_method         = snaphu
+#snap_conncomthresh = 60
+#Filt_method        = psfilt_adapt_filt
+Filt_method        = psfilt
+FilterStrength     = 0.5/4
+FilterStrength     = 0.5
+UnwrappedThreshold = 0.15
+maskingwith0height = TRUE
+ampmagFineopt	   = 50/50/256/64
+ampmagFineopt	   = 50/50/256/64
+pixel_ratio        = 1
+#tiltdegree         = 2
+cleanopt            = 1
+
+########PySAR Options##############################################
+pysar.network.coherenceBased   = no  #[yes / no], auto for yes, exclude interferograms with coherence < minCoherence
+pysar.networkInversion.weightFunc = variance #[variance / no / coherence], auto for no
+pysar.networkInversion.minTempCoh = 0.7 #[0.0-1.0], auto for 0.7, min temporal coherence for mask
+pysar.topographicResidual.stepFuncDate   = 20120605  #[20080529,20100611 / no], auto for no, date of step jump
+
+pysar.reference.lalo           = 19.394,-155.344    # -8.2416,115.5476     # N of Agung, little hill near coast
+pysar.deramp                   = plane  #[no / plane / quadratic], auto for no - no ramp will be removed
+
+pysar.network.startDate        = no   #[20090101 / no], auto for no
+pysar.network.endDate          = no   #[20090101 / no], auto for no
+pysar.troposphericDelay.method = no # pyaps  #[pyaps / height_correlation / base_trop_cor / no], auto for pyaps
+pysar.save.hdfEos5             = yes   #[yes / update / no], auto for no, save timeseries to UNAVCO InSAR Archive format
+pysar.save.hdfEos5.update      = auto   #[yes / no], auto for no, put XXXXXXXX as endDate in output filename

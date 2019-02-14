@@ -1,0 +1,24 @@
+######################################################
+cleanopt = 2                   # [ 0 / 1 / 2 / 3 / 4]   0,1: none 2: keep merged,geom_master,SLC 3: keep PYSAR 4: everything
+ssaraopt = --platform=SENTINEL-1A,SENTINEL-1B -r 34 -f 109,110,111,112,113,114,115  -s 2017-09-01
+
+processor                      = isce
+
+#sentinelStack.boundingBox      = '35.8 36.2 -96.5 -96.4' # -96.78,35.91,-96.7,35.91,-96.7,36.02,-96.78,36.02,-96.78,35.91
+sentinelStack.boundingBox      = '35.8 36.2 -96.5 -96.0' # -96.78,35.91,-96.7,35.91,-96.7,36.02,-96.78,36.02,-96.78,35.91
+sentinelStack.boundingBox      = '35.8 36.2 -97.1 -95.1' # -96.78,35.91,-96.7,35.91,-96.7,36.02,-96.78,36.02,-96.78,35.91
+sentinelStack.subswath         = 3   # comment 
+sentinelStack.numConnections   = 4   # comment
+sentinelStack.azimuthLooks     = 4   # comment
+sentinelStack.rangeLooks       = 12  # comment
+sentinelStack.filtStrength     = 0.2  # comment
+sentinelStack.unwMethod        = snaphu  # comment
+sentinelStack.coregistration   = auto  # comment
+
+pysar.reference.lalo              = auto     # N of SN
+pysar.network.coherenceBased      = no  #[yes / no], auto for yes, exclude interferograms with coherence < minCoherence
+pysar.networkInversion.weightFunc = fim #[variance / no / coherence], auto for no
+pysar.troposphericDelay.method    = no # pyaps  #[pyaps / height_correlation / base_trop_cor / no], auto for pyaps
+pysar.save.hdfEos5                = yes   #[yes / update / no], auto for no, save timeseries to UNAVCO InSAR Archive format
+pysar.save.hdfEos5.update         = yes   #[yes / no], auto for no, put XXXXXXXX as endDate in output filename
+######################################################

@@ -1,0 +1,59 @@
+##### getSAR, raw2slc and createBaselineList  options ###############################
+memoryCoregist      = 10000
+memoryProcessFilt   = 5000
+memoryProcessDone   = 7000
+walltimeProcessFilt = 5:00
+walltimeProcessDone = 5:00
+ssaraopt            = scp  visx.ccs.miami.edu:/famelung/ehavazli/jolly/\{0000131506.zip,0000131507.zip,0000131508.zip,0000131509.zip,0000131510.zip,0000131511.zip,0000131512.zip\} .
+masterDate          = 140918
+raw2slc_OrbitType   = HDR 
+selectPairs.seasonal= no
+selectPairs.method  = sequential
+selectPairs.incrementNum = 1
+selectPairs.method  = delaunay
+#perpBaseMax         = 50     
+perpBaseMax         = 500     
+lengthDayMax        = 1000
+DopOverlapThresh    = 15
+
+####### ROI_PAC OPTIONS ##############################
+DEM                = /nethome/rxe161/insarlab/DEMDIR/KanlaonT137F200Alos2A/output.dem
+#DEM                = /nethome/famelung/insarlab/DEMDIR/SouthKyushu_GSI/gsi10m.dem
+flattening         = orbit
+OrbitType          = HDR
+Rlooks_sim         = 2
+Rlooks_int         = 8
+Rlooks_unw         = 8
+unw_method         = treef
+unw_method         = snaphu
+#snap_conncomthresh = 60
+Filt_method        = psfilt_adapt_filt
+Filt_method        = psfilt
+FilterStrength     = 0.3
+UnwrappedThreshold = 0.15
+maskingwith0height = TRUE
+ampmagFineopt      = 80/80/64/32
+pixel_ratio        = 1
+#tiltdegree         = 2
+cleanopt            = 1
+slcType             = CR4
+
+######################################################
+
+pysar.unwrapError    = no
+pysar.troposphericDelay              = no
+pysar.troposphericDelay.method       = pyaps  # ['height-correlation', 'pyaps']
+pysar.troposphericDelay.weatherModel = ECMWF  # ['ECMWF', 'MERRA', 'NARR']
+pysar.acquisitionTime                = 00:00  # ['00:00', '06:00', '12:00', '18:00']
+
+pysar.topographicResidual           = yes
+pysar.orbitError          = yes
+pysar.orbitError.method   = plane       # ['quadratic', 'plane', 'quadratic_range', 'quadratic_azimiuth', 'plane_range', 'plane_azimuth','baselineCor','BaseTropCor']
+
+pysar.geocode              = yes
+pysar.geocode.list         = ['velocity.h5']
+
+pysar.mask                 = yes
+pysar.mask.file            = Mask_tempCoh.h5
+pysar.mask.threshold       = 0.7        # threshold for generating mask from temporal coherence; commented - don't update mask
+pysar.kml                  = yes

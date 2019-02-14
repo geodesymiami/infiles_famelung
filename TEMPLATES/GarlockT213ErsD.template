@@ -1,0 +1,34 @@
+####### getSAR, raw2slc and createBaselineList  options ###############################
+#source             = winsar
+#satellite          = Ers
+#track              = 213 
+#raw2slc_OrbitType  = HDR 
+perpBaseMax        = 500
+lengthDayMax       = 300 
+masterDate         = 951016
+ssaraopt           =  ssara_federated_query.py --platform=ERS-1 -r 213 -f 2907 -s 1995-01-01 -e 1996-12-31 --collectionName="WInSAR ESA" --print
+ssaraopt           =  ssara_federated_query.py --platform=ERS-1 -r 213 -f 2889,2907 -s 1995-01-01 -e 1996-12-31 --collectionName="WInSAR ESA" --print
+ssaraopt           =  ssara_federated_query.py --platform=ERS-1 -r 213 -f 2907,2925 -s 1995-01-01 -e 1996-12-31 --collectionName="WInSAR ESA" --print
+DopOverlapThresh   = 60 
+selectMethod       = All
+####### ROI_PAC OPTIONS ##############################
+#DEM               = /nethome/fgreene/insarlab/ROIPAC_DEMS/fgreene/Garlock30m/Garlock3Frames30m.dem 
+#DEM		   = /nethome/fgreene/insarlab/ROIPAC_DEMS/fgreene/GarlockGeoid/Garlock30m.dem 
+#DEM               = /nethome/fgreene/insarlab/ROIPAC_DEMS/fgreene/GarlockGeoid/Garlock30m.dem
+DEM                = /nethome/fgreene/insarlab/ROIPAC_DEMS/fgreene/Garlock213_Geoid/Garlock30mT213.dem
+#OrbitType         = HDR
+tiltdegree         =1
+flattening	   = orbit 
+Rlooks_sim         = 2 
+Rlooks_int         = 8
+Rlooks_unw         = 8
+meter_per_cycle    = 6.283
+unw_method         = snaphu
+snap_conncomthresh = 60
+Filt_method        = psfilt_adapt_filt
+FilterStrength     = 0.5/4
+UnwrappedThreshold = 0.10
+maskingwith0height = TRUE
+clean              = --KeepSBASgeo --DoItFrom vexall
+#web               = --wildcard 'geo*[0-9].unw.dem*jpg' --wildcard 'filt*SIM*rlks.intamp*jpg' --wildcard 'geo*.unw.kmz'
+######################################################

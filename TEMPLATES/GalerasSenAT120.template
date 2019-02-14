@@ -1,0 +1,30 @@
+######################################################
+cleanopt = 2
+ssaraopt            = --platform=SENTINEL-1A,SENTINEL-1B -r 120 -f 1180-1183  -s 2017-09-01 
+ssaraopt            = --platform=SENTINEL-1A,SENTINEL-1B -r 120 -f 1180-1185  -s 2017-01-01
+processor                      = isce
+
+######################################################
+sentinelStack.boundingBox      = '0.9 1.5 -78.9 -76.5'
+sentinelStack.subswath         = 3   # comment 
+sentinelStack.numConnections   = 4   # comment
+sentinelStack.azimuthLooks     = 5   # comment
+sentinelStack.rangeLooks       = 15  # comment
+sentinelStack.filtStrength     = 0.2  # comment
+sentinelStack.unwMethod        = snaphu  # comment
+sentinelStack.coregistration   = auto  # comment
+ 
+######################################################
+pysar.network.coherenceBased      = no  #[yes / no], auto for yes, exclude interferograms with coherence < minCoherence
+pysar.networkInversion.weightFunc = fim #[variance / no / coherence], auto for no
+pysar.networkInversion.minTempCoh = auto #[0.0-1.0], auto for 0.7, min temporal coherence for mask
+
+pysar.network.startDate  =  no   # 20170101   #[20090101 / no], auto for no
+pysar.network.endDate    =  no   #[20090101 / no], auto for no
+pysar.reference.lalo           =  1.203, -77.256 #  0.91, -77.94   # 15 km N of Chiles
+pysar.deramp = plane # ['quadratic', 'plane', 'quardatic_range', 'quadratic_azimiuth', 'plane_range', 'plane_azimuth','baselineCor','BaseTropCor']
+pysar.troposphericDelay.method = no # pyaps  #[pyaps / height_correlation / base_trop_cor / no], auto for pyaps
+pysar.save.hdfEos5             = yes   #[yes / update / no], auto for no, save timeseries to UNAVCO InSAR Archive format
+pysar.save.hdfEos5.update      = yes   #[yes / no], auto for no, put XXXXXXXX as endDate in output filename
+######################################################
+insarmaps.volcanoName=Galeras

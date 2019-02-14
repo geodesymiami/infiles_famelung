@@ -1,0 +1,28 @@
+######################################################
+cleanopt    = 3
+ssaraopt    = --platform=SENTINEL-1A,SENTINEL-1B -r 142 --intersectsWith='POLYGON((-78.4 1.2,-77.8 1.2,-77.8 -0.1,-78.4 -0.1,-78.4 1.2))'
+processor   = isce
+
+######################################################
+sentinelStack.boundingBox      = '-0.1 1.2 -79.4 -77.5'
+sentinelStack.subswath         = 3   # comment 
+sentinelStack.numConnections   = 4   # comment
+sentinelStack.azimuthLooks     = 5   # comment
+sentinelStack.rangeLooks       = 15  # comment
+sentinelStack.filtStrength     = 0.2  # comment
+sentinelStack.unwMethod        = snaphu  # comment
+sentinelStack.coregistration   = auto  # comment
+
+pysar.network.coherenceBased   = no  #[yes / no], auto for yes, exclude interferograms with coherence < minCoherence
+pysar.network.minCoherence     = auto #0.63  #[0.0-1.0], auto for 0.7
+pysar.networkInversion.weightFunc = fim #[variance / no / coherence], auto for no
+
+pysar.reference.lalo           = auto #  0.91, -77.94   # 15 km N of Chiles
+pysar.deramp = plane # ['quadratic', 'plane', 'quardatic_range', 'quadratic_azimiuth', 'plane_range', 'plane_azimuth','baselineCor','BaseTropCor']
+
+pysar.troposphericDelay.method = no # pyaps  #[pyaps / height_correlation / base_trop_cor / no], auto for pyaps
+pysar.save.hdfEos5             = yes   #[yes / update / no], auto for no, save timeseries to UNAVCO InSAR Archive format
+pysar.save.hdfEos5.update      = yes   #[yes / no], auto for no, put XXXXXXXX as endDate in output filename
+pysar.save.kml                 = no  #[yes / no], auto for yes, save geocoded velocity to Google Earth KMZ file
+######################################################
+insarmaps.volcanoName=Chiles

@@ -1,0 +1,71 @@
+##### getSAR, raw2slc and createBaselineList  options ###############################
+#walltime            = 4:00
+memoryCoregist      = 3700
+memoryProcessFilt   = 3700
+memoryProcessDone   = 3700
+#source              = asf
+#satellite           = Alos
+#boundingBox         = 3.33,98.30,3.00,98.60
+#track               = 495
+#frame               = 50
+#startFrame          = 50
+#endFrame            = 50
+#endDate             = 080516
+#endDate             = 110116
+platform            = Tsx
+ssaraopt            = scp  visx.ccs.miami.edu:/famelung/famelung/TSX/Cotopaxi/spot_027/\* .           # not yet implemented in process_rsmas.pl. Need unmoved data
+masterDate          = 150707
+raw2slc_OrbitType   = HDR 
+selectMethod        = delaunay
+selectMethod        = ALl
+perpBaseMax         = 1800     
+lengthDayMax        = 366
+lengthDayMin        = 0
+#lengthDayMax        = 395 #To select Pairs within the same month, regardless of year
+#lengthDayMin        = 367
+DopOverlapThresh    = 15
+#interferogramList  = [090106-100928]
+
+####### ROI_PAC OPTIONS ##############################
+DEM                =  /nethome/amorales/insarlab/DEMDIR/Ecuador/EcuadorT109F7170AlosA/EcuadorT109F7170AlosA.dem
+DEM                =  /nethome/amorales/insarlab/DEMDIR/Ecuador/30m_DEM/Cotopaxi/cotopaxi.dem
+
+CotopaxiSmall30m_CSK_0.00002
+#flattening         = topo
+flattening         = orbit
+#OrbitType          = HDR
+Rlooks_sim         = 4
+Rlooks_int         = 16
+Rlooks_unw         = 16
+#meter_per_cycle    = 6.283
+#unw_method         = old
+unw_method         = treef
+unw_method         = snaphu
+#snap_conncomthresh = 60
+#Filt_method        = psfilt
+Filt_method        = psfilt_adapt_filt
+FilterStrength     = 0.5/4
+UnwrappedThreshold = 0.10
+maskingwith0height = TRUE
+#synthoffsetopt     = 40
+#ampmagFineopt      = 70/70/64/32
+pixel_ratio        = 1
+#tiltdegree         = 2
+#clean              = --KeepSBASgeo --removedir --keepSBASradargeo --keepSBASradar
+cleanopt            = 1
+
+######################################################
+#pysar.subset.yx = 1800:2000,700:800
+#pysar.seed.yx = 1050, 710
+#pysar.seed.ll            = 31.9920:130.9665
+pysar.unwrap_error       = no
+pysar.topo_error         = yes
+pysar.orbit_error        = yes
+pysar.orbit_error.method = plane # ['quadratic', 'plane', 'quardatic_range', 'quadratic_azimiuth', 'plane_range', 'plane_azimuth','baselineCor','BaseTropCor']
+pysar.tropospheric_delay = no
+pysar.tropospheric_delay.method = height-correlation
+pysar.mask               = yes
+pysar.mask.threshold     = 0.7
+pysar.geocode            = yes
+pysar_subset_lalo        = 31.7000:32.1000,130.5000:131.1000
+pysar_geocode_timeseries = 1

@@ -1,0 +1,53 @@
+##### getSAR, raw2slc and createBaselineList  options ###############################
+memoryCoregist      = 3700
+memoryProcessFilt   = 3700
+memoryProcessDone   = 3700
+walltimePrepare     = 0:20
+ssaraopt            = --collectionName="CEOS Volcano RS2" -r 263 --intersectsWith='POINT(-98.6270 19.0204)' -s 2012-01-01  -e 2017-12-12
+masterDate          = 120917
+#ssaraopt            = --collectionName="CEOS Volcano RS2" -r 263 --intersectsWith='POINT(-98.6270 19.0204)' -s 2013-02-07  -e 2013-03-29
+#masterDate          = 130208
+raw2slc_OrbitType   = HDR 
+select.network.seasonal     = no
+select.network.method       = hierarchical
+select.network.tempPerpList = 24,400;48,300;72,150;96,70;120,40;168,15
+select.network.tempPerpList = 24,400;72,300;168,100
+select.network.perpBaseMax  = 400     
+select.network.tempBaseMax  = 168
+select.network.dopOverlapMin= 15
+select.network.startDate     = 20120917
+select.network.endDate       = 20140323
+
+####### ROI_PAC OPTIONS ##############################
+DEM                = $HOME/insarlab/DEMDIR/Popo_highres/apopo5msll5.dem
+flattening         = orbit
+OrbitType          = HDR
+Rlooks_sim         = 1
+Rlooks_int         = 4
+Rlooks_unw         = 4
+unw_method         = treef
+unw_method         = snaphu
+#snap_conncomthresh = 60
+#Filt_method        = psfilt
+Filt_method        = psfilt_adapt_filt
+FilterStrength     = 0.5/4
+UnwrappedThreshold = 0.10
+ampmagFineopt      = 70/70/256/64
+pixel_ratio        = 2
+#tiltdegree         = 2
+cleanopt            = 1
+slcType             = CR4
+
+######################################################
+pysar.network.coherenceBased = yes  # yes    #search and use input coherence file
+pysar.reference.yx      = auto # 1050, 710
+pysar.unwrapError       = no
+pysar.topographicResidual         = yes
+pysar.deramp            = plane # ['quadratic', 'plane', 'quardatic_range', 'quadratic_azimiuth', 'plane_range', 'plane_azimuth','baselineCor','BaseTropCor']
+pysar.troposphericDelay.method = no # pyaps  # ['height-correlation', 'pyaps']
+pysar.troposphericDelay.weatherModel = ECMWF  # ['ECMWF', 'MERRA', 'NARR']
+pysar.mask               = yes
+pysar.mask.threshold     = 0.7
+pysar.geocode     = yes
+pysar.save.unavco = yes
+

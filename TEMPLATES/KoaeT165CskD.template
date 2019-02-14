@@ -1,0 +1,63 @@
+##### getSAR, raw2slc and createBaselineList  options ###############################
+#walltime            = 4:00
+memoryCoregist      = 8000
+memoryProcessFilt   = 8000
+memoryProcessDone   = 3700
+satellite            = Csk
+#endDate             = 110116
+platform            = Csk
+masterDate          = 120104
+startDate           = 070220               # the 2006 imagery does not work
+ssaraopt            = -r 165 --collectionName= "Supersites CSK Hawaii" -s 2012-01-01 -e 2012-12-31 
+raw2slc_OrbitType   = HDR
+#interferogramList  = [090106-100928]
+####### ROI_PAC OPTIONS ##############################
+#
+
+selectNetwork.method        = hierarchical  #[all / hierarchical / sequential / mst / delaunay / star], auto for all
+selectNetwork.tempPerpList = 20,600;30,500;40,400;60,300
+selectNetwork.tempPerpList = 20,500;30,400;50,300;75,200;100,100
+selectNetwork.tempPerpList = 20,600;32,500;60,400;100,200
+#selectNetwork.perpBaseMax   = 500  #[1-inf / no], auto for 500., max perpendicular spatial baseline
+#selectNetwork.tempBaseMax   = 60  #[1-inf / no], auto for 1800., max temporal baseline
+#selectNetwork.keepSeasonal  = auto  #[yes / no], auto for no, keep pairs with seasonal temporal baseline
+#selectNetwork.dopOverlapMin = auto  #[1-inf / no], auto for 15., min dopploer overlap percentage
+selectNetwork.masterDate    = 120104   #[100102 / no], auto for no, master date for star/ps network and reference interferogram
+
+flattening         = orbit
+OrbitType          = HDR
+DEM		   = /nethome/sge/insarlab/DEMDIR/10m_koae/koae.dem
+Rlooks_sim         = 4
+Rlooks_int         = 8
+Rlooks_unw         = 8
+#Rlooks_sim         = 4
+#Rlooks_int         = 8
+#Rlooks_unw         = 8
+#unw_method         = treef
+unw_method         = snaphu
+#snap_conncomthresh = 60
+#Filt_method        = psfilt_adapt_filt
+Filt_method        = psfilt
+FilterStrength     = 0.5/4
+FilterStrength     = 0.5
+UnwrappedThreshold = 0.15
+maskingwith0height = TRUE
+ampmagFineopt	   = 50/50/256/64
+pixel_ratio        = 1
+#tiltdegree         = 2
+cleanopt            = 1
+
+######################################################
+
+processor = roipac
+pysar.network.coherenceBased      = no  #[yes / no], auto for yes, exclude interferograms with coherence < minCoherence
+pysar.networkInversion.weightFunc = fim #[variance / no / coherence], auto for no
+pysar.unwrapError.method          = no # phase_closure # phase_closure  #[bridging / phase_closure / bridging+phase_closure / no], auto for no
+pysar.troposphericDelay.method    = no # pyaps  #[pyaps / height_correlation / base_trop_cor / no], auto for pyaps
+#pysar.topographicResidual.stepFuncDate  = 20120605  #[20080529,20100611 / no], auto for no, date of step jump
+pysar.deramp          = quadratic  #[no / linear / quadratic], auto for no - no ramp will be removed
+pysar.save.hdfEos5                = no   #[yes / update / no], auto for no, save timeseries to UNAVCO InSAR Archive format
+pysar.save.hdfEos5.update         = no   #[yes / no], auto for no, put XXXXXXXX as endDate in output filename
+pysar.save.kml                    = yes  #[yes / no], auto for yes, save geocoded velocity to Google Earth KMZ file
+
+

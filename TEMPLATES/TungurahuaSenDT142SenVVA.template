@@ -1,0 +1,27 @@
+######################################################
+cleanopt    = 3
+ssaraopt    = --platform=SENTINEL-1A,SENTINEL-1B -r 142 --intersectsWith='POLYGON((-78.9 0.2,-77.8 0.2,-77.8 -2.2,-78.9 -2.2,-78.9 0.2))'
+processor   = isce
+
+######################################################
+sentinelStack.boundingBox      = '-1.8 -0.3 -79.4 -77.5'
+sentinelStack.subswath         = 3   # comment 
+sentinelStack.numConnections   = 4   # comment
+sentinelStack.azimuthLooks     = 4   # comment
+sentinelStack.rangeLooks       = 12  # comment
+sentinelStack.filtStrength     = 0.2  # comment
+sentinelStack.unwMethod        = snaphu  # comment
+sentinelStack.coregistration   = auto  # comment
+
+pysar.network.coherenceBased   = no  #[yes / no], auto for yes, exclude interferograms with coherence < minCoherence
+pysar.network.minCoherence     = auto #0.63  #[0.0-1.0], auto for 0.7
+pysar.networkInversion.weightFunc = variance #[variance / no / coherence], auto for no
+
+#pysar.reference.lalo           =  0.91, -77.94   # 15 km N of Chiles
+pysar.deramp = plane # ['quadratic', 'plane', 'quardatic_range', 'quadratic_azimiuth', 'plane_range', 'plane_azimuth','baselineCor','BaseTropCor']
+
+pysar.troposphericDelay.method = no # pyaps  #[pyaps / height_correlation / base_trop_cor / no], auto for pyaps
+pysar.save.hdfEos5             = yes   #[yes / update / no], auto for no, save timeseries to UNAVCO InSAR Archive format
+pysar.save.hdfEos5.update      = yes   #[yes / no], auto for no, put XXXXXXXX as endDate in output filename
+######################################################
+insarmaps.volcanoName=Cotopaxi,Tungurahua

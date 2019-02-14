@@ -1,0 +1,59 @@
+##### getSAR, raw2slc and createBaselineList  options ###############################
+#walltime            = 4:00
+memoryCoregist      = 3700
+memoryProcessFilt   = 3700
+memoryProcessDone   = 3700
+platform            = Tsx
+ssaraopt            =  -r 132 --collectionName="Supersites CSK Ecuador"  -s 2015-01-01 -e 2015-03-31
+masterDate          = 150113
+raw2slc_OrbitType   = HDR 
+selectMethod        = All
+selectMethod        = delaunay
+perpBaseMax         = 1200     
+lengthDayMax        = 48
+seasonal            = no
+
+#lengthDayMax        = 395 #To select Pairs within the same month, regardless of year
+#lengthDayMin        = 367
+DopOverlapThresh    = 15
+
+####### ROI_PAC OPTIONS ##############################
+DEM                =  /nethome/famelung/insarlab/DEMDIR/TungurahuaIGEPN_0.0001/output.dem
+flattening         = orbit
+#OrbitType          = HDR
+Rlooks_sim         = 4
+Rlooks_int         = 8
+Rlooks_unw         = 8
+#meter_per_cycle    = 6.283
+#unw_method         = old
+unw_method         = treef
+unw_method         = snaphu
+#snap_conncomthresh = 60
+Filt_method        = psfilt
+FilterStrength     = 0.5
+UnwrappedThreshold = 0.10
+maskingwith0height = TRUE
+#synthoffsetopt     = 40
+ampmagFineopt      = 70/70/128/64
+ampmagFineopt      = 20/20/128/64
+ampmagFineopt      = 40/40/256/64
+pixel_ratio        = 1
+#tiltdegree         = 2
+#clean              = --KeepSBASgeo --removedir --keepSBASradargeo --keepSBASradar
+cleanopt            = 1
+
+######################################################
+#pysar.subset.yx = 1800:2000,700:800
+#pysar.seed.yx = 1050, 710
+#pysar.seed.ll            = 31.9920:130.9665
+pysar.unwrap_error       = no
+pysar.topo_error         = yes
+pysar.orbit_error        = yes
+pysar.orbit_error.method = plane # ['quadratic', 'plane', 'quardatic_range', 'quadratic_azimiuth', 'plane_range', 'plane_azimuth','baselineCor','BaseTropCor']
+pysar.tropospheric_delay = no
+pysar.tropospheric_delay.method = height-correlation
+pysar.mask               = yes
+pysar.mask.threshold     = 0.7
+pysar.geocode            = yes
+pysar_subset_lalo        = 31.7000:32.1000,130.5000:131.1000
+pysar_geocode_timeseries = 1

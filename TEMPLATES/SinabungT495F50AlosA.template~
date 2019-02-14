@@ -1,0 +1,87 @@
+##### getSAR, raw2slc and createBaselineList  options ###############################
+#walltime            = 4:00
+memoryCoregist      = 3700
+memoryProcessFilt   = 3700
+memoryProcessDone   = 3700
+#source              = asf
+#satellite           = Alos
+#boundingBox         = 3.33,98.30,3.00,98.60
+#track               = 495
+#frame               = 50
+#startFrame          = 50
+#endFrame            = 50
+#endDate             = 080516
+#endDate             = 110116
+platform            = Alos
+startDate           = 070220               # the 2006 imagery does not work
+ssaraopt            = --platform=Alos -r 495 -f 50 -s 2007-02-20  -e 2011-12-31 --beamSwath=7
+ssaraopt            = --platform=Alos -r 495 -f 50 -s 2007-02-20  -e 2008-05-01 --beamSwath=7
+masterDate          = 070708
+raw2slc_OrbitType   = HDR 
+selectMethod        = delaunay
+perpBaseMax         = 70
+perpBaseMax         = 200     
+lengthDayMax        = 366
+lengthDayMin        = 0
+#lengthDayMax        = 395 #To select Pairs within the same month, regardless of year
+#lengthDayMin        = 367
+DopOverlapThresh    = 15
+#interferogramList  = [090106-100928]
+
+####### ROI_PAC OPTIONS ##############################
+DEM                = /nethome/famelung/development/rsmas_insar/data/testdata/roi_pac/SinabungT495F50AlosA/DEMDIR/SinabungT495AlosA.dem
+#flattening         = topo
+flattening         = orbit
+#OrbitType          = HDR
+Rlooks_sim         = 1
+Rlooks_int         = 8
+Rlooks_unw         = 8
+#meter_per_cycle    = 6.283
+#unw_method         = old
+unw_method         = treef
+unw_method         = snaphu
+#snap_conncomthresh = 60
+#Filt_method        = psfilt
+Filt_method        = psfilt_adapt_filt
+FilterStrength     = 0.5/4
+UnwrappedThreshold = 0.10
+maskingwith0height = TRUE
+synthoffsetopt     = 40
+ampmagFineopt      = 70/70/64/32
+#pixel_ratio        = 3
+#tiltdegree         = 2
+cleanopt            = 1
+
+######################################################
+#pysar.subset.yx = 1800:2000,700:800
+#pysar.seed.ll=31.5, 67  or  pysar.seed.yx=257 , 151
+pysar.seed.yx = 1050, 710
+
+pysar.inputFiles     = $SCRATCHDIR/SinabungT495F50AlosA/PROCESS/DONE/IFG*/filt*.unw
+pysar.corFiles       = $SCRATCHDIR/SinabungT495F50AlosA/PROCESS/DONE/IFG*/filt_*rlks.cor
+pysar.wrappedFiles   = $SCRATCHDIR/SinabungT495F50AlosA/PROCESS/DONE/IFG*/filt_*rlks.int
+
+pysar.geomap         = $SCRATCHDIR/SinabungT495F50AlosA/PROCESS/GEO/geo_070708-070823/geomap*.trans
+pysar.dem.radarCoord = $SCRATCHDIR/SinabungT495F50AlosA/PROCESS/DONE/*070708-070823*/radar*rlks.hgt
+pysar.dem.geoCoord   = /nethome/famelung/development/rsmas_insar/data/testdata/roi_pac/SinabungT495F50AlosA/DEMDIR/SinabungT495AlosA.dem
+
+pysar.unwrapError       = yes
+pysar.topoError         = yes
+pysar.orbitError        = yes
+pysar.orbitError.method = plane    # ['quadratic', 'plane', 'quardatic_range', 'quadratic_azimiuth', 'plane_range', 'plane_azimuth','baselineCor','BaseTropCor']
+
+#pysar.tropospheric_delay            = no
+#pysar.tropospheric_delay.method     = height-correlation
+pysar.troposphericDelay              = yes
+pysar.troposphericDelay.method       = pyaps
+pysar.troposphericDelay.polyOrder    = height-correlation
+pysar.troposphericDelay.weatherModel = ECMWF
+pysar.acquisitionTime                = 00:00
+
+
+pysar.mask               = yes
+pysar.mask.threshold     = 0.7
+pysar.geocode            = yes
+pysar.subset.lalo        = 3.1:3.24,98.3:98.5
+#pysar_geocode_timeseries = 1
+

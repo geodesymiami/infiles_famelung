@@ -1,0 +1,54 @@
+##### getSAR, raw2slc and createBaselineList  options ###############################
+memoryCoregist      = 5000
+memoryProcessFilt   = 5000
+memoryProcessDone   = 5000
+#ssaraopt            = --platform=ALOS-2 --beamMode=SM3 --r 89 --collection="WInSAR JAXA mpoland_1223"
+ssaraopt            = scp  visx.ccs.miami.edu:/famelung/data/Alos2/testHiroki/\* .
+ssaraopt            = scp  visx.ccs.miami.edu:/famelung/data/Alos2/PIXEL/130_630/\* .
+ssaraopt            = scp  visx.ccs.miami.edu:/famelung/data/Alos2/PIXEL/130_630/\*2015\* .
+masterDate          = 150910
+raw2slc_OrbitType   = HDR 
+selectPairs.seasonal= no
+selectMethod        = all
+perpBaseMax         = 200     
+lengthDayMax        = 60
+lengthDayMax        = 120
+DopOverlapThresh    = 15
+
+####### ROI_PAC OPTIONS ##############################
+DEM                = /nethome/famelung/insarlab/DEMDIR/Iwoyama/gsi10m.dem
+flattening         = orbit
+OrbitType          = HDR
+Rlooks_sim         = 4
+Rlooks_int         = 8
+Rlooks_unw         = 8
+unw_method         = treef
+unw_method         = snaphu
+#snap_conncomthresh = 60
+#Filt_method        = psfilt
+Filt_method        = psfilt_adapt_filt
+FilterStrength     = 0.5/4
+UnwrappedThreshold = 0.10
+maskingwith0height = TRUE
+synthoffsetopt     = 40
+ampmagFineopt      = 70/70/64/32
+pixel_ratio        = 1
+#tiltdegree         = 2
+cleanopt            = 1
+slcType             = CR4
+
+######################################################
+pysar.seed.yx           = 1050, 710
+pysar.unwrapError       = no
+pysar.topographicResidual         = yes
+pysar.orbitError        = yes
+pysar.orbitError.method = plane    # ['quadratic', 'plane', 'quardatic_range', 'quadratic_azimiuth', 'plane_range', 'plane_azimuth','baselineCor','BaseTropCor']
+pysar.troposphericDelay = no
+pysar.troposphericDelay.method = height-correlation
+pysar.mask               = yes
+pysar.mask.threshold     = 0.7
+pysar.geocode            = yes
+
+pysar_subset_lalo        = 3.1:3.24,98.3:98.5
+pysar_geocode_timeseries = 1
+

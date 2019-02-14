@@ -1,0 +1,69 @@
+##### getSAR, raw2slc and createBaselineList  options ###############################
+memoryCoregist      = 10000
+memoryProcessFilt   = 5000
+memoryProcessDone   = 7000
+walltimeProcessFilt = 5:00
+walltimeProcessDone = 5:00
+ssaraopt            = scp  visx.ccs.miami.edu:/famelung/data/Alos2/PIXEL/23_2980/\* .
+ssaraopt            =ssara_federated_query.py --platform=Alos-2 --beamMode=WD1 -r 139 -f 3600 -s 2007-01-01 -e 2018-12-31 --collection="WInSAR JAXA mpoland_21"
+masterDate          = 150824
+raw2slc_OrbitType   = HDR 
+
+selectPairs.seasonal= yes
+selectPairs.method  = all
+selectPairs.method  = sequential
+selectPairs.incrementNum = 4
+selectPairs.perpBaseMax         = 250     
+selectPairs.lengthDayMin        = 0
+selectPairs.lengthDayMax        = 330
+selectPairs.dopOverlapThresh    = 15
+
+####### ROI_PAC OPTIONS ##############################
+DEM                = /nethome/famelung/insarlab/DEMDIR/Sakurajima_gsi/out.dem
+DEM                = /nethome/famelung/insarlab/DEMDIR/SouthKyushu_GSI/gsi10m.dem
+DEM                = /nethome/famelung/insarlab/DEMDIR/KirishimaT073F2970_2980AlosD/gsi10m.dem
+DEMg               = /nethome/famelung/insarlab/DEMDIR/KirishimaT073F2970_2980AlosD/gsi10m_30m.dem
+flattening         = orbit
+OrbitType          = HDR
+Rlooks_sim         = 2
+Rlooks_int         = 8
+Rlooks_unw         = 8
+unw_method         = treef
+unw_method         = snaphu
+#snap_conncomthresh = 60
+Filt_method        = psfilt_adapt_filt
+Filt_method        = psfilt
+FilterStrength     = 0.30
+UnwrappedThreshold = 0.15
+maskingwith0height = TRUE
+ampmagFineopt      = 80/80/64/32
+pixel_ratio        = 1
+#tiltdegree         = 2
+cleanopt            = 1
+slcType             = CR4
+
+######################################################
+
+pysar.network.coherenceBase   = no
+pysar.dem.geoCoord            = /nethome/famelung/insarlab/DEMDIR/KirishimaT073F2970_2980AlosD/gsi10m_30m.dem
+
+pysar.unwrapError                    = no
+
+pysar.troposphericDelay.method = no # pyaps  # ['height-correlation', 'pyaps']
+pysar.troposphericDelay.weatherModel = ECMWF  # ['ECMWF', 'MERRA', 'NARR']
+
+pysar.topographicResidual = yes
+pysar.deramp    = quadratic       
+
+pysar.geocode     = yes
+pysar.save.unavco = yes
+######################################################
+unavco.mission            = ALOS2                 # ERS,ENV,S1,RS1,RS2,CSK,TSX,JERS,ALOS,ALOS2
+unavco.relative_orbit     = 23
+unavco.frame              = 2980
+unavco.beam_mode          = SM                   # S2,FB08,IW
+unavco.beam_swath         = 7
+unavco.processing_type    = LOS_TIMESERIES
+unavco.processing_software= ROI_PAC
+#
+#

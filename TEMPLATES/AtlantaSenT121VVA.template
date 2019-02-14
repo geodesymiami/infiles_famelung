@@ -1,0 +1,27 @@
+######################################################
+cleanopt            = 2    # [ 0 / 1 / 2 / 3 4]   0: no cleaning, 1: largest files, 2: merged/etc dirs, 3: SLC, 4: everything
+ssaraopt            = --platform=SENTINEL-1A,SENTINEL-1B -r 121 -f 103,104,105,106,107,108,109,110  -s 2017-09-01 -e 2017-11-30
+processor           = isce
+######################################################
+sentinelStack.boundingBox      = '33.6 33.9 -84.5 -84.2' 
+sentinelStack.subswath         = 2   # comment 
+sentinelStack.numConnections   = 3   # comment
+sentinelStack.azimuthLooks     = 3   # comment
+sentinelStack.rangeLooks       = 9  # comment
+sentinelStack.filtStrength     = 0.3  # comment
+sentinelStack.unwMethod        = snaphu  # comment
+sentinelStack.coregistration   = auto  # comment
+######################################################
+pysar.network.coherenceBased   = no  #[yes / no], auto for yes, exclude interferograms with coherence < minCoherence
+pysar.network.minCoherence     = auto #0.63  #[0.0-1.0], auto for 0.7
+pysar.networkInversion.weightFunc = variance #[variance / no / coherence], auto for no
+pysar.networkInversion.minTempCoh = auto #[0.0-1.0], auto for 0.7, min temporal coherence for mask
+
+pysar.reference.lalo           =  auto   # 15 km N of Chiles
+pysar.deramp = plane # ['quadratic', 'plane', 'quardatic_range', 'quadratic_azimiuth', 'plane_range', 'plane_azimuth','baselineCor','BaseTropCor']
+
+pysar.troposphericDelay.method = no # pyaps  #[pyaps / height_correlation / base_trop_cor / no], auto for pyaps
+pysar.save.hdfEos5             = yes   #[yes / update / no], auto for no, save timeseries to UNAVCO InSAR Archive format
+pysar.save.hdfEos5.update      = yes   #[yes / no], auto for no, put XXXXXXXX as endDate in output filename
+######################################################
+insarmaps.cityName='Atlanta'

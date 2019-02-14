@@ -1,0 +1,30 @@
+####### getSAR, raw2slc and createBaselineList  options ###############################
+source                      = winsar
+satellite                   = Ers
+track                       = 442 
+startFrame                  = 2781
+endFrame                    = 2799
+startDate					= 920101 
+endDate						= 071231 
+numProcs            		= 24 
+lengthDayMax				=500 
+perpBaseMax					= 500 
+moveData		    		= yes
+raw2slc_OrbitType           = ODR 
+DopOverlapThresh            = 50    
+####### ROI_PAC OPTIONS ##############################
+DEM= /nethome/insarlab/fgreene/insarlab/ROIPAC_DEMS/fgreene/BandR_2781_2799_T213_T442_T485/BandR_2781_2799_T213_T442_T485.dem 
+flattening=orbit
+#OrbitType=HDR
+Rlooks_sim=2
+Rlooks_int=8
+Rlooks_unw=8
+meter_per_cycle=6.283
+unw_method=snaphu
+snap_conncomthresh=60
+Filt_method=psfilt_adapt_filt
+FilterStrength=0.5/4
+UnwrappedThreshold=0.10
+maskingwith0height=TRUE
+#web   = --wildcard 'geo*[0-9].unw.dem*jpg' --wildcard 'filt*SIM*rlks.intamp*jpg' --wildcard 'geo*.unw.kmz'
+clean              = --KeepSBASgeo --DoItFrom vexall

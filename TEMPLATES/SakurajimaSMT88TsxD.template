@@ -1,0 +1,70 @@
+memoryCoregistSLC   = 20000
+memoryCoregistSLC   = 12000
+memoryProcessFilt   = 3700
+memoryProcessDone   = 3700
+memoryCoregist      = 3700
+walltimeProcessDone = 4:00
+platform            = Tsx
+ssaraopt            = scp  visx.ccs.miami.edu:/famelung/data/PichinchaT51TsxD/TSX_201501\* .           # not yet implemented in process_rsmas.pl. Need unmoved data
+ssaraopt            = -r 51 --intersectsWith='POINT(-78.60632 -0.169810)' --collection="Geohazard.Supersite.TerraSAR-X_SSC" -s 2015-06-01  -e 2017-12-31 
+ssaraopt            = -r 51 --intersectsWith='POINT(-78.60632 -0.169810)' --collection="Geohazard.Supersite.TerraSAR-X_SSC" -s 2016-01-01
+ssaraopt            = -r 88 --collection="TSX ARC_famelung_GEO1514" 
+#boundingBox         = -1.089082,-78.860614,-0.281650,-78.101618
+#boundingBox         = 31.530,130.577,31.636,130.739
+masterDate          = 121212
+raw2slc_OrbitType   = HDR 
+#select.network.masterDate   = 160506
+select.network.seasonal     = no
+select.network.method       = hierarchical
+select.network.tempPerpList = 33,500;55,200;66,150;77,100;88,50;110,20
+#select.network.perpBaseMax  = 400     
+#select.network.tempBaseMax  = 66
+#select.network.dopOverlapMin= 15
+#select.network.startDate     = 20141114
+#select.network.endDate       = 20150520
+#masterDate                   = 150130
+
+####### ROI_PAC OPTIONS ##############################
+DEM                =  /nethome/famelung/insarlab/DEMDIR/Pichincha30m_TsxD/output.dem
+DEM                =  /nethome/famelung/insarlab/DEMDIR/KirishimaT073F2970_2980AlosD/gsi10m.dem
+DEMg               =  /nethome/famelung/insarlab/DEMDIR/KirishimaT073F2970_2980AlosD/gsi10m_30m.dem
+flattening         = orbit
+#OrbitType         = HDR
+Rlooks_sim         = 4         
+Rlooks_int         = 8
+Rlooks_unw         = 8
+#meter_per_cycle    = 6.283
+#unw_method         = old
+unw_method         = treef
+unw_method         = snaphu
+#snap_conncomthresh = 60
+Filt_method        = psfilt
+FilterStrength     = 0.5
+UnwrappedThreshold = 0.2
+maskingwith0height = TRUE
+ampmagGrossopt     = 30/30/512/64
+ampmagFineopt      = 120/120/128/64
+pixel_ratio        = 1
+cleanopt           = 1
+######################################################
+pysar.network.coherenceBased = yes  # yes    #search and use input coherence file
+
+pysar.troposphericDelay.method       = no # pyaps  # ['height-correlation', 'pyaps']
+pysar.troposphericDelay.weatherModel = ECMWF  # ['ECMWF', 'MERRA', 'NARR']
+pysar.unwrapError = no
+pysar.topographicResidual   = yes
+pysar.deramp      = plane # ['quadratic', 'plane', 'quardatic_range', 'quadratic_azimiuth', 'plane_range', 'plane_azimuth','baselineCor','BaseTropCor']
+#pysar.subset.lalo = -0.18:-0.16,-78.62:-78.60
+#pysar.subset.lalo = -0.188:-0.150,-78.625:-78.59
+#pysar.subset.lalo =  -0.297:-0.264,-78.559:-78.526
+pysar.temporalCoherence.threshold  = 0.2    #[0.0-1.0], auto for 0.7
+pysar.geocode     = yes
+pysar.save.unavco = yes
+######################################################
+unavco.mission        = TERRASAR-X
+unavco.relative_orbit = 51 
+unavco.frame          = 0000
+unavco.beam_mode      = SM
+unavco.beam_swath     = 004
+unavco.processing_software= ROI_PAC
+unavco.processing_type  = LOS_TIMESERIES

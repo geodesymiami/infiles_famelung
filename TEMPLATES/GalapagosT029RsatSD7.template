@@ -1,0 +1,40 @@
+####### ssara, raw2slc, SelectPairs  options ###############################
+memoryCoregist      = 3700
+memoryProcessFilt   = 3700
+memoryProcessDone   = 3700
+ssaraopt            = --platform=Radarsat-1 -r 79 -s 2006-03-01 -e 2006-08-31 --intersectsWith='POINT(-91.13  -0.81)'
+ssaraopt            = --platform=Radarsat-1 -r 79 -s 1995-03-01 -e 2010-08-31 --intersectsWith='POINT(-91.13  -0.81)'
+raw2slc_OrbitType  = HDR
+masterDate          = 080426
+selectPairs.Method            = All            
+selectPairs.perpBaseMax       = 200
+selectPairs.DopOverlapThresh  = 15    
+####### ROI_PAC OPTIONS ##############################
+DEM                = $PARENTDIR/data/testdata/roi_pac/GalapagosT061EnvA2/DEMDIR/Galapagos_SRTM3g_1i_merged.dem
+DEM                = $PARENTDIR/data/testdata/roi_pac/GalapagosT061EnvA2/DEMDIR/output.dem
+OrbitType          = HDR
+flattening         = orbit
+Rlooks_sim         = 1
+Rlooks_int         = 4
+Rlooks_unw         = 4
+meter_per_cycle    = 6.283
+unw_method         = snaphu
+unw_method         = treef
+snap_conncomthresh = 60
+Filt_method        = psfilt_adapt_filt
+FilterStrength     = 0.3/4
+UnwrappedThreshold = 0.10
+maskingwith0height = TRUE
+cleanopt            = 1
+######################################################
+######## PySAR   OPTIONS ##############################
+#######################################################
+
+pysar.topographicResidual   = yes
+pysar.unwrapError = no
+pysar.deramp      = yes
+pysar.deramp = plane # ['quadratic', 'plane', 'quardatic_range', 'quadratic_azimiuth', 'plane_range', 'plane_azimuth','baselineCor','BaseTropCor']
+pysar.troposphericDelay = no
+pysar.mask     =yes
+pysar.mask.threshold = 0.7
+pysar.geocode = yes

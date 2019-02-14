@@ -1,0 +1,79 @@
+##### getSAR, raw2slc and createBaselineList  options ###############################
+#walltime            = 4:00
+memoryCoregist      = 8000
+memoryProcessFilt   = 3700
+memoryProcessDone   = 3700
+#source              = asf
+#satellite           = Alos
+#boundingBox         = -0.76,-78.57,-0.62, -78.40
+#boundingBox         = -1.089082,-78.860614,-0.281650,-78.101618
+#north=-0.281650&south=-1.089082&east=-78.101618&west=-78.860614
+#endDate             = 080516
+#endDate             = 110116
+platform            = CSK
+ssaraopt            = -r 6 --collectionName="Supersites CSK Ecuador"  -s 2015-11-19 -e 2016-01-17
+ssaraopt            = -r 6 --collectionName="Supersites CSK Ecuador"  
+masterDate          = 151231
+raw2slc_OrbitType   = HDR 
+pysar.network.keepSeasonal = no
+pysar.network.dopOverlapMin= 15
+pysar.network.method       = hierarchical
+pysar.network.tempPerpList = 16,800;32,500;48,400;96,300;128,200;256,100;512,10 
+pysar.network.tempPerpList = 16,1500;32,1000;64,600;80,400;96,300;128,200;160,100;365,10 
+pysar.network.tempPerpList = 16,800;48,500;96,400;128,300;256,200;352,100;512,40 
+#interferogramList  = [090106-100928]
+
+####### ROI_PAC OPTIONS ##############################
+DEM                =  /nethome/famelung/insarlab/DEMDIR/CotopaxiIGEPN_CSK_0.0001/output.dem
+DEMg                =  /nethome/famelung/insarlab/DEMDIR/CotopaxiIGEPN_CSK_0.0001/output_a2lks_r2lks.dem
+#DEMg               =  /nethome/famelung/insarlab/DEMDIR/CotopaxiIGEPN_CSK_0.0002/output.dem
+flattening         = orbit
+OrbitType          = HDR
+Rlooks_sim         = 2
+Rlooks_int         = 8
+Rlooks_unw         = 8
+#meter_per_cycle    = 6.283
+#unw_method         = old
+unw_method         = treef
+unw_method         = snaphu
+#snap_conncomthresh = 60
+Filt_method        = psfilt_adapt_filt
+Filt_method        = psfilt
+FilterStrength     = 0.5/4
+FilterStrength     = 0.5
+UnwrappedThreshold = 0.10
+maskingwith0height = TRUE
+#synthoffsetopt     = 40
+ampmagFineopt      = 50/50/256/128
+pixel_ratio        = 1
+#tiltdegree         = 2
+cleanopt            = 1
+
+################ Time Series - PySAR #######################
+pysar.network.coherenceBase    = yes    #search and use input coherence file
+pysar.troposphericDelay.method = pyaps  # ['height-correlation', 'pyaps']
+pysar.unwrapError   = no
+pysar.topographicResidual     = yes
+pysar.deramp = plane # ['quadratic', 'plane', 'quardatic_range', 'quadratic_azimiuth', 'plane_range', 'plane_azimuth','baselineCor','BaseTropCor']
+pysar.geocode    = yes
+
+######################################################
+unavco.mission        = COSMO-SKYMED
+unavco.relative_orbit = 6
+unavco.frame          = 0000
+unavco.beam_mode      = HIMAGE 
+unavco.beam_swath     = H407
+
+title            = Cotopaxi
+referenceText    = 'A. Morales-Rivera, F. Amelung, P Mothes et al. (2017), Ground deformation before the 2015 eruptions of Cotopaxi volcano from InSAR time series, submitted to Geophys. Res. Lett.'
+referencePdf     = http://anierimorales.weebly.com/uploads/2/3/7/2/23724661/poster.compressed.pdf
+downloadUnavco   = default
+discipline       = Volcano
+
+> preset plot 1
+plot.title =  "Morales Rivera Figure2e"
+plot.startDate   = 2015-04-19
+plot.endDate     = 2015-08-25
+plot.colorscale  = -2.8,2.8,cm,jet
+plot.subset.lalo = -1.6:-1.1,-98.4:-97.6
+

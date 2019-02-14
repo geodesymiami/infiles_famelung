@@ -1,0 +1,49 @@
+####### ssara, raw2slc, SelectPairs  options ###############################
+memoryCoregist      = 3700
+memoryProcessFilt   = 3700
+memoryProcessDone   = 3700
+ssaraopt            = --platform=Envisat -r 061  --intersectsWith='POINT(-91.13  -0.81)' 
+ssaraopt            =  --platform=Alos --intersectsWith='POINT(-91.13  -0.81)' -r 133 -s 2009-01-01  -e 2011-12-31  
+ssaraopt            =  --platform=Alos -r 133 -f7170 -s 2009-01-01  -e 2010-03-31  
+ssaraopt            =  --platform=Alos -r 474 -f3630,3640 -s 2008-01-01  -e 2011-10-30  
+ssaraopt            =  --platform=Alos -r 474 -f3630,3640 -s 2008-01-01  -e 2011-10-30  
+raw2slc_OrbitType  = DOR
+masterDate         = 090121
+selectMethod       = all            
+perpBaseMax        = 1500
+lengthDayMin       = 0
+lengthDayMin       = 250
+lengthDayMax       = 4000
+seasonal           = no          # seasonal temporal baseline
+DopOverlapThresh   = 15    
+#geocodeflag        = all
+####### ROI_PAC OPTIONS ##############################
+DEM                = $PARENTDIR/data/testdata/roi_pac/GalapagosT061EnvA2/DEMDIR/Galapagos_SRTM3g_1i_merged.dem
+DEM                = $PARENTDIR/data/testdata/roi_pac/GalapagosT061EnvA2/DEMDIR/output.dem
+OrbitType         = HDR
+flattening         = orbit
+Rlooks_sim         = 1
+Rlooks_int         = 4
+Rlooks_unw         = 4
+pixel_ratio         = 3
+ampmagFineopt       = 70/70/256/64
+meter_per_cycle    = 6.283
+unw_method         = snaphu
+unw_method         = treef
+snap_conncomthresh = 60
+Filt_method        = psfilt_adapt_filt
+FilterStrength     = 0.3/4
+UnwrappedThreshold = 0.10
+maskingwith0height = TRUE
+cleanopt            = 1
+######################################################
+######## PySAR   OPTIONS ##############################
+#######################################################
+
+pysar.topographicResidual = yes
+pysar.orbitError = no
+pysar.orbitError.method = plane # ['quadratic', 'plane', 'quardatic_range', 'quadratic_azimiuth', 'plane_range', 'plane_azimuth','baselineCor','BaseTropCor']
+pysar.troposphericDelay = no
+pysar.mask=yes
+pysar.mask.threshold = 0.7
+pysar.geocode = yes
