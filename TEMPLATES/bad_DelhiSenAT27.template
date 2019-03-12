@@ -5,7 +5,7 @@ ssaraopt = --platform=SENTINEL-1A,SENTINEL-1B -r 27 -f 85-92 -s 2016-06-01 -e 20
 ssaraopt = --platform=SENTINEL-1A,SENTINEL-1B -r 27 -f 93-97 -s 2017-10-01 -e 2018-05-31
 ssaraopt = --platform=SENTINEL-1A,SENTINEL-1B -r 27 -f 87-93 -s 2017-10-01 -e 2018-05-31
 ssaraopt = --platform=SENTINEL-1A,SENTINEL-1B -r 27 -f 94-101 -s 2017-10-01 -e 2018-05-31
-ssaraopt = --platform=SENTINEL-1A,SENTINEL-1B -r 27 -f 70-84 -s 2017-10-01 -e 2018-05-31
+ssaraopt = --platform=SENTINEL-1A,SENTINEL-1B -r 27 -f 85-97 -s 2018-02-12 -e 2018-03-21
 
 processor                      = isce
 
@@ -17,9 +17,9 @@ sentinelStack.azimuthLooks     = 15   # comment
 sentinelStack.rangeLooks       = 45  # comment
 sentinelStack.filtStrength     = 0.2  # comment
 sentinelStack.unwMethod        = snaphu  # comment
-sentinelStack.coregistration   = auto  # comment
+sentinelStack.coregistration   = geometry  # comment
 
-pysar.network.coherenceBased   = no  #[yes / no], auto for yes, exclude interferograms with coherence < minCoherence
+pysar.network.coherenceBased   = auto  #[yes / no], auto for yes, exclude interferograms with coherence < minCoherence
 pysar.timeseriesInv.weightFunc = variance #[variance / no / coherence], auto for no
 
 pysar.network.startDate        = 20171015   #[20090101 / no], auto for no
