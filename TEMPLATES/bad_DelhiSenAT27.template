@@ -1,11 +1,11 @@
 ######################################################
 cleanopt = 0   # [ 0 / 1 / 2 / 3 4]   0: no cleaning, 1: largest files, 2: merged/etc, PROCESS dirs, 3: SLC,RAW, 4: everything
-ssaraopt = --platform=SENTINEL-1A,SENTINEL-1B -r 27 -f 70-102 -s 2017-10-01  -e 2018-05-31
 ssaraopt = --platform=SENTINEL-1A,SENTINEL-1B -r 27 -f 85-92 -s 2016-06-01 -e 2016-08-31
 ssaraopt = --platform=SENTINEL-1A,SENTINEL-1B -r 27 -f 93-97 -s 2017-10-01 -e 2018-05-31
 ssaraopt = --platform=SENTINEL-1A,SENTINEL-1B -r 27 -f 87-93 -s 2017-10-01 -e 2018-05-31
 ssaraopt = --platform=SENTINEL-1A,SENTINEL-1B -r 27 -f 94-101 -s 2017-10-01 -e 2018-05-31
 ssaraopt = --platform=SENTINEL-1A,SENTINEL-1B -r 27 -f 85-97 -s 2018-02-12 -e 2018-03-21
+ssaraopt = --platform=SENTINEL-1A,SENTINEL-1B -r 27 -f 70-102 -s 2017-10-01  -e 2017-10-16
 
 processor                      = isce
 

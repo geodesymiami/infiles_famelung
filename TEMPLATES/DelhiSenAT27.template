@@ -1,16 +1,16 @@
 ######################################################
 cleanopt = 0   # [ 0 / 1 / 2 / 3 4]   0: no cleaning, 1: largest files, 2: merged/etc, PROCESS dirs, 3: SLC,RAW, 4: everything
-ssaraopt = --platform=SENTINEL-1A,SENTINEL-1B -r 27 -f 70-102 -s 2017-10-01  -e 2018-05-31
 ssaraopt = --platform=SENTINEL-1A,SENTINEL-1B -r 27 -f 85-92 -s 2016-06-01 -e 2016-08-31
 ssaraopt = --platform=SENTINEL-1A,SENTINEL-1B -r 27 -f 93-97 -s 2017-10-01 -e 2018-05-31
 ssaraopt = --platform=SENTINEL-1A,SENTINEL-1B -r 27 -f 87-93 -s 2017-10-01 -e 2018-05-31
 ssaraopt = --platform=SENTINEL-1A,SENTINEL-1B -r 27 -f 94-101 -s 2017-10-01 -e 2018-05-31
 ssaraopt = --platform=SENTINEL-1A,SENTINEL-1B -r 27 -f 70-84 -s 2017-10-01 -e 2018-05-31
+ssaraopt = --platform=SENTINEL-1A,SENTINEL-1B -r 27 -f 69-102 -s 2017-10-01  -e 2018-05-31
 
 processor                      = isce
 
 sentinelStack.boundingBox      = '-1 0.15 -91.6 -90.9'
-sentinelStack.boundingBox      =  '26.90 29.10 74.0 79.0'
+sentinelStack.boundingBox      =  '25.90 29.60 74.0 79.0'
 sentinelStack.subswath         = 2   # comment 
 sentinelStack.numConnections   = 3   # comment
 sentinelStack.azimuthLooks     = 15   # comment

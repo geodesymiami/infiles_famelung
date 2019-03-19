@@ -1,8 +1,9 @@
 ######################################################
 ssaraopt = --platform=SENTINEL-1A,SENTINEL-1B -r 27 -f 494-101 -s 2017-10-01 -e 2018-05-31
 ssaraopt = --platform=SENTINEL-1A,SENTINEL-1B -r 63 -f 493-518 -s 2017-10-01 -e 2018-05-31
-ssaraopt = --platform=SENTINEL-1A,SENTINEL-1B -r 63 -f 493-529 -s 2017-10-01 -e 2018-05-31
-ssaraopt = --platform=SENTINEL-1A,SENTINEL-1B -r 63 -f 493-536 -s 2017-11-23 -e 2017-11-24
+ssaraopt = --platform=SENTINEL-1A,SENTINEL-1B -r 165 -f 493-540 -s 2018-05-01 -e 2018-05-31
+ssaraopt = --platform=SENTINEL-1A,SENTINEL-1B -r 165 -f 493-540 -s 2018-02-01 -e 2018-03-01
+ssaraopt = --platform=SENTINEL-1A,SENTINEL-1B -r 165 -f 493-540 -s 2017-10-01 -e 2018-05-31
 
 processor                      = isce
 walltime            = 6:00
@@ -10,7 +11,7 @@ walltime            = 6:00
 sentinelStack.boundingBox      = '-1 0.15 -91.6 -90.9'
 sentinelStack.boundingBox      =  '26.90 29.10 74.0 79.0'
 sentinelStack.boundingBox      =  '25.50 30.3 74.0 79.0'
-sentinelStack.boundingBox      =  '24.50 30.3 74.0 79.0'
+sentinelStack.boundingBox      =  '22.50 30.5 74.0 83.0'
 sentinelStack.subswath         = '1 2 3'   # comment 
 sentinelStack.numConnections   = 3   # comment
 sentinelStack.azimuthLooks     = 15   # comment
