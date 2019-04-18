@@ -1,0 +1,33 @@
+######################################################
+ssaraopt = --platform=SENTINEL-1A,SENTINEL-1B -r 27 -f 494-101 -s 2017-10-01 -e 2018-05-31
+ssaraopt = --platform=SENTINEL-1A,SENTINEL-1B -r 63 -f 493-518 -s 2017-10-01 -e 2018-05-31
+ssaraopt = --platform=SENTINEL-1A,SENTINEL-1B -r 63 -f 493-529 -s 2017-10-01 -e 2018-05-31
+ssaraopt = --platform=SENTINEL-1A,SENTINEL-1B -r 63 -f 493-536 -s 2017-11-23 -e 2017-11-24
+
+processor                      = isce
+walltime            = 6:00
+
+sentinelStack.boundingBox      = '-1 0.15 -91.6 -90.9'
+sentinelStack.boundingBox      =  '26.90 29.10 74.0 79.0'
+sentinelStack.boundingBox      =  '25.50 30.3 74.0 79.0'
+sentinelStack.boundingBox      =  '24.50 30.3 74.0 79.0'
+sentinelStack.subswath         = '1 2 3'   # comment 
+sentinelStack.numConnections   = 3   # comment
+sentinelStack.azimuthLooks     = 15   # comment
+sentinelStack.rangeLooks       = 45  # comment
+sentinelStack.filtStrength     = 0.2  # comment
+sentinelStack.unwMethod        = snaphu  # comment
+sentinelStack.coregistration   = auto  # comment
+
+pysar.network.coherenceBased   = no  #[yes / no], auto for yes, exclude interferograms with coherence < minCoherence
+pysar.timeseriesInv.weightFunc = variance #[variance / no / coherence], auto for no
+
+pysar.reference.lalo           = 27.1692, 78.0424    # Agra (subswath 2)
+pysar.network.startDate        = 20171015 # 20171111   #[20090101 / no], auto for no
+pysar.network.endDate          = 20180520   #[20090101 / no], auto for no
+pysar.networkInversion.minTempCoh = auto #[0.0-1.0], auto for 0.7, min temporal coherence for mask
+pysar.troposphericDelay.method = auto # pyaps  #[pyaps / height_correlation / base_trop_cor / no], auto for pyaps
+pysar.troposphericDelay.weatherDir = $WEATHERDIR/ # Weatherdir
+pysar.save.hdfEos5                 = yes   #[yes / update / no], auto for no, save timeseries to UNAVCO InSAR Archive format
+pysar.save.hdfEos5.update          = no   #[yes / no], auto for no, put XXXXXXXX as endDate in output filename
+######################################################

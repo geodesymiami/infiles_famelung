@@ -1,0 +1,32 @@
+ssaraopt.platform              = SENTINEL-1A,SENTINEL-1B                                                                             
+ssaraopt.relativeOrbit         = 34                                                                                                  
+ssaraopt.frame                 = 481-507                                                                                             
+ssaraopt.startDate             = 2017-10-01                                                                                          
+ssaraopt.endDate               = 2018-05-31                                                                                          
+ssaraopt.parallel              = 30   
+
+processor                      = isce
+cleanopt                       = 0                                                                                                   
+
+sentinelStack.boundingBox      =  '25.50 30.3 74.0 79.0'
+sentinelStack.boundingBox      =  '22.50 30.5 72.0 83.0'
+sentinelStack.subswath         = '1 2 3'   # comment 
+sentinelStack.numConnections   = 3   # comment
+sentinelStack.azimuthLooks     = 15   # comment
+sentinelStack.rangeLooks       = 45  # comment
+sentinelStack.filtStrength     = 0.2  # comment
+sentinelStack.unwMethod        = snaphu  # comment
+sentinelStack.coregistration   = auto  # comment
+
+pysar.network.coherenceBased   = no  #[yes / no], auto for yes, exclude interferograms with coherence < minCoherence
+pysar.timeseriesInv.weightFunc = variance #[variance / no / coherence], auto for no
+
+pysar.reference.lalo           = auto # 27.1692, 78.0424    # Agra (subswath 2)
+pysar.network.startDate        = auto # 20171015 # 20171111   #[20090101 / no], auto for no
+pysar.network.endDate          = auto # 20180520   #[20090101 / no], auto for no
+pysar.networkInversion.minTempCoh = auto #[0.0-1.0], auto for 0.7, min temporal coherence for mask
+pysar.troposphericDelay.method = auto # pyaps  #[pyaps / height_correlation / base_trop_cor / no], auto for pyaps
+pysar.troposphericDelay.weatherDir = $WEATHER_DIR/ # Weatherdir
+pysar.save.hdfEos5                 = yes   #[yes / update / no], auto for no, save timeseries to UNAVCO InSAR Archive format
+pysar.save.hdfEos5.update          = no   #[yes / no], auto for no, put XXXXXXXX as endDate in output filename
+######################################################
