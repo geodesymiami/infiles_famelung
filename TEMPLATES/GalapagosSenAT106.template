@@ -1,14 +1,18 @@
 process_flag                        = TRUE                                                                                                
 login                               = pegasus.ccs.miami.edu                                                                               
 user                                = famelung                                                                                            
+processor                           = isce                                                                                                
 ####################
 email_pysar                         = famelung@rsmas.miami.edu jaz101@rsmas.miami.edu                                                     
 email_insarmaps                     = famelung@rsmas.miami.edu jaz101@rsmas.miami.edu                                                     
 ####################
 every_day_flag                      = yes                                                                                                 
-ssaraopt                            = --platform=SENTINEL-1A,SENTINEL-1B -r 106 -f 1174-1181 -e 2018-06-25                                                  
-parallel_download                   = 20                                                                                                  
-processor                           = isce                                                                                                
+ssaraopt.platform                   = SENTINEL-1A,SENTINEL-1B
+ssaraopt.relativeOrbit              = 106 
+ssaraopt.frame                      = 1174-1181
+ssaraopt.start                      = 2014-06-25                                                  
+ssaraopt.end                        = 2017-01-11                                                  
+ssaraopt.parallel                   = 10                                                                                                  
 cleanopt                            = 2                                                                                                   
 ####################
 sentinelStack.boundingBox           = '-1 0.15 -91.6 -90.9'                             # '-1 0.15 -91.6 -90.9'                           
@@ -20,13 +24,11 @@ sentinelStack.filtStrength          = 0.2                                       
 sentinelStack.unwMethod             = snaphu                                            # comment                                         
 sentinelStack.coregistration        = auto                                              # [NESD geometry], auto for NESD                  
 ####################
-pysar.reference.lalo                =  -0.7,-91.3                                                                                         
+pysar.reference.lalo                =  -0.7,-91.3
 pysar.troposphericDelay.method      = no                                                #[pyaps / height_correlation / base_trop_cor / no], auto for pyaps
-pysar.network.coherenceBased        = auto                                              #[yes / no], auto for no, exclude interferograms with coherence < minCoherence
-pysar.network.minCoherence          = auto                                              # 0.63 #[0.0-1.0], auto for 0.7                   
-pysar.networkInversion.weightFunc   = fim                                               # [fim / variance / coherence / no], auto for no  
 pysar.network.startDate             = auto                                              # [20090101 / no], auto for no                    
 pysar.network.endDate               = auto                                              # [20090101 / no], auto for no                    
-pysar.save.hdfEos5                  = yes                                               # [yes / update / no], auto for no, save timeseries to UNAVCO InSAR Archive format
-pysar.save.hdfEos5.update           = no                                               # [yes / no], auto for no, put XXXXXXXX as endDate in output filename
-pysar.save.kml                      = yes                                               # [yes / no], auto for yes, save geocoded velocity to Google Earth KMZ file
+pysar.deramp                        = linear
+pysar.save.hdfEos5                  = yes                                               # [yes / update / no], auto for no, save timeseries to UNAVCO InSAR Archi
+pysar.save.hdfEos5.update           = yes                                               # [yes / no], auto for no, put XXXXXXXX as endDate in output filename
+pysar.save.kml                      = yes                                               # [yes / no], auto for yes, save geocoded velocity to Google Earth KMZ fi
