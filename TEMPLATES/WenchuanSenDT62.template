@@ -8,21 +8,21 @@ every_day_flag                      = yes
 ####################
 ssaraopt.platform                   = SENTINEL-1A,SENTINEL-1B 
 ssaraopt.relativeOrbit              = 149 
-#ssaraopt.frame                      = 453-465 
-ssaraopt.frame                      = 458-463 
+ssaraopt.frame                      = 453-465 
 parallel_download                   = 20                                                                                                  
 cleanopt                            = 1                                                                                                   
 processor                           = isce                                                                                                
 ####################
+sentinelStack.boundingBox           = '39.46 39.82 118.2 118.9'                            # '-1 0.15 -91.6 -90.9'                           
 sentinelStack.boundingBox           = '38.8 40.8 117.1 119.9'                            # '-1 0.15 -91.6 -90.9'                           
-sentinelStack.boundingBox           = '39.25 40.0 116.0 121.0'                            # '-1 0.15 -91.6 -90.9'                           
+sentinelStack.subswath              = '1 2 3'                                                 # '1 2'                                           
 sentinelStack.subswath              = 2                                                 # '1 2'                                           
 sentinelStack.numConnections        = 3                                                 # comment                                         
 sentinelStack.azimuthLooks          = 7                                                 # comment                                         
 sentinelStack.rangeLooks            = 21                                                # comment                                         
 sentinelStack.filtStrength          = 0.2                                               # comment                                         
 sentinelStack.unwMethod             = snaphu                                            # comment                                         
-sentinelStack.coregistration        = geometry                                              # [NESD geometry], auto for NESD                  
+sentinelStack.coregistration        = auto                                              # [NESD geometry], auto for NESD                  
 ####################
 pysar.troposphericDelay.method      = auto                                              #[pyaps / height_correlation / base_trop_cor / no], auto for pyaps
 pysar.network.startDate             = auto                                              # [20090101 / no], auto for no                    
@@ -30,4 +30,4 @@ pysar.network.endDate               = auto                                      
 pysar.save.hdfEos5                  = yes                                               # [yes / update / no], auto for no, save timeseries to UNAVCO InSAR Archive format
 pysar.save.hdfEos5.update           = yes                                               # [yes / no], auto for no, put XXXXXXXX as endDate in output filename
 pysar.save.kml                      = yes                                               # [yes / no], auto for yes, save geocoded velocity to Google Earth KMZ file
-#pysar.network.excludeDate           = 20160829,20161010,20161115  #[20080520,20090817 / no], auto for no
+pysar.network.excludeDate           = 20160829,20161010,20161115  #[20080520,20090817 / no], auto for no

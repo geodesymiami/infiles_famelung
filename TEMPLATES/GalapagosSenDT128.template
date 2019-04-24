@@ -9,19 +9,20 @@ every_day_flag                      = yes
 ssaraopt.platform                   = SENTINEL-1A,SENTINEL-1B
 ssaraopt.relativeOrbit              = 128
 ssaraopt.frame                      = 583-596
-ssaraopt.endDate                    = 2015-11-04                                                
-parallel_download                   = 20                                                                                                  
+ssaraopt.endDate                    = 2015-04-30                                                
+ssaraopt.parallelDownload           = 20                                                                                                  
 processor                           = isce                                                                                                
-cleanopt                            = 2                                                                                                   
+cleanopt                            = 0                                                                                                   
 ####################
 sentinelStack.boundingBox           = '-1 0.15 -91.6 -90.9'                             # '-1 0.15 -91.6 -90.9'                           
 sentinelStack.subswath              = '1 2'                                                 # '1 2'                                           
-sentinelStack.numConnections        = 5                                                 # comment                                         
+sentinelStack.numConnections        = 3                                                 # comment                                         
 sentinelStack.azimuthLooks          = 5                                                 # comment                                         
 sentinelStack.rangeLooks            = 15                                                # comment                                         
 sentinelStack.filtStrength          = 0.2                                               # comment                                         
 sentinelStack.unwMethod             = snaphu                                            # comment                                         
-sentinelStack.coregistration        = auto                                              # [NESD geometry], auto for NESD                  
+sentinelStack.coregistration        = auto                                            # [NESD geometry], auto for NESD                  
+sentinelStack.snrMisregThreshold    = 3             # compare to 10 default
 ####################
 pysar.reference.lalo                =  -0.7,-91.3                                                                                         
 pysar.troposphericDelay.method      = no                                                #[pyaps / height_correlation / base_trop_cor / no], auto for pyaps
