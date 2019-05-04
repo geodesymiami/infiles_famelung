@@ -11,12 +11,12 @@ cleanopt                            = 1
 ssaraopt.platform                   = SENTINEL-1A,SENTINEL-1B 
 ssaraopt.relativeOrbit              = 72 
 ssaraopt.frame                      = 108-112
-ssaraopt.parallel_download          = 20                                                                                                  
+ssaraopt.parallel                   = 20                                                                                                  
 ssaraopt.startDate                  = 2017-11-13                                                                                                  
 ####################
 sentinelStack.demMethod             = boundingBox                     # 
-sentinelStack.boundingBox           = '34.4 35.2 45.0 47.0'           # '-1 0.15 -91.6 -90.9'                           
-sentinelStack.subswath              = 1                               # '1 2'                                           
+sentinelStack.boundingBox           = '33.7 35.4 45.0 47.0'           # '-1 0.15 -91.6 -90.9'                           
+sentinelStack.subswath              = 2 3                             # '1 2'                                           
 sentinelStack.numConnections        = 3                               # comment                                         
 sentinelStack.azimuthLooks          = 7                               # comment                                         
 sentinelStack.rangeLooks            = 21                              # comment                                         
@@ -25,7 +25,7 @@ sentinelStack.unwMethod             = snaphu                          # comment
 sentinelStack.coregistration        = auto                            # [NESD geometry], auto for NESD                  
 ####################
 pysar.troposphericDelay.method      = auto                            # [pyaps / height_correlation / base_trop_cor / no], auto for pyaps
-pysar.network.startDate             = 2017-11-13                      # [20090101 / no], auto for no                    
+pysar.network.startDate             = 20171113                      # [20090101 / no], auto for no                    
 pysar.network.endDate               = auto                            # [20090101 / no], auto for no                    
 pysar.deramp                        = auto                            # [no / linear / quadratic], auto for no - no ramp will be removed
 pysar.save.hdfEos5                  = yes                             # [yes / update / no], auto for no, save timeseries to UNAVCO InSAR Archive format

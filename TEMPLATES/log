@@ -4,3 +4,11 @@
 20190422:215220 * process_rsmas.py /nethome/famelung/insarlab/infiles/famelung/TEMPLATES/DarbandikhanSenDT79.template --submit --insarmaps
 20190423:045053 * ##### NEW RUN #####
 20190423:045053 * process_rsmas.py /nethome/famelung/insarlab/infiles/famelung/TEMPLATES/DarbandikhanSenAT72.template --insarmaps --submit
+20190426:062645 * ##### NEW RUN #####
+20190426:062645 * process_rsmas.py /nethome/famelung/insarlab/infiles/famelung/TEMPLATES/qtestDarbandikhanSenDT79.template --submit
+20190426:091754 * ##### NEW RUN #####
+20190426:091754 * process_rsmas.py /nethome/famelung/insarlab/infiles/famelung/TEMPLATES/WenchuanSenDT62.template --submit
+20190427:213408 * ##### NEW RUN #####
+20190427:213408 * process_rsmas.py /nethome/famelung/insarlab/infiles/famelung/TEMPLATES/testdownDarbandikhanSenDT79.template --stopprocess --submit
+20190427:215859 * ##### NEW RUN #####
+20190427:215859 * process_rsmas.py /nethome/famelung/insarlab/infiles/famelung/TEMPLATES/testcoverDarbandikhanSenDT79.temaplate --submit

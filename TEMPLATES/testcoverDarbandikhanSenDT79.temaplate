@@ -6,18 +6,17 @@ email_insarmaps                     = famelung@rsmas.miami.edu
 every_day_flag                      = yes                                                                                                 
 ####################
 processor                           = isce                                                                                                
-cleanopt                            = 1                                                                                                   
+cleanopt                            = 0                                                                                                   
 ###################3
 ssaraopt.platform                   = SENTINEL-1A,SENTINEL-1B 
 ssaraopt.relativeOrbit              = 79 
-ssaraopt.frame                      = 474 
-ssaraopt.parallel_download          = 20                                                                                                  
+ssaraopt.parallel                   = 20                                                                                                  
 ssaraopt.startDate                  = 2017-10-15                                                                                                  
-ssaraopt.startDate                  = 2017-12-31                                                                                                  
+ssaraopt.endDate                    = 2017-12-31                                                                                                  
 ####################
 sentinelStack.demMethod             = boundingBox                     # 
-sentinelStack.boundingBox           = '34.0 35.2 45.0 47.0'           # '-1 0.15 -91.6 -90.9'                           
-sentinelStack.subswath              = 1                             # '1 2'                                           
+sentinelStack.boundingBox           = '33.5 35.4 45.0 47.0'           # '-1 0.15 -91.6 -90.9'                           
+sentinelStack.subswath              = 1 2                             # '1 2'                                           
 sentinelStack.numConnections        = 3                               # comment                                         
 sentinelStack.azimuthLooks          = 7                               # comment                                         
 sentinelStack.rangeLooks            = 21                              # comment                                         

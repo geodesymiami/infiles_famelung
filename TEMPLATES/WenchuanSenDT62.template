@@ -7,14 +7,14 @@ email_insarmaps                     = famelung@rsmas.miami.edu
 every_day_flag                      = yes                                                                                                 
 ####################
 ssaraopt.platform                   = SENTINEL-1A,SENTINEL-1B 
-ssaraopt.relativeOrbit              = 149 
-ssaraopt.frame                      = 453-465 
-parallel_download                   = 20                                                                                                  
-cleanopt                            = 1                                                                                                   
+ssaraopt.relativeOrbit              = 62 
+ssaraopt.parallel                   = 20                                                                                                  
+cleanopt                            = 0                                                                                                   
 processor                           = isce                                                                                                
 ####################
+sentinelStack.demMethod             = boundingBox
 sentinelStack.boundingBox           = '39.46 39.82 118.2 118.9'                            # '-1 0.15 -91.6 -90.9'                           
-sentinelStack.boundingBox           = '38.8 40.8 117.1 119.9'                            # '-1 0.15 -91.6 -90.9'                           
+sentinelStack.boundingBox           = '30.8 31.6 102.1 104.4'                            # '-1 0.15 -91.6 -90.9'                           
 sentinelStack.subswath              = '1 2 3'                                                 # '1 2'                                           
 sentinelStack.subswath              = 2                                                 # '1 2'                                           
 sentinelStack.numConnections        = 3                                                 # comment                                         
@@ -30,4 +30,3 @@ pysar.network.endDate               = auto                                      
 pysar.save.hdfEos5                  = yes                                               # [yes / update / no], auto for no, save timeseries to UNAVCO InSAR Archive format
 pysar.save.hdfEos5.update           = yes                                               # [yes / no], auto for no, put XXXXXXXX as endDate in output filename
 pysar.save.kml                      = yes                                               # [yes / no], auto for yes, save geocoded velocity to Google Earth KMZ file
-pysar.network.excludeDate           = 20160829,20161010,20161115  #[20080520,20090817 / no], auto for no
