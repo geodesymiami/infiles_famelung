@@ -14,7 +14,7 @@ sentinelStack.rangeLooks       = 15   # comment
 sentinelStack.filtStrength     = 0.2  # comment
 sentinelStack.unwMethod        = snaphu  # comment
 sentinelStack.coregistration   = auto  # [NESD geometry], auto for NESD
-sentinelStack.slcDir           = $TESTDATA_ISCE/unittestGalapagosSenDT128/SLC
+#sentinelStack.slcDir           = $TESTDATA_ISCE/unittestGalapagosSenDT128/SLC
 
 pysar.reference.lalo              = -0.7,-91.3     # N of SN
 pysar.network.coherenceBased      = no  #[yes / no], auto for yes, exclude interferograms with coherence < minCoherence

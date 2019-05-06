@@ -12,3 +12,5 @@
 20190427:213408 * process_rsmas.py /nethome/famelung/insarlab/infiles/famelung/TEMPLATES/testdownDarbandikhanSenDT79.template --stopprocess --submit
 20190427:215859 * ##### NEW RUN #####
 20190427:215859 * process_rsmas.py /nethome/famelung/insarlab/infiles/famelung/TEMPLATES/testcoverDarbandikhanSenDT79.temaplate --submit
+20190505:180632 * ##### NEW RUN #####
+20190505:180632 * process_rsmas.py /nethome/famelung/insarlab/infiles/famelung/TEMPLATES/KilaueaSenAT124.template --submit --walltime=20:00
