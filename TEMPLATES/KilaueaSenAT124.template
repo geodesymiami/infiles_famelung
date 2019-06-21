@@ -21,13 +21,11 @@ sentinelStack.azimuthLooks          = 5                               # comment
 sentinelStack.rangeLooks            = 15                              # comment                                         
 sentinelStack.filtStrength          = 0.2                             # comment                                         
 sentinelStack.unwMethod             = snaphu                          # comment                                         
-sentinelStack.coregistration        = auto                            # [NESD geometry], auto for NESD                  
-####################
-pysar.troposphericDelay.method      = auto                            # [pyaps / height_correlation / base_trop_cor / no], auto for pyaps
+pysar.troposphericDelay.method      = height_correlation              # [pyaps / height_correlation / base_trop_cor / no], auto for pyaps
 pysar.network.endDate               = auto                            # [20090101 / no], auto for no                    
 pysar.networkInversion.parallel     = yes                            # [yes / no], auto for no, parallel processing using dask
 pysar.reference.lalo                = 19.5059, -155.3477 # 19.36427, -155.36282 #  19.49135, -155.32677 # 19.5059, -155.3477
 pysar.deramp                        = auto                            # [no / linear / quadratic], auto for no - no ramp will be removed
 pysar.save.hdfEos5                  = yes                             # [yes / update / no], auto for no, save timeseries to UNAVCO InSAR Archive format
-pysar.save.hdfEos5.update           = yes                             # [yes / no], auto for no, put XXXXXXXX as endDate in output filename
+pysar.save.hdfEos5.update           = no                             # [yes / no], auto for no, put XXXXXXXX as endDate in output filename
 pysar.save.kml                      = yes                             # [yes / no], auto for yes, save geocoded velocity to Google Earth KMZ file

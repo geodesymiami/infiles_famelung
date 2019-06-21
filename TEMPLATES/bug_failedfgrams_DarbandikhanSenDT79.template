@@ -6,18 +6,18 @@ email_insarmaps                     = famelung@rsmas.miami.edu
 every_day_flag                      = yes                                                                                                 
 ####################
 processor                           = isce                                                                                                
-cleanopt                            = 0                                                                                                   
-####################
+cleanopt                            = 1                                                                                                   
+###################3
 ssaraopt.platform                   = SENTINEL-1A,SENTINEL-1B 
-ssaraopt.platform                   = SENTINEL-1B 
 ssaraopt.relativeOrbit              = 79 
 ssaraopt.parallel                   = 20                                                                                                  
-ssaraopt.startDate                  = 2017-10-15                                                                                                  
+ssaraopt.startDate                  = 2017-11-13                                                                                                  
+ssaraopt.startDate                  = 2017-12-31                                                                                                  
 ####################
 sentinelStack.demMethod             = boundingBox                     # 
-sentinelStack.boundingBox           = '33.3 35.4 45.0 47.0'           # '-1 0.15 -91.6 -90.9'                           
-sentinelStack.subswath              = 1 2                             # '1 2'                                           
-sentinelStack.numConnections        = 3                               # comment                                         
+sentinelStack.boundingBox           = '34.0 35.2 45.0 47.0'           # '-1 0.15 -91.6 -90.9'                           
+sentinelStack.subswath              = 1                               # '1 2'                                           
+sentinelStack.numConnections        = 5                               # comment                                         
 sentinelStack.azimuthLooks          = 7                               # comment                                         
 sentinelStack.rangeLooks            = 21                              # comment                                         
 sentinelStack.filtStrength          = 0.2                             # comment                                         
@@ -28,9 +28,8 @@ sentinelStack.excludeDate           = 20181231                        #
 pysar.troposphericDelay.method      = height_correlation                            # [pyaps / height_correlation / base_trop_cor / no], auto for pyaps
 pysar.network.coherenceBased        = yes #[yes / no], auto for no, exclude interferograms with coherence < minCoherence
 pysar.network.minCoherence          = 0.1  #[0.0-1.0], auto for 0.7
-pysar.network.startDate             = 20171113                        # [20090101 / no], auto for no                    
+pysar.network.startDate             = auto                      # [20090101 / no], auto for no                    
 pysar.network.endDate               = auto                            # [20090101 / no], auto for no                    
-pysar.networkInversion.parallel     = yes                            # [yes / no], auto for no, parallel processing using dask
 pysar.deramp                        = auto                            # [no / linear / quadratic], auto for no - no ramp will be removed
 pysar.save.hdfEos5                  = yes                             # [yes / update / no], auto for no, save timeseries to UNAVCO InSAR Archive format
 pysar.save.hdfEos5.update           = yes                             # [yes / no], auto for no, put XXXXXXXX as endDate in output filename
