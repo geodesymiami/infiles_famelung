@@ -16,6 +16,7 @@ ssaraopt.parallel                   = 30
 ####################
 topsStack.boundingBox               = -2.0 1.1 -79.9 -77.4                             # '-1 0.15 -91.6 -90.9'                           
 topsStack.subswath                  = 3                                                 # '1 2'                                           
+topsStack.excludeDates              = 20170303,20170315,20170327,20170408,20170420,20170502,20170514     # '1 2'                                           
 topsStack.numConnections            = 3                                                 # comment                                         
 topsStack.azimuthLooks              = 5                                                 # comment                                         
 topsStack.rangeLooks                = 15                                                # comment                                         
@@ -23,11 +24,12 @@ topsStack.filtStrength              = 0.2                                       
 topsStack.unwMethod                 = snaphu                                            # comment                                         
 topsStack.coregistration            = auto                                              # [NESD geometry], auto for NESD                  
 ####################
-mintpy.reference.lalo               = auto                                                                                      
+mintpy.reference.lalo               = -0.7466,-78.2782
 mintpy.troposphericDelay.method     = no                                                #[pyaps / height_correlation / base_trop_cor / no], auto for pyaps
 mintpy.network.startDate            = auto                                              # [20090101 / no], auto for no                    
 mintpy.networkInversion.parallel    = yes                                               # [yes / no], auto for no, parallel processing    
-mintpy.networkInversion.walltime    = 2:45                                                                                                
+mintpy.networkInversion.walltime    = 4:00                                                                                                
+mintpy.deramp                       = quadratic                                         # [no / linear / quadratic], auto for no - no ramp will be removed
 mintpy.save.hdfEos5                 = yes                                               # [yes / update / no], auto for no, save timeseries to UNAVCO InSAR Archive format
 mintpy.save.hdfEos5.update          = no                                                # [yes / no], auto for no, put XXXXXXXX as endDate in output filename
 mintpy.save.kml                     = yes                                               # [yes / no], auto for yes, save geocoded velocity to Google Earth KMZ file
