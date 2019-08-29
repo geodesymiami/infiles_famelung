@@ -1,18 +1,2 @@
-20190422:212519 * ##### NEW RUN #####
-20190422:212519 * process_rsmas.py /nethome/famelung/insarlab/infiles/famelung/TEMPLATES/DarbandikhanDT79.template --submit --insarmaps
-20190422:215220 * ##### NEW RUN #####
-20190422:215220 * process_rsmas.py /nethome/famelung/insarlab/infiles/famelung/TEMPLATES/DarbandikhanSenDT79.template --submit --insarmaps
-20190423:045053 * ##### NEW RUN #####
-20190423:045053 * process_rsmas.py /nethome/famelung/insarlab/infiles/famelung/TEMPLATES/DarbandikhanSenAT72.template --insarmaps --submit
-20190426:062645 * ##### NEW RUN #####
-20190426:062645 * process_rsmas.py /nethome/famelung/insarlab/infiles/famelung/TEMPLATES/qtestDarbandikhanSenDT79.template --submit
-20190426:091754 * ##### NEW RUN #####
-20190426:091754 * process_rsmas.py /nethome/famelung/insarlab/infiles/famelung/TEMPLATES/WenchuanSenDT62.template --submit
-20190427:213408 * ##### NEW RUN #####
-20190427:213408 * process_rsmas.py /nethome/famelung/insarlab/infiles/famelung/TEMPLATES/testdownDarbandikhanSenDT79.template --stopprocess --submit
-20190427:215859 * ##### NEW RUN #####
-20190427:215859 * process_rsmas.py /nethome/famelung/insarlab/infiles/famelung/TEMPLATES/testcoverDarbandikhanSenDT79.temaplate --submit
-20190505:180632 * ##### NEW RUN #####
-20190505:180632 * process_rsmas.py /nethome/famelung/insarlab/infiles/famelung/TEMPLATES/KilaueaSenAT124.template --submit --walltime=20:00
-20190510:001621 * ##### NEW RUN #####
-20190510:001621 * process_rsmas.py /nethome/famelung/insarlab/infiles/famelung/TEMPLATES/bug_failedfgrams_DarbandikhanSenDT79.template --submit --walltime 10:00
+20190818:024412 * convert_boundingbox.py 103.00, 37.0,104.5, 37.0,104.50, 38.0,103.0,38.0,103.0, 37.0
+20190818:024526 * convert_boundingbox.py 103.0,37.0,104.5,37.0,104.50,38.0,103.0,38.0,103.0,37.0

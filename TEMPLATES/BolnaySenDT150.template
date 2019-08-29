@@ -16,13 +16,13 @@ ssaraopt.parallel                   = 20
 ####################
 topsStack.boundingBox               = 49.03 49.5 95.92 97.05                             # '-1 0.15 -91.6 -90.9'                           
 topsStack.boundingBox               = 49.03 49.5 94.92 98.05                             # '-1 0.15 -91.6 -90.9'                           
-topsStack.subswath                  = 2                                                 # '1 2'                                           
+topsStack.subswath                  = 1 2 3                                                 # '1 2'                                           
 topsStack.numConnections            = 4                                                 # comment                                         
 topsStack.azimuthLooks              = 8                                                 # comment                                         
 topsStack.rangeLooks                = 24                                                # comment                                         
 topsStack.filtStrength              = 0.2                                               # comment                                         
 topsStack.unwMethod                 = snaphu                                            # comment                                         
-topsStack.coregistration            = auto                                              # [NESD geometry], auto for NESD                  
+topsStack.coregistration            = geometry                                          # [NESD geometry], auto for NESD                  
 ####################
 mintpy.reference.lalo               = auto                                                                                      
 mintpy.troposphericDelay.method     = no                                                #[pyaps / height_correlation / base_trop_cor / no], auto for pyaps
