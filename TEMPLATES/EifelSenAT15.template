@@ -17,9 +17,9 @@ ssaraopt.parallel                   = 30
 topsStack.boundingBox               = 50.15 50.45 5.00 7.90                             # '-1 0.15 -91.6 -90.9'                           
 topsStack.subswath                  = 1                                                 # '1 2'                                           
 topsStack.numConnections            = 6                                                 # comment                                         
-topsStack.azimuthLooks              = 8                                                 # comment                                         
-topsStack.rangeLooks                = 24                                                # comment                                         
-topsStack.filtStrength              = 0.2                                               # comment                                         
+topsStack.azimuthLooks              = 12                                                 # comment                                         
+topsStack.rangeLooks                = 36                                                # comment                                         
+topsStack.filtStrength              = 0.5                                               # comment                                         
 topsStack.unwMethod                 = snaphu                                            # comment                                         
 topsStack.coregistration            = auto                                              # [NESD geometry], auto for NESD                  
 ####################
