@@ -39,5 +39,5 @@ mintpy.networkInversion.walltime    = 4:00
 mintpy.deramp                       = quadratic                                         # [no / linear / quadratic], auto for no - no ramp will be removed
 mintpy.save.hdfEos5                 = yes                                               # [yes / update / no], auto for no, save timeseries to UNAVCO InSAR Archive format
 mintpy.save.hdfEos5.update          = no                                                # [yes / no], auto for no, put XXXXXXXX as endDate in output filename
-mintpy.save.kml                     = yes                                               # [yes / no], auto for yes, save geocoded velocity to Google Earth KMZ file
+mintpy.save.kmz                     = yes                                               # [yes / no], auto for yes, save geocoded velocity to Google Earth KMZ file
 insarmaps_flag                      = True                                                                                                

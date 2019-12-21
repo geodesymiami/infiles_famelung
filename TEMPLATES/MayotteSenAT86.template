@@ -24,6 +24,6 @@ pysar.networkInversion.parallel   = yes #[yes / no], auto for no, parallel proce
 pysar.troposphericDelay.method    = auto # pyaps  #[pyaps / height_correlation / base_trop_cor / no], auto for pyaps
 pysar.save.hdfEos5                = yes   #[yes / update / no], auto for no, save timeseries to UNAVCO InSAR Archive format
 pysar.save.hdfEos5.update         = yes   #[yes / no], auto for no, put XXXXXXXX as endDate in output filename
-pysar.save.kml                    = yes  #[yes / no], auto for yes, save geocoded velocity to Google Earth KMZ file
+pysar.save.kmz                    = yes  #[yes / no], auto for yes, save geocoded velocity to Google Earth KMZ file
 
 ######################################################

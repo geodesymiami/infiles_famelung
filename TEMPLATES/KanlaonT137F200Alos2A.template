@@ -56,4 +56,4 @@ pysar.geocode.list         = ['velocity.h5']
 pysar.mask                 = yes
 pysar.mask.file            = Mask_tempCoh.h5
 pysar.mask.threshold       = 0.7        # threshold for generating mask from temporal coherence; commented - don't update mask
-pysar.kml                  = yes
+pysar.kmz                  = yes

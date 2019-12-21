@@ -27,4 +27,4 @@ pysar.geocode.latStep               = 0.0004
 pysar.geocode.lonStep               = 0.0004
 pysar.save.hdfEos5                  = yes                                               # [yes / update / no], auto for no, save timeseries to UNAVCO InSAR Archive format
 pysar.save.hdfEos5.update           = yes                                               # [yes / no], auto for no, put XXXXXXXX as endDate in output filename
-pysar.pysar.save.kml                = yes                                               # [yes / no], auto for yes, save geocoded velocity to Google Earth KMZ file
+pysar.pysar.save.kmz                = yes                                               # [yes / no], auto for yes, save geocoded velocity to Google Earth KMZ file

@@ -28,4 +28,4 @@ pysar.reference.lalo                = 19.5059, -155.3477 # 19.36427, -155.36282 
 pysar.deramp                        = auto                            # [no / linear / quadratic], auto for no - no ramp will be removed
 pysar.save.hdfEos5                  = yes                             # [yes / update / no], auto for no, save timeseries to UNAVCO InSAR Archive format
 pysar.save.hdfEos5.update           = no                             # [yes / no], auto for no, put XXXXXXXX as endDate in output filename
-pysar.save.kml                      = yes                             # [yes / no], auto for yes, save geocoded velocity to Google Earth KMZ file
+pysar.save.kmz                      = yes                             # [yes / no], auto for yes, save geocoded velocity to Google Earth KMZ file

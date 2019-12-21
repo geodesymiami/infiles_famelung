@@ -33,5 +33,5 @@ mintpy.geocode.latStep              = 0.002  #[0.0-90.0 / None], auto for None, 
 mintpy.geocode.lonStep              = 0.002  #[0.0-90.0 / None], auto for None, output resolution in degree
 mintpy.save.hdfEos5                 = yes                                               # [yes / update / no], auto for no, save timeseries to UNAVCO InSAR Archive format
 mintpy.save.hdfEos5.update          = yes                                                # [yes / no], auto for no, put XXXXXXXX as endDate in output filename
-mintpy.save.kml                     = yes                                               # [yes / no], auto for yes, save geocoded velocity to Google Earth KMZ file
+mintpy.save.kmz                     = yes                                               # [yes / no], auto for yes, save geocoded velocity to Google Earth KMZ file
 insarmaps_flag                      = True                                                                                                

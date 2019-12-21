@@ -1,0 +1,36 @@
+//login4/nethome/famelung/insarlab/SierraNegra/cGPS_displacements[1021] cat june26_neu.txt
+n-sigma Lat Long m m east north Lat NaN
+GV01 -0.782409656 -91.11337863 -0.082815 0 -0.02262 0 -0.02877 0
+GV03 -0.797817373 -91.13293333 -0.14623 0 0.034825 0 -0.224105 0
+GV04 -0.811485871 -91.13805757 0.1747 0 0.130305 0 -0.0878 0
+GV05 -0.804938697 -91.12121041 -0.081465 0 -0.1687 0 -0.04678 0
+GV06 -0.834316823 -91.12807277 0.77623 0 0.502515 0 1.411295 0
+GV08 -0.841994168 -91.13440942 0.50487 0 -0.04539 0 -0.274935 0
+GV09 -0.837282712 -91.14736319 0.837375 0 -0.114775 0 1.82379 0
+GV10 -0.849253958 -91.15104695 0.229745 0 0.031095 0 -0.070675 0
+K>> [GPS.e_rate]
+ans =
+   -0.0226    0.0348    0.1303   -0.1687    0.5025   -0.0454   -0.1148    0.0311
+K>> [GPS.n_rate]
+ans =
+   -0.0828   -0.1462    0.1747   -0.0815    0.7762    0.5049    0.8374    0.2297
+K>> [GPS.u_rate]
+ans =
+   -0.0288   -0.2241   -0.0878   -0.0468    1.4113   -0.2749    1.8238   -0.0707
+K>> 
+
+
+ case('BenBrooks')
+                fid=fopen(datafiles,'r');
+                C=textscan(fid,'%s%f%f%f%f%f%f%f%f','headerLines',1) ;
+                stations=C{1};  lat=C{2}; lon=C{3};  east=C{6};  north=C{4};  up=C{8};  error_east=C{7};  error_north=C{5};  error_up=C{9};
+                for ni=1:size(stations,1)
+%                     GPS(ni)=struct('station',stations(ni),'lat',lat(ni),'lon',lon(ni),'e_rate',east(ni)/1000,'n_rate',north(ni)/1000, ...
+%                         'u_rate',up(ni)/1000,'e_error',error_east(ni)/1000,'n_error',error_north(ni)/1000,'u_error',error_up(ni)/1000 ...
+%                         ,'cov',zeros(size(stations,1)*3,size(stations,1)*3));
+                   GPS(ni)=struct('station',stations(ni),'lat',lat(ni),'lon',lon(ni),'e_rate',east(ni).*unitsf,'n_rate',north(ni).*unitsf, ...
+                        'u_rate',up(ni).*unitsf,'e_error',error_east(ni).*unitsf,'n_error',error_north(ni).*unitsf,'u_error',error_up(ni).*unitsf ...
+                        ,'cov',zeros(size(stations,1)*3,size(stations,1)*3)); 
+                    
+                end
+        
