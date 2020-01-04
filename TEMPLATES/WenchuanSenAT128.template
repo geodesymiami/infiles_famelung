@@ -15,18 +15,19 @@ ssaraopt.startDate                  = 20140101
 ssaraopt.parallel                   = 20                                                                                                  
 ####################
 topsStack.boundingBox               = 48.7 50.3 94.92 98.05      # '-1 0.15 -91.6 -90.9'                           
-topsStack.boundingBox               = 30.2 31.6 102.1 105.4      # '-1 0.15 -91.6 -90.9'                           
+topsStack.boundingBox               = 29.2 31.6 102.1 105.4      # '-1 0.15 -91.6 -90.9'                           
 topsStack.subswath                  = 2 3                       # '1 2'                                           
 topsStack.numConnections            = 4                          # comment                                         
 topsStack.azimuthLooks              = 14                          # comment                                         
 topsStack.rangeLooks                = 38                         # comment                                         
 topsStack.filtStrength              = 0.2                        # comment                                         
 topsStack.unwMethod                 = snaphu                     # comment                                         
-topsStack.coregistration            = geometry                   # [NESD geometry], auto for NESD                  
-topsStack.excludeDates              = 20170308
+topsStack.coregistration            = auto                   # [NESD geometry], auto for NESD                  
+topsStack.excludeDates              = 20150307,20150331,20170308
+topsStack.slcDir                    = /projects/scratch/vdm/famelung/WenchuanSenAT128/SLC
 ####################
 mintpy.network.startDate            = 20140712                   # [20090101 / no], auto for no
-mintpy.reference.lalo               = auto                                                                                      
+mintpy.reference.lalo               = 30.556, 104.264
 mintpy.troposphericDelay.method     = no                         # [pyaps / height_correlation / base_trop_cor / no], auto for pyaps
 mintpy.network.startDate            = auto                       # [20090101 / no], auto for no                    
 mintpy.networkInversion.parallel    = yes                        # [yes / no], auto for no, parallel processing    
