@@ -14,14 +14,15 @@ ssaraopt.relativeOrbit              = 48
 ssaraopt.startDate                  = 20160712                                                                                            
 ssaraopt.parallel                   = 20                                                                                                  
 ####################
-topsStack.boundingBox               = 48.2 50.1 94.92 98.05      # '-1 0.15 -91.6 -90.9'                           
+topsStack.boundingBox               = 48.2 50.5 91.0 98.0      # '-1 0.15 -91.6 -90.9'                           
 topsStack.subswath                  = 1 2 3                      # '1 2'                                           
 topsStack.numConnections            = 4                          # comment                                         
 topsStack.azimuthLooks              = 14                          # comment                                         
 topsStack.rangeLooks                = 38                         # comment                                         
 topsStack.filtStrength              = 0.2                        # comment                                         
 topsStack.unwMethod                 = snaphu                     # comment                                         
-topsStack.coregistration            = geometry                   # [NESD geometry], auto for NESD                  
+topsStack.coregistration            = auto                       # [NESD geometry], auto for NESD                  
+topsStack.slcDir                    = /projects/scratch/vdm/famelung/BolnaySenDT48/SLC
 ####################
 mintpy.network.startDate            = auto                   # [20090101 / no], auto for no
 mintpy.reference.lalo               = auto                                                                                      
