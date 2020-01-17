@@ -22,7 +22,6 @@ topsStack.rangeLooks                = 38                         # comment
 topsStack.filtStrength              = 0.2                        # comment                                         
 topsStack.unwMethod                 = snaphu                     # comment                                         
 topsStack.coregistration            = auto                       # [NESD geometry], auto for NESD                  
-topsStack.slcDir                    = /projects/scratch/vdm/famelung/BolnaySenDT48/SLC
 ####################
 mintpy.network.startDate            = auto                   # [20090101 / no], auto for no
 mintpy.reference.lalo               = auto                                                                                      
