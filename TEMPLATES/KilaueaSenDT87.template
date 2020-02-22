@@ -10,21 +10,21 @@ email_insarmaps                     = famelung@rsmas.miami.edu jaz101@rsmas.miam
 every_day_flag                      = yes                                                                                                 
 processor                           = isce                                                                                                
 cleanopt                            = 0                                                                                                   
-oldssara                            =  --platform=SENTINEL-1A,SENTINEL-1B -r 124 -f 57 -s 2018-01-01                                                  
+oldssara                            =  --platform=SENTINEL-1A,SENTINEL-1B -r 87 -f 524-529 -s 2018-01-01                                                  
 demMethod                           = ssara                                                                                               
 hazard_products_flag                = TRUE                                                                                                
 ssaraopt.platform                   = SENTINEL-1A,SENTINEL-1B                                                                             
-ssaraopt.relativeOrbit              = 124                                                                                                 
+ssaraopt.relativeOrbit              = 87                                                                                                  
 ssaraopt.startDate                  = 20190101                                                                                            
 ssaraopt.endDate                    = 20190524                                                                                            
 ssaraopt.parallel                   = 20                                                                                                  
 ####################
 topsStack.boundingBox               = 19.1 19.9 -155.8 -154.5                           # '-1 0.15 -91.6 -90.9'                           
-topsStack.subswath                  = '2 3'                                             # '1 2'                                           
-topsStack.numConnections            = 4                                                 # comment                                         
+topsStack.subswath                  = 1                                                 # '1 2'                                           
+topsStack.numConnections            = 5                                                 # comment                                         
 topsStack.azimuthLooks              = 5                                                 # comment                                         
 topsStack.rangeLooks                = 15                                                # comment                                         
-topsStack.filtStrength              = 0.4                                               # comment                                         
+topsStack.filtStrength              = 0.2                                               # comment                                         
 topsStack.unwMethod                 = snaphu                                            # comment                                         
 topsStack.coregistration            = auto                                              # [NESD geometry], auto for NESD                  
 ####################
