@@ -1,0 +1,36 @@
+process_flag                        = TRUE                                                                                                
+frequency                           = 1                                                                                                   
+login                               = pegasus.ccs.miami.edu                                                                               
+user                                = famelung                                                                                            
+####################
+email_pysar                         = famelung@rsmas.miami.edu jaz101@rsmas.miami.edu sara.mirzaee@rsmas.miami.edu                                                  
+email_insarmaps                     = famelung@rsmas.miami.edu jaz101@rsmas.miami.edu sara.mirzaee@rsmas.miami.edu                                                  
+####################
+every_day_flag                      = yes                                                                                                 
+processor                           = isce                                                                                                
+cleanopt                            = 0                                                                                                   
+ssaraopt.platform                   = SENTINEL-1A,SENTINEL-1B                                                                             
+ssaraopt.relativeOrbit              = 72                                                                                                 
+ssaraopt.startDate                  = 20171015                                                                                            
+ssaraopt.startDate                  = 20171113                                                                                            
+ssaraopt.parallel                   = 30                                                                                                  
+####################
+topsStack.boundingBox               = 33.3 35.4 45.0 47.0                             # '-1 0.15 -91.6 -90.9'                           
+topsStack.subswath                  = 2 3                                                 # '1 2'                                           
+topsStack.numConnections            = 3                                                 # comment                                         
+topsStack.azimuthLooks              = 7                                                 # comment                                         
+topsStack.rangeLooks                = 21                                                # comment                                         
+topsStack.filtStrength              = 0.2                                               # comment                                         
+topsStack.unwMethod                 = snaphu                                            # comment                                         
+topsStack.coregistration            = auto                                              # [NESD geometry], auto for NESD                  
+####################
+mintpy.reference.lalo               = 34.5,44.6                                         # Masbagik # -8.594,116.0992 
+mintpy.reference.lalo               = auto                                                                                      
+mintpy.troposphericDelay.method     = auto                                              #[pyaps / height_correlation / base_trop_cor / no], auto for pyaps
+mintpy.network.startDate            = 20171113                                          # [20090101 / no], auto for no                    
+mintpy.networkInversion.parallel    = no                                               # [yes / no], auto for no, parallel processing    
+mintpy.networkInversion.walltime    = 2:45                                                                                                
+mintpy.save.hdfEos5                 = yes                                               # [yes / update / no], auto for no, save timeseries to UNAVCO InSAR Archive format
+mintpy.save.hdfEos5.update          = no                                                # [yes / no], auto for no, put XXXXXXXX as endDate in output filename
+mintpy.save.kmz                     = yes                                               # [yes / no], auto for yes, save geocoded velocity to Google Earth KMZ file
+insarmaps_flag                      = False                                                                                                
