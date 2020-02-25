@@ -12,9 +12,8 @@ cleanopt                            = 0
 ssaraopt.platform                   = SENTINEL-1A,SENTINEL-1B                                                                             
 ssaraopt.platform                   = SENTINEL-1B                                                                             
 ssaraopt.relativeOrbit              = 79                                                                                                 
-ssaraopt.startDate                  = 20171015                                                                                            
-ssaraopt.startDate                  = 20171231                                                                                            
-ssaraopt.parallel                   = 30                                                                                                  
+ssaraopt.startDate                  = 20171113                                                                                            
+ssaraopt.parallel                   = 50                                                                                                  
 ####################
 topsStack.boundingBox               = 33.3 35.4 45.0 47.0                             # '-1 0.15 -91.6 -90.9'                           
 topsStack.subswath                  = 1 2                                                  # '1 2'                                           
@@ -26,7 +25,7 @@ topsStack.unwMethod                 = snaphu                                    
 topsStack.coregistration            = auto                                              # [NESD geometry], auto for NESD                  
 ####################
 mintpy.reference.lalo               = 34.5,44.6                                         # Masbagik # -8.594,116.0992 
-mintpy.troposphericDelay.method     = no                                                #[pyaps / height_correlation / base_trop_cor / no], auto for pyaps
+mintpy.troposphericDelay.method     = auto                                                #[pyaps / height_correlation / base_trop_cor / no], auto for pyaps
 mintpy.network.startDate            = auto                                              # [20090101 / no], auto for no                    
 mintpy.networkInversion.parallel    = yes                                               # [yes / no], auto for no, parallel processing    
 mintpy.networkInversion.walltime    = 2:45                                                                                                
