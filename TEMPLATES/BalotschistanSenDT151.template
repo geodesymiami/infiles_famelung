@@ -11,11 +11,10 @@ processor                           = isce
 cleanopt                            = 0                                                                                                   
 ssaraopt.platform                   = SENTINEL-1A,SENTINEL-1B                                                                             
 ssaraopt.relativeOrbit              = 151                                                                                                 
-ssaraopt.startDate                  = 20140712                                                                                            
-ssaraopt.parallel                   = 20                                                                                                  
+ssaraopt.parallel                   = 50                                                                                                  
 ####################
 topsStack.boundingBox               = 25.8 27.6 63.0 68.0      # '-1 0.15 -91.6 -90.9'                           
-topsStack.subswath                  = 3                      # '1 2'                                           
+topsStack.subswath                  = 2 3                      # '1 2'                                           
 topsStack.numConnections            = 4                          # comment                                         
 topsStack.azimuthLooks              = 14                          # comment                                         
 topsStack.rangeLooks                = 38                         # comment                                         
@@ -25,7 +24,7 @@ topsStack.coregistration            = auto                       # [NESD geometr
 ####################
 mintpy.network.startDate            = 20140712                   # [20090101 / no], auto for no
 mintpy.reference.lalo               = auto                                                                                      
-mintpy.troposphericDelay.method     = no                         # [pyaps / height_correlation / base_trop_cor / no], auto for pyaps
+mintpy.troposphericDelay.method     = auto                         # [pyaps / height_correlation / base_trop_cor / no], auto for pyaps
 mintpy.network.startDate            = auto                       # [20090101 / no], auto for no                    
 mintpy.networkInversion.parallel    = no                        # [yes / no], auto for no, parallel processing    
 mintpy.networkInversion.walltime    = 3:45                                                                                                
@@ -34,4 +33,6 @@ mintpy.geocode.lonStep              = 0.002                      # [0.0-180.0 / 
 mintpy.save.hdfEos5                 = yes                        # [yes / update / no], auto for no, save timeseries to UNAVCO InSAR Archive format
 mintpy.save.hdfEos5.update          = no                         # [yes / no], auto for no, put XXXXXXXX as endDate in output filename
 mintpy.save.kmz                     = yes                        # [yes / no], auto for yes, save geocoded velocity to Google Earth KMZ file
+####################
 insarmaps_flag                      = True                                                                                                
+image_products_flag                 = False
