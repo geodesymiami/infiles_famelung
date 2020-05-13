@@ -10,12 +10,13 @@ every_day_flag                      = yes
 processor                           = isce                                                                                                
 cleanopt                            = 0                                                                                                   
 ssaraopt.platform                   = SENTINEL-1A,SENTINEL-1B                                                                             
-ssaraopt.relativeOrbit              = 115                                                                                                 
+ssaraopt.relativeOrbit              = 13                                                                                                 
 #ssaraopt.startDate                  = 20200101
-ssaraopt.parallel                   = 50                                                                                                  
+ssaraopt.parallel                   = 24                                                                                                  
 ####################
 topsStack.boundingBox               = 25.8 27.7 63.0 68.0      # '-1 0.15 -91.6 -90.9'                           
-topsStack.subswath                  = 1 2 3                      # '1 2'                                           
+topsStack.boundingBox               = 25.45 28.1 63.0 68.0      # '-1 0.15 -91.6 -90.9'                           
+topsStack.subswath                  = 2 3                      # '1 2'                                           
 topsStack.numConnections            = 4                          # comment                                         
 topsStack.azimuthLooks              = 14                          # comment                                         
 topsStack.rangeLooks                = 38                         # comment                                         
@@ -24,7 +25,7 @@ topsStack.unwMethod                 = snaphu                     # comment
 topsStack.coregistration            = auto                       # [NESD geometry], auto for NESD                  
 ####################
 mintpy.network.startDate            = 20140712                   # [20090101 / no], auto for no
-mintpy.reference.lalo               = 27.662,66.086
+mintpy.reference.lalo               = auto
 mintpy.troposphericDelay.method     = auto                         # [pyaps / height_correlation / base_trop_cor / no], auto for pyaps
 mintpy.network.startDate            = auto                       # [20090101 / no], auto for no                    
 mintpy.networkInversion.parallel    = no                        # [yes / no], auto for no, parallel processing    
