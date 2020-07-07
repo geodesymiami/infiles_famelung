@@ -1,0 +1,35 @@
+process_flag                        = TRUE                                                                                                
+login                               = pegasus.ccs.miami.edu                                                                               
+user                                = famelung                                                                                            
+####################
+email_pysar                         = famelung@rsmas.miami.edu 
+email_insarmaps                     = famelung@rsmas.miami.edu
+####################
+every_day_flag                      = yes                                                                                                 
+ssaraopt                            = --platform=SENTINEL-1A,SENTINEL-1B -r 171 -f 1156-1162 -s 2017-07-01 -e 2018-12-21
+ssaraopt                            = --platform=SENTINEL-1A,SENTINEL-1B -r 171 -f 1156-1162 -s 2014-07-01 -e 2017-07-21
+parallel_download                   = 20                                                                                                  
+processor                           = isce                                                                                                
+cleanopt                            = 0                                                                                                   
+####################
+sentinelStack.boundingBox           = '-6.4 -6.0 105.1 106.1'                            # '-1 0.15 -91.6 -90.9'                           
+sentinelStack.subswath              = 3                                                 # '1 2'                                           
+sentinelStack.numConnections        = 4                                                 # comment                                         
+sentinelStack.azimuthLooks          = 2                                                 # comment                                         
+sentinelStack.rangeLooks            = 6                                                # comment                                         
+sentinelStack.filtStrength          = 0.2                                               # comment                                         
+sentinelStack.unwMethod             = snaphu                                            # comment                                         
+sentinelStack.coregistration        = auto                                              # [NESD geometry], auto for NESD                  
+####################
+pysar.reference.lalo                = -6.0906, 105.4230
+pysar.reference.maskFile = no 
+pysar.troposphericDelay.method      = no                                                #[pyaps / height_correlation / base_trop_cor / no], auto for pyaps
+pysar.network.coherenceBased        = auto                                              #[yes / no], auto for no, exclude interferograms with coherence < minCoherence
+pysar.network.minCoherence          = auto                                              # 0.63 #[0.0-1.0], auto for 0.7                   
+pysar.networkInversion.weightFunc   = fim                                               # [fim / variance / coherence / no], auto for no  
+pysar.network.startDate             = auto                                              # [20090101 / no], auto for no                    
+pysar.network.endDate               = 20180601                                          # [20090101 / no], auto for no                    
+pysar.subset.lalo                   = -6.115:-6.085,105.41:105.44                       #  auto for no
+pysar.save.hdfEos5                  = yes                                               # [yes / update / no], auto for no, save timeseries to UNAVCO InSAR Archive format
+pysar.save.hdfEos5.update           = no                                               # [yes / no], auto for no, put XXXXXXXX as endDate in output filename
+pysar.save.kmz                      = yes                                               # [yes / no], auto for yes, save geocoded velocity to Google Earth KMZ file
