@@ -1,0 +1,3 @@
+2020-07-07 23:44:10,034 - shapely.geos - DEBUG - Trying `CDLL(libc.so.6)`
+2020-07-07 23:44:10,036 - shapely.geos - DEBUG - Library path: 'libc.so.6'
+2020-07-07 23:44:10,036 - shapely.geos - DEBUG - DLL: <CDLL 'libc.so.6', handle 2ba2b75d64c8 at 0x2ba2cb16d550>
