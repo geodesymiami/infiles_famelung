@@ -1,0 +1,34 @@
+process_flag                        = TRUE                                                                                                
+frequency                           = 1                                                                                                   
+login                               = pegasus.ccs.miami.edu                                                                               
+user                                = famelung                                                                                            
+####################
+email_pysar                         = famelung@rsmas.miami.edu 
+email_insarmaps                     = famelung@rsmas.miami.edu
+####################
+every_day_flag                      = yes                                                                                                 
+processor                           = isce                                                                                                
+cleanopt                            = 0                                                                                                   
+ssaraopt.platform                   = SENTINEL-1A,SENTINEL-1B                                                                             
+ssaraopt.relativeOrbit              = 85                                                                                                 
+insarmaps_flag                      = True                                                                                                
+####################
+topsStack.boundingBox               = 77.0 78.5 -90.0 -60.0     # '-1 0.15 -91.6 -90.9'                           
+#topsStack.boundingBox               = 76.9 77.1 -90.0 -60.0     # '-1 0.15 -91.6 -90.9'                           
+#topsStack.boundingBox               = 73.0 83.0 -90.0 -60.0     # '-1 0.15 -91.6 -90.9'                           
+topsStack.polarization              = hh    # SAR data polarization. auto for v
+topsStack.subswath                  = 1                       # '1 2'                                           
+topsStack.numConnections            = 4                         # comment                                         
+topsStack.azimuthLooks              = 21                        # comment                                         
+topsStack.rangeLooks                = 57                        # comment                                         
+topsStack.filtStrength              = 0.2                       # comment                                         
+topsStack.unwMethod                 = snaphu                    # comment                                         
+#topsStack.coregistration            = geometry                 # [NESD geometry], auto for NESD                  
+topsStack.excludeDates              = 20200301
+####################
+mintpy.reference.lalo               = auto                                                                                      
+mintpy.troposphericDelay.method     = no                      # [pyaps / height_correlation / base_trop_cor / no], auto for pyaps
+mintpy.network.startDate            = auto                      # [20090101 / no], auto for no                    
+mintpy.save.hdfEos5                 = yes                        # [yes / update / no], auto for no, save timeseries to UNAVCO InSAR Archive format
+mintpy.save.hdfEos5.update          = yes                         # [yes / no], auto for no, put XXXXXXXX as endDate in output filename
+mintpy.save.kmz                     = yes                        # [yes / no], auto for yes, save geocoded velocity to Google Earth KMZ file
