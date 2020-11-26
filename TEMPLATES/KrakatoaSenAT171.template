@@ -13,7 +13,6 @@ hazard_products_flag                = False
 ssaraopt.platform                   = SENTINEL-1A,SENTINEL-1B
 ssaraopt.relativeOrbit              = 171
 ssaraopt.endDate                    = 20180601
-ssaraopt.parallel                   = 24
 ####################
 topsStack.boundingBox               = -6.4 -6.0 105.1 106.1                            # '-1 0.15 -91.6 -90.9'                           
 topsStack.subswath                  = 3                                                 # '1 2'                                           

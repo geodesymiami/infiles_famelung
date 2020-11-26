@@ -9,7 +9,6 @@ ssaraopt.intersectsWithPoint = -155.26 19.4
 ssaraopt.collectionName = "Supersites CSK Hawaii"
 ssaraopt.startDate      = 20101001
 ssaraopt.endDate        = 20110930
-ssaraopt.parallel       = 24
 
 demMethod               = ssara
 insarmaps_flag          = True

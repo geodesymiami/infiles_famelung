@@ -13,7 +13,6 @@ ssaraopt.platform                   = SENTINEL-1A,SENTINEL-1B
 ssaraopt.relativeOrbit              = 77                                                                                                
 ssaraopt.startDate                  = 20200501                                                                                            
 ssaraopt.endDate                    = 20200630                                                                                            
-ssaraopt.parallel                   = 24                                                                                                  
 insarmaps_flag                      = True                                                                                                
 ####################
 topsStack.boundingBox               = 33.5 38.5 88.0 98.0      # 1 2 3   --> 97 bursts

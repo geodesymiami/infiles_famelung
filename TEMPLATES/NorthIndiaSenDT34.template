@@ -3,7 +3,6 @@ ssaraopt.relativeOrbit         = 34
 ssaraopt.frame                 = 481-507                                                                                             
 ssaraopt.startDate             = 2017-10-01                                                                                          
 ssaraopt.endDate               = 2018-05-31                                                                                          
-ssaraopt.parallel              = 30   
 
 processor                      = isce
 cleanopt                       = 0                                                                                                   

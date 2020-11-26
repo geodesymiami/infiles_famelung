@@ -11,7 +11,6 @@ cleanopt                            = 1
 ssaraopt.platform                   = SENTINEL-1A,SENTINEL-1B 
 ssaraopt.relativeOrbit              = 72 
 ssaraopt.frame                      = 108-112
-ssaraopt.parallel                   = 20                                                                                                  
 ssaraopt.startDate                  = 2017-12-31                                                                                                  
 ssaraopt.endDate                    = 2018-02-20                                                                                                  
 ####################

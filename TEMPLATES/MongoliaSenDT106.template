@@ -12,7 +12,6 @@ cleanopt                            = 0
 ssaraopt.platform                   = SENTINEL-1A,SENTINEL-1B                                                                             
 ssaraopt.relativeOrbit              = 106                                                                                                 
 ssaraopt.startDate                  = 20140101                                                                                            
-ssaraopt.parallel                   = 20                                                                                                  
 ####################
 topsStack.boundingBox               = 48.7 50.3 94.92 98.05      # '-1 0.15 -91.6 -90.9'                           
 topsStack.boundingBox               = 43.1 48.0 94.0 105.0      # '-1 0.15 -91.6 -90.9'                           

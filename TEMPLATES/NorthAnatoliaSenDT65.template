@@ -16,7 +16,7 @@ insarmaps_flag                      = False
 ####################
 topsStack.boundingBox               = 36.0 42.5 31.0 40.0       #  10/20: starting 2015
 topsStack.subswath                  = 1 2 3                     # '1 2'                                           
-topsStack.excludeDates              = auto        # 20150401,20150706   
+topsStack.excludeDates              = 20180820,20190616        # 20150401,20150706   
 topsStack.numConnections            = 4                        # comment                                         
 topsStack.azimuthLooks              = 21                       # comment                                         
 topsStack.rangeLooks                = 57                    # comment                                         

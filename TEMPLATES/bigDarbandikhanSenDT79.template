@@ -11,7 +11,6 @@ cleanopt                            = 0
 # only S1-B as S1-A stope in earthquake area
 ssaraopt.platform                   = SENTINEL-1B 
 ssaraopt.relativeOrbit              = 79 
-ssaraopt.parallel                   = 20                                                                                                  
 ssaraopt.startDate                  = 2017-10-15                                                                                                  
 ####################
 sentinelStack.demMethod             = boundingBox                     # 

@@ -9,7 +9,6 @@ relative_orbit          = 322
 ssaraopt.intersectsWithPoint = -155.26 19.4 
 ssaraopt.startDate      = 20051001
 ssaraopt.endDate        = 20090930
-ssaraopt.parallel       = 24
 
 demMethod               = ssara
 insarmaps_flag          = True

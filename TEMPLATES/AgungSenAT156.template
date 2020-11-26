@@ -1,25 +1,29 @@
 ######################################################
-cleanopt = 0                   # [ 0 / 1 / 2 / 3 / 4]   0,1: none 2: keep merged,geom_master,SLC 3: keep PYSAR 4: everything
-ssaraopt = --platform=SENTINEL-1A,SENTINEL-1B -r 156 -f 1144-1152 -s 2018-01-01 
-processor                      = isce
+cleanopt                          = 0   # [ 0 / 1 / 2 / 3 / 4]   0,1: none 2: keep merged,geom_master,SLC 3: keep MINTPY 4: everything
+processor                         = isce
+ssaraopt.platform                 = SENTINEL-1A,SENTINEL-1B
+ssaraopt.relativeOrbit            = 156
+ssaraopt.startDate                = 20170414
+ssaraopt.endDate                  = 20171122
+hazard_products_flag              = False
+insarmaps_flag                    = True
 
-sentinelStack.boundingBox      = '-8.75 -8.0 115.0 116.7' # sentinelStack.boundingBox      = '-1 0.15 -91.7 -90.9' # '-1 0.15 -91.6 -90.9'
-sentinelStack.subswath         = 3    #  '1 2'
-sentinelStack.numConnections   = 3    # comment
-sentinelStack.azimuthLooks     = 10    # comment
-sentinelStack.rangeLooks       = 30   # comment
-sentinelStack.filtStrength     = 0.3  # comment
-sentinelStack.unwMethod        = snaphu  # comment
-sentinelStack.coregistration   = auto  # [NESD geometry], auto for NESD
+######################################################
+topsStack.boundingBox             = -8.75 -7.8 115.0 116.7     # -1 0.15 -91.6 -90.9
+topsStack.subswath                = 2    # '1 2'
+topsStack.numConnections          = 4    # comment
+topsStack.azimuthLooks            = 7    # comment
+topsStack.rangeLooks              = 19   # comment
+topsStack.filtStrength            = 0.2  # comment
+topsStack.unwMethod               = snaphu  # comment
+topsStack.coregistration          = auto  # [NESD geometry], auto for NESD
 
-pysar.reference.lalo              =  -8.6456,116.5234 # Masbagik # -8.594,116.0992  # Mataram City -0.7,-91.3     # N of SN
-pysar.network.coherenceBased      = auto  #[yes / no], auto for yes, exclude interferograms with coherence < minCoherence
-pysar.network.startDate           = no #20180101  #[20090101 / no], auto for no
-pysar.network.excludeDate         = 20180721  #[20080520,20090817 / no], auto for no
+#mintpy.reference.lalo              = -8.53669,115.11852  # N of SN
+mintpy.troposphericDelay.method    = no    # pyaps  #[pyaps / height_correlation / base_trop_cor / no], auto for pyaps
+mintpy.save.hdfEos5                = yes   #[yes / update / no], auto for no, save timeseries to UNAVCO InSAR Archive format
+mintpy.save.hdfEos5.update         = no    #[yes / no], auto for no, put XXXXXXXX as endDate in output filename
+mintpy.geocode.latStep             = 0.0008                                            #[0.0-90.0 / None], auto for None, output resolution in degree
+mintpy.geocode.lonStep             = 0.0008                                            #[0.0-180.0 / None], auto for None - calculate from lookup file
+mintpy.save.kml                    = yes  #[yes / no], auto for yes, save geocoded velocity to Google Earth KMZ file
 
-pysar.networkInversion.weightFunc = fim #[variance / no / coherence], auto for no
-pysar.troposphericDelay.method    = no # pyaps  #[pyaps / height_correlation / base_trop_cor / no], auto for pyaps
-pysar.save.hdfEos5                = yes   #[yes / update / no], auto for no, save timeseries to UNAVCO InSAR Archive format
-pysar.save.hdfEos5.update         = yes   #[yes / no], auto for no, put XXXXXXXX as endDate in output filename
-pysar.save.kmz                    = yes  #[yes / no], auto for yes, save geocoded velocity to Google Earth KMZ file
 ######################################################

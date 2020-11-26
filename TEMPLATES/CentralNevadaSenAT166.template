@@ -32,7 +32,7 @@ mintpy.compute.cluster              = local
 mintpy.compute.numWorker            = all
 ####################
 mintpy.reference.lalo               = auto                                                                                      
-mintpy.troposphericDelay.method     = auto                         # [pyaps / height_correlation / base_trop_cor / no], auto for pyaps
+mintpy.troposphericDelay.method     = no                         # [pyaps / height_correlation / base_trop_cor / no], auto for pyaps
 mintpy.network.startDate            = auto                       # [20090101 / no], auto for no                    
 mintpy.geocode.latStep              = 0.0025 # 0.002                      # [0.0-90.0 / None], auto for None, output resolution in degree
 mintpy.geocode.lonStep              = 0.0025 # 0.002                      # [0.0-180.0 / None], auto for None - calculate from lookup file

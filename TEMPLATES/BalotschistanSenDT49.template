@@ -11,7 +11,6 @@ processor                           = isce
 cleanopt                            = 0                                                                                                   
 ssaraopt.platform                   = SENTINEL-1A,SENTINEL-1B                                                                             
 ssaraopt.relativeOrbit              = 49                                                                                                 
-ssaraopt.parallel                   = 24                                                                                                  
 ####################
 topsStack.boundingBox               = 25.8 27.6 63.0 68.0      # '-1 0.15 -91.6 -90.9'                           
 topsStack.boundingBox               = 25.7 28.1 63.0 68.0      # '-1 0.15 -91.6 -90.9'                           
