@@ -2,30 +2,26 @@
 cleanopt                          = 0   # [ 0 / 1 / 2 / 3 / 4]   0,1: none 2: keep merged,geom_master,SLC 3: keep MINTPY 4: everything
 processor                         = isce
 ssaraopt.platform                 = SENTINEL-1A,SENTINEL-1B
-ssaraopt.relativeOrbit            = 5
+ssaraopt.relativeOrbit            = 62
+ssaraopt.startDate                = 20170101
 hazard_products_flag              = False
 insarmaps_flag                    = True
 
 ######################################################
-topsStack.boundingBox             = 18.7 19.5 -102.0 -95.0     # -1 0.15 -91.6 -90.9
-topsStack.boundingBox             = 18.7 19.8 -102.0 -95.0     # -1 0.15 -91.6 -90.9
-topsStack.subswath                = 1    # '1 2'
+topsStack.boundingBox             = 2.7 3.3 97.25 100.00      # -1 0.15 -91.6 -90.9
+topsStack.subswath                = 1 2  # '1 2'
 topsStack.numConnections          = 4    # comment
-topsStack.excludeDates            = auto
 topsStack.azimuthLooks            = 7    # comment
 topsStack.rangeLooks              = 19   # comment
 topsStack.filtStrength            = 0.2  # comment
 topsStack.unwMethod               = snaphu  # comment
-topsStack.coregistration          = auto  # [NESD geometry], auto for NESD
 
-mintpy.compute.cluster              = local
-#mintpy.reference.lalo              = 19.028,-98.779  # N of SN
-mintpy.network.coherenceBased      = yes  #[yes / no], auto for yes, exclude interferograms with coherence < minCoherence
-mintpy.network.minCoherence        = 0.4 # 0.4  #[0.0-1.0], auto for 0.7
-mintpy.networkInversion.minTempCoh  = 0.5 #[0.0-1.0], auto for 0.7, min temporal coherence for mask
-mintpy.troposphericDelay.method    = no    # pyaps  #[pyaps / height_correlation / base_trop_cor / no], auto for pyaps
+mintpy.reference.lalo              = auto  # N of SN
+mintpy.troposphericDelay.method    = auto    # pyaps  #[pyaps / height_correlation / base_trop_cor / no], auto for pyaps
 mintpy.save.hdfEos5                = yes   #[yes / update / no], auto for no, save timeseries to UNAVCO InSAR Archive format
 mintpy.save.hdfEos5.update         = yes    #[yes / no], auto for no, put XXXXXXXX as endDate in output filename
 mintpy.geocode.latStep             = 0.0008                                            #[0.0-90.0 / None], auto for None, output resolution in degree
 mintpy.geocode.lonStep             = 0.0008                                            #[0.0-180.0 / None], auto for None - calculate from lookup file
 mintpy.save.kml                    = yes  #[yes / no], auto for yes, save geocoded velocity to Google Earth KMZ file
+
+

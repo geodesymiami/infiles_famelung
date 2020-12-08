@@ -7,13 +7,15 @@ insarmaps_download_flag             = True
 every_day_flag                      = yes                                                                                                 
 processor                           = isce                                                                                                
 cleanopt                            = 0                                                                                                   
+ssaraopt.startDate                  = 20160101
+ssaraopt.endDate                    = 20160531
 ssaraopt.platform                   = SENTINEL-1A,SENTINEL-1B                                                                             
 ssaraopt.relativeOrbit              = 21                                                                                                 
 ####################
 topsStack.boundingBox               = 29.5 36.5 34.0 37.5       # '-1 0.15 -91.6 -90.9'                           
 topsStack.boundingBox               = 28.5 41.5 32.0 39.5       # '-1 0.15 -91.6 -90.9'                           
 topsStack.boundingBox               = 30.0 31.0 32.0 39.5       # '-1 0.15 -91.6 -90.9'                           
-topsStack.excludeDates              = 20160318
+#topsStack.excludeDates              = 20160318
 topsStack.subswath                  = 1 2 3                      # '1 2'                                           
 topsStack.numConnections            = 4                          # comment                                         
 topsStack.azimuthLooks              = 14                          # comment                                         
@@ -24,6 +26,7 @@ topsStack.coregistration            = auto                       # [NESD geometr
 topsStack.slcDir                    = $SCRATCHDIR/IsraelbigSenDT21/SLC
 ####################
 mintpy.compute.cluster              = local
+mintpy.compute.numWorker            = all
 mintpy.network.startDate            = auto                       # [20090101 / no], auto for no
 mintpy.reference.lalo               = auto                                                                                      
 mintpy.troposphericDelay.method     = auto                         # [pyaps / height_correlation / base_trop_cor / no], auto for pyaps
