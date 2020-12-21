@@ -21,6 +21,7 @@ topsStack.boundingBox               = 34.2 37.8 88.0 98.0      # '-1 0.15 -91.6 
 topsStack.boundingBox               = 30.0 42.0 88.0 98.0      # '-1 0.15 -91.6 -90.9'                           
 topsStack.boundingBox               = 29.8 36.0 88.0 98.0      # '-1 0.15 -91.6 -90.9'                           
 topsStack.boundingBox               = 34.5 36.5 88.0 98.0      # '-1 0.15 -91.6 -90.9'                           
+topsStack.boundingBox               = 35.0 36.0 88.0 98.0      # '-1 0.15 -91.6 -90.9'                           
 topsStack.subswath                  = 1 2 3                       # '1 2'                                           
 topsStack.excludeDates              = 20150401,20150706                       # 20150320,20150413                       # '1 2'            
 topsStack.numConnections            = 5                          # comment                                         
