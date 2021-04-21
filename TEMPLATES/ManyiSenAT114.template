@@ -22,6 +22,7 @@ topsStack.rangeLooks                = 57                         # comment
 topsStack.filtStrength              = 0.2                        # comment                                         
 topsStack.unwMethod                 = snaphu                     # comment                                         
 #topsStack.coregistration            = geometry                   # [NESD geometry], auto for NESD                  
+topsStack.slcDir                    = $SCRATCHDIR/ManyiBigSenAT114/SLC
 ####################
 mintpy.reference.lalo               = auto                                                                                      
 mintpy.troposphericDelay.method     = auto                         # [pyaps / height_correlation / base_trop_cor / no], auto for pyaps

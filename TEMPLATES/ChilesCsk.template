@@ -1,0 +1,37 @@
+############## DOWNLOAD, GENERAL OPTIONS ##############
+cleanopt                = 0
+acquisition_mode        = stripmap
+
+ssaraopt.platform       = COSMO-SKYMED-1,COSMO-SKYMED-2,COSMO-SKYMED-3,COSMO-SKYMED-4
+ssaraopt.relativeOrbit  = 4
+#ssaraopt.intersectsWithPoint = -155.26 19.4 
+ssaraopt.collectionName = "Supersites CSK Hawaii"
+ssaraopt.startDate      = 20150601
+ssaraopt.endDate        = 20171230
+ssaraopt.parallel       = 6
+raw_image_dir           = '/scratch1/06736/sxm1611/ChilesCskAT04/csk'
+demMethod               = ssara
+##################### ISCE OPTIONS ####################
+stripmapStack.slcDir         = '/scratch1/06736/sxm1611/ChilesCskAT04/SLC'
+stripmapStack.boundingBox    = 0.5 1.5 -78.6 -77.1       # '-1 0.15 -91.6 -90.9'                           
+stripmapStack.azimuthLooks         = 16
+stripmapStack.rangeLooks           = 16
+stripmapStack.timeThreshold        = 40
+stripmapStack.baselineThreshold    = 700
+stripmapStack.unwMethod            = snaphu
+stripmapStack.sensor               = csk
+stripmapStack.textCmd              = "singularity exec $SCRATCH/mgeolab.sif "
+#stripmapStack.zerodop              = False
+#stripmapStack.nofocus              = False
+#stripmapStack.golsteinFilterStrength  = 0.5
+#stripmapStack.boundingBox                 = 19 20 -156 -155
+#stripmapStack.demDir                      = /scratch/projects/insarlab/bkv3/MaunaloaT10CskAsc/DEM/output.dem 
+
+##################### MINTPY OPTIONS ###################
+## load_data.py -H to check more details and example inputs.
+mintpy.load.processor        = isce
+mintpy.load.autoPath     = yes
+mintpy.deramp          = linear
+mintpy.subset.lalo       = 0.5963:0.9282,-78.0493:-77.7205
+MINOPY.textCmd = singularity exec $SCRATCH/mgeolab.sif
+

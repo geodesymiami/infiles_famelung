@@ -16,24 +16,28 @@ ssaraopt.relativeOrbit              = 13
 topsStack.boundingBox               = 25.8 27.7 63.0 68.0      # '-1 0.15 -91.6 -90.9'                           
 topsStack.boundingBox               = 25.45 28.1 63.0 68.0      # '-1 0.15 -91.6 -90.9'                           
 topsStack.subswath                  = 2 3                      # '1 2'                                           
-topsStack.numConnections            = 4                          # comment                                         
+topsStack.referenceDate             = 20170511
+topsStack.excludeDates              = 20150615,20200213,20200308
+#topsStack.excludeDates              = 20150615,20200213,20200308,20200401,20200425,20200519,20200612,20200706,20200730,20200823,20200916,20201010,20201103,20201127,20201221,20210114,20210207            # comment                                         
 topsStack.azimuthLooks              = 14                          # comment                                         
 topsStack.rangeLooks                = 38                         # comment                                         
 topsStack.filtStrength              = 0.2                        # comment                                         
 topsStack.unwMethod                 = snaphu                     # comment                                         
 topsStack.coregistration            = auto                       # [NESD geometry], auto for NESD                  
 ####################
-mintpy.network.startDate            = 20140712                   # [20090101 / no], auto for no
 mintpy.reference.lalo               = auto
 mintpy.troposphericDelay.method     = auto                         # [pyaps / height_correlation / base_trop_cor / no], auto for pyaps
 mintpy.network.startDate            = auto                       # [20090101 / no], auto for no                    
-mintpy.networkInversion.parallel    = no                        # [yes / no], auto for no, parallel processing    
-mintpy.networkInversion.walltime    = 6:45                                                                                                
 mintpy.geocode.latStep              = 0.002                      # [0.0-90.0 / None], auto for None, output resolution in degree
 mintpy.geocode.lonStep              = 0.002                      # [0.0-180.0 / None], auto for None - calculate from lookup file
-mintpy.save.hdfEos5                 = yes                        # [yes / update / no], auto for no, save timeseries to UNAVCO InSAR Archive format
 mintpy.save.hdfEos5.update          = no                         # [yes / no], auto for no, put XXXXXXXX as endDate in output filename
-mintpy.save.kmz                     = yes                        # [yes / no], auto for yes, save geocoded velocity to Google Earth KMZ file
+
+mintpy.load.autoPath                = yes
+mintpy.compute.cluster              = local
+mintpy.compute.numWorker            = 40
+mintpy.solidEarthTides              = yes                         #[yes / no], auto for no
+mintpy.save.hdfEos5                 = yes                        # [yes / update / no], auto for no, save timeseries to UNAVCO InSAR Archive format
 ####################
 insarmaps_flag                      = True                                                                                                
 image_products_flag                 = False
+

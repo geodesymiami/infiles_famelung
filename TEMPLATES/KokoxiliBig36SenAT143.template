@@ -27,7 +27,7 @@ topsStack.azimuthLooks              = 21                          # comment
 topsStack.rangeLooks                = 57                         # comment                                         
 topsStack.filtStrength              = 0.2                        # comment                                         
 topsStack.unwMethod                 = snaphu                     # comment                                         
-topsStack.slcDir                    = $SCRATCHDIR/KokoxiliBigSenAT143/SLC
+#topsStack.slcDir                    = $SCRATCHDIR/KokoxiliBigSenAT143/SLC
 topsStack.coregistration            = geometry                   # [NESD geometry], auto for NESD                  
 ####################
 mintpy.reference.lalo               = auto                                                                                      
