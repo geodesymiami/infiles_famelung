@@ -896,31 +896,31 @@ class JOB_SUBMIT:
 
         # run_10_filter_coherence
         if 'filter_coherence' in job_file_name and not batch_file is None:
-            # merged/interferograms
-            job_file_lines.append('# merged/interferograms\n')
-            str = """pair_list=( $(awk '{printf "%s\\n",$3}' """ + batch_file \
-                + """ | awk -F _igram_filt_coh_ '{printf "%s\\n",$2}' | sort -n | uniq) )"""
-            job_file_lines.append(str + '\n')
-            job_file_lines.append('mkdir -p /tmp/merged/interferograms\n')
-            job_file_lines.append("""for pair in "${pair_list[@]}"; do\n""")
-            job_file_lines.append('   cp -r ' + self.out_dir + '/merged/interferograms/' + '$pair /tmp/merged/interferograms\n')
-            job_file_lines.append('done\n')
-            job_file_lines.append('files1="/tmp/merged/interferograms/????????_????????/*.xml"\n')
-            job_file_lines.append('old=' + self.out_dir +'\n')
-            job_file_lines.append('sed -i "s|$old|/tmp|g" $files1\n')
+            job_file_lines.append("""
+   
+            # merged/interferograms       
+            pair_list=( $(awk '{printf "%s\\n",$3}' """ + batch_file + """ | awk -F _merge_igram_ '{printf "%s\\n",$2}' | sort -n | uniq) )
+            mkdir -p /tmp/interferograms
+            for pair in "${pair_list[@]}"; do
+               cp -r """ + self.out_dir + """/interferograms/$pair /tmp/interferograms
+            done
+            files1="/tmp/interferograms/????????_????????/*.xml
+            files2="/tmp/interferograms/????????_????????/*/*.xml
+            old=""" + self.out_dir + """
+            sed -i "s|$old|/tmp|g" $files1
+            sed -i "s|$old|/tmp|g" $files2
 
             # merged/SLC
             job_file_lines.append('# merged/SLC\n')
-            str = """date_list=( $(awk '{printf "%s\\n",$3}' """ + batch_file \
-                + """ | awk -F _ '{printf "%s\\n%s\\n",$(NF-1),$NF}' | sort -n | uniq) )"""
-            job_file_lines.append(str + '\n')
-            job_file_lines.append('mkdir -p /tmp/merged/SLC\n\n')
-            job_file_lines.append("""for date in "${date_list[@]}"; do\n""")
-            job_file_lines.append('   cp -r ' + self.out_dir + '/merged/SLC/' + '$date /tmp/merged/SLC\n')
-            job_file_lines.append('done\n')
-            job_file_lines.append('files1="/tmp/merged/SLC/????????/*.xml"\n')
-            job_file_lines.append('old=' + self.out_dir + '\n')
-            job_file_lines.append('sed -i "s|$old|/tmp|g" $files1\n')
+            date_list=( $(awk '{printf "%s\\n",$3}' """ + batch_file + """ | awk -F _ '{printf "%s\\n%s\\n",$(NF-1),$NF}' | sort -n | uniq) )
+            mkdir -p /tmp/merged/SLC
+            for date in "${date_list[@]}"; do\n""")
+               cp -r ' + self.out_dir + '/merged/SLC/' + '$date /tmp/merged/SLC
+            done
+            files1="/tmp/merged/SLC/????????/*.xml"
+            old=""" + self.out_dir + """
+            sed -i "s|$old|/tmp|g" $files1
+            """)
 
         # run_11_unwrap
         if 'unwrap' in job_file_name and not batch_file is None:
