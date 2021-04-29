@@ -841,6 +841,7 @@ class JOB_SUBMIT:
             # awk '{printf "%s\\n",$3}' run_10_filter_coherence | awk -F _igram_filt_coh_ '{printf "%s\\n",$2}' | sort -n | uniq
             # awk '{printf "%s\\n",$3}' run_10_filter_coherence | awk -F _ '{printf "%s\\n %s\\n",$5,$6}' | sort -n | uniq
             # awk '{printf "%s\\n",$3}' run_11_unwrap | awk -F _igram_unw_ '{printf "%s\\n",$2}' | sort -n | uniq
+            job_file_lines.append("""
 
             date_list=( $(awk '{printf "%s\\n",$3}' """ + batch_file + """ | awk -F _ '{printf "%s\\n",$NF}' | sort -n | uniq ) )
             ref_date=( $(xmllint --xpath 'string(/productmanager_name/component[@name="instance"]/property[@name="ascendingnodetime"]/value)' """ \
@@ -868,7 +869,8 @@ class JOB_SUBMIT:
             sed -i "s|$old|/tmp|g" $files1
             sed -i "s|$old|/tmp|g" $files2
             fi
-                
+            """)
+        
         # run_09_merge_burst_igram
         if 'merge_burst_igram' in job_file_name and not batch_file is None:
             # stack
