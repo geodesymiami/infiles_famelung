@@ -915,7 +915,7 @@ class JOB_SUBMIT:
             date_list=( $(awk '{printf "%s\\n",$3}' """ + batch_file + """ | awk -F _ '{printf "%s\\n%s\\n",$(NF-1),$NF}' | sort -n | uniq) )
             mkdir -p /tmp/merged/SLC
             for date in "${date_list[@]}"; do\n""")
-               cp -r ' + self.out_dir + '/merged/SLC/' + '$date /tmp/merged/SLC
+               cp -r """ + self.out_dir + """/merged/SLC/$date /tmp/merged/SLC
             done
             files1="/tmp/merged/SLC/????????/*.xml"
             old=""" + self.out_dir + """
