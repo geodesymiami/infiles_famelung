@@ -914,7 +914,7 @@ class JOB_SUBMIT:
             job_file_lines.append('# merged/SLC\n')
             date_list=( $(awk '{printf "%s\\n",$3}' """ + batch_file + """ | awk -F _ '{printf "%s\\n%s\\n",$(NF-1),$NF}' | sort -n | uniq) )
             mkdir -p /tmp/merged/SLC
-            for date in "${date_list[@]}"; do\n""")
+            for date in "${date_list[@]}"; do
                cp -r """ + self.out_dir + """/merged/SLC/$date /tmp/merged/SLC
             done
             files1="/tmp/merged/SLC/????????/*.xml"
