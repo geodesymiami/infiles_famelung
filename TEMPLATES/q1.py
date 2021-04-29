@@ -921,25 +921,24 @@ class JOB_SUBMIT:
 
         # run_11_unwrap
         if 'unwrap' in job_file_name and not batch_file is None:
-            # reference
-            job_file_lines.append('# reference\n')
-            job_file_lines.append('cp -r ' + self.out_dir + '/reference /tmp\n')
-            job_file_lines.append('files="/tmp/reference/*.xml /tmp/reference/*/*.xml"\n')
-            job_file_lines.append('old=' + self.out_dir + '\n')
-            job_file_lines.append('sed -i "s|$old|/tmp|g" $files\n')
+            job_file_lines.append("""
 
-            # merged/interferograms
-            job_file_lines.append('# merged/interferograms\n')
-            str = """pair_list=( $(awk '{printf "%s\\n",$3}' """ + batch_file \
-                + """ | awk -F _igram_unw_ '{printf "%s\\n",$2}' | sort -n | uniq) )"""
-            job_file_lines.append(str + '\n')
-            job_file_lines.append('mkdir -p /tmp/merged/interferograms\n')
-            job_file_lines.append("""for pair in "${pair_list[@]}"; do\n""")
-            job_file_lines.append('   cp -r ' + self.out_dir + '/merged/interferograms/' + '$pair /tmp/merged/interferograms\n')
-            job_file_lines.append('done\n')
-            job_file_lines.append('files1="/tmp/merged/interferograms/????????_????????/*.xml"\n')
-            job_file_lines.append('old=' + self.out_dir + '\n')
-            job_file_lines.append('sed -i "s|$old|/tmp|g" $files1\n')
+            # reference
+            cp -r """ + self.out_dir + """/reference /tmp
+            files="/tmp/reference/*.xml /tmp/reference/*/*.xml"
+            old=""" + self.out_dir + """ 
+            sed -i "s|$old|/tmp|g" $files
+            
+            # merged/interferograms       
+            pair_list=( $(awk '{printf "%s\\n",$3}' """ + batch_file + """ | awk -F _igram_filt_coh_ '{printf "%s\\n",$2}' | sort -n | uniq) )
+            mkdir -p /tmp/merged/interferograms
+            for pair in "${pair_list[@]}"; do
+               cp -r """ + self.out_dir + """/merged/interferograms/$pair /tmp/merged/interferograms
+            done
+            files1="/tmp/merged/interferograms/????????_????????/*.xml"
+            old=""" + self.out_dir + """
+            sed -i "s|$old|/tmp|g" $files1
+            """)
 
         tmp1 = job_file_lines.pop()
         tmp2 = tmp1.split('\n')
