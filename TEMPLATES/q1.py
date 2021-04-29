@@ -885,7 +885,7 @@ class JOB_SUBMIT:
             pair_list=( $(awk '{printf "%s\\n",$3}' """ + batch_file + """ | awk -F _merge_igram_ '{printf "%s\\n",$2}' | sort -n | uniq) )
             mkdir -p /tmp/interferograms
             for pair in "${pair_list[@]}"; do
-               cp -r """ + self.out_dir + """/interferograms/' + '$pair /tmp/interferograms
+               cp -r """ + self.out_dir + """/interferograms/$pair /tmp/interferograms
             done
             files1="/tmp/interferograms/????????_????????/*.xml
             files2="/tmp/interferograms/????????_????????/*/*.xml
