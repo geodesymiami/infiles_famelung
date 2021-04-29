@@ -873,6 +873,8 @@ class JOB_SUBMIT:
         
         # run_09_merge_burst_igram
         if 'merge_burst_igram' in job_file_name and not batch_file is None:
+            job_file_lines.append("""
+           
             # stack
             cp -r """ + self.out_dir + """/stack /tmp
             files="/tmp/stack/*xml"
@@ -890,6 +892,7 @@ class JOB_SUBMIT:
             old=""" + self.out_dir + """
             sed -i "s|$old|/tmp|g" $files1
             sed -i "s|$old|/tmp|g" $files2
+            """)
 
         # run_10_filter_coherence
         if 'filter_coherence' in job_file_name and not batch_file is None:
