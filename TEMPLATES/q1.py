@@ -843,17 +843,17 @@ class JOB_SUBMIT:
             # awk '{printf "%s\\n",$3}' run_11_unwrap | awk -F _igram_unw_ '{printf "%s\\n",$2}' | sort -n | uniq
             job_file_lines.append("""
 
-            date_list=( $(awk '{printf "%s\\n",$3}' """ + batch_file + """ | awk -F _ '{printf "%s\\n",$NF}' | sort -n | uniq ) )
+            date_list=( $(awk '{printf "%s\\n",$3}' """ + batch_file + """ | awk -F _ '{printf "%s\\n",$(NF-1),$NF}' | sort -n | uniq ) )
             ref_date=( $(xmllint --xpath 'string(/productmanager_name/component[@name="instance"]/property[@name="ascendingnodetime"]/value)' """ \
                 + self.out_dir + """/reference/IW*.xml | cut -d ' ' -f 1 | sed "s|-||g") )
             
             # reference
-            cp -r """ + self.out_dir + """/reference /tmp
-            files="/tmp/reference/*.xml /tmp/reference/*/*.xml"
-            old=""" + self.out_dir + """ 
-            sed -i "s|$old|/tmp|g" $files
-
-            # coreg_secondarys
+            if [[ " ${date_list[@]} " =~ " $ref_date " ]] ; then
+               cp -r """ + self.out_dir + """/reference /tmp
+               files="/tmp/reference/*.xml /tmp/reference/*/*.xml"
+               old=""" + self.out_dir + """ 
+               sed -i "s|$old|/tmp|g" $files
+            fi
             
             # remove ref_date from array
             index=$(echo ${date_list[@]/$ref_date//} | cut -d/ -f1 | wc -w | tr -d ' ')
