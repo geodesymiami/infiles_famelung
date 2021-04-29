@@ -899,7 +899,7 @@ class JOB_SUBMIT:
             job_file_lines.append("""
    
             # merged/interferograms       
-            pair_list=( $(awk '{printf "%s\\n",$3}' """ + batch_file + """ | awk -F _merge_igram_ '{printf "%s\\n",$2}' | sort -n | uniq) )
+            pair_list=( $(awk '{printf "%s\\n",$3}' """ + batch_file + """ | awk -F _igram_filt_coh_ '{printf "%s\\n",$2}' | sort -n | uniq) )
             mkdir -p /tmp/merged/interferograms
             for pair in "${pair_list[@]}"; do
                cp -r """ + self.out_dir + """/merged/interferograms/$pair /tmp/merged/interferograms
