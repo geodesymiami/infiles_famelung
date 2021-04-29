@@ -904,12 +904,11 @@ class JOB_SUBMIT:
             for pair in "${pair_list[@]}"; do
                cp -r """ + self.out_dir + """/merged/interferograms/$pair /tmp/merged/interferograms
             done
-            files1="/tmp/merged/interferograms/????????_????????/*.xml
+            files1="/tmp/merged/interferograms/????????_????????/*.xml"
             old=""" + self.out_dir + """
             sed -i "s|$old|/tmp|g" $files1
 
             # merged/SLC
-            job_file_lines.append('# merged/SLC\n')
             date_list=( $(awk '{printf "%s\\n",$3}' """ + batch_file + """ | awk -F _ '{printf "%s\\n%s\\n",$(NF-1),$NF}' | sort -n | uniq) )
             mkdir -p /tmp/merged/SLC
             for date in "${date_list[@]}"; do
