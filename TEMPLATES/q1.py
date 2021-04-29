@@ -905,10 +905,8 @@ class JOB_SUBMIT:
                cp -r """ + self.out_dir + """/merged/interferograms/$pair /tmp/interferograms
             done
             files1="/tmp/merged/interferograms/????????_????????/*.xml
-            files2="/tmp/merged/interferograms/????????_????????/*/*.xml
             old=""" + self.out_dir + """
             sed -i "s|$old|/tmp|g" $files1
-            sed -i "s|$old|/tmp|g" $files2
 
             # merged/SLC
             job_file_lines.append('# merged/SLC\n')
