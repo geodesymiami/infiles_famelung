@@ -1,0 +1,32 @@
+#######################################
+dataset                               = KokoxiliBigSenAT41
+processor                             = isce         
+insarmaps_flag                        = False        
+cleanopt                              = 0            
+#######################################
+ssaraopt.platform                     = SENTINEL-1A,SENTINEL-1B
+ssaraopt.relativeOrbit                = 41           
+ssaraopt.startDate                    = 20140101     
+#######################################
+topsStack.boundingBox                 = 31.9 33.1 87.0 98.0
+topsStack.subswath                    = 1 2 3        
+#topsStack.referenceDate               = 20160107     
+#topsStack.excludeDates                = 20141113,20150124,20150325,20150401,20150706
+topsStack.excludeDates                = 20150325
+topsStack.numConnections              = 4            
+topsStack.azimuthLooks                = 21           
+topsStack.rangeLooks                  = 57           
+topsStack.filtStrength                = 0.2          
+topsStack.unwMethod                   = snaphu       
+topsStack.coregistration              = geometry     
+topsStack.slcDir                      = $SCRATCHDIR/KokoxiliBigSenAT41/SLC
+#######################################
+mintpy.reference.lalo                 = auto         
+mintpy.troposphericDelay.method       = auto         
+mintpy.geocode.laloStep               = 0.0025,0.0025
+mintpy.load.autoPath                  = yes          
+mintpy.compute.cluster                = local        
+mintpy.compute.numWorker              = 40           
+mintpy.solidEarthTides                = yes          
+mintpy.save.hdfEos5                   = yes          
+mintpy.save.hdfEos5.update            = no           

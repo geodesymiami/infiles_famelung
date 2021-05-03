@@ -2,13 +2,16 @@
 processor                           = isce                                                                                                
 cleanopt                            = 0                                                                                                   
 ssaraopt.platform                   = SENTINEL-1A,SENTINEL-1B                                                                             
+ssaraopt.startDate                  = 20150630                                                                                                 
+ssaraopt.endDate                    = 20151004                                                                                                 
 ssaraopt.relativeOrbit              = 49                                                                                                 
 ####################
 topsStack.boundingBox               = 25.8 27.6 63.0 68.0      # '-1 0.15 -91.6 -90.9'                           
 topsStack.boundingBox               = 25.7 28.1 63.0 68.0      # '-1 0.15 -91.6 -90.9'                           
-topsStack.boundingBox               = 25.45 28.1 62.0 69.0      # '-1 0.15 -91.6 -90.9'                           
-topsStack.referenceDate             = 20150302
-topsStack.excludeDates              = 20151215,20160201,20160320
+topsStack.boundingBox               = 25.45 28.1 63.0 68.0      # '-1 0.15 -91.6 -90.9'                           
+topsStack.boundingBox               = 25.15 28.5 62.0 69.0      # '-1 0.15 -91.6 -90.9'                           
+#topsStack.referenceDate             = 20150326
+#topsStack.excludeDates              = 20151215,20160201,20160320
 topsStack.subswath                  = 1 2                      # '1 2'                                           
 topsStack.numConnections            = 4                          # comment                                         
 topsStack.azimuthLooks              = 14                          # comment                                         

@@ -2,7 +2,7 @@
 processor                           = isce                                                                                                
 cleanopt                            = 0                                                                                                   
 ssaraopt.platform                   = SENTINEL-1A,SENTINEL-1B                                                                             
-ssaraopt.relativeOrbit              = 143                                                                                                 
+ssaraopt.relativeOrbit              = 114                                                                                                 
 ssaraopt.startDate                  = 20140101                                                                                            
 ####################
 topsStack.boundingBox               = 33.5 38.5 88.0 98.0      # '-1 0.15 -91.6 -90.9'                           
@@ -11,14 +11,13 @@ topsStack.boundingBox               = 34.2 37.8 88.0 98.0      # '-1 0.15 -91.6 
 topsStack.boundingBox               = 30.0 42.0 88.0 98.0      # '-1 0.15 -91.6 -90.9'                           
 topsStack.boundingBox               = 29.8 42.2 88.0 98.0      # '-1 0.15 -91.6 -90.9'                           
 topsStack.subswath                  = 1 2 3                       # '1 2'                                           
-topsStack.excludeDates              = 20150401,20150706                       # 20150320,20150413                       # '1 2'            
 topsStack.numConnections            = 5                          # comment                                         
 topsStack.azimuthLooks              = 21                          # comment                                         
 topsStack.rangeLooks                = 57                         # comment                                         
 topsStack.filtStrength              = 0.2                        # comment                                         
 topsStack.unwMethod                 = snaphu                     # comment                                         
 topsStack.coregistration            = geometry                   # [NESD geometry], auto for NESD                  
-topsStack.slcDir                    = $SCRATCHDIR/KokoxiliBigSenAT143/SLC
+topsStack.slcDir                    = $SCRATCHDIR/KokoxiliBigSenAT114/SLC
 ####################
 mintpy.reference.lalo               = auto                                                                                     
 mintpy.troposphericDelay.method     = auto                       # [pyaps / height_correlation / base_trop_cor / no], auto for pyaps

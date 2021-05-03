@@ -12,9 +12,8 @@ cleanopt                            = 0
 ssaraopt.platform                   = SENTINEL-1A,SENTINEL-1B                                                                             
 ssaraopt.relativeOrbit              = 151                                                                                                 
 ####################
-topsStack.boundingBox               = 25.8 27.6 63.0 68.0        # '-1 0.15 -91.6 -90.9'                           
+topsStack.boundingBox               = 25.45 28.0 62.0 69.0        # '-1 0.15 -91.6 -90.9'                           
 topsStack.subswath                  = 2 3                        # '1 2'                                           
-topsStack.excludeDates              = 20141203,20150309,20150731,20150824,20151104,20160514,20170322,20170825,20180504,20181007,20191014,20190417,20200411,20200914           # '1 2'  
 topsStack.excludeDates              = 20150824,20151104           # '1 2'                                           
 topsStack.numConnections            = 4                          # comment                                         
 topsStack.azimuthLooks              = 14                         # comment                                         
@@ -23,11 +22,10 @@ topsStack.filtStrength              = 0.2                        # comment
 topsStack.unwMethod                 = snaphu                     # comment                                         
 topsStack.coregistration            = auto                       # [NESD geometry], auto for NESD                  
 ####################
-mintpy.reference.lalo               = auto
+mintpy.reference.lalo               = 26.674429,66.05167
 mintpy.troposphericDelay.method     = auto                         # [pyaps / height_correlation / base_trop_cor / no], auto for pyaps
 mintpy.network.startDate            = auto                       # [20090101 / no], auto for no                    
-mintpy.geocode.latStep              = 0.002                      # [0.0-90.0 / None], auto for None, output resolution in degree
-mintpy.geocode.lonStep              = 0.002                      # [0.0-180.0 / None], auto for None - calculate from lookup file
+mintpy.geocode.laloStep             = 0.002,0.002                 #[-0.000555556,0.000555556 / None], auto for None, output resolution in degree
 mintpy.save.hdfEos5.update          = no                         # [yes / no], auto for no, put XXXXXXXX as endDate in output filename
 mintpy.load.autoPath                = yes                        # [yes / no], auto for no, use pre-defined auto path
  
