@@ -1052,16 +1052,24 @@ class JOB_SUBMIT:
             
             for date in "${date_list[@]}"; do
                 cp -r """ + self.out_dir + """/merged/SLC/$date/ /tmp/merged/SLC
-
             done
 
-            files1="/tmp/SLC_crop/*/*.xml"
-            files2="/tmp/coregSLC/Coarse/*/*.xml"
-            files3="/tmp/offsets/*/*.xml"
-            old=""" + self.out_dir + """ 
-            sed -i "s|$old|/tmp|g" $files1
-            sed -i "s|$old|/tmp|g" $files2
-            sed -i "s|$old|/tmp|g" $files3
+             """)
+            
+        # run_09_igram
+        if 'run_09_igram' in job_file_name and not batch_file is None:
+            job_file_lines.append("""
+ 
+            mkdir -p /tmp/merged/SLC
+           
+            ref_date=( $(awk '{printf "%s\\n",$3}' """ + self.out_dir +  """/run_files/run_02_reference | awk -F _ '{printf "%s\\n",$NF}' ) )
+            date_list=( $(awk '{printf "%s\\n",$3}' """ + batch_file +  """ | awk -F _ '{printf "%s\\n",$NF}' ) )
+            
+            cp -r """ + self.out_dir + """/merged/SLC/$ref_date/ /tmp/merged/SLC
+            
+            for date in "${date_list[@]}"; do
+                cp -r """ + self.out_dir + """/merged/SLC/$date/ /tmp/merged/SLC
+            done
 
              """)
 
