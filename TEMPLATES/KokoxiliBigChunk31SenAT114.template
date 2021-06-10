@@ -1,30 +1,27 @@
 #######################################
-dataset                               = KokoxiliBigSenAT143
+dataset                               = KokoxiliBigSenAT114
 processor                             = isce         
 cleanopt                              = 0            
 #######################################
 ssaraopt.platform                     = SENTINEL-1A,SENTINEL-1B
-ssaraopt.relativeOrbit                = 143          
-#ssaraopt.startDate                    = 20150301
-ssaraopt.endDate                      = 20160630
+ssaraopt.relativeOrbit                = 114          
 #######################################
-topsStack.boundingBox                 = 33.5 35.5 88.0 98.0   # used for downloading
-topsStack.boundingBox                 = 33.8 35.2 88.0 98.0
+topsStack.boundingBox                 = 30.9 32.1 88.0 98.0
+topsStack.excludeDates                = 20141224
 topsStack.subswath                    = 1 2 3        
-topsStack.excludeDates                = 20150401,20150706
-topsStack.numConnections              = 2            
+topsStack.numConnections              = 5            
 topsStack.azimuthLooks                = 21           
 topsStack.rangeLooks                  = 57           
 topsStack.filtStrength                = 0.2          
 topsStack.unwMethod                   = snaphu       
 topsStack.coregistration              = geometry     
-topsStack.slcDir                      = $SCRATCHDIR/ref1_KokoxiliBigChunk34SenAT143/SLC
+topsStack.slcDir                      = $SCRATCHDIR/KokoxiliBigSenAT114/SLC
 #######################################
 mintpy.reference.lalo                 = auto         
-mintpy.troposphericDelay.method       = no         
+mintpy.troposphericDelay.method       = auto         
 mintpy.geocode.laloStep               = 0.0025,0.0025
 mintpy.load.autoPath                  = yes          
-mintpy.compute.cluster                = no        
+mintpy.compute.cluster                = local        
 mintpy.compute.numWorker              = 32           
 mintpy.solidEarthTides                = yes          
 mintpy.save.hdfEos5                   = yes          

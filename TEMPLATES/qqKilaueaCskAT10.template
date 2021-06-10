@@ -6,8 +6,8 @@ ssaraopt.platform       = COSMO-SKYMED-1,COSMO-SKYMED-2,COSMO-SKYMED-3,COSMO-SKY
 ssaraopt.relativeOrbit  = 10
 ssaraopt.intersectsWithPoint = -155.26 19.4 
 ssaraopt.collectionName = "Supersites CSK Hawaii"
-ssaraopt.startDate      = 20180301
-ssaraopt.endDate        = 20180531
+ssaraopt.startDate      = 20210101
+ssaraopt.endDate        = 20210531
 relative_orbit          = 10
 ##################### ISCE OPTIONS ####################
 stripmapStack.boundingBox    = 19.1 19.7 -155.5 -154.9                           # '-1 0.15 -91.6 -90.9'                           
@@ -26,7 +26,7 @@ stripmapStack.sensor               = csk
 
 ##################### MINTPY OPTIONS ###################
 mintpy.compute.cluster            = local #[local / slurm / pbs / lsf / none], auto for none, cluster type
-mintpy.compute.numWorker          = 6 #[int > 1 / all], auto for 4 (local) or 40 (non-local), num of workers
+mintpy.compute.numWorker          = 32 #[int > 1 / all], auto for 4 (local) or 40 (non-local), num of workers
 mintpy.load.autoPath              = yes
 mintpy.reference.lalo             = auto   #[31.8,130.8 / auto]
 mintpy.troposphericDelay.method   = no    # pyaps  #[pyaps / height_correlation / base_trop_cor / no], auto for pyaps

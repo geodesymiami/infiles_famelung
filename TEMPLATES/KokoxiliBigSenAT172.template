@@ -1,32 +1,29 @@
 ####################
-insarmaps_flag                      = False                                                                                                
+processor                           = isce                                                                                                
 cleanopt                            = 0                                                                                                   
 ssaraopt.platform                   = SENTINEL-1A,SENTINEL-1B                                                                             
-ssaraopt.relativeOrbit              = 41                                                                                                 
-ssaraopt.startDate                  = 20140101                                                                                            
+ssaraopt.relativeOrbit              = 172                                                                                                 
 ####################
-topsStack.boundingBox               = 33.5 38.5 88.0 98.0      # '-1 0.15 -91.6 -90.9'                           
-topsStack.boundingBox               = 34.0 38.0 88.0 98.0      # '-1 0.15 -91.6 -90.9'                           
-topsStack.boundingBox               = 34.2 37.8 88.0 98.0      # '-1 0.15 -91.6 -90.9'                           
-topsStack.boundingBox               = 30.0 42.0 88.0 98.0      # '-1 0.15 -91.6 -90.9'                           
-topsStack.boundingBox               = 29.5 42.5 87.0 98.0      # '-1 0.15 -91.6 -90.9'                           
+topsStack.boundingBox               = 29.8 42.2 82.0 100.0      # '-1 0.15 -91.6 -90.9'                           
 topsStack.subswath                  = 1 2 3                       # '1 2'                                           
-#topsStack.referenceDate             = 20160107
-#topsStack.excludeDates              = 20141113,20150124,20150325,20150401,20150706                  # 20150401,20150706          
+#topsStack.excludeDates              = 20141224
 topsStack.numConnections            = 4                          # comment                                         
 topsStack.azimuthLooks              = 21                          # comment                                         
 topsStack.rangeLooks                = 57                         # comment                                         
 topsStack.filtStrength              = 0.2                        # comment                                         
 topsStack.unwMethod                 = snaphu                     # comment                                         
 topsStack.coregistration            = geometry                   # [NESD geometry], auto for NESD                  
-topsStack.slcDir                    = $SCRATCHDIR/KokoxiliBigSenAT41/SLC
+topsStack.slcDir                    = $SCRATCHDIR/KokoxiliBigSenAT172/SLC
 ####################
 mintpy.reference.lalo               = auto                                                                                     
 mintpy.troposphericDelay.method     = auto                       # [pyaps / height_correlation / base_trop_cor / no], auto for pyaps
 mintpy.geocode.laloStep             = 0.0025,0.0025                 #[-0.000555556,0.000555556 / None], auto for None, output resolution in degree
+
 mintpy.load.autoPath                = yes
 mintpy.compute.cluster              = local
 mintpy.compute.numWorker            = 32
 mintpy.solidEarthTides              = yes                         #[yes / no], auto for no
 mintpy.save.hdfEos5                 = yes                        # [yes / update / no], auto for no, save timeseries to UNAVCO InSAR Archive format
 mintpy.save.hdfEos5.update          = no                                                # [yes / no], auto for no, put XXXXXXXX as endDate in output filename
+####################
+insarmaps_flag                      = False                                                                                                

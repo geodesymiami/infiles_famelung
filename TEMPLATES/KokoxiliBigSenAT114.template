@@ -3,15 +3,15 @@ processor                           = isce
 cleanopt                            = 0                                                                                                   
 ssaraopt.platform                   = SENTINEL-1A,SENTINEL-1B                                                                             
 ssaraopt.relativeOrbit              = 114                                                                                                 
-ssaraopt.startDate                  = 20140101                                                                                            
 ####################
 topsStack.boundingBox               = 33.5 38.5 88.0 98.0      # '-1 0.15 -91.6 -90.9'                           
 topsStack.boundingBox               = 34.0 38.0 88.0 98.0      # '-1 0.15 -91.6 -90.9'                           
 topsStack.boundingBox               = 34.2 37.8 88.0 98.0      # '-1 0.15 -91.6 -90.9'                           
 topsStack.boundingBox               = 30.0 42.0 88.0 98.0      # '-1 0.15 -91.6 -90.9'                           
-topsStack.boundingBox               = 29.8 42.2 88.0 98.0      # '-1 0.15 -91.6 -90.9'                           
+topsStack.boundingBox               = 29.8 42.2 82.0 98.0      # '-1 0.15 -91.6 -90.9'                           
 topsStack.subswath                  = 1 2 3                       # '1 2'                                           
-topsStack.numConnections            = 5                          # comment                                         
+topsStack.excludeDates              = 20141224
+topsStack.numConnections            = 4                          # comment                                         
 topsStack.azimuthLooks              = 21                          # comment                                         
 topsStack.rangeLooks                = 57                         # comment                                         
 topsStack.filtStrength              = 0.2                        # comment                                         
@@ -25,7 +25,7 @@ mintpy.geocode.laloStep             = 0.0025,0.0025                 #[-0.0005555
 
 mintpy.load.autoPath                = yes
 mintpy.compute.cluster              = local
-mintpy.compute.numWorker            = 40
+mintpy.compute.numWorker            = 32
 mintpy.solidEarthTides              = yes                         #[yes / no], auto for no
 mintpy.save.hdfEos5                 = yes                        # [yes / update / no], auto for no, save timeseries to UNAVCO InSAR Archive format
 mintpy.save.hdfEos5.update          = no                                                # [yes / no], auto for no, put XXXXXXXX as endDate in output filename

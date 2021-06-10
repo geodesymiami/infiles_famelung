@@ -9,7 +9,7 @@ ssaraopt.relativeOrbit                = 143
 ssaraopt.endDate                      = 20160630
 #######################################
 topsStack.boundingBox                 = 33.5 35.5 88.0 98.0   # used for downloading
-topsStack.boundingBox                 = 33.8 35.2 88.0 98.0
+topsStack.boundingBox                 = 33.9 35.1 88.0 98.0
 topsStack.subswath                    = 1 2 3        
 topsStack.excludeDates                = 20150401,20150706
 topsStack.numConnections              = 2            
