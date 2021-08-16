@@ -8,8 +8,7 @@ ssaraopt.relativeOrbit                = 150
 #######################################
 topsStack.boundingBox                 = 33.9 35.1 83.0 101.0
 topsStack.subswath                    = 1 2 3        
-topsStack.excludeDates                = 20210405     
-topsStack.excludeDates                = 20210405,20150928
+#topsStack.excludeDates                = 20210405,20150928
 topsStack.numConnections              = 4            
 topsStack.azimuthLooks                = 21           
 topsStack.rangeLooks                  = 57           

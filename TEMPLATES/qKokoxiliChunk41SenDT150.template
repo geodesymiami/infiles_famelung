@@ -6,10 +6,11 @@ cleanopt                              = 0
 ssaraopt.platform                     = SENTINEL-1A,SENTINEL-1B
 ssaraopt.relativeOrbit                = 150          
 #######################################
-topsStack.boundingBox                 = 39.9 41.1 83.0 101.0
+topsStack.boundingBox                 = 40.9 42.1 83.0 101.0
 topsStack.subswath                    = 1 2 3        
-#topsStack.excludeDates                = 20210405     
-#topsStack.excludeDates                = 20210405,20160712,20141120,20160102     
+topsStack.excludeDates                = 20210405,20160712
+topsStack.excludeDates                = 20210405,20160712,20160102,20161109,20161016,20161203,20170126,20170219,20170120,20170102
+topsStack.excludeDates                = 20210405
 topsStack.numConnections              = 4            
 topsStack.azimuthLooks                = 21           
 topsStack.rangeLooks                  = 57           

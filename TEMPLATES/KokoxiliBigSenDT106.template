@@ -2,17 +2,17 @@
 processor                           = isce                                                                                                
 cleanopt                            = 0                                                                                                   
 ssaraopt.platform                   = SENTINEL-1A,SENTINEL-1B                                                                             
-ssaraopt.relativeOrbit              = 150                                                                                                 
+ssaraopt.relativeOrbit              = 106                                                                                                 
 ####################
-topsStack.boundingBox               = 29.8 42.2 83.0 101.0      # '-1 0.15 -91.6 -90.9'                           
+topsStack.boundingBox               = 29.8 42.2 83.0 107.0      # '-1 0.15 -91.6 -90.9'                           
 topsStack.subswath                  = 1 2 3                       # '1 2'                                           
+#topsStack.excludeDates              = 20210405
 topsStack.numConnections            = 4                          # comment                                         
 topsStack.azimuthLooks              = 21                          # comment                                         
 topsStack.rangeLooks                = 57                         # comment                                         
 topsStack.filtStrength              = 0.2                        # comment                                         
 topsStack.unwMethod                 = snaphu                     # comment                                         
 topsStack.coregistration            = geometry                   # [NESD geometry], auto for NESD                  
-topsStack.slcDir                    = $SCRATCHDIR/KokoxiliBigSenDT150/SLC
 ####################
 mintpy.reference.lalo               = auto                                                                                     
 mintpy.troposphericDelay.method     = auto                       # [pyaps / height_correlation / base_trop_cor / no], auto for pyaps

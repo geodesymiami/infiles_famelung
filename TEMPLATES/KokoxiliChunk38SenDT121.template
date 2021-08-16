@@ -1,22 +1,21 @@
 #######################################
-dataset                               = KokoxiliBigSenDT150
+dataset                               = KokoxiliBigSenDT121
 processor                             = isce         
 cleanopt                              = 0            
 #######################################
 ssaraopt.platform                     = SENTINEL-1A,SENTINEL-1B
-ssaraopt.relativeOrbit                = 150          
+ssaraopt.relativeOrbit                = 121          
 #######################################
-topsStack.boundingBox                 = 39.9 41.1 83.0 101.0
+topsStack.boundingBox                 = 37.9 39.1 83.0 101.0
 topsStack.subswath                    = 1 2 3        
-#topsStack.excludeDates                = 20210405     
-#topsStack.excludeDates                = 20210405,20160712,20141120,20160102     
+topsStack.referenceDate               = 20201018
 topsStack.numConnections              = 4            
 topsStack.azimuthLooks                = 21           
 topsStack.rangeLooks                  = 57           
 topsStack.filtStrength                = 0.2          
 topsStack.unwMethod                   = snaphu       
 topsStack.coregistration              = geometry     
-topsStack.slcDir                      = $SCRATCHDIR/KokoxiliBigSenDT150/SLC
+topsStack.slcDir                      = $SCRATCHDIR/KokoxiliBigSenDT121/SLC
 #######################################
 mintpy.reference.lalo                 = auto         
 mintpy.troposphericDelay.method       = auto         

@@ -6,16 +6,15 @@ cleanopt                              = 0
 ssaraopt.platform                     = SENTINEL-1A,SENTINEL-1B
 ssaraopt.relativeOrbit                = 172          
 #######################################
-topsStack.boundingBox                 = 40.9 42.1 82.0 100.0
+topsStack.boundingBox                 = 40.9 42.1 83.0 107.0
 topsStack.subswath                    = 1 2 3        
-topsStack.excludeDates                = 20151223,20151129,20160209,20160304,20160328,20160421,20160726,20160515,20160608,20160819,20160912,20161006,20161030,20161123,20161217,20170110,20170203,20170215,20170227,20170311
+topsStack.referenceDate               = 20151129
 topsStack.numConnections              = 4            
 topsStack.azimuthLooks                = 21           
 topsStack.rangeLooks                  = 57           
 topsStack.filtStrength                = 0.2          
 topsStack.unwMethod                   = snaphu       
 topsStack.coregistration              = geometry     
-topsStack.slcDir                      = $SCRATCHDIR/KokoxiliBigSenAT172/SLC
 #######################################
 mintpy.reference.lalo                 = auto         
 mintpy.troposphericDelay.method       = auto         
@@ -27,3 +26,4 @@ mintpy.solidEarthTides                = yes
 mintpy.save.hdfEos5                   = yes          
 mintpy.save.hdfEos5.update            = no           
 insarmaps_flag                        = False        
+topsStack.slcDir                      = $SCRATCHDIR/KokoxiliBigSenAT172/SLC

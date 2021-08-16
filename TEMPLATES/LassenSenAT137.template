@@ -1,0 +1,38 @@
+#######################################################
+processor                           = isce
+cleanopt                            = 0
+ssaraopt.platform                   = SENTINEL-1A,SENTINEL-1B
+ssaraopt.startDate                  = 20170701
+ssaraopt.endDate                    = 20200630
+ssaraopt.relativeOrbit              = 137
+topsStack.boundingBox               = 40.3 40.7 -124.0 -120.0
+topsStack.subswath                  = 1 2
+topsStack.numConnections            = 5
+topsStack.azimuthLooks              = 7
+topsStack.rangeLooks                = 19
+topsStack.coregistration            = geometry
+ 
+#######################################################
+# Mintpy options
+mintpy.compute.cluster              = local  # if dask is not available, set this option to no 
+mintpy.compute.numWorker            = 32 
+mintpy.load.autoPath                = yes
+mintpy.subset.lalo                  = 40.4:40.6,-121.63:-121.37    #[31.5:32.5,130.5:131.0 / no], auto for no
+mintpy.reference.lalo               = auto
+mintpy.troposphericDelay.method     = auto                                              #[pyaps / height_correlation / base_trop_cor / no], auto for pyaps
+mintpy.save.hdfEos5                 = yes                                               # [yes / update / no], auto for no, save timeseries to UNAVCO 
+
+#######################################################
+# MiNoPy options 
+minopy.load.autoPath                = yes
+minopy.compute.numWorkers           = 46
+minopy.subset.lalo                  = 40.4:40.6,-121.63:-121.37    #[31.5:32.5,130.5:131.0 / no], auto for no
+minopy.inversion.patchSize          = 200       
+minopy.inversion.rangeWindow        = 11        
+minopy.inversion.azimuthWindow      = 5        
+minopy.inversion.shpTest            = auto   # [ks, ad, ttest] auto for ks: kolmogorov-smirnov test
+minopy.inversion.phaseLinkingMethod = auto   # [EVD, EMI, PTA, sequential_EVD, sequential_EMI, sequential_PTA], auto for sequential_EMI
+minopy.interferograms.type          = single_reference     # [single_reference, sequential, combine, list] default: single_reference
+minopy.interferograms.referenceDate = 20181018
+
+
