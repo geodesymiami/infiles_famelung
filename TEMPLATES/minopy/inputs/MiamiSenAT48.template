@@ -1,0 +1,38 @@
+####################
+processor                           = isce                                                                                                
+cleanopt                            = 0                                                                                                   
+ssaraopt.platform                   = SENTINEL-1A,SENTINEL-1B                                                                             
+ssaraopt.startDate                  = 20140101
+ssaraopt.relativeOrbit              = 48                                                                                                 
+####################
+topsStack.boundingBox               = 25.4 26.1 -82.0 -80.0      # '-1 0.15 -91.6 -90.9'                           
+topsStack.subswath                  = 3                       # '1 2'                                           
+topsStack.numConnections            = 6                          # comment                                         
+topsStack.azimuthLooks              = 7                          # comment                                         
+topsStack.rangeLooks                = 19                         # comment                                         
+topsStack.filtStrength              = 0.2                        # comment                                         
+topsStack.unwMethod                 = snaphu                     # comment                                         
+topsStack.coregistration            = geometry                   # [NESD geometry], auto for NESD                  
+####################
+MINOPY.parallel.num_workers           = 4            
+MINOPY.load.processor                 = isce         
+MINOPY.inversion.patch_size           = 200          
+MINOPY.inversion.range_window         = 15           
+MINOPY.inversion.azimuth_window       = 11           
+MINOPY.inversion.shp_test             = ks           
+MINOPY.inversion.plmethod             = sequential_EMI
+MINOPY.interferograms.type            = combine         # [single_reference, sequential, combine, list] default: sequential
+#
+mintpy.reference.lalo               = auto                                                                                     
+mintpy.troposphericDelay.method     = auto                       # [pyaps / height_correlation / base_trop_cor / no], auto for pyaps
+#mintpy.networkInversion.minTempCoh  = 0.4
+#mintpy.geocode.laloStep             = 0.0008,0.0008                 #[-0.000555556,0.000555556 / None], auto for None, output resolution in degree
+mintpy.subset.lalo                   = 25.71:26.0,-80.3:-80.1    #[S:N,W:E / no], auto for no
+
+mintpy.load.autoPath                = yes
+mintpy.compute.cluster              = local
+mintpy.compute.numWorker            = 32
+mintpy.save.hdfEos5                 = yes                        # [yes / update / no], auto for no, save timeseries to UNAVCO InSAR Archive format
+mintpy.save.hdfEos5.update          = no                                                # [yes / no], auto for no, put XXXXXXXX as endDate in output filename
+####################
+insarmaps_flag                      = False                                                                                                

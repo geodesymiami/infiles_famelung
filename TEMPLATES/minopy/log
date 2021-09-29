@@ -1,0 +1,4 @@
+20210713:143627 * minopyApp.py /work2/05861/tg851601/stampede2/insarlab/infiles/famelung/TEMPLATES/MiamiSenAT48.template
+20210713:151732 * minopyApp.py /work2/05861/tg851601/stampede2/insarlab/infiles/famelung/TEMPLATES/MiamiHighResSenAT48.template --jobfiles
+20210713:151922 * minopyApp.py /work2/05861/tg851601/stampede2/insarlab/infiles/famelung/TEMPLATES/MiamiHighResSenAT48.template --jobfiles
+20210713:171514 * minopyApp.py /work2/05861/tg851601/stampede2/insarlab/infiles/famelung/TEMPLATES/MiamiHighResSenAT48.template --jobfiles
