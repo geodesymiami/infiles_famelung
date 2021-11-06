@@ -39,6 +39,6 @@ mintpy.compute.numWorker            = 32
 mintpy.solidEarthTides              = yes                         #[yes / no], auto for no
 mintpy.save.hdfEos5                 = yes                        # [yes / update / no], auto for no, save timeseries to UNAVCO InSAR Archive format
 ####################
-insarmaps_flag                      = True                                                                                                
+insarmaps_flag                      = False
 image_products_flag                 = False
 

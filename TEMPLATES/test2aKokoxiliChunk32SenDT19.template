@@ -1,0 +1,32 @@
+#######################################
+dataset                               = test1KokoxiliBigSenDT19
+processor                             = isce         
+cleanopt                              = 0            
+#######################################
+ssaraopt.platform                     = SENTINEL-1A,SENTINEL-1B
+ssaraopt.relativeOrbit                = 19           
+ssaraopt.endDate                    = 20161031
+#######################################
+topsStack.boundingBox                 = 31.9 33.1 83.0 101.0
+topsStack.boundingBox                 = 31.9 32.2 83.0 101.0
+topsStack.subswath                    = 1 2 3        
+topsStack.subswath                    = 1 
+topsStack.numConnections              = 4            
+topsStack.azimuthLooks                = 21           
+topsStack.rangeLooks                  = 57           
+topsStack.filtStrength                = 0.2          
+topsStack.unwMethod                   = snaphu       
+topsStack.coregistration              = geometry     
+topsStack.slcDir                      = $SCRATCHDIR/test1KokoxiliBigSenDT19/SLC
+topsStack.demDir                      = $SCRATCHDIR/test2KokoxiliChunk32SenDT19/DEM
+#######################################
+mintpy.reference.lalo                 = auto         
+mintpy.troposphericDelay.method       = auto         
+mintpy.geocode.laloStep               = 0.0025,0.0025
+mintpy.load.autoPath                  = yes          
+mintpy.compute.cluster                = local        
+mintpy.compute.numWorker              = 32           
+mintpy.solidEarthTides                = no          
+mintpy.save.hdfEos5                   = yes          
+mintpy.save.hdfEos5.update            = no           
+insarmaps_flag                        = False        

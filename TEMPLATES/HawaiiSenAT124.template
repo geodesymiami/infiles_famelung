@@ -1,8 +1,3 @@
-process_flag                        = TRUE                                                                                                
-frequency                           = 1                                                                                                   
-login                               = pegasus.ccs.miami.edu                                                                               
-user                                = famelung                                                                                            
-####################
 ####################
 every_day_flag                      = yes                                                                                                 
 processor                           = isce                                                                                                
@@ -10,30 +5,28 @@ parallel                            = yes
 cleanopt                            = 0                                                                                                   
 hazard_products_flag                = TRUE                                                                                                
 ssaraopt.platform                   = SENTINEL-1A,SENTINEL-1B                                                                             
-ssaraopt.relativeOrbit              = 87                                                                                                  
-#ssaraopt.startDate                  = 20200101
-#ssaraopt.endDate                    = 20200501
+ssaraopt.relativeOrbit              = 124                                                                                                  
+ssaraopt.startDate                  = 20180904                                                                                                  
 ####################
-topsStack.boundingBox               = 19.1 19.9 -155.8 -154.5                           # '-1 0.15 -91.6 -90.9'                           
-topsStack.subswath                  = 1                                                 # '1 2'                                           
-topsStack.subswath                  = 1 2                                               # '1 2'                                           
+topsStack.boundingBox               = 18.9 20.0 -156.1 -154.5                           # '-1 0.15 -91.6 -90.9'                           
+topsStack.subswath                  = 2 3                                               # '1 2'                                           
 topsStack.numConnections            = 4                                                 # comment                                         
-#topsStack.excludeDates              = 20200301
 topsStack.azimuthLooks              = 7                                                 # comment                                         
 topsStack.rangeLooks                = 19                                                # comment                                         
 topsStack.filtStrength              = 0.2                                               # comment                                         
 topsStack.unwMethod                 = snaphu                                            # comment                                         
 topsStack.coregistration            = auto                                              # [NESD geometry], auto for NESD                  
 ####################
+mintpy.reference.lalo               = 19.5059, -155.3477                                                                                  
+mintpy.troposphericDelay.method     = height_correlation            #[pyaps / height_correlation / base_trop_cor / no], auto for pyaps
+mintpy.network.startDate            = auto                          # [20090101 / no], auto for no                    
+mintpy.geocode.laloStep             = 0.0008,0.0008                 #[-0.000555556,0.000555556 / None], auto for None, output resolution in degree
+
 mintpy.load.autoPath                = yes
 mintpy.compute.cluster              = local
 mintpy.compute.numWorker            = 32
 mintpy.solidEarthTides              = no                         #[yes / no], auto for no
-mintpy.reference.lalo               = 19.836,-155.937
-mintpy.troposphericDelay.method     = height_correlation                                #[pyaps / height_correlation / base_trop_cor / no], auto for pyaps
-mintpy.network.startDate            = auto                                              # [20090101 / no], auto for no                    
-mintpy.geocode.laloStep             = 0.0008,0.0008                 #[-0.000555556,0.000555556 / None], auto for None, output resolution in degree
 mintpy.save.hdfEos5                 = yes                        # [yes / update / no], auto for no, save timeseries to UNAVCO InSAR Archive format
-mintpy.save.hdfEos5.update          = no                                                # [yes / no], auto for no, put XXXXXXXX as endDate in output filename
+mintpy.save.hdfEos5.update          = no                        # [yes / no], auto for no, put XXXXXXXX as endDate in output filename
 ####################
 insarmaps_flag                      = True                                                                                                
