@@ -5,6 +5,7 @@ ssaraopt.relativeOrbit              = 78
 ####################
 topsStack.boundingBox               = 25.7 28.1 63.0 68.0      # '-1 0.15 -91.6 -90.9'                           
 topsStack.boundingBox               = 24.9 30.1 55.0 70.0      # '-1 0.15 -91.6 -90.9'                           
+topsStack.boundingBox               = 29.9 35.1 55.0 70.0      # '-1 0.15 -91.6 -90.9'                           
 topsStack.subswath                  = 1 2 3                      # '1 2'                                           
 topsStack.numConnections            = 4                          # comment                                         
 topsStack.azimuthLooks              = 21                          # comment                                         

@@ -3,15 +3,16 @@ processor                           = isce
 hazard_products_flag                = TRUE                                                                                                
 ssaraopt.platform                   = SENTINEL-1A,SENTINEL-1B                                                                             
 ssaraopt.relativeOrbit              = 142                                                                                                  
-ssaraopt.startDate                  = 20210803
+ssaraopt.startDate                  = 20141214
 ####################
 topsStack.boundingBox               = 18.0 19.0 -75.0 -71.0                          # '-1 0.15 -91.6 -90.9'                           
 topsStack.boundingBox               = 18.2 18.5 -75.0 -71.0                          # '-1 0.15 -91.6 -90.9'                           
 topsStack.subswath                  = 1                                                 # '1 2'                                           
+topsStack.subswath                  = 2                                                # '1 2'                                           
 topsStack.subswath                  = 1 2 3                                               # '1 2'                                           
 topsStack.numConnections            = 4                                                 # comment                                         
-topsStack.azimuthLooks              = 10                                                 # comment                                         
-topsStack.rangeLooks                = 27                                                # comment                                         
+topsStack.azimuthLooks              = 7                                                 # comment                                         
+topsStack.rangeLooks                = 19                                                # comment                                         
 topsStack.filtStrength              = 0.2                                               # comment                                         
 topsStack.unwMethod                 = snaphu                                            # comment                                         
 topsStack.coregistration            = auto                                              # [NESD geometry], auto for NESD                  
@@ -19,16 +20,26 @@ topsStack.coregistration            = auto                                      
 mintpy.compute.cluster              = local
 mintpy.compute.numWorker            = 32
 mintpy.load.autoPath                = yes
-mintpy.network.startDate            = 20210815                                               # [20090101 / no], auto for no                    
-mintpy.network.endDate            = 20210920                                               # [20090101 / no], auto for no                    
+mintpy.network.startDate            = 20160101                                               # [20090101 / no], auto for no                    
+mintpy.network.endDate              = 20210813                                               # [20090101 / no], auto for no                    
 mintpy.networkInversion.minTempCoh  = 0.5 #[0.0-1.0], auto for 0.7, min temporal coherence for mask
-mintpy.reference.lalo               = 18.2416,-72.5378                                                                                  
-mintpy.troposphericDelay.method     = pyaps                                             #[pyaps / height_correlation / base_trop_cor / no], auto for pyaps
+#mintpy.reference.lalo               = 18.2416,-72.5378                                                                                  
+mintpy.troposphericDelay.method     = no # pyaps                                             #[pyaps / height_correlation / base_trop_cor / no], auto for pyaps
 mintpy.solidEarthTides              = no                         #[yes / no], auto for no
 
 mintpy.geocode.laloStep             = 0.0012,0.0012                 #[-0.000555556,0.000555556 / None], auto for None, output resolution in degree
+mintpy.geocode.laloStep             = 0.0008,0.0008                 #[-0.000555556,0.000555556 / None], auto for None, output resolution in degree
 mintpy.save.hdfEos5                 = yes                           # [yes / update / no], auto for no, save timeseries to UNAVCO InSAR Archive format
 mintpy.save.hdfEos5.update          = no                            # [yes / no], auto for no, put XXXXXXXX as endDate in output filename
 ####################
-insarmaps_flag                      = True                                                                                                
+insarmaps_flag                      = False                                                                                                
+####################
+minopy.load.processor      = isce
+minopy.load.autoPath       = yes
+#minopy.compute.num_workers = 40
+minopy.multiprocessing.numProcessor = 36
+minopy.interferograms.type = sequential     # [single_reference, sequential, combine, list] default: single_reference
+minopy.load.startDate      = 20160101  #auto for first date
+minopy.load.endDate        = 20210813  #auto for first date
+minopy.subset.lalo         = 18.31:18.44,-73.6:-73.2            # auto
 

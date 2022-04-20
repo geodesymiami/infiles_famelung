@@ -30,9 +30,13 @@ stripmapStack.sensor               = csk
 mintpy.compute.cluster            = local #[local / slurm / pbs / lsf / none], auto for none, cluster type
 mintpy.compute.numWorker          = 32 #[int > 1 / all], auto for 4 (local) or 40 (non-local), num of workers
 mintpy.load.autoPath              = yes
-mintpy.reference.lalo             = 19.5310, -155.4812
 mintpy.troposphericDelay.method   = height_correlation    # pyaps  #[pyaps / height_correlation / base_trop_cor / no], auto for pyaps
 mintpy.geocode.laloStep           = 0.0004,0.0004  #[-0.000555556,0.000555556 / None], auto for None, output resolution in degree
 mintpy.save.hdfEos5               = yes   #[yes / no], auto for no, save time-series to HDF-EOS5 format
 mintpy.save.hdfEos5.update        = yes   #[yes / no], auto for no, put XXXXXXXX as endDate in output filename
+mintpy.save.hdfEos5.subset        = yes     #[yes / no], auto for no, put subset range info   in output filename
+#mintpy.reference.lalo             = 19.5310, -155.4812
+mintpy.subset.lalo                = 19.38:19.53,-155.69:-155.45    #[S:N,W:E / no], auto for no
+mintpy.subset.lalo                = 19.40:19.51,-155.64:-155.50    #[S:N,W:E / no], auto for no
+
 

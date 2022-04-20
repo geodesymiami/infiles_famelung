@@ -1,0 +1,38 @@
+processor                             = isce
+#cleanopt                              = 0
+ssaraopt.platform                     = SENTINEL-1A,SENTINEL-1B
+ssaraopt.startDate                    = 20140101
+ssaraopt.relativeOrbit                = 48
+topsStack.boundingBox                 = 25.67 25.93 -80.23 -80.106  #25.4 26.1 -82.0 -80.0
+topsStack.subswath                    = 3
+topsStack.numConnections              = 6
+topsStack.azimuthLooks                = 7
+topsStack.rangeLooks                  = 19
+topsStack.filtStrength                = 0.3
+topsStack.coregistration              = geometry
+
+mintpy.subset.lalo                    = 25.755:25.9,-80.15:-80.115
+
+mintpy.load.autoPath                  = yes
+mintpy.compute.cluster                = local
+mintpy.compute.numWorker              = 8
+
+
+minopy.load.autoPath                  = yes
+minopy.compute.numWorker              = 40
+minopy.load.processor      = isce  
+
+minopy.timeseries.tempCohType            = average     # [full, average], auto for full.
+minopy.timeseries.minTempCoh             = auto     # auto for 0.5
+#minopy.timeseries.waterMask              = /scratch1/06736/sxm1611/MiamiSenAT48/minopy_lidar/lidar_dem/waterMask.h5     # auto for None
+minopy.interferograms.type               = delaunay
+
+
+## Unwrapping Error Correction (optional)
+mintpy.unwrapError.method          = bridging+phase_closure
+
+## Solid earth tide correction
+mintpy.solidEarthTides             = yes
+#mintpy.reference.lalo              = 25.8942 -80.1585
+mintpy.troposphericDelay.method =  pyaps
+posphericDelay.weatherModel = ERA5

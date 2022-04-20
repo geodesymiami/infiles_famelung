@@ -1,0 +1,55 @@
+process_flag                        = TRUE                                                                                                
+frequency                           = 1                                                                                                   
+user                                = famelung                                                                                            
+####################
+####################
+every_day_flag                      = yes                                                                                                 
+processor                           = isce                                                                                                
+parallel                            = yes
+cleanopt                            = 0                                                                                                   
+hazard_products_flag                = TRUE                                                                                                
+ssaraopt.platform                   = SENTINEL-1A,SENTINEL-1B                                                                             
+ssaraopt.relativeOrbit              = 38                                                                                                  
+ssaraopt.startDate                  = 20180904
+#ssaraopt.endDate                    = 20200501
+####################
+topsStack.boundingBox               = 55.6 56.2  156.0 162.0                           # '-1 0.15 -91.6 -90.9'                           
+topsStack.subswath                  = 3                                               # '1 2'                                           
+topsStack.numConnections            = 4                                                 # comment                                         
+#topsStack.excludeDates              = 20200301
+topsStack.azimuthLooks              = 7                                                 # comment                                         
+topsStack.rangeLooks                = 19                                                # comment                                         
+topsStack.filtStrength              = 0.2                                               # comment                                         
+topsStack.unwMethod                 = snaphu                                            # comment                                         
+topsStack.coregistration            = auto                                              # [NESD geometry], auto for NESD                  
+####################
+mintpy.troposphericDelay.method     = no                                 #[pyaps / height_correlation / base_trop_cor / no], auto for pyaps
+mintpy.network.startDate            = auto                                              # [20090101 / no], auto for no                    
+mintpy.geocode.laloStep             = auto                         #[-0.000555556,0.000555556 / None], auto for None, output resolution in degree
+mintpy.load.autoPath                = yes
+mintpy.compute.cluster              = local
+mintpy.compute.numWorker            = 32
+mintpy.solidEarthTides              = no                         #[yes / no], auto for no
+mintpy.save.hdfEos5                 = yes                        # [yes / update / no], auto for no, save timeseries to UNAVCO InSAR Archive format
+mintpy.save.hdfEos5.update          = yes                                                # [yes / no], auto for no, put XXXXXXXX as endDate in output filename
+mintpy.save.hdfEos5.subset          = yes     #[yes / no], auto for no, put subset range info   in output filename
+mintpy.network.startDate            = 20190515
+mintpy.network.endDate              = auto # 20181115
+####################
+minopy.load.startDate               = 20180515
+minopy.load.endDate                 = auto # 20191115
+minopy.load.autoPath                = yes
+minopy.subset.lalo                  = 55.9:56.05,160.55:160.70
+mintpy.subset.lalo                  = 55.9:56.05,160.55:160.70
+minopy.interferograms.type          = single_reference      # [mini_stacks, single_reference, sequential] default: sequential
+minopy.multiprocessing.numProcessor = 20
+minopy.load.processor               = isce
+minopy.timeseries.tempCohType       = average     # [full, average], auto for full.
+minopy.timeseries.minTempCoh        = 0.5      # auto for 0.5
+mintpy.networkInversion.minTempCoh  = 0.5 #[0.0-1.0], auto for 0.7, min temporal coherence for mask
+minopy.interferograms.referenceDate = 20200813 # auto for the middle image
+
+####################
+
+insarmaps_flag                      = True                                                                                                
+
