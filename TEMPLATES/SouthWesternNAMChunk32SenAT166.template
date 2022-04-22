@@ -1,0 +1,30 @@
+#######################################
+dataset                               = SouthWesternNAMBigSenAT166
+processor                             = isce         
+#######################################
+ssaraopt.platform                     = SENTINEL-1A,SENTINEL-1B
+ssaraopt.relativeOrbit                = 166          
+#######################################
+topsStack.boundingBox                 = 31.9 33.1 -124.0 -105.0
+topsStack.excludeDates                = 20160831,20211010
+topsStack.referenceDate               = 20170305     
+topsStack.subswath                    = 1 2 3        
+topsStack.numConnections              = 4            
+topsStack.azimuthLooks                = 21           
+topsStack.rangeLooks                  = 57           
+topsStack.filtStrength                = 0.2          
+topsStack.unwMethod                   = snaphu       
+topsStack.coregistration              = auto         
+#######################################
+mintpy.load.autoPath                  = yes          
+mintpy.compute.cluster                = local        
+mintpy.compute.numWorker              = 36           
+mintpy.troposphericDelay.method       = no           
+mintpy.network.startDate              = auto         
+mintpy.geocode.laloStep               = 0.0025,0.0025
+mintpy.solidEarthTides                = yes          
+mintpy.save.hdfEos5                   = yes          
+mintpy.save.hdfEos5.update            = yes          
+insarmaps_flag                        = False        
+topsStack.slcDir                      = $SCRATCHDIR/SouthWesternNAMBigSenAT166/SLC
+topsStack.demDir                      = $SCRATCHDIR/SouthWesternNAMBigSenAT166/DEM

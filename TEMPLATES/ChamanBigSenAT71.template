@@ -3,7 +3,10 @@ processor                           = isce
 ssaraopt.platform                   = SENTINEL-1A,SENTINEL-1B                                                                             
 ssaraopt.relativeOrbit              = 71
 ####################
-topsStack.boundingBox               = 24.9 30.1 64.0 73.0        # '-1 0.15 -91.6 -90.9'  
+topsStack.boundingBox               = 29.8 35.2 64.0 73.0        # '-1 0.15 -91.6 -90.9'  
+topsStack.boundingBox               = 30.8 35.2 64.0 73.0        # '-1 0.15 -91.6 -90.9'  
+topsStack.boundingBox               = 24.8 34.2 64.0 73.0        # '-1 0.15 -91.6 -90.9'  
+topsStack.boundingBox               = 24.8 30.2 64.0 73.0        # '-1 0.15 -91.6 -90.9'  
 topsStack.subswath                  = 1 2 3                        # '1 2'                                           
 topsStack.numConnections            = 4                          # comment                                         
 topsStack.azimuthLooks              = 21                         # comment                                         
@@ -15,6 +18,7 @@ topsStack.coregistration            = auto                       # [NESD geometr
 mintpy.load.autoPath                = yes
 mintpy.compute.cluster              = local
 mintpy.compute.numWorker            = 36
+mintpy.networkInversion.minTempCoh  = 0.9 
 
 mintpy.troposphericDelay.method     = auto                         # [pyaps / height_correlation / base_trop_cor / no], auto for pyaps
 mintpy.network.startDate            = auto                       # [20090101 / no], auto for no                    

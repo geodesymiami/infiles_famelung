@@ -15,10 +15,10 @@ ssaraopt.relativeOrbit              = 137
 ####################
 topsStack.boundingBox               = 46.05 46.5 -124.0 -118.0                           # '-1 0.15 -91.6 -90.9'                           
 topsStack.subswath                  = 2                                               # '1 2'                                           
-topsStack.numConnections            = 4                                                 # comment                                         
+topsStack.numConnections            = 5                                                 # comment                                         
 #topsStack.excludeDates              = 20200301
-topsStack.azimuthLooks              = 7                                                 # comment                                         
-topsStack.rangeLooks                = 19                                                # comment                                         
+topsStack.azimuthLooks              = 6                                                 # comment                                         
+topsStack.rangeLooks                = 24                                                # comment                                         
 topsStack.filtStrength              = 0.2                                               # comment                                         
 topsStack.unwMethod                 = snaphu                                            # comment                                         
 topsStack.coregistration            = auto                                              # [NESD geometry], auto for NESD                  
@@ -36,19 +36,20 @@ mintpy.save.hdfEos5.update          = yes                                       
 mintpy.save.hdfEos5.subset          = yes     #[yes / no], auto for no, put subset range info   in output filename
 ####################
 minopy.load.autoPath                = yes
-minopy.load.startDate               = 20140515
-minopy.interferograms.type            = single_reference      # [mini_stacks, single_reference, sequential] default: sequential
+minopy.interferograms.type          = single_reference      # [mini_stacks, single_reference, sequential] default: sequential
+minopy.load.startDate               = 20180501
+minopy.load.endDate                 = 20211201
 minopy.subset.lalo                  = 46.13:46.35,-122.27:-122.05
-minopy.subset.lalo                  = 46.13:46.35,-122.20:-122.05
+minopy.subset.lalo                  = 46.17:46.25,-122.25:-122.13
 minopy.multiprocessing.numProcessor = 20
 minopy.load.processor               = isce
 minopy.timeseries.tempCohType       = average     # [full, average], auto for full.
 mintpy.networkInversion.minTempCoh  = 0.5 #[0.0-1.0], auto for 0.7, min temporal coherence for mask
 minopy.timeseries.minTempCoh        = auto     # auto for 0.5
 
-minopy.interferograms.type            = single_reference      # [mini_stacks, single_reference, sequential] default: sequential
-minopy.interferograms.referenceDate   = 20200925 # auto for the middle image
-minopy.interferograms.referenceDate   = 20190820 # auto for the middle image
+minopy.interferograms.type          = single_reference      # [mini_stacks, single_reference, sequential] default: sequential
+minopy.interferograms.referenceDate = 20190901 # auto for the middle image
+#minopy.interferograms.referenceDate = 20190820 # auto for the middle image
 
 ####################
 insarmaps_flag                      = True                                                                                                

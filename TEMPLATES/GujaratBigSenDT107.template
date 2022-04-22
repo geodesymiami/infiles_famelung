@@ -1,13 +1,12 @@
 ####################
 processor                           = isce                                                                                                
 ssaraopt.platform                   = SENTINEL-1A,SENTINEL-1B                                                                             
-ssaraopt.relativeOrbit              = 93
-ssaraopt.startDate                  = 20160501
+ssaraopt.relativeOrbit              = 107
+ssaraopt.startDate                  = 20160926
 ####################
-topsStack.boundingBox               = 27.9 41.1 -124.0 -105.0    # '-1 0.15 -91.6 -90.9'                           
-topsStack.boundingBox               = 28.9 34.1 -124.0 -105.0    # '-1 0.15 -91.6 -90.9'                           
-topsStack.boundingBox               = 33.9 41.1 -124.0 -105.0    # '-1 0.15 -91.6 -90.9'                           
-topsStack.subswath                  = 1 2 3                      # '1 2'                                           
+topsStack.boundingBox               = 19.9 27.1 67.4 75.6    
+topsStack.subswath                  = 1 2 3                        # '1 2'                                           
+topsStack.excludeDates              = 20170712                     # 20150401,20150706   
 topsStack.numConnections            = 4                          # comment                                         
 topsStack.azimuthLooks              = 21                         # comment                                         
 topsStack.rangeLooks                = 57                         # comment                                         
@@ -19,10 +18,10 @@ mintpy.load.autoPath                = yes
 mintpy.compute.cluster              = local
 mintpy.compute.numWorker            = 36
 
-mintpy.troposphericDelay.method     = no                         # [pyaps / height_correlation / base_trop_cor / no], auto for pyaps
+mintpy.troposphericDelay.method     = auto                         # [pyaps / height_correlation / base_trop_cor / no], auto for pyaps
 mintpy.network.startDate            = auto                       # [20090101 / no], auto for no                    
 mintpy.geocode.laloStep             = 0.0025,0.0025                 #[-0.000555556,0.000555556 / None], auto for None, output resolution in degree
-mintpy.solidEarthTides              = no                         #[yes / no], auto for no
+mintpy.solidEarthTides              = yes                         #[yes / no], auto for no
 mintpy.save.hdfEos5                 = yes                        # [yes / update / no], auto for no, save timeseries to UNAVCO InSAR Archive format
 mintpy.save.hdfEos5.update          = yes                         # [yes / no], auto for no
 ####################
