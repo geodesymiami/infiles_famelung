@@ -10,8 +10,7 @@ cleanopt                            = 0
 hazard_products_flag                = TRUE                                                                                                
 ssaraopt.platform                   = SENTINEL-1A,SENTINEL-1B                                                                             
 ssaraopt.relativeOrbit              = 142                                                                                                  
-ssaraopt.startDate                  = 20161209
-ssaraopt.endDate                    = 20191231
+ssaraopt.startDate                  = 20200701
 #ssaraopt.endDate                    = 20200501
 ####################
 topsStack.boundingBox               = 13.8 14.2 119 122                              # '-1 0.15 -91.6 -90.9'                           
@@ -36,6 +35,7 @@ mintpy.solidEarthTides              = no                         #[yes / no], au
 mintpy.save.hdfEos5                 = yes                        # [yes / update / no], auto for no, save timeseries to UNAVCO InSAR Archive format
 mintpy.save.hdfEos5.update          = no                        # [yes / no], auto for no, put XXXXXXXX as endDate in output filename
 mintpy.save.hdfEos5.subset          = yes     #[yes / no], auto for no, put subset range info   in output filename
+mintpy.geocode.lalo                 = 0.00004,0.00015
 
 ####################
 #mintpy.subset.lalo                  = 44.5:45.63,-110.7:-110.45
@@ -44,14 +44,13 @@ mintpy.networkInversion.minTempCoh  = 0.50 #[0.0-1.0], auto for 0.7, min tempora
 minopy.timeseries.minTempCoh        = 0.50     # auto for 0.5
 
 minopy.load.autoPath                  = yes
-minopy.load.startDate                 = 20161209
 mintpy.subset.lalo                    = 13.98:14.04,120.97:121.02
 minopy.subset.lalo                    = 13.98:14.04,120.97:121.02
 minopy.multiprocessing.numProcessor   = 20
 minopy.load.processor                 = isce
 minopy.timeseries.tempCohType         = average     # [full, average], auto for full.
 minopy.timeseries.minTempCoh          = auto     # auto for 0.5
-
+minopy.interferograms.type          = single_reference
 
 
 insarmaps_flag                      = False                                                                                                

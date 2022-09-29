@@ -1,0 +1,42 @@
+####################
+processor                           = isce                                                                                                
+ssaraopt.platform                   = SENTINEL-1A,SENTINEL-1B                                                                             
+ssaraopt.relativeOrbit              = 8
+ssaraopt.startDate                  = 20140101
+#ssaraopt.endDate                    = 20210131
+####################:
+topsStack.boundingBox               = 36.75 37.3 -6.0 -0.5    # '-1 0.15 -91.6 -90.9'                           
+topsStack.subswath                  = 3                       # '1 2'                                           
+topsStack.numConnections            = 4                          # comment                                         
+topsStack.azimuthLooks              = 5                        # comment                                         
+topsStack.rangeLooks                = 20                         # comment                                         
+topsStack.filtStrength              = 0.2                        # comment                                         
+topsStack.unwMethod                 = snaphu                     # comment                                         
+topsStack.coregistration            = auto                       # [NESD geometry], auto for NESD                  
+####################
+mintpy.load.autoPath                = yes
+mintpy.compute.cluster              = local
+mintpy.compute.numWorker            = 36
+#mintpy.reference.lalo               = 34.38,-115.77
+#mintpy.subset.lalo                  = 34.35:34.59,-115.84:-115.52    # Yujie's paper
+#mintpy.network.connNumMax           = 1     #[1-inf, no], auto for no, max number of neighbors for each acquisition
+mintpy.troposphericDelay.method     = auto                          # [pyaps / height_correlation / base_trop_cor / no], auto for pyaps
+mintpy.network.startDate            = auto                       # [20090101 / no], auto for no                    
+#mintpy.geocode.laloStep             = 0.0025,0.0025                 #[-0.000555556,0.000555556 / None], auto for None, output resolution in degree
+mintpy.solidEarthTides              = no                         #[yes / no], auto for no
+mintpy.save.hdfEos5                 = yes                        # [yes / update / no], auto for no, save timeseries to UNAVCO InSAR Archive format
+mintpy.save.hdfEos5.update          = yes                         # [yes / no], auto for no
+####################
+minopy.load.autoPath                = yes
+minopy.load.processor               = isce
+minopy.multiprocessing.numProcessor = 20
+#minopy.subset.lalo                  = 34.35:34.55,-115.75:-115.52
+minopy.load.processor               = isce
+minopy.timeseries.tempCohType       = average     # [full, average], auto for full.
+minopy.interferograms.numSequential = 5     # Number of sequential interferograms, auto for 2
+minopy.timeseries.tempCohType       = average     # [full, average], auto for full.
+minopy.timeseries.minTempCoh        = 0.5     # auto for 0.5
+minopy.interferograms.type          = sequential
+minopy.interferograms.type          = single_reference
+
+insarmaps_flag                      = False

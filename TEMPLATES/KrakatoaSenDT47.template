@@ -10,7 +10,7 @@ cleanopt                            = 0
 hazard_products_flag                = TRUE                                                                                                
 ssaraopt.platform                   = SENTINEL-1A,SENTINEL-1B                                                                             
 ssaraopt.relativeOrbit              = 47                                                                                                  
-ssaraopt.startDate                  = 20160101
+ssaraopt.startDate                  = 20140101
 ssaraopt.endDate                    = 20181221
 ####################
 topsStack.boundingBox               = -6.4 -6.0 105.1 106.1                            # '-1 0.15 -91.6 -90.9'                           
@@ -42,7 +42,6 @@ minopy.timeseries.minTempCoh        = 0.50     # auto for 0.5
 minopy.load.autoPath                  = yes
 minopy.load.processor                 = isce
 minopy.multiprocessing.numProcessor   = 20
-minopy.timeseries.tempCohType         = average     # [full, average], auto for full.
 ####################
 insarmaps_flag                      = False                                                                                                
 

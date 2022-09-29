@@ -11,14 +11,14 @@ hazard_products_flag                = TRUE
 ssaraopt.platform                   = SENTINEL-1A,SENTINEL-1B                                                                             
 ssaraopt.relativeOrbit              = 173                                                                                                  
 ssaraopt.startDate                  = 20180101
-ssaraopt.endDate                    = 20201121
+ssaraopt.endDate                    = 20221121
 ####################
 topsStack.boundingBox               = 32.9 33.2 -117.0 -113.0                             # '-1 0.15 -91.6 -90.9'                           
 topsStack.subswath                  = 2                                               # '1 2'                                           
 topsStack.numConnections            = 4                                                 # comment                                         
 #topsStack.excludeDates              = 20200301
-topsStack.azimuthLooks              = 7                                                 # comment                                         
-topsStack.rangeLooks                = 19                                                # comment                                         
+topsStack.azimuthLooks              = 8                                                 # comment                                         
+topsStack.rangeLooks                = 32                                                # comment                                         
 topsStack.filtStrength              = 0.2                                               # comment                                         
 topsStack.unwMethod                 = snaphu                                            # comment                                         
 topsStack.coregistration            = auto                                              # [NESD geometry], auto for NESD                  
@@ -49,7 +49,6 @@ minopy.subset.lalo                    = 33.01:33.11, -115.75:-115.62
 minopy.multiprocessing.numProcessor   = 20
 minopy.load.processor                 = isce
 minopy.timeseries.tempCohType         = average     # [full, average], auto for full.
-
 
 
 insarmaps_flag                      = False                                                                                                

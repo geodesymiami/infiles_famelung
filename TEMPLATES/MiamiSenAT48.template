@@ -1,38 +1,134 @@
-####################
-processor                           = isce                                                                                                
-cleanopt                            = 0                                                                                                   
-ssaraopt.platform                   = SENTINEL-1A,SENTINEL-1B                                                                             
-ssaraopt.startDate                  = 20140101
-ssaraopt.relativeOrbit              = 48                                                                                                 
-####################
-topsStack.boundingBox               = 25.4 26.1 -82.0 -80.0      # '-1 0.15 -91.6 -90.9'                           
-topsStack.subswath                  = 3                       # '1 2'                                           
-topsStack.numConnections            = 6                          # comment                                         
-topsStack.azimuthLooks              = 7                          # comment                                         
-topsStack.rangeLooks                = 19                         # comment                                         
-topsStack.filtStrength              = 0.2                        # comment                                         
-topsStack.unwMethod                 = snaphu                     # comment                                         
-topsStack.coregistration            = geometry                   # [NESD geometry], auto for NESD                  
-####################
-MINOPY.parallel.num_workers           = 4            
-MINOPY.load.processor                 = isce         
-MINOPY.inversion.patch_size           = 200          
-MINOPY.inversion.range_window         = 15           
-MINOPY.inversion.azimuth_window       = 11           
-MINOPY.inversion.shp_test             = ks           
-MINOPY.inversion.plmethod             = sequential_EMI
-MINOPY.interferograms.type            = combine         # [single_reference, sequential, combine, list] default: sequential
-#
-mintpy.reference.lalo               = auto                                                                                     
-mintpy.troposphericDelay.method     = auto                       # [pyaps / height_correlation / base_trop_cor / no], auto for pyaps
-#mintpy.networkInversion.minTempCoh  = 0.4
-#mintpy.geocode.laloStep             = 0.0008,0.0008                 #[-0.000555556,0.000555556 / None], auto for None, output resolution in degree
-mintpy.subset.lalo                   = 25.71:26.0,-80.3:-80.1    #[S:N,W:E / no], auto for no
+processor                             = isce
+#cleanopt                              = 0
+ssaraopt.platform                     = SENTINEL-1A,SENTINEL-1B
+ssaraopt.startDate                    = 20140101
+ssaraopt.startDate                    = 20200101
+ssaraopt.relativeOrbit                = 48
+topsStack.boundingBox                 = 25.67 25.93 -80.23 -80.106  #25.4 26.1 -82.0 -80.0
+topsStack.subswath                    = 3
+topsStack.numConnections              = 2
+topsStack.azimuthLooks                = 5
+topsStack.rangeLooks                  = 20
+#topsStack.azimuthLooks                = 1
+#topsStack.rangeLooks                  = 1
+topsStack.filtStrength                = 0.3
+topsStack.coregistration              = geometry
+#topsStack.demDir                      = /work2/05861/tg851601/stampede2/insarlab/DEM/MiamiSenAT48
 
-mintpy.load.autoPath                = yes
-mintpy.compute.cluster              = local
-mintpy.compute.numWorker            = 32
+#mintpy.subset.lalo                    = 25.755:25.9,-80.15:-80.115              # Surfside
+#mintpy.reference.lalo                 = 25.87,-80.127                                                                                     
+mintpy.subset.lalo                    = 25.748:25.81,-80.21:-80.182              # Brickell
+mintpy.subset.lalo                    = 25.725:25.81,-80.242:-80.115             # Coconut Grove and "Brickell" FA 12/2 021area too large for insarmaps
+mintpy.subset.lalo                    = 25.725:25.81,-80.242:-80.209             # Coconut Grove 
+mintpy.subset.lalo                    = 25.748:25.81,-80.21:-80.182              # Brickell
+mintpy.subset.lalo                    = 25.725:25.91,-80.242:-80.115             # Coconut Grove to Surfside
+
+# test for unwrap error correction
+mintpy.subset.lalo                    = 25.745:25.9,-80.21:-80.115              # Brickel and Miami Beach
+mintpy.subset.lalo                    = 25.755:25.9,-80.15:-80.115              # Surfside
+
+###### Miami large with reference in North Miami   ##############
+#mintpy.load.waterMaskFile              = /work2/05861/tg851601/stampede2/insarlab/DEM/MiamiSenAT48/waterMask_large.h5
+#minopy.load.waterMaskFile              = /work2/05861/tg851601/stampede2/insarlab/DEM/MiamiSenAT48/waterMask_large.h5
+# remove staring 202107
+mintpy.subset.lalo                    = 25.725:25.91,-80.242:-80.115             # large: Coconut Grove to Surfside
+mintpy.reference.lalo                 = 25.8914,-80.1583                         # North Miami near Keystone islands
+
+###### Miami CGrove and MiamiBeach   ##############
+mintpy.subset.lalo                    = 25.725:25.81,-80.242:-80.115             # Coconut Grove and Miami Beach
+mintpy.reference.lalo                 = 25.7582,-80.2028                         # W Brickel Marquis condo
+ 
+###### Miami CGrove and Brickell   ##############
+mintpy.subset.lalo                    = 25.725:25.81,-80.242:-80.1815            # Coconut Grove and "Brickell
+mintpy.reference.lalo                 = 25.7582,-80.2028                         # W Brickel Marquis condo
+ 
+###### Brickell   ##############
+mintpy.subset.lalo                    = 25.748:25.81,-80.21:-80.1815             # Brickell
+mintpy.reference.lalo                 = 25.7582,-80.2028                         # W Brickel Marquis condo
+#
+###### South Surfside #
+mintpy.subset.lalo                   = 25.871:25.81,-80.129:-80.115               # Brickell and Miami Beach
+mintpy.reference.lalo                = 25.8791,-80.1259                           # W Brickel Marquis condo
+ 
+###### Surfside #
+mintpy.subset.lalo                   = 25.8700:25.9,-80.145:-80.115               # Brickell and Miami Beach
+mintpy.reference.lalo                = 25.8791,-80.1259                           # W Brickel Marquis condo
+
+####### Sunny Isles #
+mintpy.subset.lalo                   = 25.8960:26.02,-80.145:-80.1146               # Brickell and Miami Beach
+mintpy.reference.lalo                = auto # 25.9334,-80.1237                      # W Brickel Marquis condo
+
+###### QuarryAirport    ##############
+mintpy.subset.lalo                    = 25.774:25.897,-80.3857:-80.2569               # Coconut Grove 
+mintpy.reference.lalo                 = auto # 25.7582,-80.2028                         # W Brickel Marquis condo
+
+###### CGrove    ##############
+mintpy.subset.lalo                    = 25.725:25.76,-80.242:-80.202             # Coconut Grove 
+mintpy.reference.lalo                 = auto # 25.7582,-80.2028                  # W Brickel Marquis condo
+ 
+###### Brickell and Miami Beach #
+mintpy.subset.lalo                    = 25.745:25.9,-80.21:-80.115               # Brickell and Miami Beach
+mintpy.reference.lalo                = 25.7582,-80.2028                         # W Brickel Marquis condo
+
+mintpy.load.autoPath                 = yes
+mintpy.compute.cluster               = local
+mintpy.compute.numWorker             = 20
+mintpy.troposphericDelay.method      = no # auto  #[pyaps / height_correlation / no / gacos], auto for pyaps
+mintpy.save.hdfEos5                  = yes                        # [yes / update / no], auto for no, save timeseries to UNAVCO InSAR Archive format
+mintpy.save.hdfEos5.update           = no                                                # [yes / no], auto for no, put XXXXXXXX as endDate in output filename
+mintpy.save.hdfEos5.subset           = yes     #[yes / no], auto for no, put subset range info   in output filename
+
+
+minopy.load.autoPath                 = yes
+mintpy.geocode.lalo                  = -0.000185185,-0.0001852
+minopy.load.startDate                = 20210101
+minopy.load.startDate                = 20160601
+#minopy.load.endDate                  = 20211120
+
+#FA: for minopy.phase_inversion we should use 40 but for mintpy.phase_to_range 20 as it uses dask and fails with 40
+minopy.multiprocessing.numProcessor = 20
+minopy.load.processor      = isce
+
+#mintpy.load.waterMaskFile             = $SCRATCHDIR/Miami2SenAT48/swbdLat_N25_N26_Lon_W081_W080.wbd  #[path of water  mask file], optional but recommended
+
+minopy.timeseries.tempCohType            = average     # [full, average], auto for full.
+
+
+mintpy.load.autoPath                  = yes
+mintpy.compute.cluster                = local
+mintpy.compute.numWorker              = 20
+mintpy.troposphericDelay.method     = no # auto  #[pyaps / height_correlation / no / gacos], auto for pyaps
 mintpy.save.hdfEos5                 = yes                        # [yes / update / no], auto for no, save timeseries to UNAVCO InSAR Archive format
 mintpy.save.hdfEos5.update          = no                                                # [yes / no], auto for no, put XXXXXXXX as endDate in output filename
-####################
-insarmaps_flag                      = False                                                                                                
+
+minopy.load.autoPath                = yes
+#minopy.load.endDate                 = 20220501
+
+#FA: for minopy.phase_inversion we should use 40 but for mintpy.phase_to_range 20 as it uses dask and fails with 40
+minopy.multiprocessing.numProcessor = 20
+minopy.load.processor      = isce
+
+#mintpy.load.waterMaskFile             = $SCRATCHDIR/Miami2SenAT48/swbdLat_N25_N26_Lon_W081_W080.wbd  #[path of water  mask file], optional but recommended
+
+minopy.timeseries.tempCohType            = average     # [full, average], auto for full.
+minopy.timeseries.minTempCoh             = auto     # auto for 0.5
+#minopy.timeseries.waterMask              = waterMask.h5
+#minopy.timeseries.waterMaskFile          = /work2/05861/tg851601/stampede2/insarlab/DEM/MiamiSenAT48/waterMask_large.h5  #[path of water  mask file], optional but recommended
+#minopy.timeseries.waterMask             = /scratch1/06736/sxm1611/MiamiSenAT48/minopy_lidar/lidar_dem/waterMask.h5     # auto for None
+minopy.interferograms.type               = single_reference
+#minopy.interferograms.list              = $WORKDIR/minopy_files/Miami2SenAT48/short_baseline_ifgs.txt
+
+
+## Unwrapping Error Correction (optional)
+#mintpy.unwrapError.method          = phase_closure
+#mintpy.unwrapError.method          = bridging+phase_closure
+#mintpy.unwrapError.method          = bridging
+#mintpy.unwrapError.mask            = waterMask.h5 
+#mintpy.unwrapError.waterMaskFile   = /work2/05861/tg851601/stampede2/insarlab/DEM/MiamiSenAT48/waterMask_large.h5   #[waterMask.h5 / no], auto for waterMask.h5 or no [if not found]
+#mintpy.networkInversion.waterMaskFile   = no #[filename / no], auto for waterMask.h5 or no [if not found]
+
+
+## Solid earth tide correction
+mintpy.solidEarthTides             = no
+#mintpy.reference.lalo              = 25.8942 -80.1585
+#mintpy.troposphericDelay.method =  pyaps

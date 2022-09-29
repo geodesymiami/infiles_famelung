@@ -10,6 +10,7 @@ relative_orbit          = 91
 ssaraopt.intersectsWithPoint = -155.6 19.45
 ssaraopt.collectionName = "Supersites CSK Hawaii"
 ssaraopt.startDate      = 20180905
+ssaraopt.startDate      = 20220101
 #ssaraopt.endDate        = 20211231
 ##################### ISCE OPTIONS ####################
 stripmapStack.boundingBox    = 19.1 19.7 -155.9 -155.3                           # '-1 0.15 -91.6 -90.9'                           
@@ -39,4 +40,6 @@ mintpy.save.hdfEos5.subset        = yes     #[yes / no], auto for no, put subset
 mintpy.subset.lalo                = 19.38:19.53,-155.69:-155.45    #[S:N,W:E / no], auto for no
 mintpy.subset.lalo                = 19.40:19.51,-155.64:-155.50    #[S:N,W:E / no], auto for no
 
+mintpy.reference.lalo             = 19.52,-155.51   # 19.52,-155.56 for Asc, 19.52,-155.51 for Desc 
+mintpy.subset.lalo                = 19.43:19.51,-155.65:-155.54    #[S:N,W:E / no], auto for no
 
