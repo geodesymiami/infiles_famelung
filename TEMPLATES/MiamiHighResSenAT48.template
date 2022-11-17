@@ -38,17 +38,17 @@ mintpy.save.hdfEos5                 = yes                        # [yes / update
 mintpy.save.hdfEos5.update          = no                                                # [yes / no], auto for no, put XXXXXXXX as endDate in output filename
 
 
-minopy.load.autoPath                  = yes
-minopy.compute.numWorker              = 20
-minopy.load.processor      = isce
+miaplpy.load.autoPath                  = yes
+miaplpy.compute.numWorker              = 20
+miaplpy.load.processor      = isce
 
 mintpy.load.waterMaskFile  = $SCRATCHDIR/Miami2SenAT48/swbdLat_N25_N26_Lon_W081_W080.wbd  #[path of water  mask file], optional but recommended
 
-minopy.timeseries.tempCohType            = average     # [full, average], auto for full.
-minopy.timeseries.minTempCoh             = auto     # auto for 0.5
-#minopy.timeseries.waterMask              = /scratch1/06736/sxm1611/MiamiSenAT48/minopy_lidar/lidar_dem/waterMask.h5     # auto for None
-minopy.interferograms.type               = delaunay
-#minopy.interferograms.list               = $WORKDIR/minopy_files/Miami2SenAT48/short_baseline_ifgs.txt
+miaplpy.timeseries.tempCohType            = average     # [full, average], auto for full.
+miaplpy.timeseries.minTempCoh             = auto     # auto for 0.5
+#miaplpy.timeseries.waterMask              = /scratch1/06736/sxm1611/MiamiSenAT48/miaplpy_lidar/lidar_dem/waterMask.h5     # auto for None
+miaplpy.interferograms.type               = delaunay
+#miaplpy.interferograms.list               = $WORKDIR/miaplpy_files/Miami2SenAT48/short_baseline_ifgs.txt
 
 
 ## Unwrapping Error Correction (optional)

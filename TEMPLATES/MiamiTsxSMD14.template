@@ -1,0 +1,72 @@
+processor                             = isce
+#cleanopt                              = 0
+ssaraopt.platform                     = TSX 
+#ssaraopt.startDate                    = 20150921
+#ssaraopt.endDate                      = 20211115
+ssaraopt.relativeOrbit                = 014
+#stripmapStack.boundingBox                 = 25.67 25.93 -80.23 -80.106  #25.4 26.1 -82.0 -80.0
+
+stripmapStack.sensor                  = tsx
+stripmapStack.zerodop                 = True
+stripmapStack.nofocus                 = True
+acquisition_mode                      = stripmap
+raw_image_dir                         = ./data
+
+stripmapStack.boundingBox                 = 25.8384 25.9184 -80.1656 -80.1174
+stripmapStack.azimuthLooks                = 10
+stripmapStack.rangeLooks                  = 10
+stripmapStack.timeThreshold           = 90
+stripmapStack.baselineThreshold       = 450
+stripmapStack.golsteinFilterStrength  = 0.2          
+stripmapStack.unwMethod               = snaphu     
+
+mintpy.troposphericDelay.method       = auto
+
+mintpy.subset.lalo                    = 25.8384:25.909,-80.1656:-80.1174
+#mintpy.subset.lalo                    = 25.755:25.9,-80.15:-80.115
+#mintpy.subset.lalo                    = 25.725:25.91,-80.242:-80.115
+#stripmapStack.demDir                  = $SCRATCHDIR/MiamiSenAT48/DEM/dsm_wgs84.tif
+raw_image_dir                          = $SCRATCHDIR/MiamiTsxSMD14/ORIG_data
+stripmapStack.slcDir                   = $SCRATCHDIR/MiamiTsxSMD14/SLC
+
+mintpy.load.autoPath                  = yes
+mintpy.compute.cluster                = local
+mintpy.compute.numWorker              = 20
+mintpy.save.hdfEos5                   = yes
+mintpy.save.hdfEos5.update            = no
+insarmaps_flag                        = False
+minopy.load.autoPath                  = yes
+## parallel processing
+miaplpy.multiprocessing.numProcessor              = 40
+### crop the area to a small subset
+miaplpy.load.processor      = isce
+#minopy.inversion.mask                     = /scratch/06736/sxm1611/MiamiSenAT48/waterMask.h5
+miaplpy.interferograms.networkType       = single_reference
+#miaplpy.interferograms.connNum           = 3
+#minopy.unwrap.mask                       = /scratch1/06736/sxm1611/MiamiSenAT48/minopy/waterMask.h5
+#minopy.timeseries.waterMask              = /scratch1/06736/sxm1611/MiamiSenAT48/minopy/waterMask.h5
+## Reference in Space
+#mintpy.reference.lalo          = 25.7827,-80.1340
+
+# Unwrapping Error Correction (optional)
+mintpy.unwrapError.method          = bridging
+mintpy.unwrapError.connCompMinArea = 200
+mintpy.deramp                      = no
+
+## Solid earth tide correction
+mintpy.solidEarthTides             = yes
+mintpy.residualRMS.deramp          = auto
+mintpy.unwrapError.ramp            = auto
+#mintpy.reference.lalo              = 25.8942,-80.1585
+#mintpy.reference.yx            = 349,1393
+#mintpy.reference.lalo            = 25.8740,-80.1237
+mintpy.reference.yx            = 2006,672
+#stripmapStack.annualConnections           = True
+
+miaplpy.timeseries.waterMask =  /scratch/06736/sxm1611/tsxMiami/miaplpy/network_single_reference/watermask.h5
+mintpy.unwrapError.waterMaskFile   = /scratch/06736/sxm1611/tsxMiami/miaplpy/network_single_reference/watermask.h5
+mintpy.networkInversion.waterMaskFile   = /scratch/06736/sxm1611/tsxMiami/miaplpy/network_single_reference/watermask.h5
+mintpy.network.maskFile        = /scratch/06736/sxm1611/tsxMiami/miaplpy/network_single_reference/watermask.h5
+
+
+

@@ -29,7 +29,7 @@ mintpy.subset.lalo                    = 25.755:25.9,-80.15:-80.115              
 
 ###### Miami large with reference in North Miami   ##############
 #mintpy.load.waterMaskFile              = /work2/05861/tg851601/stampede2/insarlab/DEM/MiamiSenAT48/waterMask_large.h5
-#minopy.load.waterMaskFile              = /work2/05861/tg851601/stampede2/insarlab/DEM/MiamiSenAT48/waterMask_large.h5
+#miaplpy.load.waterMaskFile              = /work2/05861/tg851601/stampede2/insarlab/DEM/MiamiSenAT48/waterMask_large.h5
 # remove staring 202107
 mintpy.subset.lalo                    = 25.725:25.91,-80.242:-80.115             # large: Coconut Grove to Surfside
 mintpy.reference.lalo                 = 25.8914,-80.1583                         # North Miami near Keystone islands
@@ -83,19 +83,19 @@ mintpy.save.hdfEos5.update           = no                                       
 mintpy.save.hdfEos5.subset           = yes     #[yes / no], auto for no, put subset range info   in output filename
 
 
-minopy.load.autoPath                 = yes
+miaplpy.load.autoPath                 = yes
 mintpy.geocode.lalo                  = -0.000185185,-0.0001852
-minopy.load.startDate                = 20190101
-minopy.load.startDate                = 20160601
-#minopy.load.endDate                  = 20211120
+miaplpy.load.startDate                = 20190101
+miaplpy.load.startDate                = 20160601
+#miaplpy.load.endDate                  = 20211120
 
-#FA: for minopy.phase_inversion we should use 40 but for mintpy.phase_to_range 20 as it uses dask and fails with 40
-minopy.multiprocessing.numProcessor = 20
-minopy.load.processor      = isce
+#FA: for miaplpy.phase_inversion we should use 40 but for mintpy.phase_to_range 20 as it uses dask and fails with 40
+miaplpy.multiprocessing.numProcessor = 20
+miaplpy.load.processor      = isce
 
 #mintpy.load.waterMaskFile             = $SCRATCHDIR/Miami2SenAT48/swbdLat_N25_N26_Lon_W081_W080.wbd  #[path of water  mask file], optional but recommended
 
-minopy.timeseries.tempCohType            = average     # [full, average], auto for full.
+miaplpy.timeseries.tempCohType            = average     # [full, average], auto for full.
 
 mintpy.load.autoPath                  = yes
 mintpy.compute.cluster                = local
@@ -104,22 +104,22 @@ mintpy.troposphericDelay.method     = no # auto  #[pyaps / height_correlation / 
 mintpy.save.hdfEos5                 = yes                        # [yes / update / no], auto for no, save timeseries to UNAVCO InSAR Archive format
 mintpy.save.hdfEos5.update          = no                                                # [yes / no], auto for no, put XXXXXXXX as endDate in output filename
 
-minopy.load.autoPath                = yes
-#minopy.load.endDate                 = 20220501
+miaplpy.load.autoPath                = yes
+#miaplpy.load.endDate                 = 20220501
 
-#FA: for minopy.phase_inversion we should use 40 but for mintpy.phase_to_range 20 as it uses dask and fails with 40
-minopy.multiprocessing.numProcessor = 20
-minopy.load.processor      = isce
+#FA: for miaplpy.phase_inversion we should use 40 but for mintpy.phase_to_range 20 as it uses dask and fails with 40
+miaplpy.multiprocessing.numProcessor = 20
+miaplpy.load.processor      = isce
 
 #mintpy.load.waterMaskFile             = $SCRATCHDIR/Miami2SenAT48/swbdLat_N25_N26_Lon_W081_W080.wbd  #[path of water  mask file], optional but recommended
 
-minopy.timeseries.tempCohType            = average     # [full, average], auto for full.
-minopy.timeseries.minTempCoh             = auto     # auto for 0.5
-#minopy.timeseries.waterMask              = waterMask.h5
-#minopy.timeseries.waterMaskFile          = /work2/05861/tg851601/stampede2/insarlab/DEM/MiamiSenAT48/waterMask_large.h5  #[path of water  mask file], optional but recommended
-#minopy.timeseries.waterMask             = /scratch1/06736/sxm1611/MiamiSenAT48/minopy_lidar/lidar_dem/waterMask.h5     # auto for None
-minopy.interferograms.type               = single_reference
-#minopy.interferograms.list              = $WORKDIR/minopy_files/Miami2SenAT48/short_baseline_ifgs.txt
+miaplpy.timeseries.tempCohType            = average     # [full, average], auto for full.
+miaplpy.timeseries.minTempCoh             = auto     # auto for 0.5
+#miaplpy.timeseries.waterMask              = waterMask.h5
+#miaplpy.timeseries.waterMaskFile          = /work2/05861/tg851601/stampede2/insarlab/DEM/MiamiSenAT48/waterMask_large.h5  #[path of water  mask file], optional but recommended
+#miaplpy.timeseries.waterMask             = /scratch1/06736/sxm1611/MiamiSenAT48/miaplpy_lidar/lidar_dem/waterMask.h5     # auto for None
+miaplpy.interferograms.type               = single_reference
+#miaplpy.interferograms.list              = $WORKDIR/miaplpy_files/Miami2SenAT48/short_baseline_ifgs.txt
 
 
 ## Unwrapping Error Correction (optional)
