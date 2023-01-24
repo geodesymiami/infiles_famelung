@@ -3,7 +3,7 @@ cleanopt                          = 0   # [ 0 / 1 / 2 / 3 / 4]   0,1: none 2: ke
 processor                         = isce
 ssaraopt.platform                 = SENTINEL-1A,SENTINEL-1B
 ssaraopt.relativeOrbit            = 128
-#ssaraopt.startDate                = 20180901
+ssaraopt.startDate                = 20181001
 hazard_products_flag              = False
 insarmaps_flag                     = False
 
@@ -11,13 +11,13 @@ insarmaps_flag                     = False
 topsStack.boundingBox             = -1 -0.6 -91.4 -90.86    # -1 0.15 -91.6 -90.9
 topsStack.boundingBox             = -1  0.15 -93.0 -89.00    # -1 0.15 -91.6 -90.9
 topsStack.subswath                = 1 2    # '1 2'
-topsStack.numConnections          = 5    # comment
+topsStack.numConnections          = 4    # comment
 topsStack.azimuthLooks            = 6    # comment
 topsStack.rangeLooks              = 24   # comment
 topsStack.filtStrength            = 0.2  # comment
 topsStack.unwMethod               = snaphu  # comment
 topsStack.coregistration          = auto  # [NESD geometry], auto for NESD
-topsStack.referenceDate           = 20151220
+#topsStack.referenceDate           = 20151220
 
 ######################################################
 mintpy.load.autoPath              = yes

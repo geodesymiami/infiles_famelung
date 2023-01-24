@@ -1,0 +1,54 @@
+processor                             = isce
+#cleanopt                              = 0
+ssaraopt.platform                     = TSX 
+#ssaraopt.startDate                    = 20150921
+#ssaraopt.endDate                      = 20211115
+ssaraopt.relativeOrbit                = 014
+unavco.relative_orbit                = 014
+
+stripmapStack.sensor                  = tsx
+stripmapStack.zerodop                 = True
+stripmapStack.nofocus                 = True
+acquisition_mode                      = stripmap
+
+#stripmapStack.boundingBox                 = 25.8384 25.9184 -80.1656 -80.1174
+#stripmapStack.boundingBox                 = 25.52 26.0 -80.41 -80.1174
+#stripmapStack.boundingBox                 = 25.52 26.0 -80.51 -80.1174
+stripmapStack.boundingBox                 = 25.52 26.0 -80.71 -80.1174
+stripmapStack.boundingBox                 = 25.42 26.0 -80.71 -80.1174
+stripmapStack.boundingBox                 = 25.32 26.3 -80.71 -80.1174
+stripmapStack.boundingBox                 = 25.32 26.3 -80.71 -80.30
+stripmapStack.azimuthLooks                = 10
+stripmapStack.rangeLooks                  = 10
+stripmapStack.timeThreshold           = 90
+stripmapStack.baselineThreshold       = 450
+stripmapStack.golsteinFilterStrength  = 0.2          
+stripmapStack.unwMethod               = snaphu     
+
+mintpy.troposphericDelay.method       = no
+mintpy.reference.minCoherence         = 0.7   #[0.0-1.0], auto for 0.85, minimum coherence for auto method
+
+raw_image_dir                          = $SCRATCHDIR/qMiamitestTsxSMD14/ORIG_SLC
+
+mintpy.load.autoPath                  = yes
+mintpy.compute.cluster                = local
+mintpy.compute.numWorker              = 20
+mintpy.save.hdfEos5                   = yes
+mintpy.save.hdfEos5.update            = no
+mintpy.save.hdfEos5.subset            = yes   #[yes / no], auto for no, put subset range info   in output filename
+insarmaps_flag                        = False
+
+###### South Surfside #
+#mintpy.reference.lalo                = 25.8791,-80.1259                         # W Brickel Marquis condo
+mintpy.subset.lalo                   = 25.89:25.906,-80.129:-80.115            # Surfside_only
+
+miaplpy.multiprocessing.numProcessor = 40
+### crop the area to a small subset
+miaplpy.load.processor               = isce
+miaplpy.interferograms.networkType   = sequential
+miaplpy.interferograms.networkType   = single_reference
+
+# Unwrapping Error Correction (optional)
+#mintpy.unwrapError.method          = bridging
+#mintpy.unwrapError.connCompMinArea = 200
+#mintpy.deramp                      = no

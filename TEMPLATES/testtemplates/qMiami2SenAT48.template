@@ -1,0 +1,62 @@
+processor                             = isce
+#cleanopt                              = 0
+ssaraopt.platform                     = SENTINEL-1A,SENTINEL-1B
+ssaraopt.startDate                    = 20140101
+ssaraopt.relativeOrbit                = 48
+topsStack.boundingBox                 = 25.67 25.93 -80.23 -80.106  #25.4 26.1 -82.0 -80.0
+topsStack.subswath                    = 3
+topsStack.numConnections              = 2
+topsStack.azimuthLooks                = 5
+topsStack.rangeLooks                  = 20
+topsStack.filtStrength                = 0.3
+topsStack.coregistration              = geometry
+#topsStack.demDir                      = /work2/05861/tg851601/stampede2/insarlab/DEM/MiamiSenAT48
+
+####### Surfside #
+#mintpy.subset.lalo                   = 25.8700:25.9,-80.145:-80.115               # Brickell and Miami Beach
+#mintpy.reference.lalo                = 25.8791,-80.1259                           # W Brickel Marquis condo
+
+mintpy.load.autoPath                 = yes
+mintpy.compute.cluster               = local  # if dask is not available, set this option to no 
+mintpy.compute.numWorker             = 20 
+mintpy.troposphericDelay.method      = no # auto  #[pyaps / height_correlation / no / gacos], auto for pyaps
+mintpy.save.hdfEos5                  = yes                        # [yes / update / no], auto for no, save timeseries to UNAVCO InSAR Archive format
+mintpy.save.hdfEos5.update           = no                                                # [yes / no], auto for no, put XXXXXXXX as endDate in output filename
+mintpy.save.hdfEos5.subset           = yes
+#mintpy.geocode.lalo                  = -0.0001852,-0.0001852
+mintpy.topographicResidual.phaseVelocity = yes  #[yes / no], auto for no - use phase velocity for minimization
+
+###### Brickell and Miami Beach #
+mintpy.subset.lalo                   = 25.745:25.9,-80.21:-80.115               # Brickell and Miami Beach
+mintpy.reference.lalo                = auto #  25.7582,-80.2028                 # W Brickel Marquis condo
+
+###### CGrove    ##############
+mintpy.subset.lalo                    = 25.725:25.795,-80.262:-80.186           # Coconut Grove and Brickell
+mintpy.reference.lalo                 = auto # 25.7582,-80.2028                 # W Brickel Marquis condo
+
+###### MiamiBeach
+mintpy.subset.lalo                    = 25.764:25.860,-80.147:-80.1195            #[S:N,W:E / no], auto for no
+mintpy.reference.lalo                 = auto # 25.8248,-80.1222 # auto refPointLat=25.82477&refPointLon=-80.12222 # 25.8791,-80.1259                          # W Brickel Marquis condo
+
+###### Sunny Isle #
+mintpy.subset.lalo                   = 25.8960:26.02,-80.145:-80.1146               # Brickell and Miami Beach
+mintpy.reference.lalo                = auto # 25.9334,-80.1237                         # W Brickel Marquis condo
+ 
+###### Sara Surfside
+mintpy.subset.lalo                   = 25.8384:25.909,-80.147:-80.1174    #[S:N,W:E / no], auto for no
+mintpy.reference.lalo                = 25.8791,-80.1259                         # W Brickel Marquis condo
+miaplpy.load.startDate               = 20160101  #auto for first date
+miaplpy.load.endDate                 = 20211112  #auto for first date
+
+miaplpy.multiprocessing.numProcessor = 40
+miaplpy.load.processor               = isce
+miaplpy.load.autoPath                = yes
+################
+#miaplpy.load.startDate               = 20190201
+#miaplpy.load.endDate                 = 20211112
+
+miaplpy.interferograms.networkType = sequential
+miaplpy.interferograms.networkType = single_reference
+ 
+#mintpy.unwrapError.method          = bridging+phase_closure
+#mintpy.unwrapError.connCompMinArea = 200

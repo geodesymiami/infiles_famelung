@@ -11,7 +11,7 @@ hazard_products_flag                = TRUE
 ssaraopt.platform                   = SENTINEL-1A,SENTINEL-1B                                                                             
 ssaraopt.relativeOrbit              = 87                                                                                                  
 ssaraopt.startDate                  = 20180904
-ssaraopt.startDate                  = 20220101
+ssaraopt.startDate                  = 20200101
 #ssaraopt.endDate                    = 20200501
 ####################
 topsStack.boundingBox               = 19.1 19.9 -155.8 -154.5                           # '-1 0.15 -91.6 -90.9'                           
@@ -26,7 +26,7 @@ topsStack.unwMethod                 = snaphu                                    
 topsStack.coregistration            = auto                                              # [NESD geometry], auto for NESD                  
 ####################
 #mintpy.reference.lalo               = 19.5059, -155.3477                                                                                  
-mintpy.troposphericDelay.method     = height_correlation                              #[pyaps / height_correlation / base_trop_cor / no], auto for pyaps
+mintpy.troposphericDelay.method     = no #  height_correlation                              #[pyaps / height_correlation / base_trop_cor / no], auto for pyaps
 #mintpy.reference.lalo               = 19.57,-155.575
 #mintpy.subset.lalo                  = 19.38:19.53,-155.69:-155.45    #[S:N,W:E / no], auto for no
 
@@ -42,11 +42,11 @@ mintpy.save.hdfEos5.subset          = yes     #[yes / no], auto for no, put subs
 mintpy.reference.lalo               = 19.52,-155.51   # 19.52,-155.56 for Asc, 19.52,-155.51 for Desc 
 mintpy.subset.lalo                  = 19.43:19.51,-155.65:-155.54    #[S:N,W:E / no], auto for no
 ####################
-minopy.load.autoPath                  = yes
-minopy.load.processor                 = isce
-minopy.multiprocessing.numProcessor   = 20
-minopy.load.startDate               = 20200101
-minopy.interferograms.type          = single_reference
+miaplpy.load.autoPath                  = yes
+miaplpy.load.processor                 = isce
+miaplpy.multiprocessing.numProcessor   = 20
+miaplpy.load.startDate               = 20200101
+miaplpy.interferograms.type          = single_reference
 
 ####################
 insarmaps_flag                      = True                                                                                                

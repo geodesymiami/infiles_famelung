@@ -40,13 +40,13 @@ mintpy.save.hdfEos5.subset          = yes     #[yes / no], auto for no, put subs
 #mintpy.subset.lalo                  = 44.5:45.63,-110.7:-110.45
 ####################
 mintpy.networkInversion.minTempCoh  = 0.55 #[0.0-1.0], auto for 0.7, min temporal coherence for mask
-minopy.timeseries.minTempCoh        = 0.55     # auto for 0.5
+miaplpy.timeseries.minTempCoh        = 0.55     # auto for 0.5
 
-minopy.load.autoPath                  = yes
-minopy.subset.lalo                    = -7.6:-7.49,110.39:110.49
-minopy.multiprocessing.numProcessor   = 20
-minopy.load.processor                 = isce
-minopy.timeseries.tempCohType         = average     # [full, average], auto for full.
+miaplpy.load.autoPath                  = yes
+miaplpy.subset.lalo                    = -7.6:-7.49,110.39:110.49
+miaplpy.multiprocessing.numProcessor   = 20
+miaplpy.load.processor                 = isce
+miaplpy.timeseries.tempCohType         = average     # [full, average], auto for full.
 
 insarmaps_flag                      = False                                                                                                
 

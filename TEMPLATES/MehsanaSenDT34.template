@@ -26,15 +26,15 @@ mintpy.solidEarthTides              = no                         #[yes / no], au
 mintpy.save.hdfEos5                 = yes                        # [yes / update / no], auto for no, save timeseries to UNAVCO InSAR Archive format
 mintpy.save.hdfEos5.update          = yes                         # [yes / no], auto for no
 ####################
-minopy.load.autoPath                = yes
-minopy.load.processor               = isce
-minopy.multiprocessing.numProcessor = 20
-minopy.load.processor               = isce
-minopy.timeseries.tempCohType       = average     # [full, average], auto for full.
-minopy.interferograms.numSequential = 5     # Number of sequential interferograms, auto for 2
-minopy.timeseries.tempCohType       = average     # [full, average], auto for full.
-minopy.timeseries.minTempCoh        = 0.5     # auto for 0.5
-minopy.interferograms.type          = sequential
-minopy.interferograms.type          = single_reference
+miaplpy.load.autoPath                = yes
+miaplpy.load.processor               = isce
+miaplpy.multiprocessing.numProcessor = 20
+miaplpy.load.processor               = isce
+miaplpy.timeseries.tempCohType       = average     # [full, average], auto for full.
+miaplpy.interferograms.numSequential = 5     # Number of sequential interferograms, auto for 2
+miaplpy.timeseries.tempCohType       = average     # [full, average], auto for full.
+miaplpy.timeseries.minTempCoh        = 0.5     # auto for 0.5
+miaplpy.interferograms.type          = sequential
+miaplpy.interferograms.type          = single_reference
 
 insarmaps_flag                      = False

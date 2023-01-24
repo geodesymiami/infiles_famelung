@@ -10,27 +10,35 @@ cleanopt                            = 0
 hazard_products_flag                = TRUE                                                                                                
 ssaraopt.platform                   = SENTINEL-1A,SENTINEL-1B                                                                             
 ssaraopt.relativeOrbit              = 87                                                                                                  
-ssaraopt.startDate                  = 20180904
+ssaraopt.startDate                  = 20190101
 #ssaraopt.endDate                    = 20200501
 ####################
 topsStack.boundingBox               = 19.1 19.9 -155.8 -154.5                           # '-1 0.15 -91.6 -90.9'                           
 topsStack.subswath                  = 1                                                 # '1 2'                                           
 topsStack.subswath                  = 1 2                                               # '1 2'                                           
-topsStack.numConnections            = 4                                                 # comment                                         
+topsStack.numConnections            = 3                                                 # comment                                         
 #topsStack.excludeDates              = 20200301
 topsStack.azimuthLooks              = 7                                                 # comment                                         
 topsStack.rangeLooks                = 19                                                # comment                                         
 topsStack.filtStrength              = 0.2                                               # comment                                         
 topsStack.unwMethod                 = snaphu                                            # comment                                         
 topsStack.coregistration            = auto                                              # [NESD geometry], auto for NESD                  
+
+########## Miaplpy
+miaplpy.multiprocessing.numProcessor              = 40    # auto for 4
+miaplpy.load.processor      = isce  #[isce,snap,gamma,roipac], auto for isceTops
+miaplpy.load.updateMode     = auto  #[yes / no], auto for yes, skip re-loading if HDF5 files are complete
+miaplpy.load.compression    = no  #[gzip / lzf / no], auto for no.
+miaplpy.load.autoPath       = yes    # [yes, no] auto for no
+miaplpy.subset.lalo         = 19.44:19.50,-154.91:-154.860    #[S:N,W:E / no], auto for no
+miaplpy.inversion.rangeWindow              = 19   # range window size for searching SHPs, auto for 15
+miaplpy.inversion.azimuthWindow            = 9   # azimuth window size for searching SHPs, auto for 15
+
 ####################
-#mintpy.reference.lalo               = 19.5059, -155.3477                                                                                  
 mintpy.troposphericDelay.method     = height_correlation                              #[pyaps / height_correlation / base_trop_cor / no], auto for pyaps
-
-mintpy.reference.lalo               = 19.57,-155.575
-mintpy.subset.lalo                  = 19.38:19.53,-155.69:-155.45    #[S:N,W:E / no], auto for no
+#mintpy.reference.lalo               = 19.57,-155.575
+#mintpy.subset.lalo                  = 19.38:19.53,-155.69:-155.45    #[S:N,W:E / no], auto for no
 mintpy.save.hdfEos5.subset          = yes     #[yes / no], auto for no, put subset range info   in output filename
-
 mintpy.network.startDate            = auto                                              # [20090101 / no], auto for no                    
 mintpy.geocode.laloStep             = 0.0008,0.0008                 #[-0.000555556,0.000555556 / None], auto for None, output resolution in degree
 mintpy.load.autoPath                = yes

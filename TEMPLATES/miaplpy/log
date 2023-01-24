@@ -1,0 +1,13 @@
+20221204:154327 * miaplpyApp.py /work2/05861/tg851601/stampede2/insarlab/infiles/famelung/TEMPLATES/MiamiSenAT48.template --jobfiles --tmp
+20221206:152147 * miaplpyApp.py /work2/05861/tg851601/stampede2/insarlab/infiles/famelung/TEMPLATES/MiamiSenAT48.template --jobfiles --tmp
+20221206:162643 * miaplpyApp.py /work2/05861/tg851601/stampede2/insarlab/infiles/famelung/TEMPLATES/MiamiSenAT48.template --jobfiles --tmp
+20221207:182751 * miaplpyApp.py /work2/05861/tg851601/stampede2/insarlab/infiles/famelung/TEMPLATES/MiamitestTsxSMD14.template
+20221207:183249 * miaplpyApp.py /work2/05861/tg851601/stampede2/insarlab/infiles/famelung/TEMPLATES/MiamiTsxSMD14.template --start phase_linking --jobfiles
+20221207:183307 * miaplpyApp.py /work2/05861/tg851601/stampede2/insarlab/infiles/famelung/TEMPLATES/MiamiTsxSMD14.template --jobfiles --tmp
+20221208:103309 * miaplpyApp.py /work2/05861/tg851601/stampede2/insarlab/infiles/famelung/TEMPLATES/MiamiTsxSMD14.template --jobfiles --tmp
+20221208:133816 * miaplpyApp.py /work2/05861/tg851601/stampede2/insarlab/infiles/famelung/TEMPLATES/MiamiSenAT48.template --start load_ifgram
+20221213:080432 * miaplpyApp.py /work2/05861/tg851601/stampede2/insarlab/infiles/famelung/TEMPLATES/MiamiTsxSMD14.template --start load_ifgram
+20221216:123511 * miaplpyApp.py /work2/05861/tg851601/stampede2/insarlab/infiles/famelung/TEMPLATES/qunittestGalapagosSenDT128.template --jobfiles --tmp
+20221217:221900 * miaplpyApp.py /work2/05861/tg851601/stampede2/insarlab/infiles/famelung/TEMPLATES/MiamiTsxSMD14.template --start load_ifgram
+20221230:065610 * miaplpyApp.py /work2/05861/tg851601/stampede2/insarlab/infiles/famelung/TEMPLATES/qunittestGalapagosSenDT128.template --start load_ifgram
+20230106:132607 * miaplpyApp.py /work2/05861/tg851601/stampede2/insarlab/infiles/famelung/TEMPLATES/MiamiTsxSTDT36.template --jobfiles --tmp

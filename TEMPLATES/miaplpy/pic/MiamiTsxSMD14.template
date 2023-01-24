@@ -1,0 +1,68 @@
+processor                             = isce
+#cleanopt                              = 0
+ssaraopt.platform                     = TSX 
+#ssaraopt.startDate                    = 20150921
+#ssaraopt.endDate                      = 20211115
+ssaraopt.relativeOrbit                = 014
+unavco.relative_orbit                = 014
+#stripmapStack.boundingBox                 = 25.67 25.93 -80.23 -80.106  #25.4 26.1 -82.0 -80.0
+
+stripmapStack.sensor                  = tsx
+stripmapStack.zerodop                 = True
+stripmapStack.nofocus                 = True
+acquisition_mode                      = stripmap
+
+stripmapStack.boundingBox                 = 25.8384 25.9184 -80.1656 -80.1174
+stripmapStack.azimuthLooks                = 10
+stripmapStack.rangeLooks                  = 10
+stripmapStack.timeThreshold           = 90
+stripmapStack.baselineThreshold       = 450
+stripmapStack.golsteinFilterStrength  = 0.2          
+stripmapStack.unwMethod               = snaphu     
+
+mintpy.troposphericDelay.method       = no
+
+raw_image_dir                          = $SCRATCHDIR/MiamiTsxSMD14/ORIG_data
+
+###### South Surfside #
+mintpy.subset.lalo                    = 25.8384:25.909,-80.1656:-80.1174         # Sara Surfside
+mintpy.subset.lalo                    = 25.8384:25.909,-80.1656:-80.1174         # Sara Surfside
+mintpy.subset.lalo                   = 25.89:25.906,-80.129:-80.115            # Surfside_only
+mintpy.subset.lalo                   = 25.86:25.90,-80.129:-80.115            # Surfside_only
+#mintpy.reference.lalo                = 25.8791,-80.1259                         # W Brickel Marquis condo
+mintpy.reference.lalo                = 25.8790,-80.1225                         # W Brickel Marquis condo
+
+#
+
+mintpy.load.autoPath                  = yes
+mintpy.compute.cluster                = local
+mintpy.compute.numWorker              = 20
+mintpy.save.hdfEos5                   = yes
+mintpy.save.hdfEos5.update            = no
+mintpy.save.hdfEos5.subset            = yes   #[yes / no], auto for no, put subset range info   in output filename
+
+insarmaps_flag                        = False
+minopy.load.autoPath                  = yes
+## parallel processing
+miaplpy.multiprocessing.numProcessor              = 40
+### crop the area to a small subset
+miaplpy.load.processor      = isce
+#minopy.inversion.mask                     = /scratch/06736/sxm1611/MiamiSenAT48/waterMask.h5
+miaplpy.interferograms.networkType       = single_reference
+miaplpy.interferograms.networkType       = sequential
+
+# Unwrapping Error Correction (optional)
+mintpy.unwrapError.method          = bridging
+mintpy.unwrapError.connCompMinArea = 200
+mintpy.deramp                      = no
+
+mintpy.residualRMS.deramp          = auto
+mintpy.unwrapError.ramp            = auto
+mintpy.topographicResidual.phaseVelocity     = yes  #[yes / no], auto for no - use phase velocity for minimization
+
+#miaplpy.timeseries.waterMask =  /scratch/06736/sxm1611/tsxMiami/miaplpy/network_single_reference/watermask.h5
+#mintpy.unwrapError.waterMaskFile   = /scratch/06736/sxm1611/tsxMiami/miaplpy/network_single_reference/watermask.h5
+#mintpy.networkInversion.waterMaskFile   = /scratch/06736/sxm1611/tsxMiami/miaplpy/network_single_reference/watermask.h5
+#mlo
+#bintpy.network.maskFile        = /scratch/06736/sxm1611/tsxMiami/miaplpy/network_single_reference/watermask.h5
+

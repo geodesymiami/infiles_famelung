@@ -11,10 +11,9 @@ processor                           = isce
 cleanopt                            = 0                                                                                                   
 ssaraopt.platform                   = SENTINEL-1A,SENTINEL-1B                                                                             
 ssaraopt.relativeOrbit              = 32                                                                                                 
-ssaraopt.startDate                  = 20170201                                                                                            
-ssaraopt.endDate                    = 20200112                                                                                            
+ssaraopt.startDate                  = 20200101                                                                                            
 ####################
-demMethod                           = ssara    
+#demMethod                           = ssara    
 ####################
 topsStack.boundingBox               = 48.7 50.3 94.92 98.05      # '-1 0.15 -91.6 -90.9'                           
 topsStack.boundingBox               = 13.7 14.4 120.0 122.0      # '-1 0.15 -91.6 -90.9'                           
@@ -26,8 +25,16 @@ topsStack.filtStrength              = 0.2                        # comment
 topsStack.unwMethod                 = snaphu                     # comment                                         
 topsStack.coregistration            = auto                   # [NESD geometry], auto for NESD                  
 ####################
-mintpy.network.startDate            = 20140712                   # [20090101 / no], auto for no
-mintpy.reference.lalo               = 14.214, 121.160            #  30.556, 104.264
+miaplpy.multiprocessing.numProcessor              = 40    # auto for 4
+miaplpy.load.processor      = isce  #[isce,snap,gamma,roipac], auto for isceTops
+miaplpy.load.updateMode     = auto  #[yes / no], auto for yes, skip re-loading if HDF5 files are complete
+miaplpy.load.compression    = no  #[gzip / lzf / no], auto for no.
+miaplpy.load.autoPath       = yes    # [yes, no] auto for no
+###################################
+mintpy.compute.cluster              = local #[local / slurm / pbs / lsf / none], auto for none, cluster type
+mintpy.compute.numWorker            = 40     #[int > 1 / all / num%], auto for 4 (local) or 40 (slurm / pbs / lsf), num of workers
+mintpy.subset.lalo                  = 14.05:14.2,121.14:121.29            #  30.556, 104.264
+#mintpy.reference.lalo               = 14.214, 121.160            #  30.556, 104.264
 mintpy.troposphericDelay.method     = no                         # [pyaps / height_correlation / base_trop_cor / no], auto for pyaps
 mintpy.network.startDate            = auto                       # [20090101 / no], auto for no                    
 mintpy.networkInversion.parallel    = no                        # [yes / no], auto for no, parallel processing    
