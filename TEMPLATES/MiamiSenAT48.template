@@ -24,22 +24,31 @@ mintpy.subset.lalo                   = 25.8960:26.02,-80.145:-80.1146           
 mintpy.reference.lalo                = auto # 25.9334,-80.1237                         # W Brickel Marquis condo
  
 ##### Sara paper
-miaplpy.subset.lalo         = 25.8384:25.909,-80.1656:-80.1174    #[S:N,W:E / no], auto for no
+#miaplpy.subset.lalo         = 25.8384:25.909,-80.1656:-80.1174    #[S:N,W:E / no], auto for no
 
-###### MiamiBeach
-mintpy.subset.lalo                    = 25.763:25.860,-80.147:-80.1195            #[S:N,W:E / no], auto for no
-#mintpy.reference.lalo                 = auto # 25.8248,-80.1222 # auto refPointLat=25.82477&refPointLon=-80.12222 # 25.8791,-80.1259                          # W Brickel Marquis condo
 
 ###### Sara Surfside
 mintpy.subset.lalo                   = 25.8384:25.909,-80.147:-80.1174    #[S:N,W:E / no], auto for no
 mintpy.reference.lalo                = 25.8755,-80.1266  #   ! Good One
 mintpy.reference.lalo                = 25.8791,-80.1259  #  ! Good one
 mintpy.reference.lalo                = 25.8865,-80.1225  #  works for 2015_202111 (Sara's time period)
-minsar.miaplpy.dirname               = lalo      #[dirname / lalo ]  auto for miaplpy (dates will be appended except for auto)
-minsar.miaplpy.dirname               = Surfside  #[dirname / lalo ]  auto for miaplpy (dates will be appended except for auto)
+minsar.miaplpyDir.addition           = lalo              #[name / lalo / no ]  auto for no (miaply_$name_startDate_endDate) 
+minsar.miaplpyDir.addition           = Surfside          #[name / lalo / no ]  auto for no (miaply_$name_startDate_endDate)) 
  
-miaplpy.load.startDate              = 20180101
+###### MiamiBeach
+mintpy.subset.lalo                    = 25.765:25.840,-80.147:-80.1195            #[S:N,W:E / no], auto for no
+mintpy.reference.lalo                 = auto # 25.8248,-80.1222 # auto refPointLat=25.82477&refPointLon=-80.12222 # 25.8791,-80.1259                          # W Brickel Marquis condo
+minsar.miaplpyDir.addition           = MiamiBeach          #[name / lalo / no ]  auto for no (miaply_$name_startDate_endDate)) 
+miaplpy.load.startDate              = 20160901
 #miaplpy.load.endDate                = 20201112
+
+###### Airport (MIA)
+mintpy.subset.lalo                    =  25.784:25.808,-80.295:-80.261            #[S:N,W:E / no], auto for no
+mintpy.reference.lalo                 = auto # 25.8248,-80.1222 # auto refPointLat=25.82477&refPointLon=-80.12222 # 25.8791,-80.1259                          # W Brickel Marquis condo
+minsar.miaplpyDir.addition           = Airport          #[name / lalo / no ]  auto for no (miaply_$name_startDate_endDate)) 
+miaplpy.load.startDate              = 20200101
+miaplpy.load.endDate                = 20221231
+mintpy.reference.minCoherence       = 0.7
 
 #############################################
 miaplpy.load.processor      = isce
@@ -61,9 +70,9 @@ mintpy.troposphericDelay.method      = no # auto  #[pyaps / height_correlation /
 mintpy.save.hdfEos5                  = yes                        # [yes / update / no], auto for no, save timeseries to UNAVCO InSAR Archive format
 mintpy.save.hdfEos5.update           = no                                                # [yes / no], auto for no, put XXXXXXXX as endDate in output filename
 mintpy.save.hdfEos5.subset           = yes     #[yes / no], auto for no, put subset range info   in output filename
-mintpy.topographicResidual.phaseVelocity = yes  #[yes / no], auto for no - use phase velocity for minimization
-mintpy.reference.date                = 20191205   #[reference_date.txt / 20090214 / no], auto for reference_date.txt
-mintpy.topographicResidual.excludeDate = 20161015,20191006  #[20070321 / txtFile / no], auto for exclude_date.txt
+mintpy.topographicResidual.phaseVelocity = auto  #[yes / no], auto for no - use phase velocity for minimization
+#mintpy.reference.date                = 20191205   #[reference_date.txt / 20090214 / no], auto for reference_date.txt
+#mintpy.topographicResidual.excludeDate = 20161015,20191006  #[20070321 / txtFile / no], auto for exclude_date.txt
 #mintpy.unwrapError.method              = bridging  #[bridging / phase_closure / bridging+phase_closure / no], auto for no
 #mintpy.unwrapError.connCompMinArea     = 200  #[1-inf], auto for 2.5e3, discard regions smaller than the min size in pixels
 
