@@ -21,8 +21,8 @@ topsStack.boundingBox               = 28.3 28.8 74.0 79.0                       
 topsStack.boundingBox               = 28.3 28.8 76.7 77.7                           # '-1 0.15 -91.6 -90.9'                           
 topsStack.subswath                  = 2                                                 # '1 2'                                           
 topsStack.numConnections            = 4                                                 # comment                                         
-topsStack.azimuthLooks              = 5                                                 # comment                                         
-topsStack.rangeLooks                = 20                                                # comment                                         
+topsStack.azimuthLooks              = 6                                                 # comment                                         
+topsStack.rangeLooks                = 24                                                # comment                                         
 topsStack.filtStrength              = 0.4                                               # comment                                         
 topsStack.unwMethod                 = snaphu                                            # comment                                         
 topsStack.coregistration            = auto                                              # [NESD geometry], auto for NESD                  
@@ -39,15 +39,47 @@ mintpy.compute.cluster              = local
 mintpy.compute.numWorker            = 32
 #mintpy.geocode.SNWE                 = 28.53:28.65,77.00:77.16 # Dwarka  #[-1.2,0.5,-92,-91 / none ], auto for none, output extent in degree
 ####################
-#mintpy.subset.lalo                  = 28.53:28.65,77.00:77.16    # Dwarka
-minopy.load.autoPath                = yes
-minopy.load.startDate               = 20180101
-minopy.load.endDate                 = 20211231
-#minopy.subset.lalo                  = 28.34:28.48,77.24:77.36
-#minopy.subset.lalo                  = 28.53:28.65,77.00:77.16    # Dwarka
-minopy.multiprocessing.numProcessor = 20
-minopy.load.processor               = isce
-minopy.timeseries.tempCohType       = average     # [full, average], auto for full.
-minopy.timeseries.minTempCoh        = 0.7     # auto for 0.5
-####################
+
+###### Gurgaon #######
+miaplpy.subset.lalo                  =  28.425:28.565,77.0:77.2            #[S:N,W:E / no], auto for no
+mintpy.subset.lalo                   =  28.425:28.565,77.0:77.2            #[S:N,W:E / no], auto for no
+mintpy.reference.lalo                = auto # 25.8248,-80.1222 # auto refPointLat=25.82477&refPointLon=-80.12222 # 25.8791,-80.1259                          # W Brickel Marquis condo
+minsar.miaplpyDir.addition           = Gurgaon          #[name / lalo / no ]  auto for no (miaply_$name_startDate_endDate)) 
+miaplpy.load.endDate                 = 20200131
+
+###### Dwarka east  #######
+miaplpy.subset.lalo                  =  28.55:28.66,77.195:77.405            #[S:N,W:E / no], auto for no
+mintpy.subset.lalo                  =  28.55:28.66,77.195:77.405            #[S:N,W:E / no], auto for no
+mintpy.reference.lalo                 = auto # 25.8248,-80.1222 # auto refPointLat=25.82477&refPointLon=-80.12222 # 25.8791,-80.1259                          # W Brickel Marquis condo
+minsar.miaplpyDir.addition           = Dwarka2          #[name / lalo / no ]  auto for no (miaply_$name_startDate_endDate)) 
+
+###### Dwarka #######
+miaplpy.subset.lalo                  =  28.55:28.66,77.0:77.2            #[S:N,W:E / no], auto for no
+mintpy.subset.lalo                  =  28.55:28.66,77.0:77.2            #[S:N,W:E / no], auto for no
+mintpy.reference.lalo                 = auto # 25.8248,-80.1222 # auto refPointLat=25.82477&refPointLon=-80.12222 # 25.8791,-80.1259                          # W Brickel Marquis condo
+minsar.miaplpyDir.addition           = Dwarka          #[name / lalo / no ]  auto for no (miaply_$name_startDate_endDate)) 
+
+###### Gurgaon East #######
+miaplpy.subset.lalo                  =  28.425:28.565,77.195:77.405            #[S:N,W:E / no], auto for no
+mintpy.subset.lalo                   =  28.425:28.565,77.195:77.405            #[S:N,W:E / no], auto for no
+miaplpy.subset.lalo                  =  28.395:28.565,77.195:77.405            #[S:N,W:E / no], auto for no
+mintpy.subset.lalo                   =  28.395:28.565,77.195:77.405            #[S:N,W:E / no], auto for no
+mintpy.reference.lalo                = auto # 25.8248,-80.1222 # auto refPointLat=25.82477&refPointLon=-80.12222 # 25.8791,-80.1259                          # W Brickel Marquis condo
+minsar.miaplpyDir.addition           = Gurgaon2          #[name / lalo / no ]  auto for no (miaply_$name_startDate_endDate)) 
+#miaplpy.load.startDate               = 20200101
+
+
+#############################################
+miaplpy.load.processor      = isce
+#FA: for miaplpy.phase_inversion we should use 40 but for mintpy.phase_to_range 20 as it uses dask and fails with 40
+miaplpy.multiprocessing.numProcessor = 40
+miaplpy.inversion.rangeWindow              = 24   # range window size for searching SHPs, auto for 15
+miaplpy.inversion.azimuthWindow            = 9   # azimuth window size for searching SHPs, auto for 15
+miaplpy.timeseries.tempCohType            = auto     # [full, average], auto for full.
+miaplpy.timeseries.minTempCoh             = auto     # auto for 0.5
+miaplpy.interferograms.networkType = sequential          # qq
+miaplpy.interferograms.networkType = single_reference    # network
+miaplpy.interferograms.networkType = delaunay            # network
+#############################################
+
 insarmaps_flag                      = False                                                                                                
