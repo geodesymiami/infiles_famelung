@@ -39,13 +39,6 @@ mintpy.compute.cluster              = local
 mintpy.compute.numWorker            = 32
 ####################
 
-###### Gurgaon #######
-miaplpy.subset.lalo                  =  28.425:28.565,77.0:77.2            #[S:N,W:E / no], auto for no
-mintpy.subset.lalo                   =  28.425:28.565,77.0:77.2            #[S:N,W:E / no], auto for no
-mintpy.reference.lalo                = auto # 25.8248,-80.1222 # auto refPointLat=25.82477&refPointLon=-80.12222 # 25.8791,-80.1259                          # W Brickel Marquis condo
-minsar.miaplpyDir.addition           = Gurgaon          #[name / lalo / no ]  auto for no (miaply_$name_startDate_endDate)) 
-miaplpy.load.startDate               = auto
-miaplpy.load.endDate                 = auto
 
 ###### Dwarka #######
 miaplpy.subset.lalo                  =  28.55:28.66,77.0:77.2            #[S:N,W:E / no], auto for no
@@ -70,6 +63,14 @@ miaplpy.subset.lalo                  =  28.395:28.565,77.195:77.405            #
 mintpy.subset.lalo                   =  28.395:28.565,77.195:77.405            #[S:N,W:E / no], auto for no
 mintpy.reference.lalo                = auto # 25.8248,-80.1222 # auto refPointLat=25.82477&refPointLon=-80.12222 # 25.8791,-80.1259                          # W Brickel Marquis condo
 minsar.miaplpyDir.addition           = Gurgaon2          #[name / lalo / no ]  auto for no (miaply_$name_startDate_endDate)) 
+miaplpy.load.startDate               = auto
+miaplpy.load.endDate                 = auto
+
+###### Gurgaon #######
+miaplpy.subset.lalo                  =  28.425:28.565,77.0:77.2            #[S:N,W:E / no], auto for no
+mintpy.subset.lalo                   =  28.425:28.565,77.0:77.2            #[S:N,W:E / no], auto for no
+mintpy.reference.lalo                = auto # 25.8248,-80.1222 # auto refPointLat=25.82477&refPointLon=-80.12222 # 25.8791,-80.1259                          # W Brickel Marquis condo
+minsar.miaplpyDir.addition           = Gurgaon          #[name / lalo / no ]  auto for no (miaply_$name_startDate_endDate)) 
 miaplpy.load.startDate               = auto
 miaplpy.load.endDate                 = auto
 

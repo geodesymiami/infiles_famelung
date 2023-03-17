@@ -27,14 +27,13 @@ mintpy.reference.lalo                = auto # 25.9334,-80.1237                  
 #miaplpy.subset.lalo         = 25.8384:25.909,-80.1656:-80.1174    #[S:N,W:E / no], auto for no
 
 
-###### Sara Surfside
+###### Surfside
+minsar.miaplpyDir.addition           = Surfside          #[name / lalo / no ]  auto for no (miaply_$name_startDate_endDate)) 
 miaplpy.subset.lalo                   = 25.8384:25.909,-80.147:-80.1174    #[S:N,W:E / no], auto for no
 mintpy.subset.lalo                   = 25.8384:25.909,-80.147:-80.1174    #[S:N,W:E / no], auto for no
 mintpy.reference.lalo                = 25.8755,-80.1266  #   ! Good One
 mintpy.reference.lalo                = 25.8791,-80.1259  #  ! Good one
 mintpy.reference.lalo                = 25.8865,-80.1225  #  works for 2015_202111 (Sara's time period)
-minsar.miaplpyDir.addition           = lalo              #[name / lalo / no ]  auto for no (miaply_$name_startDate_endDate) 
-minsar.miaplpyDir.addition           = Surfside          #[name / lalo / no ]  auto for no (miaply_$name_startDate_endDate)) 
  
 ###### MiamiBeach
 mintpy.subset.lalo                    = 25.765:25.840,-80.147:-80.1195            #[S:N,W:E / no], auto for no
@@ -55,14 +54,25 @@ mintpy.reference.minCoherence       = 0.7
 
 ###### test
 minsar.miaplpyDir.addition            = t3aPhaseVelo          #[name / lalo / no ]  auto for no (miaply_$name_startDate_endDate)) 
-mintpy.subset.lalo                    =  25.784:25.808,-80.295:-80.261            #[S:N,W:E / no], auto for no
+mintpy.subset.lalo                    = 25.765:25.840,-80.147:-80.1195            #[S:N,W:E / no], auto for no
+miaplpy.subset.lalo                   = 25.765:25.840,-80.147:-80.1195            #[S:N,W:E / no], auto for no
 mintpy.reference.lalo                 = auto # 25.8248,-80.1222 # auto refPointLat=25.82477&refPointLon=-80.12222 # 25.8791,-80.1259                          # W Brickel Marquis condo
-miaplpy.load.startDate                = 20160412
-miaplpy.load.endDate                  = 20160927
+miaplpy.load.startDate                = 20150921
+miaplpy.load.endDate                  = 20211112
 mintpy.reference.minCoherence         = 0.7
 mintpy.topographicResidual.phaseVelocity = yes  #[yes / no], auto for no - use phase velocity for minimization
 mintpy.topographicResidual.polyOrder     = 1  #[1-inf], auto for 2, poly order of temporal deformation model
-  
+
+###### Sara Surfside
+minsar.miaplpyDir.addition           = Surfside          #[name / lalo / no ]  auto for no (miaply_$name_startDate_endDate)) 
+miaplpy.subset.lalo                   = 25.8384:25.909,-80.147:-80.1174    #[S:N,W:E / no], auto for no
+mintpy.subset.lalo                   = 25.8384:25.909,-80.147:-80.1174    #[S:N,W:E / no], auto for no
+mintpy.reference.lalo                = 25.8755,-80.1266  #   ! Good One
+mintpy.reference.lalo                = 25.8791,-80.1259  #  ! Good one
+mintpy.reference.lalo                = 25.8865,-80.1225  #  works for 2015_202111 (Sara's time period)
+miaplpy.load.startDate               = 20150921
+miaplpy.load.endDate                 = auto # 20211112
+minsar.miaplpyDir.addition           = lalo              #[name / lalo / no ]  auto for no (miaply_$name_startDate_endDate) 
 
 #############################################
 miaplpy.load.processor      = isce

@@ -3,15 +3,19 @@ frequency                           = 1
 login                               = pegasus.ccs.miami.edu                                                                               
 user                                = famelung                                                                                            
 ####################
+####################
+email_pysar                         = famelung@rsmas.miami.edu jaz101@rsmas.miami.edu bvarugu@rsmas.miami.edu                                                  
+email_insarmaps                     = famelung@rsmas.miami.edu jaz101@rsmas.miami.edu bvarugu@rsmas.miami.edu                                                  
+####################
 every_day_flag                      = yes                                                                                                 
 processor                           = isce                                                                                                
 cleanopt                            = 0                                                                                                   
 hazard_products_flag                = TRUE                                                                                                
 ssaraopt.platform                   = SENTINEL-1A,SENTINEL-1B                                                                             
-ssaraopt.relativeOrbit              = 149                                                                                                 
+ssaraopt.relativeOrbit              = 69                                                                                                 
 ####################
 topsStack.boundingBox               = 39.0 40.2 116.5 120.0                           # '-1 0.15 -91.6 -90.9'                           
-topsStack.subswath                  = 1 2                                                 # '1 2'                                           
+topsStack.subswath                  = 2 3                                                 # '1 2'                                           
 topsStack.numConnections            = 4                                                 # comment                                         
 topsStack.azimuthLooks              = 7                                                 # comment                                         
 topsStack.rangeLooks                = 28                                                # comment                                         
@@ -31,10 +35,34 @@ mintpy.compute.cluster              = local
 mintpy.compute.numWorker            = 32
 ####################
 
+###### NorthWest #######
+minsar.miaplpyDir.addition           = NW          #[name / lalo / no ]  auto for no (miaply_$name_startDate_endDate)) 
+miaplpy.subset.lalo                  = 39.495:39.71,117.79:118.10           #[S:N,W:E / no], auto for no
+mintpy.subset.lalo                   = 39.495:39.71,117.79:118.10           #[S:N,W:E / no], auto for no
+mintpy.reference.lalo                = auto # 25.8248,-80.1222 # auto refPointLat=25.82477&refPointLon=-80.12222 # 25.8791,-80.1259                          # W Brickel Marquis condo
+miaplpy.load.startDate               = auto
+miaplpy.load.endDate                 = auto
+
+###### NorthEast #######
+minsar.miaplpyDir.addition           = NE          #[name / lalo / no ]  auto for no (miaply_$name_startDate_endDate)) 
+miaplpy.subset.lalo                  =  39.495:39.71,118.09:118.41           #[S:N,W:E / no], auto for no
+mintpy.subset.lalo                   =  39.495:39.71,118.09:118.41           #[S:N,W:E / no], auto for no
+mintpy.reference.lalo                = auto # 25.8248,-80.1222 # auto refPointLat=25.82477&refPointLon=-80.12222 # 25.8791,-80.1259                          # W Brickel Marquis condo
+miaplpy.load.startDate               = auto
+miaplpy.load.endDate                 = auto
+
 ###### SouthEast  #######
 minsar.miaplpyDir.addition           = SE          #[name / lalo / no ]  auto for no (miaply_$name_startDate_endDate)) 
 miaplpy.subset.lalo                  = 39.295:39.505,118.09:118.41           #[S:N,W:E / no], auto for no
 mintpy.subset.lalo                   = 39.295:39.505,118.09:118.41           #[S:N,W:E / no], auto for no
+mintpy.reference.lalo                = auto # 25.8248,-80.1222 # auto refPointLat=25.82477&refPointLon=-80.12222 # 25.8791,-80.1259                          # W Brickel Marquis condo
+miaplpy.load.startDate               = auto
+miaplpy.load.endDate                 = auto
+
+###### SouthWest  #######
+minsar.miaplpyDir.addition           = SW          #[name / lalo / no ]  auto for no (miaply_$name_startDate_endDate)) 
+miaplpy.subset.lalo                  = 39.295:39.505,117.79:118.10           #[S:N,W:E / no], auto for no
+mintpy.subset.lalo                   = 39.295:39.505,117.79:118.10           #[S:N,W:E / no], auto for no
 mintpy.reference.lalo                = auto # 25.8248,-80.1222 # auto refPointLat=25.82477&refPointLon=-80.12222 # 25.8791,-80.1259                          # W Brickel Marquis condo
 miaplpy.load.startDate               = auto
 miaplpy.load.endDate                 = auto
@@ -53,39 +81,6 @@ miaplpy.subset.lalo                  =  39.70:39.905,118.09:118.41           #[S
 mintpy.subset.lalo                   =  39.70:39.905,118.09:118.41           #[S:N,W:E / no], auto for no
 mintpy.reference.lalo                = auto # 25.8248,-80.1222 # auto refPointLat=25.82477&refPointLon=-80.12222 # 25.8791,-80.1259                          # W Brickel Marquis condo
 miaplpy.load.startDate               = auto
-miaplpy.load.endDate                 = auto
-
-###### NorthWest #######
-minsar.miaplpyDir.addition           = NW          #[name / lalo / no ]  auto for no (miaply_$name_startDate_endDate)) 
-miaplpy.subset.lalo                  = 39.495:39.71,117.79:118.10           #[S:N,W:E / no], auto for no
-mintpy.subset.lalo                   = 39.495:39.71,117.79:118.10           #[S:N,W:E / no], auto for no
-mintpy.reference.lalo                = auto # 25.8248,-80.1222 # auto refPointLat=25.82477&refPointLon=-80.12222 # 25.8791,-80.1259                          # W Brickel Marquis condo
-miaplpy.load.startDate               = 20150101
-miaplpy.load.endDate                 = auto
-
-###### SouthWest  #######
-minsar.miaplpyDir.addition           = SW          #[name / lalo / no ]  auto for no (miaply_$name_startDate_endDate)) 
-miaplpy.subset.lalo                  = 39.295:39.505,117.79:118.10           #[S:N,W:E / no], auto for no
-mintpy.subset.lalo                   = 39.295:39.505,117.79:118.10           #[S:N,W:E / no], auto for no
-mintpy.reference.lalo                = auto # 25.8248,-80.1222 # auto refPointLat=25.82477&refPointLon=-80.12222 # 25.8791,-80.1259                          # W Brickel Marquis condo
-miaplpy.load.startDate               = 20150101
-miaplpy.load.endDate                 = auto
-
-###### SouthEast  #######
-minsar.miaplpyDir.addition           = SE          #[name / lalo / no ]  auto for no (miaply_$name_startDate_endDate)) 
-miaplpy.subset.lalo                  = 39.295:39.505,118.09:118.41           #[S:N,W:E / no], auto for no
-mintpy.subset.lalo                   = 39.295:39.505,118.09:118.41           #[S:N,W:E / no], auto for no
-mintpy.reference.lalo                = auto # 25.8248,-80.1222 # auto refPointLat=25.82477&refPointLon=-80.12222 # 25.8791,-80.1259                          # W Brickel Marquis condo
-miaplpy.load.startDate               = 20150101
-miaplpy.load.endDate                 = auto
-#comment: SE stopped in run_08 (reference point issues)
-
-###### NorthEast #######
-minsar.miaplpyDir.addition           = NE          #[name / lalo / no ]  auto for no (miaply_$name_startDate_endDate)) 
-miaplpy.subset.lalo                  =  39.495:39.71,118.09:118.41           #[S:N,W:E / no], auto for no
-mintpy.subset.lalo                   =  39.495:39.71,118.09:118.41           #[S:N,W:E / no], auto for no
-mintpy.reference.lalo                = auto # 25.8248,-80.1222 # auto refPointLat=25.82477&refPointLon=-80.12222 # 25.8791,-80.1259                          # W Brickel Marquis condo
-miaplpy.load.startDate               = 20150101
 miaplpy.load.endDate                 = auto
 
 miaplpy.interferograms.networkType   = single_reference    # network

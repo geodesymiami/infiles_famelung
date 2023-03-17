@@ -54,11 +54,16 @@ insarmaps_flag                        = False
 mintpy.subset.lalo                    = 25.775:25.781,-80.1451:-80.1265            #[S:N,W:E / no], auto for no
 mintpy.reference.lalo                 = auto # 25.8248,-80.1222 # auto refPointLat=25.82477&refPointLon=-80.12222 
 
+###### MiddleBeach
+mintpy.subset.lalo                    = 25.79:25.799,-80.134:-80.125            #[S:N,W:E / no], auto for no
+mintpy.reference.lalo                 = auto # 25.8248,-80.1222 # auto refPointLat=25.82477&refPointLon=-80.12222 
+minsar.miaplpyDir.addition            = MiddleBeach
+
 miaplpy.multiprocessing.numProcessor = 40
 ### crop the area to a small subset
 miaplpy.load.processor               = isce
-miaplpy.interferograms.networkType   = single_reference
 miaplpy.interferograms.networkType   = sequential
+miaplpy.interferograms.networkType   = single_reference
 
 # Unwrapping Error Correction (optional)
 #mintpy.unwrapError.method          = bridging
