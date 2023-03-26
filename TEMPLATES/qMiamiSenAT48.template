@@ -1,75 +1,92 @@
-processor                             = isce
+minsar.processor                             = isce
 #cleanopt                              = 0
 ssaraopt.platform                     = SENTINEL-1A,SENTINEL-1B
-ssaraopt.startDate                    = 20140101
-ssaraopt.startDate                    = 20200101
+ssaraopt.startDate                    = 20160101
 ssaraopt.relativeOrbit                = 48
-topsStack.boundingBox                 = 25.67 25.93 -80.23 -80.106  #25.4 26.1 -82.0 -80.0
+topsStack.boundingBox                 = 25.67 26.93 -80.23 -80.106  #25.4 26.1 -82.0 -80.0
 topsStack.subswath                    = 3
 topsStack.numConnections              = 2
 topsStack.azimuthLooks                = 5
 topsStack.rangeLooks                  = 20
-#topsStack.azimuthLooks                = 1
-#topsStack.rangeLooks                  = 1
 topsStack.filtStrength                = 0.3
 topsStack.coregistration              = geometry
-#topsStack.demDir                      = /work2/05861/tg851601/stampede2/insarlab/DEM/MiamiSenAT48
-
-#mintpy.subset.lalo                    = 25.755:25.9,-80.15:-80.115              # Surfside
-#mintpy.reference.lalo                 = 25.87,-80.127                                                                                     
-mintpy.subset.lalo                    = 25.748:25.81,-80.21:-80.182              # Brickell
-mintpy.subset.lalo                    = 25.725:25.81,-80.242:-80.115             # Coconut Grove and "Brickell" FA 12/2 021area too large for insarmaps
-mintpy.subset.lalo                    = 25.725:25.81,-80.242:-80.209             # Coconut Grove 
-mintpy.subset.lalo                    = 25.748:25.81,-80.21:-80.182              # Brickell
-mintpy.subset.lalo                    = 25.725:25.91,-80.242:-80.115             # Coconut Grove to Surfside
-
-# test for unwrap error correction
-mintpy.subset.lalo                    = 25.745:25.9,-80.21:-80.115              # Brickel and Miami Beach
-mintpy.subset.lalo                    = 25.755:25.9,-80.15:-80.115              # Surfside
-
-###### Miami large with reference in North Miami   ##############
-#mintpy.load.waterMaskFile              = /work2/05861/tg851601/stampede2/insarlab/DEM/MiamiSenAT48/waterMask_large.h5
-#minopy.load.waterMaskFile              = /work2/05861/tg851601/stampede2/insarlab/DEM/MiamiSenAT48/waterMask_large.h5
-# remove staring 202107
-mintpy.subset.lalo                    = 25.725:25.91,-80.242:-80.115             # large: Coconut Grove to Surfside
-mintpy.reference.lalo                 = 25.8914,-80.1583                         # North Miami near Keystone islands
-
-###### Miami CGrove and MiamiBeach   ##############
-mintpy.subset.lalo                    = 25.725:25.81,-80.242:-80.115             # Coconut Grove and Miami Beach
-mintpy.reference.lalo                 = 25.7582,-80.2028                         # W Brickel Marquis condo
  
-###### Miami CGrove and Brickell   ##############
-mintpy.subset.lalo                    = 25.725:25.81,-80.242:-80.1815            # Coconut Grove and "Brickell
-mintpy.reference.lalo                 = 25.7582,-80.2028                         # W Brickel Marquis condo
- 
-###### Brickell   ##############
-mintpy.subset.lalo                    = 25.748:25.81,-80.21:-80.1815             # Brickell
-mintpy.reference.lalo                 = 25.7582,-80.2028                         # W Brickel Marquis condo
-#
-###### South Surfside #
-mintpy.subset.lalo                   = 25.871:25.81,-80.129:-80.115               # Brickell and Miami Beach
-mintpy.reference.lalo                = 25.8791,-80.1259                           # W Brickel Marquis condo
- 
-###### Surfside #
-mintpy.subset.lalo                   = 25.8700:25.9,-80.145:-80.115               # Brickell and Miami Beach
-mintpy.reference.lalo                = 25.8791,-80.1259                           # W Brickel Marquis condo
-
-####### Sunny Isles #
-mintpy.subset.lalo                   = 25.8960:26.02,-80.145:-80.1146               # Brickell and Miami Beach
-mintpy.reference.lalo                = auto # 25.9334,-80.1237                      # W Brickel Marquis condo
-
 ###### Brickell and Miami Beach #
-mintpy.subset.lalo                    = 25.745:25.9,-80.21:-80.115               # Brickell and Miami Beach
-mintpy.reference.lalo                = 25.7582,-80.2028                         # W Brickel Marquis condo
+mintpy.subset.lalo                   = 25.745:25.9,-80.21:-80.115               # Brickell and Miami Beach
+mintpy.reference.lalo                = auto #  25.7582,-80.2028                 # W Brickel Marquis condo
 
 ###### CGrove    ##############
-mintpy.subset.lalo                    = 25.725:25.76,-80.242:-80.202             # Coconut Grove 
-mintpy.reference.lalo                 = auto # 25.7582,-80.2028                  # W Brickel Marquis condo
- 
-###### QuarryAirport    ##############
-mintpy.subset.lalo                    = auto # 25.774:25.897,-80.3857:-80.2569               # Coconut Grove 
-mintpy.reference.lalo                 = auto # 25.7582,-80.2028                         # W Brickel Marquis condo
+mintpy.subset.lalo                    = 25.725:25.795,-80.262:-80.186           # Coconut Grove and Brickell
+mintpy.reference.lalo                 = auto # 25.7582,-80.2028                 # W Brickel Marquis condo
 
+###### Sunny Isles #
+mintpy.subset.lalo                   = 25.8960:26.02,-80.145:-80.1146               # Brickell and Miami Beach
+mintpy.reference.lalo                = auto # 25.9334,-80.1237                         # W Brickel Marquis condo
+ 
+##### Sara paper
+#miaplpy.subset.lalo         = 25.8384:25.909,-80.1656:-80.1174    #[S:N,W:E / no], auto for no
+
+
+###### Surfside
+minsar.miaplpyDir.addition           = Surfside          #[name / lalo / no ]  auto for no (miaply_$name_startDate_endDate)) 
+miaplpy.subset.lalo                   = 25.8384:25.909,-80.147:-80.1174    #[S:N,W:E / no], auto for no
+mintpy.subset.lalo                   = 25.8384:25.909,-80.147:-80.1174    #[S:N,W:E / no], auto for no
+#mintpy.reference.lalo                = 25.8755,-80.1266  #   ! Good One
+#mintpy.reference.lalo                = 25.8791,-80.1259  #  ! Good one
+#mintpy.reference.lalo                = 25.8865,-80.1225  #  works for 2015_202111 (Sara's time period)
+ 
+###### MiamiBeach
+mintpy.subset.lalo                    = 25.765:25.840,-80.147:-80.1195            #[S:N,W:E / no], auto for no
+miaplpy.subset.lalo                    = 25.765:25.840,-80.147:-80.1195            #[S:N,W:E / no], auto for no
+mintpy.reference.lalo                 = auto # 25.8248,-80.1222 # auto refPointLat=25.82477&refPointLon=-80.12222 # 25.8791,-80.1259                          # W Brickel Marquis condo
+minsar.miaplpyDir.addition           = MiamiBeach          #[name / lalo / no ]  auto for no (miaply_$name_startDate_endDate)) 
+miaplpy.load.startDate              = 20160901
+#miaplpy.load.endDate                = 20201112
+
+###### Airport (MIA)
+mintpy.subset.lalo                    =  25.784:25.808,-80.295:-80.261            #[S:N,W:E / no], auto for no
+miaplpy.subset.lalo                    =  25.784:25.808,-80.295:-80.261            #[S:N,W:E / no], auto for no
+mintpy.reference.lalo                 = auto # 25.8248,-80.1222 # auto refPointLat=25.82477&refPointLon=-80.12222 # 25.8791,-80.1259                          # W Brickel Marquis condo
+minsar.miaplpyDir.addition           = Airport          #[name / lalo / no ]  auto for no (miaply_$name_startDate_endDate)) 
+miaplpy.load.startDate              = 20200101
+miaplpy.load.endDate                = 20221231
+mintpy.reference.minCoherence       = 0.7
+
+###### test
+minsar.miaplpyDir.addition            = t3aPhaseVelo          #[name / lalo / no ]  auto for no (miaply_$name_startDate_endDate)) 
+mintpy.subset.lalo                    = 25.765:25.840,-80.147:-80.1195            #[S:N,W:E / no], auto for no
+miaplpy.subset.lalo                   = 25.765:25.840,-80.147:-80.1195            #[S:N,W:E / no], auto for no
+mintpy.reference.lalo                 = auto # 25.8248,-80.1222 # auto refPointLat=25.82477&refPointLon=-80.12222 # 25.8791,-80.1259                          # W Brickel Marquis condo
+miaplpy.load.startDate                = 20150921
+miaplpy.load.endDate                  = 20211112
+mintpy.reference.minCoherence         = 0.7
+mintpy.topographicResidual.phaseVelocity = yes  #[yes / no], auto for no - use phase velocity for minimization
+#mintpy.topographicResidual.polyOrder     = 1  #[1-inf], auto for 2, poly order of temporal deformation model
+
+###### Surfside2  Sara
+minsar.miaplpyDir.addition           = lalo              #[name / lalo / no ]  auto for no (miaply_$name_startDate_endDate) 
+minsar.miaplpyDir.addition           = Surfside2          #[name / lalo / no ]  auto for no (miaply_$name_startDate_endDate)) 
+miaplpy.subset.lalo                  = 25.8384:25.909,-80.1656:-80.1174    #[S:N,W:E / no], auto for no
+mintpy.subset.lalo                   = 25.8384:25.909,-80.1656:-80.1174    #[S:N,W:E / no], auto for no
+
+mintpy.reference.lalo                = auto # 25.8791,-80.1259  #  ! Good one
+mintpy.reference.lalo                = auto #5.8865,-80.1225  #  works for 2015_202111 (Sara's time period)
+miaplpy.load.startDate               = 20150921
+miaplpy.load.endDate                 = 20211112
+
+#############################################
+miaplpy.load.processor      = isce
+#FA: for miaplpy.phase_inversion we should use 40 but for mintpy.phase_to_range 20 as it uses dask and fails with 40
+miaplpy.multiprocessing.numProcessor = 40
+miaplpy.inversion.rangeWindow              = 19   # range window size for searching SHPs, auto for 15
+miaplpy.inversion.azimuthWindow            = 9   # azimuth window size for searching SHPs, auto for 15
+miaplpy.timeseries.tempCohType            = auto     # [full, average], auto for full.
+miaplpy.timeseries.minTempCoh             = auto     # auto for 0.5
+miaplpy.interferograms.networkType = sequential          # qq
+miaplpy.interferograms.networkType = single_reference    # network
+miaplpy.inversion.rangeWindow              = 19   # range window size for searching SHPs, auto for 15
+miaplpy.inversion.azimuthWindow            = 9  # azimuth window size for searching SHPs, auto for 15
+#############################################
 mintpy.load.autoPath                 = yes
 mintpy.compute.cluster               = local
 mintpy.compute.numWorker             = 20
@@ -77,58 +94,10 @@ mintpy.troposphericDelay.method      = no # auto  #[pyaps / height_correlation /
 mintpy.save.hdfEos5                  = yes                        # [yes / update / no], auto for no, save timeseries to UNAVCO InSAR Archive format
 mintpy.save.hdfEos5.update           = no                                                # [yes / no], auto for no, put XXXXXXXX as endDate in output filename
 mintpy.save.hdfEos5.subset           = yes     #[yes / no], auto for no, put subset range info   in output filename
+#mintpy.reference.date                = 20191205   #[reference_date.txt / 20090214 / no], auto for reference_date.txt
+#mintpy.topographicResidual.excludeDate = 20161015,20191006  #[20070321 / txtFile / no], auto for exclude_date.txt
+#mintpy.unwrapError.method              = bridging  #[bridging / phase_closure / bridging+phase_closure / no], auto for no
+#mintpy.unwrapError.connCompMinArea     = 200  #[1-inf], auto for 2.5e3, discard regions smaller than the min size in pixels
 
-
-minopy.load.autoPath                 = yes
-mintpy.geocode.lalo                  = -0.000185185,-0.0001852
-minopy.load.startDate                = 20160601
-minopy.load.startDate                = 20190101
-#minopy.load.endDate                  = 20211120
-
-#FA: for minopy.phase_inversion we should use 40 but for mintpy.phase_to_range 20 as it uses dask and fails with 40
-minopy.multiprocessing.numProcessor = 20
-minopy.load.processor      = isce
-
-#mintpy.load.waterMaskFile             = $SCRATCHDIR/Miami2SenAT48/swbdLat_N25_N26_Lon_W081_W080.wbd  #[path of water  mask file], optional but recommended
-
-minopy.timeseries.tempCohType            = average     # [full, average], auto for full.
-
-
-mintpy.load.autoPath                  = yes
-mintpy.compute.cluster                = local
-mintpy.compute.numWorker              = 20
-mintpy.troposphericDelay.method     = no # auto  #[pyaps / height_correlation / no / gacos], auto for pyaps
-mintpy.save.hdfEos5                 = yes                        # [yes / update / no], auto for no, save timeseries to UNAVCO InSAR Archive format
-mintpy.save.hdfEos5.update          = no                                                # [yes / no], auto for no, put XXXXXXXX as endDate in output filename
-
-minopy.load.autoPath                = yes
-#minopy.load.endDate                 = 20220501
-
-#FA: for minopy.phase_inversion we should use 40 but for mintpy.phase_to_range 20 as it uses dask and fails with 40
-minopy.multiprocessing.numProcessor = 20
-minopy.load.processor      = isce
-
-#mintpy.load.waterMaskFile             = $SCRATCHDIR/Miami2SenAT48/swbdLat_N25_N26_Lon_W081_W080.wbd  #[path of water  mask file], optional but recommended
-
-minopy.timeseries.tempCohType            = average     # [full, average], auto for full.
-minopy.timeseries.minTempCoh             = auto     # auto for 0.5
-#minopy.timeseries.waterMask              = waterMask.h5
-#minopy.timeseries.waterMaskFile          = /work2/05861/tg851601/stampede2/insarlab/DEM/MiamiSenAT48/waterMask_large.h5  #[path of water  mask file], optional but recommended
-#minopy.timeseries.waterMask             = /scratch1/06736/sxm1611/MiamiSenAT48/minopy_lidar/lidar_dem/waterMask.h5     # auto for None
-minopy.interferograms.type               = single_reference
-#minopy.interferograms.list              = $WORKDIR/minopy_files/Miami2SenAT48/short_baseline_ifgs.txt
-
-
-## Unwrapping Error Correction (optional)
-#mintpy.unwrapError.method          = phase_closure
-#mintpy.unwrapError.method          = bridging+phase_closure
-#mintpy.unwrapError.method          = bridging
-#mintpy.unwrapError.mask            = waterMask.h5 
-#mintpy.unwrapError.waterMaskFile   = /work2/05861/tg851601/stampede2/insarlab/DEM/MiamiSenAT48/waterMask_large.h5   #[waterMask.h5 / no], auto for waterMask.h5 or no [if not found]
-#mintpy.networkInversion.waterMaskFile   = no #[filename / no], auto for waterMask.h5 or no [if not found]
-
-
-## Solid earth tide correction
-mintpy.solidEarthTides             = no
-#mintpy.reference.lalo              = 25.8942 -80.1585
-#mintpy.troposphericDelay.method =  pyaps
+#mintpy.reference.yx                          = 349,1393   #[257,151 / auto]
+mintpy.reference.date                        = 20191205   #[reference_date.txt / 20090214 / no], auto for reference_date.txt

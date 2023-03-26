@@ -59,14 +59,6 @@ mintpy.reference.lalo                = auto # 25.8248,-80.1222 # auto refPointLa
 miaplpy.load.startDate               = auto
 miaplpy.load.endDate                 = auto
 
-###### SouthWest  #######
-minsar.miaplpyDir.addition           = SW          #[name / lalo / no ]  auto for no (miaply_$name_startDate_endDate)) 
-miaplpy.subset.lalo                  = 39.295:39.505,117.79:118.10           #[S:N,W:E / no], auto for no
-mintpy.subset.lalo                   = 39.295:39.505,117.79:118.10           #[S:N,W:E / no], auto for no
-mintpy.reference.lalo                = auto # 25.8248,-80.1222 # auto refPointLat=25.82477&refPointLon=-80.12222 # 25.8791,-80.1259                          # W Brickel Marquis condo
-miaplpy.load.startDate               = auto
-miaplpy.load.endDate                 = auto
-
 ###### NorthNorthWest #######
 minsar.miaplpyDir.addition           = NNW          #[name / lalo / no ]  auto for no (miaply_$name_startDate_endDate)) 
 miaplpy.subset.lalo                  = 39.70:39.905,117.79:118.10           #[S:N,W:E / no], auto for no
@@ -83,9 +75,21 @@ mintpy.reference.lalo                = auto # 25.8248,-80.1222 # auto refPointLa
 miaplpy.load.startDate               = auto
 miaplpy.load.endDate                 = auto
 
+###### SouthWest  #######
+minsar.miaplpyDir.addition           = SW          #[name / lalo / no ]  auto for no (miaply_$name_startDate_endDate)) 
+miaplpy.subset.lalo                  = 39.295:39.505,117.79:118.10           #[S:N,W:E / no], auto for no
+mintpy.subset.lalo                   = 39.295:39.505,117.79:118.10           #[S:N,W:E / no], auto for no
+mintpy.reference.lalo                = auto # 25.8248,-80.1222 # auto refPointLat=25.82477&refPointLon=-80.12222 # 25.8791,-80.1259                          # W Brickel Marquis condo
+miaplpy.load.startDate               = auto
+miaplpy.load.endDate                 = auto
+
 miaplpy.interferograms.networkType   = single_reference    # network
 miaplpy.interferograms.networkType   = single_reference    # network
 miaplpy.interferograms.networkType   = delaunay            # network
+
+miaplpy.interferograms.delaunayBaselineRatio   = auto     # [1, 4, 9] Ratio between perpendiclar and temporal baselines, auto for 4
+miaplpy.interferograms.delaunayTempThresh      = 400     # [days] temporal threshold for delaunay triangles, auto for 120
+miaplpy.interferograms.delaunayPerpThresh      = 400     # [meters] Perp baseline threshold for delaunay triangles, auto for 200
 
 #############################################
 miaplpy.load.processor               = isce
