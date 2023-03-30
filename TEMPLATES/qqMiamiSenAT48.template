@@ -1,0 +1,104 @@
+minsar.processor                             = isce
+#cleanopt                              = 0
+ssaraopt.platform                     = SENTINEL-1A,SENTINEL-1B
+ssaraopt.startDate                    = 20160101
+ssaraopt.endDate                    = 20161101
+ssaraopt.relativeOrbit                = 48
+topsStack.boundingBox                 = 25.67 26.93 -80.23 -80.106  #25.4 26.1 -82.0 -80.0
+topsStack.subswath                    = 3
+topsStack.numConnections              = 2
+topsStack.azimuthLooks                = 5
+topsStack.rangeLooks                  = 20
+topsStack.filtStrength                = 0.3
+topsStack.coregistration              = geometry
+ 
+###### Brickell and Miami Beach #
+mintpy.subset.lalo                   = 25.745:25.9,-80.21:-80.115               # Brickell and Miami Beach
+mintpy.reference.lalo                = auto #  25.7582,-80.2028                 # W Brickel Marquis condo
+
+###### CGrove    ##############
+mintpy.subset.lalo                    = 25.725:25.795,-80.262:-80.186           # Coconut Grove and Brickell
+mintpy.reference.lalo                 = auto # 25.7582,-80.2028                 # W Brickel Marquis condo
+
+###### Sunny Isles #
+mintpy.subset.lalo                   = 25.8960:26.02,-80.145:-80.1146               # Brickell and Miami Beach
+mintpy.reference.lalo                = auto # 25.9334,-80.1237                         # W Brickel Marquis condo
+ 
+##### Sara paper
+#miaplpy.subset.lalo         = 25.8384:25.909,-80.1656:-80.1174    #[S:N,W:E / no], auto for no
+
+
+###### Surfside
+minsar.miaplpyDir.addition           = Surfside          #[name / lalo / no ]  auto for no (miaply_$name_startDate_endDate)) 
+miaplpy.subset.lalo                   = 25.8384:25.909,-80.147:-80.1174    #[S:N,W:E / no], auto for no
+mintpy.subset.lalo                   = 25.8384:25.909,-80.147:-80.1174    #[S:N,W:E / no], auto for no
+#mintpy.reference.lalo                = 25.8755,-80.1266  #   ! Good One
+#mintpy.reference.lalo                = 25.8791,-80.1259  #  ! Good one
+#mintpy.reference.lalo                = 25.8865,-80.1225  #  works for 2015_202111 (Sara's time period)
+ 
+###### MiamiBeach
+mintpy.subset.lalo                    = 25.765:25.840,-80.147:-80.1195            #[S:N,W:E / no], auto for no
+miaplpy.subset.lalo                    = 25.765:25.840,-80.147:-80.1195            #[S:N,W:E / no], auto for no
+mintpy.reference.lalo                 = auto # 25.8248,-80.1222 # auto refPointLat=25.82477&refPointLon=-80.12222 # 25.8791,-80.1259                          # W Brickel Marquis condo
+minsar.miaplpyDir.addition           = MiamiBeach          #[name / lalo / no ]  auto for no (miaply_$name_startDate_endDate)) 
+miaplpy.load.startDate              = 20160901
+#miaplpy.load.endDate                = 20201112
+
+###### Airport (MIA)
+mintpy.subset.lalo                    =  25.784:25.808,-80.295:-80.261            #[S:N,W:E / no], auto for no
+miaplpy.subset.lalo                    =  25.784:25.808,-80.295:-80.261            #[S:N,W:E / no], auto for no
+mintpy.reference.lalo                 = auto # 25.8248,-80.1222 # auto refPointLat=25.82477&refPointLon=-80.12222 # 25.8791,-80.1259                          # W Brickel Marquis condo
+minsar.miaplpyDir.addition           = Airport          #[name / lalo / no ]  auto for no (miaply_$name_startDate_endDate)) 
+miaplpy.load.startDate              = 20200101
+miaplpy.load.endDate                = 20221231
+mintpy.reference.minCoherence       = 0.7
+
+###### test
+minsar.miaplpyDir.addition            = t3aPhaseVelo          #[name / lalo / no ]  auto for no (miaply_$name_startDate_endDate)) 
+mintpy.subset.lalo                    = 25.765:25.840,-80.147:-80.1195            #[S:N,W:E / no], auto for no
+miaplpy.subset.lalo                   = 25.765:25.840,-80.147:-80.1195            #[S:N,W:E / no], auto for no
+mintpy.reference.lalo                 = auto # 25.8248,-80.1222 # auto refPointLat=25.82477&refPointLon=-80.12222 # 25.8791,-80.1259                          # W Brickel Marquis condo
+miaplpy.load.startDate                = 20150921
+miaplpy.load.endDate                  = 20211112
+mintpy.reference.minCoherence         = 0.7
+mintpy.topographicResidual.phaseVelocity = yes  #[yes / no], auto for no - use phase velocity for minimization
+#mintpy.topographicResidual.polyOrder     = 1  #[1-inf], auto for 2, poly order of temporal deformation model
+
+###### Surfside2  Sara
+minsar.miaplpyDir.addition           = lalo              #[name / lalo / no ]  auto for no (miaply_$name_startDate_endDate) 
+minsar.miaplpyDir.addition           = Surfside2          #[name / lalo / no ]  auto for no (miaply_$name_startDate_endDate)) 
+miaplpy.subset.lalo                  = 25.8384:25.909,-80.1656:-80.1174    #[S:N,W:E / no], auto for no
+mintpy.subset.lalo                   = 25.8384:25.909,-80.1656:-80.1174    #[S:N,W:E / no], auto for no
+
+mintpy.reference.lalo                = auto # 25.8791,-80.1259  #  ! Good one
+mintpy.reference.lalo                = auto #5.8865,-80.1225  #  works for 2015_202111 (Sara's time period)
+miaplpy.load.startDate               = 20150921
+miaplpy.load.endDate                 = 20211112
+
+#############################################
+miaplpy.load.processor      = isce
+#FA: for miaplpy.phase_inversion we should use 40 but for mintpy.phase_to_range 20 as it uses dask and fails with 40
+miaplpy.multiprocessing.numProcessor = 40
+miaplpy.inversion.rangeWindow              = 19   # range window size for searching SHPs, auto for 15
+miaplpy.inversion.azimuthWindow            = 9   # azimuth window size for searching SHPs, auto for 15
+miaplpy.timeseries.tempCohType            = auto     # [full, average], auto for full.
+miaplpy.timeseries.minTempCoh             = auto     # auto for 0.5
+miaplpy.interferograms.networkType = sequential          # qq
+miaplpy.interferograms.networkType = single_reference    # network
+miaplpy.inversion.rangeWindow              = 19   # range window size for searching SHPs, auto for 15
+miaplpy.inversion.azimuthWindow            = 9  # azimuth window size for searching SHPs, auto for 15
+#############################################
+mintpy.load.autoPath                 = yes
+mintpy.compute.cluster               = local
+mintpy.compute.numWorker             = 20
+mintpy.troposphericDelay.method      = no # auto  #[pyaps / height_correlation / no / gacos], auto for pyaps
+mintpy.save.hdfEos5                  = yes                        # [yes / update / no], auto for no, save timeseries to UNAVCO InSAR Archive format
+mintpy.save.hdfEos5.update           = no                                                # [yes / no], auto for no, put XXXXXXXX as endDate in output filename
+mintpy.save.hdfEos5.subset           = yes     #[yes / no], auto for no, put subset range info   in output filename
+#mintpy.reference.date                = 20191205   #[reference_date.txt / 20090214 / no], auto for reference_date.txt
+#mintpy.topographicResidual.excludeDate = 20161015,20191006  #[20070321 / txtFile / no], auto for exclude_date.txt
+#mintpy.unwrapError.method              = bridging  #[bridging / phase_closure / bridging+phase_closure / no], auto for no
+#mintpy.unwrapError.connCompMinArea     = 200  #[1-inf], auto for 2.5e3, discard regions smaller than the min size in pixels
+
+#mintpy.reference.yx                          = 349,1393   #[257,151 / auto]
+mintpy.reference.date                        = 20191205   #[reference_date.txt / 20090214 / no], auto for reference_date.txt
