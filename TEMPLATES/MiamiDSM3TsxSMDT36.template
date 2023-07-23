@@ -28,6 +28,7 @@ mintpy.troposphericDelay.method       = no
 mintpy.reference.minCoherence         = 0.7   #[0.0-1.0], auto for 0.85, minimum coherence for auto method
 
 raw_image_dir                         = $SCRATCHDIR/MiamiTsxSMDT36/ORIG_SLC
+raw_image_dir                         = ./SLC_ORIG
 
 mintpy.load.autoPath                  = yes
 mintpy.compute.cluster                = local
@@ -49,12 +50,6 @@ insarmaps_flag                        = False
 #mintpy.subset.yx                      = 7500:10000,14224:16224    #[y0:y1,x0:x1 / no], auto for no
 #mintpy.subset.lalo                    =  25.70:26.2,-80.71:-80.1174       # for H5 file only
 #mintpy.reference.yx                   = auto # 25.8248,-80.1222 # auto refPointLat=25.82477&refPointLon=-80.12222 
-
-
-###### Sara Surfside
-#mintpy.subset.yx                     = 3651:10024,5848:14215              #     3651, 10024, 5848, 14215
-#mintpy.subset.lalo                   = 25.8384:25.909,-80.147:-80.1174    #[S:N,W:E / no], auto for no
-#mintpy.reference.lalo                = 25.87937,-80.12414                       # NW or Surf CLub Hotel
 
 ###### Airport (MIA)
 #mintpy.subset.lalo                    =  25.785:25.801,-80.295:-80.264            #[S:N,W:E / no], auto for no
@@ -79,12 +74,12 @@ mintpy.subset.yx                     = 9800:13000,14224:16224    #[y0:y1,x0:x1 /
 #mintpy.subset.lalo                    =  25.70:26.2,-80.71:-80.1174       # for H5 file only
 #mintpy.reference.yx                   = auto # 25.8248,-80.1222 # auto refPointLat=25.82477&refPointLon=-80.12222 
 
-###### Southern Surfside ######
-minsar.miaplpyDir.addition           = SSurfside3                        #[name / lalo / no ]  auto for no (miaply_$name_startDate_endDate)) 
-miaplpy.subset.lalo                  = 25.871:25.90,-80.123:-80.119    #[S:N,W:E / no], auto for no
-mintpy.subset.lalo                   = 25.871:25.90,-80.123:-80.119    #[S:N,W:E / no], auto for no
-miaplpy.load.startDate               = 20190101
-mintpy.reference.lalo                = auto # 6/2023: updated because out of mask  
+###### Sara Surfside
+#mintpy.subset.yx                     = 3651:10024,5848:14215              #     3651, 10024, 5848, 14215
+minsar.miaplpyDir.addition           = Surfside          #[name / lalo / no ]  auto for no (miaply_$name_startDate_endDate)) 
+miaplpy.subset.lalo                  = 25.8384:25.909,-80.147:-80.1174    #[S:N,W:E / no], auto for no
+mintpy.subset.lalo                   = 25.8384:25.909,-80.147:-80.1174    #[S:N,W:E / no], auto for no
+mintpy.reference.lalo                = 25.87937,-80.12414                       # NW or Surf CLub Hotel
 
 miaplpy.multiprocessing.numProcessor = 40
 miaplpy.load.processor               = isce

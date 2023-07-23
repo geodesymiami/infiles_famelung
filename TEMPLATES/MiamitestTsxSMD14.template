@@ -24,6 +24,7 @@ mintpy.troposphericDelay.method       = no
 mintpy.reference.minCoherence         = 0.7   #[0.0-1.0], auto for 0.85, minimum coherence for auto method
 
 raw_image_dir                          = $SCRATCHDIR/MiamitestTsxSMD14/ORIG_SLC
+raw_image_dir                          = $TESTDATA_ISCE/MiamitestTsxSMDT36/ORIG_SLC
 
 mintpy.load.autoPath                  = yes
 mintpy.compute.cluster                = local

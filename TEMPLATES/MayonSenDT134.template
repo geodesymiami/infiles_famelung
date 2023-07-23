@@ -9,49 +9,39 @@ parallel                            = yes
 cleanopt                            = 0                                                                                                   
 hazard_products_flag                = TRUE                                                                                                
 ssaraopt.platform                   = SENTINEL-1A,SENTINEL-1B                                                                             
-ssaraopt.relativeOrbit              = 42                                                                                                  
-ssaraopt.startDate                  = 20150215
-ssaraopt.endDate                    = 20170520
+ssaraopt.relativeOrbit              = 134                                                                                                  
+ssaraopt.startDate                  = 20170201
+#ssaraopt.endDate                    = 20200501
 ####################
-topsStack.boundingBox               = 35.8 36.1 -123.0 -119.0 
-topsStack.subswath                  = 2                                               # '1 2'                                           
+topsStack.boundingBox               = 13.0 13.4 122 126                              # '-1 0.15 -91.6 -90.9'                           
+topsStack.subswath                  = 1 2                                               # '1 2'                                           
 topsStack.numConnections            = 5                                                 # comment                                         
-topsStack.azimuthLooks              = 7                                                 # comment                                         
-topsStack.rangeLooks                = 19                                                # comment                                         
+#topsStack.excludeDates              = 20200301
+topsStack.azimuthLooks              = 5                                                 # comment                                         
+topsStack.rangeLooks                = 13                                                # comment                                         
 topsStack.filtStrength              = 0.2                                               # comment                                         
 topsStack.unwMethod                 = snaphu                                            # comment                                         
 topsStack.coregistration            = auto                                              # [NESD geometry], auto for NESD                  
 ####################
-#mintpy.reference.lalo               = 19.5059, -155.3477                                                                                  
-mintpy.troposphericDelay.method     = no                              #[pyaps / height_correlation / base_trop_cor / no], auto for pyaps
 mintpy.network.startDate            = auto                                              # [20090101 / no], auto for no                    
-mintpy.load.autoPath                = yes
-mintpy.compute.cluster              = local
-mintpy.compute.numWorker            = 32
-mintpy.solidEarthTides              = no                         #[yes / no], auto for no
-mintpy.save.hdfEos5                 = yes                        # [yes / update / no], auto for no, save timeseries to UNAVCO InSAR Archive format
-mintpy.save.hdfEos5.update          = no                        # [yes / no], auto for no, put XXXXXXXX as endDate in output filename
-mintpy.save.hdfEos5.subset          = yes     #[yes / no], auto for no, put subset range info   in output filename
-mintpy.geocode.lalo                 = 0.00015,0.00015
-mintpy.reference.minCoherence       = 0.7   #[0.0-1.0], auto for 0.85, minimum coherence for auto method
 
 ####################
 #mintpy.subset.lalo                  = 44.5:45.63,-110.7:-110.45
 ####################
+mintpy.networkInversion.minTempCoh  = 0.55 #[0.0-1.0], auto for 0.7, min temporal coherence for mask
+miaplpy.timeseries.minTempCoh        = 0.55     # auto for 0.5
 
 miaplpy.load.autoPath                  = yes
-mintpy.subset.lalo                    = 35.855:35.70,-121.44:-121.41    #[31.5:32.5,130.5:131.0 / no], auto for no
-miaplpy.subset.lalo                   = 35.855:35.70,-121.44:-121.41    #[31.5:32.5,130.5:131.0 / no], auto for no
-
-
-miaplpy.multiprocessing.numProcessor   = 40
+mintpy.subset.lalo                    = 13.22:13.28,123.63:123.73
+miaplpy.subset.lalo                    = 13.22:13.28,123.63:123.73
+miaplpy.multiprocessing.numProcessor   = 20
 miaplpy.load.processor                 = isce
 miaplpy.timeseries.tempCohType         = full     # [full, average], auto for full.
 miaplpy.timeseries.minTempCoh          = auto     # auto for 0.5
 
 miaplpy.interferograms.delaunayTempThresh = 90     # [days] temporal threshold for delaunay triangles, auto for 60
-miaplpy.interferograms.networkType   = delaunay            # network
 miaplpy.interferograms.networkType   = single_reference    # network
+miaplpy.interferograms.networkType   = delaunay            # network
 
 mintpy.load.autoPath                 = yes
 mintpy.compute.cluster               = local
@@ -60,10 +50,8 @@ mintpy.troposphericDelay.method      = no # auto  #[pyaps / height_correlation /
 mintpy.save.hdfEos5                  = yes                        # [yes / update / no], auto for no, save timeseries to UNAVCO InSAR Archive format
 mintpy.save.hdfEos5.update           = no                                                # [yes / no], auto for no, put XXXXXXXX as endDate in output filename
 mintpy.save.hdfEos5.subset           = yes     #[yes / no], auto for no, put subset range info   in output filename
-mintpy.geocode.laloStep              = 0.0003,0.0003 
-
+mintpy.geocode.laloStep              = 0.0002,0.0002 
+#mintpy.topographicResidual.excludeDate = 20161015,20191006  #[20070321 / txtFile / no], auto for exclude_date.txt
 insarmaps_flag                      = False                                                                                                
 
-
-insarmaps_flag                      = False                                                                                                
 

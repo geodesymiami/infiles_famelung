@@ -1,0 +1,46 @@
+minsar.processor                             = isce
+#cleanopt                              = 0
+ssaraopt.platform                     = SENTINEL-1A,SENTINEL-1B
+ssaraopt.startDate                    = 20151015
+ssaraopt.relativeOrbit                = 48
+topsStack.boundingBox                 = 25.60 26.0 -80.45 -80.106  #25.4 26.1 -82.0 -80.0
+topsStack.subswath                    = 3
+topsStack.numConnections              = 2
+topsStack.azimuthLooks                = 5
+topsStack.rangeLooks                  = 20
+topsStack.filtStrength                = 0.3
+topsStack.coregistration              = geometry
+ 
+###### Surfside
+minsar.miaplpyDir.addition           = Surfside          #[name / lalo / no ]  auto for no (miaply_$name_startDate_endDate)) 
+miaplpy.subset.lalo                   = 25.8384:25.909,-80.147:-80.1174    #[S:N,W:E / no], auto for no
+mintpy.subset.lalo                   = 25.8384:25.909,-80.147:-80.1174    #[S:N,W:E / no], auto for no
+mintpy.reference.lalo                = auto # 25.8865,-80.1225  #  works for 2015_202111 (Sara's time period)
+ 
+#############################################
+miaplpy.load.processor      = isce
+#FA: for miaplpy.phase_inversion we should use 40 but for mintpy.phase_to_range 20 as it uses dask and fails with 40
+miaplpy.multiprocessing.numProcessor = 40
+miaplpy.inversion.rangeWindow              = 19   # range window size for searching SHPs, auto for 15
+miaplpy.inversion.azimuthWindow            = 9   # azimuth window size for searching SHPs, auto for 15
+miaplpy.timeseries.tempCohType            = auto     # [full, average], auto for full.
+miaplpy.timeseries.minTempCoh             = auto     # auto for 0.5
+miaplpy.interferograms.networkType = sequential          # qq
+miaplpy.interferograms.networkType = single_reference    # network
+miaplpy.inversion.rangeWindow              = 19   # range window size for searching SHPs, auto for 15
+miaplpy.inversion.azimuthWindow            = 9  # azimuth window size for searching SHPs, auto for 15
+#############################################
+mintpy.load.autoPath                 = yes
+mintpy.compute.cluster               = local
+mintpy.compute.numWorker             = 20
+mintpy.troposphericDelay.method      = no # auto  #[pyaps / height_correlation / no / gacos], auto for pyaps
+mintpy.save.hdfEos5                  = yes                        # [yes / update / no], auto for no, save timeseries to UNAVCO InSAR Archive format
+mintpy.save.hdfEos5.update           = no                                                # [yes / no], auto for no, put XXXXXXXX as endDate in output filename
+mintpy.save.hdfEos5.subset           = yes     #[yes / no], auto for no, put subset range info   in output filename
+#mintpy.reference.date                = 20191205   #[reference_date.txt / 20090214 / no], auto for reference_date.txt
+#mintpy.topographicResidual.excludeDate = 20161015,20191006  #[20070321 / txtFile / no], auto for exclude_date.txt
+#mintpy.unwrapError.method              = bridging  #[bridging / phase_closure / bridging+phase_closure / no], auto for no
+#mintpy.unwrapError.connCompMinArea     = 200  #[1-inf], auto for 2.5e3, discard regions smaller than the min size in pixels
+
+#mintpy.reference.yx                          = 349,1393   #[257,151 / auto]
+mintpy.reference.date                        = 20191205   #[reference_date.txt / 20090214 / no], auto for reference_date.txt

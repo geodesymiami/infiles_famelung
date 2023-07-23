@@ -8,11 +8,12 @@ processor                           = isce
 cleanopt                            = 0                                                                                                   
 hazard_products_flag                = TRUE                                                                                                
 ssaraopt.platform                   = SENTINEL-1A,SENTINEL-1B                                                                             
-#ssaraopt.startDate                  = 20200101
-ssaraopt.relativeOrbit              = 142                                                                                                 
+ssaraopt.startDate                  = 20200101                                                                                                 
+ssaraopt.relativeOrbit              = 120                                                                                                 
 ####################
-topsStack.boundingBox                 = 0.5 0.93 -81.0 -76.0
-topsStack.subswath                  = 2 3                                               # '1 2'                                           
+topsStack.boundingBox               = 0.5 0.93 -81.0 -76.0
+
+topsStack.subswath                  = 2                                                 # '1 2'                                           
 topsStack.numConnections            = 4                                                 # comment                                         
 topsStack.azimuthLooks              = 7                                                 # comment                                         
 topsStack.rangeLooks                = 28                                                # comment                                         
@@ -30,25 +31,30 @@ mintpy.save.hdfEos5.update          = no                                        
 mintpy.save.kml                     = yes                                               # [yes / no], auto for yes, save geocoded velocity to Google Earth KMZ file
 mintpy.compute.cluster              = local
 mintpy.compute.numWorker            = 32
-mintpy.geocode.laloStep             = 0.0008,0.0008   #  auto  # 0.0008  #[-0.000555556,0.000555556 / None], auto for None, output resolution in degree
 ####################
+mintpy.geocode.laloStep             = 0.0008,0.0008   #  auto  # 0.00
 
+########################
 minsar.miaplpyDir.addition           = date          #[name / lalo / no ]  auto for no (miaply_$name_startDate_endDate)) 
-miaplpy.subset.lalo                  = 0.5963:0.9282,-78.0493:-77.7205    #[S:N,W:E / no], auto for no
-mintpy.subset.lalo                   = 0.5963:0.9282,-78.0493:-77.7205    #[S:N,W:E / no], auto for no
-miaplpy.load.startDate               = auto #  20200101
-miaplpy.load.endDate                 = 20230401
+miaplpy.subset.lalo                  = 0.63:0.88,-78.02:-77.81           #[S:N,W:E / no], auto for no
+miaplpy.subset.lalo                  = 0.5963:0.9282,-78.0493:-77.7205           #[S:N,W:E / no], auto for no
+mintpy.subset.lalo                   = 0.5963:0.9282,-78.0493:-77.7205           #[S:N,W:E / no], auto for no
+miaplpy.load.startDate               = # auto # 20200101
+miaplpy.load.endDate                 = # auto
+#mintpy.networkInversion.minTempCoh   = 0.80
+miaplpy.timeseries.minTempCoh        = 0.75     # auto for 0.5
 
-miaplpy.interferograms.delaunayTempThresh = 90     # [days] temporal threshold for delaunay triangles, auto for 60
+miaplpy.interferograms.delaunayPerpThresh      = 90     # [meters] Perp baseline threshold for delaunay triangles, auto for 200
 miaplpy.interferograms.networkType   = single_reference    # network
 miaplpy.interferograms.networkType   = delaunay            # network
+
 
 #############################################
 miaplpy.load.processor               = isce
 miaplpy.multiprocessing.numProcessor = 40
-miaplpy.inversion.rangeWindow        = 19   # range window size for searching SHPs, auto for 15
-miaplpy.inversion.azimuthWindow      = 9   # azimuth window size for searching SHPs, auto for 15
-miaplpy.timeseries.tempCohType       = average  # [full, average], auto for full.
-miaplpy.timeseries.minTempCoh        = auto     # auto for 0.5
+miaplpy.inversion.rangeWindow        = 24   # range window size for searching SHPs, auto for 15
+miaplpy.inversion.azimuthWindow      = 7   # azimuth window size for searching SHPs, auto for 15
+miaplpy.timeseries.tempCohType       = average     # [full, average], auto for full.
 #############################################
+
 insarmaps_flag                       = False                                                                                                
