@@ -1,7 +1,5 @@
 processor                             = isce
-ssaraopt.platform                     = TSX 
 ssaraopt.startDate                    = 20170101
-#ssaraopt.endDate                      = 20211115
 ssaraopt.relativeOrbit                = 036
 unavco.relative_orbit                = 036
 ssaraopt.collectionName              = "TSX ARC_famelung_COA3837" 
