@@ -74,6 +74,33 @@ minsar.miaplpyDir.addition           = Gurgaon          #[name / lalo / no ]  au
 miaplpy.load.startDate               = auto
 miaplpy.load.endDate                 = auto
 
+###### WestDCR #######
+minsar.miaplpyDir.addition           = WestDCR          #[name / lalo / no ]  auto for no (miaply_$name_startDate_endDate)) 
+mintpy.subset.lalo                   = 28.403:28.879,76.841:77.431    #[S:N,W:E / no], auto for no
+miaplpy.subset.lalo                  = 28.403:28.879,76.841:77.431    #[S:N,W:E / no], auto for no
+mintpy.subset.lalo                   = 28.403:28.879,76.84:77.14   #[S:N,W:E / no], auto for no
+miaplpy.subset.lalo                  = 28.403:28.879,76.84:77.14    #[S:N,W:E / no], auto for no
+mintpy.reference.lalo                = auto # 25.8248,-80.1222 # auto refPointLat=25.82477&refPointLon=-80.12222 # 25.8791,-80.1259                          # W Brickel Marquis condo
+miaplpy.load.startDate               = auto
+miaplpy.load.endDate                 = auto
+
+###### EastDCR #######
+minsar.miaplpyDir.addition           = EastDCR          #[name / lalo / no ]  auto for no (miaply_$name_startDate_endDate)) 
+mintpy.subset.lalo                   = 28.403:28.879,77.11:77.431    #[S:N,W:E / no], auto for no
+miaplpy.subset.lalo                  = 28.403:28.879,77.11:77.431    #[S:N,W:E / no], auto for no
+mintpy.reference.lalo                = auto # 25.8248,-80.1222 # auto refPointLat=25.82477&refPointLon=-80.12222 # 25.8791,-80.1259                          # W Brickel Marquis condo
+miaplpy.load.startDate               = auto
+miaplpy.load.endDate                 = auto
+
+###### DCR #######
+minsar.miaplpyDir.addition           = DCR          #[name / lalo / no ]  auto for no (miaply_$name_startDate_endDate)) 
+mintpy.subset.lalo                   = 28.403:28.879,76.841:77.431    #[S:N,W:E / no], auto for no
+miaplpy.subset.lalo                  = 28.403:28.879,76.841:77.431    #[S:N,W:E / no], auto for no
+mintpy.reference.lalo                = auto # 25.8248,-80.1222 # auto refPointLat=25.82477&refPointLon=-80.12222 # 25.8791,-80.1259                          # W Brickel Marquis condo
+miaplpy.load.startDate               = auto
+miaplpy.load.endDate                 = auto
+
+
 #############################################
 miaplpy.load.processor               = isce
 miaplpy.multiprocessing.numProcessor = 40

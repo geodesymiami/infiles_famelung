@@ -3,40 +3,53 @@ frequency                           = 1
 login                               = pegasus.ccs.miami.edu                                                                               
 user                                = famelung                                                                                            
 ####################
-email_pysar                         = famelung@rsmas.miami.edu jaz101@rsmas.miami.edu sara.mirzaee@rsmas.miami.edu                                                  
-email_insarmaps                     = famelung@rsmas.miami.edu jaz101@rsmas.miami.edu sara.mirzaee@rsmas.miami.edu                                                  
-####################
 every_day_flag                      = yes                                                                                                 
 processor                           = isce                                                                                                
 cleanopt                            = 0                                                                                                   
+hazard_products_flag                = TRUE                                                                                                
 ssaraopt.platform                   = SENTINEL-1A,SENTINEL-1B                                                                             
+ssaraopt.startDate                  = 20161101                                                                                                 
 ssaraopt.relativeOrbit              = 142                                                                                                 
-ssaraopt.startDate                  = 20140101                                                                                            
 ####################
-topsStack.boundingBox               = -2.0 1.1 -79.9 -77.4                             # '-1 0.15 -91.6 -90.9'                           
-topsStack.boundingBox               = -0.6 0.3 -79.9 -77.4                             # '-1 0.15 -91.6 -90.9'                           
+topsStack.boundingBox               = -1.1 0.65 -79.1 -78.0
 topsStack.subswath                  = 3                                                 # '1 2'                                           
-#topsStack.excludeDates              = 20170303,20170315,20170327,20170408,20170420,20170502,20170514     # '1 2'                                           
-topsStack.numConnections            = 6                                                 # comment                                         
-topsStack.azimuthLooks              = 10                                                 # comment                                         
-topsStack.rangeLooks                = 30                                                # comment                                         
-topsStack.filtStrength              = 0.7                                               # comment                                         
+topsStack.numConnections            = 4                                                 # comment                                         
+topsStack.azimuthLooks              = 7                                                 # comment                                         
+topsStack.rangeLooks                = 28                                                # comment                                         
+topsStack.filtStrength              = 0.4                                               # comment                                         
 topsStack.unwMethod                 = snaphu                                            # comment                                         
 topsStack.coregistration            = auto                                              # [NESD geometry], auto for NESD                  
 ####################
-#mintpy.reference.lalo               = -0.7466,-78.2782
-mintpy.reference.lalo               =  0.03827,-78.14565 
-mintpy.troposphericDelay.method     = no                                                #[pyaps / height_correlation / base_trop_cor / no], auto for pyaps
-mintpy.network.coherenceBased       = yes  #[yes / no], auto for no, exclude interferograms with coherence < minCoherence
-mintpy.network.keepMinSpanTree      = no  #[yes / no], auto for yes, keep interferograms in Min Span Tree network
-mintpy.network.minCoherence         = 0.55  #[0.0-1.0], auto for 0.7
-mintpy.network.aoiLALO              = -0.15:0.17,-78.32:-77.93  # auto for no - use the whole area
-mintpy.unwrapError.method           = auto                                              #[bridging / phase_closure / bridging+phase_closure / no], auto for no
-mintpy.network.startDate            = auto                                              # [20090101 / no], auto for no                    
-mintpy.networkInversion.parallel    = yes                                               # [yes / no], auto for no, parallel processing    
-mintpy.networkInversion.walltime    = 4:00                                                                                                
-mintpy.deramp                       = quadratic                                         # [no / linear / quadratic], auto for no - no ramp will be removed
+mintpy.load.autoPath               = yes
+mintpy.troposphericDelay.method     = no                                #[pyaps / height_correlation / base_trop_cor / no], auto for pyaps
+mintpy.networkInversion.parallel    = no                                                #[yes / no], auto for no, parallel processing    
+#mintpy.networkInversion.minTempCoh  = 0.7 #[0.0-1.0], auto for 0.7, min temporal coherence for mask
 mintpy.save.hdfEos5                 = yes                                               # [yes / update / no], auto for no, save timeseries to UNAVCO InSAR Archive format
+mintpy.save.hdfEos5.subset          = yes     #[yes / no], auto for no, put subset range info   in output filenam
 mintpy.save.hdfEos5.update          = no                                                # [yes / no], auto for no, put XXXXXXXX as endDate in output filename
-mintpy.save.kmz                     = yes                                               # [yes / no], auto for yes, save geocoded velocity to Google Earth KMZ file
-insarmaps_flag                      = True                                                                                                
+mintpy.save.kml                     = yes                                               # [yes / no], auto for yes, save geocoded velocity to Google Earth KMZ file
+mintpy.compute.cluster              = local
+mintpy.compute.numWorker            = 32
+####################
+
+###### NorthEast #######
+minsar.miaplpyDir.addition           = date          #[name / lalo / no ]  auto for no (miaply_$name_startDate_endDate)) 
+miaplpy.subset.lalo                  =  -0.75:-0.61,-78.52:-78.35           #[S:N,W:E / no], auto for no
+mintpy.subset.lalo                  =  -0.75:-0.61,-78.52:-78.35           #[S:N,W:E / no], auto for no
+miaplpy.load.startDate               = auto
+miaplpy.load.endDate                 = auto
+
+miaplpy.interferograms.networkType   = single_reference    # network
+miaplpy.interferograms.networkType   = single_reference    # network
+miaplpy.interferograms.networkType   = delaunay            # network
+
+#############################################
+miaplpy.load.processor               = isce
+miaplpy.multiprocessing.numProcessor = 40
+miaplpy.inversion.rangeWindow        = 24   # range window size for searching SHPs, auto for 15
+miaplpy.inversion.azimuthWindow      = 9   # azimuth window size for searching SHPs, auto for 15
+miaplpy.timeseries.tempCohType       = auto     # [full, average], auto for full.
+miaplpy.timeseries.minTempCoh        = auto     # auto for 0.5
+#############################################
+
+insarmaps_flag                       = False                                                                                                

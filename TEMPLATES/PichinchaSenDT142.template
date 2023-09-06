@@ -1,49 +1,69 @@
-topsStack.subswath         = 2
-topsStack.boundingBox      = -2 -1 -78 - 77
-ssaraopt.platform          = SENTINEL-1A,SENTINEL-1B
-ssaraopt.relativeOrbit     = 142
-################
-minopy.load.processor      = isce  #[isce,snap,gamma,roipac], auto for isceTops
-minopy.load.updateMode     = auto  #[yes / no], auto for yes, skip re-loading if HDF5 files are complete
-minopy.load.compression    = auto  #[gzip / lzf / no], auto for no.
-minopy.load.autoPath       = yes    # [yes, no] auto for no
-        
-minopy.load.slcFile        = ../merged/SLC/*/*.slc.full  #[path2slc_file]
-##---------for ISCE only:
-minopy.load.metaFile       = ../reference/IW*.xml
-minopy.load.baselineDir    = ../baselines
-##---------geometry datasets:
-minopy.load.demFile          = ../merged/geom_reference/hgt.rdr.full
-minopy.load.lookupYFile      = ../merged/geom_reference/lat.rdr.full
-minopy.load.lookupXFile      = ../merged/geom_reference/lon.rdr.full
-minopy.load.incAngleFile     = ../merged/geom_reference/los.rdr.full
-minopy.load.azAngleFile      = ../merged/geom_reference/los.rdr.full
-minopy.load.shadowMaskFile   = ../merged/geom_reference/shadowMask.rdr.full
-minopy.load.waterMaskFile    = None
-##---------interferogram datasets:
-minopy.load.unwFile        = ./inverted/interferograms_single_reference/*/*fine*.unw
-minopy.load.corFile        = ./inverted/interferograms_single_reference/*/*fine*.cor
-minopy.load.connCompFile   = ./inverted/interferograms_single_reference/*/*.unw.conncomp
-        
-##---------subset (optional):
-## if both yx and lalo are specified, use lalo option unless a) no lookup file AND b) dataset is in radar coord
-minopy.subset.lalo         = -0.199:-0.142,-78.612:-78.578
-
-# MiNoPy options 
-minopy.multiprocessing.numProcessor              = 20 
-minopy.interferograms.type = single_reference
-
-## Mintpy options
-mintpy.compute.cluster     = local  # if dask is not available, set this option to no 
-mintpy.compute.numWorker   = 8 
-
-mintpy.reference.lalo     = -0.1786, -78.5933
-mintpy.unwrapError.method          = bridging
-mintpy.troposphericDelay.method = no
-
+process_flag                        = TRUE                                                                                                
+frequency                           = 1                                                                                                   
+user                                = famelung                                                                                            
+####################
+####################
+every_day_flag                      = yes                                                                                                 
+processor                           = isce                                                                                                
+parallel                            = yes
+cleanopt                            = 0                                                                                                   
+hazard_products_flag                = TRUE                                                                                                
+ssaraopt.platform                   = SENTINEL-1A,SENTINEL-1B                                                                             
+ssaraopt.relativeOrbit              = 142                                                                                                  
+ssaraopt.startDate                  = 20160101
+ssaraopt.endDate                    = 20210701
+####################
+topsStack.boundingBox               = -2.0 0.4 -80 -75
+topsStack.subswath                  = 2                                               # '1 2'                                           
+topsStack.numConnections            = 4                                                 # comment                                         
+#topsStack.excludeDates              = 20200301
+topsStack.azimuthLooks              = 7                                                 # comment                                         
+topsStack.rangeLooks                = 19                                                # comment                                         
+topsStack.filtStrength              = 0.2                                               # comment                                         
+topsStack.unwMethod                 = snaphu                                            # comment                                         
+topsStack.coregistration            = auto                                              # [NESD geometry], auto for NESD                  
+####################
+#mintpy.reference.lalo               = 19.5059, -155.3477                                                                                  
+mintpy.troposphericDelay.method     = no                              #[pyaps / height_correlation / base_trop_cor / no], auto for pyaps
+mintpy.network.startDate            = auto                                              # [20090101 / no], auto for no                    
+mintpy.load.autoPath                = yes
+mintpy.compute.cluster              = local
+mintpy.compute.numWorker            = 32
+mintpy.solidEarthTides              = no                         #[yes / no], auto for no
 mintpy.save.hdfEos5                 = yes                        # [yes / update / no], auto for no, save timeseries to UNAVCO InSAR Archive format
-mintpy.save.hdfEos5.update          = yes                        # [yes / no], auto for no, put XXXXXXXX as endDate in output filename
+mintpy.save.hdfEos5.update          = no                        # [yes / no], auto for no, put XXXXXXXX as endDate in output filename
 mintpy.save.hdfEos5.subset          = yes     #[yes / no], auto for no, put subset range info   in output filename
+mintpy.geocode.lalo                 = 0.00015,0.00015
+mintpy.reference.minCoherence       = 0.7   #[0.0-1.0], auto for 0.85, minimum coherence for auto method
+
+####################
+#mintpy.subset.lalo                  = 44.5:45.63,-110.7:-110.45
+####################
+
+miaplpy.load.autoPath                  = yes
+mintpy.subset.lalo                    = -0.199:-0.142,-78.612:-78.578
+miaplpy.subset.lalo                   = -0.199:-0.142,-78.612:-78.578
+
+miaplpy.multiprocessing.numProcessor   = 40
+miaplpy.load.processor                 = isce
+miaplpy.timeseries.tempCohType         = full     # [full, average], auto for full.
+miaplpy.timeseries.minTempCoh          = auto     # auto for 0.5
+
+miaplpy.interferograms.delaunayTempThresh = 90     # [days] temporal threshold for delaunay triangles, auto for 60
+miaplpy.interferograms.networkType   = delaunay            # network
+miaplpy.interferograms.networkType   = single_reference    # network
+
+mintpy.load.autoPath                 = yes
+mintpy.compute.cluster               = local
+mintpy.compute.numWorker             = 30
+mintpy.troposphericDelay.method      = no # auto  #[pyaps / height_correlation / no / gacos], auto for pyaps
+mintpy.save.hdfEos5                  = yes                        # [yes / update / no], auto for no, save timeseries to UNAVCO InSAR Archive format
+mintpy.save.hdfEos5.update           = no                                                # [yes / no], auto for no, put XXXXXXXX as endDate in output filename
+mintpy.save.hdfEos5.subset           = yes     #[yes / no], auto for no, put subset range info   in output filename
+mintpy.geocode.laloStep              = 0.0003,0.0003 
+
+insarmaps_flag                      = False                                                                                                
 
 
+insarmaps_flag                      = False                                                                                                
 

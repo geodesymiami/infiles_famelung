@@ -1,9 +1,10 @@
 ssaraopt.platform                   = SENTINEL-1A,SENTINEL-1B                                                                             
-ssaraopt.startDate                  = 20140101
-ssaraopt.relativeOrbit              = 157                                                                                                 
+ssaraopt.startDate                  = 20170101
+ssaraopt.endDate                  = 20170301
+ssaraopt.relativeOrbit              = 165                                                                                                 
 ####################
-topsStack.boundingBox               = 11.8  12.6  -88  -86
-topsStack.subswath                  = 3                                               # '1 2'                                           
+topsStack.boundingBox               = 11.8  12.2  -88  -86
+topsStack.subswath                  = 2                                               # '1 2'                                           
 topsStack.numConnections            = 3                                                 # comment                                         
 topsStack.azimuthLooks              = 4                                                 # comment                                         
 topsStack.rangeLooks                = 16                                                # comment                                         
@@ -24,6 +25,7 @@ mintpy.geocode.laloStep             = 0.0008,0.0008   #  auto  # 0.0008  #[-0.00
 mintpy.networkInversion.minTempCoh  = auto
 
 ####################
+
 minsar.miaplpyDir.addition           = date          #[name / lalo / no ]  auto for no (miaply_$name_startDate_endDate)) 
 miaplpy.subset.lalo                  = 11.9:12.1,-86.25:-86.05    #[S:N,W:E / no], auto for no
 mintpy.subset.lalo                   = 11.9:12.1,-86.25:-86.05    #[S:N,W:E / no], auto for no
@@ -32,14 +34,6 @@ miaplpy.load.endDate                 = auto
 mintpy.geocode.laloStep              = 0.0005,0.0005 
 mintpy.reference.minCoherence        = 0.5   #[0.0-1.0], auto for 0.85, minimum coherence for auto method
 
-####################
-minsar.miaplpyDir.addition           = Momotombo          #[name / lalo / no ]  auto for no (miaply_$name_startDate_endDate)) 
-miaplpy.subset.lalo                  =  12.38:12.50,-86.63:-86.465    #[S:N,W:E / no], auto for no
-mintpy.subset.lalo                   =  12.38:12.50,-86.63:-86.465    #[S:N,W:E / no], auto for no
-miaplpy.load.startDate               = auto #  20200101
-miaplpy.load.endDate                 = auto
-mintpy.geocode.laloStep              = 0.0005,0.0005 
-mintpy.reference.minCoherence        = 0.5   #[0.0-1.0], auto for 0.85, minimum coherence for auto method
 
 miaplpy.interferograms.delaunayTempThresh = 90     # [days] temporal threshold for delaunay triangles, auto for 60
 miaplpy.interferograms.networkType   = single_reference    # network
@@ -50,7 +44,7 @@ miaplpy.load.processor               = isce
 miaplpy.multiprocessing.numProcessor = 40
 miaplpy.inversion.rangeWindow        = 24   # range window size for searching SHPs, auto for 15
 miaplpy.inversion.azimuthWindow      = 7   # azimuth window size for searching SHPs, auto for 15
-miaplpy.timeseries.tempCohType       = full  # [full, average], auto for full.
+miaplpy.timeseries.tempCohType       = average  # [full, average], auto for full.
 miaplpy.timeseries.minTempCoh        = 0.70     # auto for 0.5
 #############################################
 insarmaps_flag                       = False                                                                                                

@@ -1,13 +1,15 @@
 ssaraopt.platform                   = SENTINEL-1A,SENTINEL-1B                                                                             
-ssaraopt.startDate                  = 20150101
+#ssaraopt.startDate                  = 20160101
 #ssaraopt.endDate                    = 20201211
-ssaraopt.relativeOrbit              = 15                                                                                                
+ssaraopt.relativeOrbit              = 139                                                                                                
 ####################
+topsStack.boundingBox               = 50.15 50.45 5.00 7.90                             # '-1 0.15 -91.6 -90.9'                           
 topsStack.boundingBox               = 49.1 51.9 4.0 10.00                             # '-1 0.15 -91.6 -90.9'                           
+topsStack.subswath                  = 2                                               # '1 2'                                           
 topsStack.subswath                  = 1 2 3                                               # '1 2'                                           
 topsStack.numConnections            = 1                                                 # comment                                         
-topsStack.azimuthLooks              = 25                                                # comment                                         
-topsStack.rangeLooks                = 100                                               # comment                                         
+topsStack.azimuthLooks              = 4                                                 # comment                                         
+topsStack.rangeLooks                = 16                                                # comment                                         
 topsStack.filtStrength              = 0.4                                               # comment                                         
 topsStack.unwMethod                 = snaphu                                            # comment                                         
 topsStack.coregistration            = auto                                              # [NESD geometry], auto for NESD                  
@@ -25,53 +27,45 @@ mintpy.networkInversion.minTempCoh  = auto
 
 #mintpy.subset.lalo                   = 50.353:50.480,7.17:7.46    #[S:N,W:E / no], auto for no
 #miaplpy.subset.lalo                  = 50.353:50.480,7.17:7.46    #[S:N,W:E / no], auto for no
+####################
+minsar.miaplpyDir.addition           = 33          #[name / lalo / no ]  auto for no (miaply_$name_startDate_endDate)) 
+mintpy.subset.lalo                   = 50.353:50.480,7.17:7.605    #[S:N,W:E / no], auto for no
+miaplpy.subset.lalo                  = 50.353:50.480,7.17:7.605    #[S:N,W:E / no], auto for no
 
-#################################################
-#################### 22 #########################
+####################
 minsar.miaplpyDir.addition           = 22          #[name / lalo / no ]  auto for no (miaply_$name_startDate_endDate)) 
+mintpy.subset.lalo                   = 50.47:50.92,6.926:7.31    #[S:N,W:E / no], auto for no
+miaplpy.subset.lalo                  = 50.47:50.92,6.926:7.31    #[S:N,W:E / no], auto for no
 mintpy.subset.lalo                   = 50.47:50.82,6.996:7.30    #[S:N,W:E / no], auto for no
 miaplpy.subset.lalo                  = 50.47:50.82,6.996:7.30    #[S:N,W:E / no], auto for no
 miaplpy.load.startDate               = auto
 miaplpy.load.endDate                 = auto
 
-#################################################
-#################### 55 #########################
+####################
 minsar.miaplpyDir.addition           = 55          #[name / lalo / no ]  auto for no (miaply_$name_startDate_endDate)) 
 mintpy.subset.lalo                   = 49.658:50.047,7.94:8.507    #[S:N,W:E / no], auto for no
 miaplpy.subset.lalo                  = 49.658:50.047,7.94:8.507    #[S:N,W:E / no], auto for no
 miaplpy.load.startDate               = auto
 miaplpy.load.endDate                 = auto
 
-#################################################
-#################### 66 #########################
+####################
+minsar.miaplpyDir.addition           = 44          #[name / lalo / no ]  auto for no (miaply_$name_startDate_endDate)) 
+mintpy.subset.lalo                   = 49.931:50.333,7.483:7.92    #[S:N,W:E / no], auto for no
+miaplpy.subset.lalo                  = 49.931:50.333,7.483:7.92    #[S:N,W:E / no], auto for no
+miaplpy.load.startDate               = auto
+miaplpy.load.endDate                 = auto
+
+####################
 minsar.miaplpyDir.addition           = 66          #[name / lalo / no ]  auto for no (miaply_$name_startDate_endDate)) 
 mintpy.subset.lalo                   = 49.00:49.638,8.317:8.6    #[S:N,W:E / no], auto for no
 miaplpy.subset.lalo                  = 49.00:49.638,8.317:8.6    #[S:N,W:E / no], auto for no
 miaplpy.load.startDate               = auto
 miaplpy.load.endDate                 = auto
 
-#################################################
-#################### 11 #########################
+####################
 minsar.miaplpyDir.addition           = 11           #[name / lalo / no ]  auto for no (miaply_$name_startDate_endDate)) 
 mintpy.subset.lalo                   = 50.805:51.236,6.694:7.134    #[S:N,W:E / no], auto for no
 miaplpy.subset.lalo                  = 50.805:51.236,6.694:7.134    #[S:N,W:E / no], auto for no
-miaplpy.load.startDate               = auto
-miaplpy.load.endDate                 = auto
-
-#################################################
-#################### 33 #########################
-minsar.miaplpyDir.addition           = 33          #[name / lalo / no ]  auto for no (miaply_$name_startDate_endDate)) 
-mintpy.subset.lalo                   = 50.353:50.480,7.17:7.605    #[S:N,W:E / no], auto for no
-miaplpy.subset.lalo                  = 50.353:50.480,7.17:7.605    #[S:N,W:E / no], auto for no
-miaplpy.load.startDate               = auto
-miaplpy.load.endDate                 = auto
-
-#################################################
-#################### 44 #########################
-minsar.miaplpyDir.addition           = 44          #[name / lalo / no ]  auto for no (miaply_$name_startDate_endDate)) 
-mintpy.subset.lalo                   = 49.931:50.333,7.483:7.92    #[S:N,W:E / no], auto for no
-mintpy.subset.lalo                   = 49.931:50.333,7.56:7.82    #[S:N,W:E / no], auto for no
-miaplpy.subset.lalo                  = 49.931:50.333,7.56:7.82    #[S:N,W:E / no], auto for no
 miaplpy.load.startDate               = auto
 miaplpy.load.endDate                 = auto
 

@@ -1,48 +1,69 @@
 process_flag                        = TRUE                                                                                                
 frequency                           = 1                                                                                                   
-login                               = pegasus.ccs.miami.edu                                                                               
 user                                = famelung                                                                                            
 ####################
-email_pysar                         = famelung@rsmas.miami.edu 
-email_insarmaps                     = famelung@rsmas.miami.edu
 ####################
 every_day_flag                      = yes                                                                                                 
 processor                           = isce                                                                                                
+parallel                            = yes
 cleanopt                            = 0                                                                                                   
+hazard_products_flag                = TRUE                                                                                                
 ssaraopt.platform                   = SENTINEL-1A,SENTINEL-1B                                                                             
-ssaraopt.relativeOrbit              = 32                                                                                                 
-ssaraopt.startDate                  = 20200101                                                                                            
+ssaraopt.relativeOrbit              = 32                                                                                                  
+ssaraopt.startDate                  = 20200701
+#ssaraopt.endDate                    = 20200501
 ####################
-#demMethod                           = ssara    
+topsStack.boundingBox               = 13.8 14.2 119 122                              # '-1 0.15 -91.6 -90.9'                           
+topsStack.subswath                  = 2                                               # '1 2'                                           
+topsStack.numConnections            = 4                                                 # comment                                         
+#topsStack.excludeDates              = 20200301
+topsStack.azimuthLooks              = 7                                                 # comment                                         
+topsStack.rangeLooks                = 19                                                # comment                                         
+topsStack.filtStrength              = 0.2                                               # comment                                         
+topsStack.unwMethod                 = snaphu                                            # comment                                         
+topsStack.coregistration            = auto                                              # [NESD geometry], auto for NESD                  
 ####################
-topsStack.boundingBox               = 48.7 50.3 94.92 98.05      # '-1 0.15 -91.6 -90.9'                           
-topsStack.boundingBox               = 13.7 14.4 120.0 122.0      # '-1 0.15 -91.6 -90.9'                           
-topsStack.subswath                  = 2                          # '1 2'                                           
-topsStack.numConnections            = 5                          # comment                                         
-topsStack.azimuthLooks              = 14                          # comment                                         
-topsStack.rangeLooks                = 38                         # comment                                         
-topsStack.filtStrength              = 0.2                        # comment                                         
-topsStack.unwMethod                 = snaphu                     # comment                                         
-topsStack.coregistration            = auto                   # [NESD geometry], auto for NESD                  
-####################
-miaplpy.multiprocessing.numProcessor              = 40    # auto for 4
-miaplpy.load.processor      = isce  #[isce,snap,gamma,roipac], auto for isceTops
-miaplpy.load.updateMode     = auto  #[yes / no], auto for yes, skip re-loading if HDF5 files are complete
-miaplpy.load.compression    = no  #[gzip / lzf / no], auto for no.
-miaplpy.load.autoPath       = yes    # [yes, no] auto for no
-###################################
-mintpy.compute.cluster              = local #[local / slurm / pbs / lsf / none], auto for none, cluster type
-mintpy.compute.numWorker            = 40     #[int > 1 / all / num%], auto for 4 (local) or 40 (slurm / pbs / lsf), num of workers
-mintpy.subset.lalo                  = 14.05:14.2,121.14:121.29            #  30.556, 104.264
-#mintpy.reference.lalo               = 14.214, 121.160            #  30.556, 104.264
-mintpy.troposphericDelay.method     = no                         # [pyaps / height_correlation / base_trop_cor / no], auto for pyaps
-mintpy.network.startDate            = auto                       # [20090101 / no], auto for no                    
-mintpy.networkInversion.parallel    = no                        # [yes / no], auto for no, parallel processing    
-mintpy.networkInversion.walltime    = 3:45                                                                                                
-mintpy.geocode.latStep              = 0.002                      # [0.0-90.0 / None], auto for None, output resolution in degree
-mintpy.geocode.lonStep              = 0.002                      # [0.0-180.0 / None], auto for None - calculate from lookup file
+#mintpy.reference.lalo               = 19.5059, -155.3477                                                                                  
+mintpy.troposphericDelay.method     = no                              #[pyaps / height_correlation / base_trop_cor / no], auto for pyaps
+mintpy.network.startDate            = auto                                              # [20090101 / no], auto for no                    
+mintpy.load.autoPath                = yes
+mintpy.compute.cluster              = local
+mintpy.compute.numWorker            = 32
+mintpy.solidEarthTides              = no                         #[yes / no], auto for no
 mintpy.save.hdfEos5                 = yes                        # [yes / update / no], auto for no, save timeseries to UNAVCO InSAR Archive format
 mintpy.save.hdfEos5.update          = no                        # [yes / no], auto for no, put XXXXXXXX as endDate in output filename
-mintpy.save.kmz                     = yes                        # [yes / no], auto for yes, save geocoded velocity to Google Earth KMZ file
-insarmaps_flag                      = True                                                                                                
+mintpy.save.hdfEos5.subset          = yes     #[yes / no], auto for no, put subset range info   in output filename
+mintpy.geocode.lalo                 = 0.00015,0.00015
+mintpy.reference.minCoherence       = 0.7   #[0.0-1.0], auto for 0.85, minimum coherence for auto method
+
+####################
+#mintpy.subset.lalo                  = 44.5:45.63,-110.7:-110.45
+####################
+
+miaplpy.load.autoPath                  = yes
+mintpy.subset.lalo                    = 13.98:14.04,120.97:121.02
+miaplpy.subset.lalo                    = 13.98:14.04,120.97:121.02
+
+miaplpy.multiprocessing.numProcessor   = 40
+miaplpy.load.processor                 = isce
+miaplpy.timeseries.tempCohType         = full     # [full, average], auto for full.
+miaplpy.timeseries.minTempCoh          = auto     # auto for 0.5
+
+miaplpy.interferograms.delaunayTempThresh = 90     # [days] temporal threshold for delaunay triangles, auto for 60
+miaplpy.interferograms.networkType   = single_reference    # network
+miaplpy.interferograms.networkType   = delaunay            # network
+
+mintpy.load.autoPath                 = yes
+mintpy.compute.cluster               = local
+mintpy.compute.numWorker             = 30
+mintpy.troposphericDelay.method      = no # auto  #[pyaps / height_correlation / no / gacos], auto for pyaps
+mintpy.save.hdfEos5                  = yes                        # [yes / update / no], auto for no, save timeseries to UNAVCO InSAR Archive format
+mintpy.save.hdfEos5.update           = no                                                # [yes / no], auto for no, put XXXXXXXX as endDate in output filename
+mintpy.save.hdfEos5.subset           = yes     #[yes / no], auto for no, put subset range info   in output filename
+mintpy.geocode.laloStep              = 0.0003,0.0003 
+
+insarmaps_flag                      = False                                                                                                
+
+
+insarmaps_flag                      = False                                                                                                
 

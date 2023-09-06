@@ -1,8 +1,9 @@
 ssaraopt.platform                   = SENTINEL-1A,SENTINEL-1B                                                                             
-ssaraopt.startDate                  = 20140101
-ssaraopt.relativeOrbit              = 157                                                                                                 
+#ssaraopt.startDate                  = 20160101
+#ssaraopt.endDate                    = 20201211
+ssaraopt.relativeOrbit              = 134                                                                                                
 ####################
-topsStack.boundingBox               = 11.8  12.6  -88  -86
+topsStack.boundingBox               = 41.7 42.2 126 130                            # '-1 0.15 -91.6 -90.9'                           
 topsStack.subswath                  = 3                                               # '1 2'                                           
 topsStack.numConnections            = 3                                                 # comment                                         
 topsStack.azimuthLooks              = 4                                                 # comment                                         
@@ -11,7 +12,7 @@ topsStack.filtStrength              = 0.4                                       
 topsStack.unwMethod                 = snaphu                                            # comment                                         
 topsStack.coregistration            = auto                                              # [NESD geometry], auto for NESD                  
 ####################
-mintpy.load.autoPath               = yes
+mintpy.load.autoPath                = yes
 mintpy.troposphericDelay.method     = no                                #[pyaps / height_correlation / base_trop_cor / no], auto for pyaps
 mintpy.networkInversion.parallel    = no                                                #[yes / no], auto for no, parallel processing    
 mintpy.save.hdfEos5                 = yes                                               # [yes / update / no], auto for no, save timeseries to UNAVCO InSAR Archive format
@@ -20,30 +21,20 @@ mintpy.save.hdfEos5.update          = no                                        
 mintpy.save.kml                     = yes                                               # [yes / no], auto for yes, save geocoded velocity to Google Earth KMZ file
 mintpy.compute.cluster              = local
 mintpy.compute.numWorker            = 32
-mintpy.geocode.laloStep             = 0.0008,0.0008   #  auto  # 0.0008  #[-0.000555556,0.000555556 / None], auto for None, output resolution in degree
 mintpy.networkInversion.minTempCoh  = auto
 
 ####################
-minsar.miaplpyDir.addition           = date          #[name / lalo / no ]  auto for no (miaply_$name_startDate_endDate)) 
-miaplpy.subset.lalo                  = 11.9:12.1,-86.25:-86.05    #[S:N,W:E / no], auto for no
-mintpy.subset.lalo                   = 11.9:12.1,-86.25:-86.05    #[S:N,W:E / no], auto for no
-miaplpy.load.startDate               = auto #  20200101
+minsar.miaplpyDir.addition           = date          #[name / lalo / no ]  auto for no (miaply_$name_startDate_endDate))
+miaplpy.subset.lalo                  = 41.80:42.06,127.85:128.21    #[S:N,W:E / no], auto for no
+miaplpy.star.endDate                 = auto
 miaplpy.load.endDate                 = auto
 mintpy.geocode.laloStep              = 0.0005,0.0005 
 mintpy.reference.minCoherence        = 0.5   #[0.0-1.0], auto for 0.85, minimum coherence for auto method
 
-####################
-minsar.miaplpyDir.addition           = Momotombo          #[name / lalo / no ]  auto for no (miaply_$name_startDate_endDate)) 
-miaplpy.subset.lalo                  =  12.38:12.50,-86.63:-86.465    #[S:N,W:E / no], auto for no
-mintpy.subset.lalo                   =  12.38:12.50,-86.63:-86.465    #[S:N,W:E / no], auto for no
-miaplpy.load.startDate               = auto #  20200101
-miaplpy.load.endDate                 = auto
-mintpy.geocode.laloStep              = 0.0005,0.0005 
-mintpy.reference.minCoherence        = 0.5   #[0.0-1.0], auto for 0.85, minimum coherence for auto method
 
 miaplpy.interferograms.delaunayTempThresh = 90     # [days] temporal threshold for delaunay triangles, auto for 60
-miaplpy.interferograms.networkType   = single_reference    # network
 miaplpy.interferograms.networkType   = delaunay            # network
+miaplpy.interferograms.networkType   = single_reference    # network
 
 #############################################
 miaplpy.load.processor               = isce
@@ -51,6 +42,6 @@ miaplpy.multiprocessing.numProcessor = 40
 miaplpy.inversion.rangeWindow        = 24   # range window size for searching SHPs, auto for 15
 miaplpy.inversion.azimuthWindow      = 7   # azimuth window size for searching SHPs, auto for 15
 miaplpy.timeseries.tempCohType       = full  # [full, average], auto for full.
-miaplpy.timeseries.minTempCoh        = 0.70     # auto for 0.5
+miaplpy.timeseries.minTempCoh        = 0.85     # auto for 0.5
 #############################################
 insarmaps_flag                       = False                                                                                                

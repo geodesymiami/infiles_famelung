@@ -1,21 +1,56 @@
-######################################################
-cleanopt  = 0                   # [ 0 / 1 / 2 / 3 / 4]   0,1: none 2: keep merged,geom_master,SLC 3: keep PYSAR 4: everything
-ssaraopt  = --platform=SENTINEL-1A,SENTINEL-1B -r 120 -f 1175-1181
-processor = isce
-######################################################
-sentinelStack.boundingBox      = '-1.1 0.65 -79.1 -78.0'
-sentinelStack.subswath         = 1   # comment 
-sentinelStack.numConnections   = 5   # comment
-sentinelStack.azimuthLooks     = 5   # comment
-sentinelStack.rangeLooks       = 15  # comment
-sentinelStack.filtStrength     = 0.2  # comment
-sentinelStack.unwMethod        = snaphu  # comment
-sentinelStack.coregistration   = auto  # comment
+process_flag                        = TRUE                                                                                                
+frequency                           = 1                                                                                                   
+login                               = pegasus.ccs.miami.edu                                                                               
+user                                = famelung                                                                                            
+####################
+every_day_flag                      = yes                                                                                                 
+processor                           = isce                                                                                                
+cleanopt                            = 0                                                                                                   
+hazard_products_flag                = TRUE                                                                                                
+ssaraopt.platform                   = SENTINEL-1A,SENTINEL-1B                                                                             
+ssaraopt.startDate                  = 20161001                                                                                                 
+ssaraopt.relativeOrbit              = 120                                                                                                 
+####################
+topsStack.boundingBox               = -1.1 0.65 -79.1 -78.0
+topsStack.subswath                  = 1                                                 # '1 2'                                           
+topsStack.numConnections            = 4                                                 # comment                                         
+topsStack.azimuthLooks              = 7                                                 # comment                                         
+topsStack.rangeLooks                = 28                                                # comment                                         
+topsStack.filtStrength              = 0.4                                               # comment                                         
+topsStack.unwMethod                 = snaphu                                            # comment                                         
+topsStack.coregistration            = auto                                              # [NESD geometry], auto for NESD                  
+####################
+mintpy.load.autoPath               = yes
+mintpy.troposphericDelay.method     = no                                #[pyaps / height_correlation / base_trop_cor / no], auto for pyaps
+mintpy.networkInversion.parallel    = no                                                #[yes / no], auto for no, parallel processing    
+#mintpy.networkInversion.minTempCoh  = 0.7 #[0.0-1.0], auto for 0.7, min temporal coherence for mask
+mintpy.save.hdfEos5                 = yes                                               # [yes / update / no], auto for no, save timeseries to UNAVCO InSAR Archive format
+mintpy.save.hdfEos5.subset          = yes     #[yes / no], auto for no, put subset range info   in output filenam
+mintpy.save.hdfEos5.update          = yes                                                # [yes / no], auto for no, put XXXXXXXX as endDate in output filename
+mintpy.save.kml                     = yes                                               # [yes / no], auto for yes, save geocoded velocity to Google Earth KMZ file
+mintpy.compute.cluster              = local
+mintpy.compute.numWorker            = 32
+####################
 
-pysar.reference.lalo              = -0.704, -78.300  # E of Cotopaxi
-pysar.network.coherenceBased      = no  #[yes / no], auto for yes, exclude interferograms with coherence < minCoherence
-pysar.networkInversion.weightFunc = fim #[variance / no / coherence], auto for no
-pysar.troposphericDelay.method    = no # pyaps  #[pyaps / height_correlation / base_trop_cor / no], auto for pyaps
-pysar.save.hdfEos5                = yes   #[yes / update / no], auto for no, save timeseries to UNAVCO InSAR Archive format
-pysar.save.hdfEos5.update         = yes   #[yes / no], auto for no, put XXXXXXXX as endDate in output filename
-######################################################
+###### NorthEast #######
+minsar.miaplpyDir.addition           = auto          #[name / lalo / no ]  auto for no (miaply_$name_startDate_endDate)) 
+miaplpy.subset.lalo                  =  -0.75:-0.61,-78.52:-78.35           #[S:N,W:E / no], auto for no
+mintpy.subset.lalo                  =  -0.75:-0.61,-78.52:-78.35           #[S:N,W:E / no], auto for no
+miaplpy.load.startDate               = auto
+miaplpy.load.endDate                 = auto
+
+miaplpy.interferograms.networkType   = single_reference    # network
+miaplpy.interferograms.networkType   = single_reference    # network
+miaplpy.interferograms.networkType   = delaunay            # network
+
+#############################################
+miaplpy.load.processor               = isce
+miaplpy.multiprocessing.numProcessor = 40
+miaplpy.inversion.rangeWindow        = 24   # range window size for searching SHPs, auto for 15
+miaplpy.inversion.azimuthWindow      = 9   # azimuth window size for searching SHPs, auto for 15
+miaplpy.timeseries.tempCohType       = auto     # [full, average], auto for full.
+miaplpy.timeseries.minTempCoh        = auto     # auto for 0.5
+minsar.miaplpyDir.addition           = date
+#############################################
+
+insarmaps_flag                       = False                                                                                                

@@ -25,7 +25,8 @@ stripmapStack.unwMethod               = snaphu
 mintpy.troposphericDelay.method       = no
 mintpy.reference.minCoherence         = 0.7   #[0.0-1.0], auto for 0.85, minimum coherence for auto method
 
-raw_image_dir                         = $SCRATCHDIR/MiamiTsxSMDT36/ORIG_SLC
+raw_image_dir                         = $SCRATCHDIR/MiamiTsxSMDT36/SLC_ORIG
+raw_image_dir                         = ./SLC_ORIG
 
 mintpy.load.autoPath                  = yes
 mintpy.compute.cluster                = local
@@ -73,7 +74,7 @@ insarmaps_flag                        = False
 
 ###### MiamiLakes
 minsar.miaplpyDir.addition           = MLakes          #[name / lalo / no ]  auto for no (miaply_$name_startDate_endDate)) 
-mintpy.subset.yx                     = 9800:13000,14224:16224    #[y0:y1,x0:x1 / no], auto for no
+#mintpy.subset.yx                     = 9800:13000,14224:16224    #[y0:y1,x0:x1 / no], auto for no
 #mintpy.subset.lalo                    =  25.70:26.2,-80.71:-80.1174       # for H5 file only
 #mintpy.reference.yx                   = auto # 25.8248,-80.1222 # auto refPointLat=25.82477&refPointLon=-80.12222 
 
@@ -83,6 +84,22 @@ miaplpy.subset.lalo                  = 25.871:25.90,-80.123:-80.119    #[S:N,W:E
 mintpy.subset.lalo                   = 25.871:25.90,-80.123:-80.119    #[S:N,W:E / no], auto for no
 miaplpy.load.startDate               = 20190101
 mintpy.reference.lalo                = auto # 6/2023: updated because out of mask  
+
+###### Miami-Dade County Beaches ######
+minsar.miaplpyDir.addition           = MDCBeach          #[name / lalo / no ]  auto for no (miaply_$name_startDate_endDate)) 
+miaplpy.subset.lalo                  = 25.765:25.98,-80.147:-80.1146    #[S:N,W:E / no], auto for no
+mintpy.subset.lalo                   = 25.765:25.98,-80.147:-80.1146    #[S:N,W:E / no], auto for no
+mintpy.reference.lalo                = 25.874,-80.123   # 25.8865,-80.1225  #  works for 2015_202111 (Sara's time period)
+miaplpy.load.startDate               = 20190101
+#miaplpy.load.endDate                 = 20210630
+
+###### Miami-Dade County Beaches ######
+minsar.miaplpyDir.addition           = MDCBeach2          #[name / lalo / no ]  auto for no (miaply_$name_startDate_endDate)) 
+miaplpy.subset.lalo                  = 25.765:25.98,-80.143:-80.129    #[S:N,W:E / no], auto for no
+mintpy.subset.lalo                   = 25.765:25.98,-80.143:-80.129    #[S:N,W:E / no], auto for no
+mintpy.reference.lalo                = auto # 25.874,-80.123   # 25.8865,-80.1225  #  works for 2015_202111 (Sara's time period)
+miaplpy.load.startDate               = auto
+#miaplpy.load.endDate                 = 20210630
 
 miaplpy.multiprocessing.numProcessor = 40
 miaplpy.load.processor               = isce

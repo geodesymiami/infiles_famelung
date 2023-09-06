@@ -4,8 +4,9 @@ processor                         = isce
 ssaraopt.platform                 = SENTINEL-1A,SENTINEL-1B
 ssaraopt.relativeOrbit            = 128
 ssaraopt.startDate                = 20181001
+ssaraopt.startDate                = 20140101
 hazard_products_flag              = False
-insarmaps_flag                     = False
+insarmaps_flag                     = True
 
 ######################################################
 topsStack.boundingBox             = -1 -0.6 -91.4 -90.86    # -1 0.15 -91.6 -90.9
