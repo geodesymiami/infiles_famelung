@@ -1,3 +1,6 @@
+###################################################
+### ATTENTION:  Remove 2013 and 20171220 images ###
+###################################################
 processor                             = isce
 ssaraopt.startDate                    = 20170101
 ssaraopt.relativeOrbit                = 036
@@ -17,8 +20,8 @@ stripmapStack.boundingBox             = 25.70 26.2 -80.51 -80.1174  # works
 stripmapStack.boundingBox             = 25.70 26.2 -80.71 -80.1174  # works
 stripmapStack.azimuthLooks            = 10
 stripmapStack.rangeLooks              = 10
-stripmapStack.timeThreshold           = 90
-stripmapStack.baselineThreshold       = 450
+stripmapStack.timeThreshold           = 120
+stripmapStack.baselineThreshold       = 650
 stripmapStack.golsteinFilterStrength  = 0.2          
 stripmapStack.unwMethod               = snaphu     
 
@@ -48,7 +51,6 @@ insarmaps_flag                        = False
 #mintpy.subset.yx                      = 7500:10000,14224:16224    #[y0:y1,x0:x1 / no], auto for no
 #mintpy.subset.lalo                    =  25.70:26.2,-80.71:-80.1174       # for H5 file only
 #mintpy.reference.yx                   = auto # 25.8248,-80.1222 # auto refPointLat=25.82477&refPointLon=-80.12222 
-
 
 ###### Sara Surfside
 #mintpy.subset.yx                     = 3651:10024,5848:14215              #     3651, 10024, 5848, 14215
@@ -80,31 +82,41 @@ minsar.miaplpyDir.addition           = MLakes          #[name / lalo / no ]  aut
 
 ###### Southern Surfside ######
 minsar.miaplpyDir.addition           = SSurfside3                        #[name / lalo / no ]  auto for no (miaply_$name_startDate_endDate)) 
-miaplpy.subset.lalo                  = 25.871:25.90,-80.123:-80.119    #[S:N,W:E / no], auto for no
-mintpy.subset.lalo                   = 25.871:25.90,-80.123:-80.119    #[S:N,W:E / no], auto for no
+#miaplpy.subset.lalo                  = 25.871:25.90,-80.123:-80.119    #[S:N,W:E / no], auto for no
+#mintpy.subset.lalo                   = 25.871:25.90,-80.123:-80.119    #[S:N,W:E / no], auto for no
 miaplpy.load.startDate               = 20190101
 mintpy.reference.lalo                = auto # 6/2023: updated because out of mask  
 
 ###### Miami-Dade County Beaches ######
 minsar.miaplpyDir.addition           = MDCBeach          #[name / lalo / no ]  auto for no (miaply_$name_startDate_endDate)) 
-miaplpy.subset.lalo                  = 25.765:25.98,-80.147:-80.1146    #[S:N,W:E / no], auto for no
-mintpy.subset.lalo                   = 25.765:25.98,-80.147:-80.1146    #[S:N,W:E / no], auto for no
+#miaplpy.subset.lalo                  = 25.765:25.98,-80.147:-80.1146    #[S:N,W:E / no], auto for no
+#mintpy.subset.lalo                   = 25.765:25.98,-80.147:-80.1146    #[S:N,W:E / no], auto for no
 mintpy.reference.lalo                = 25.874,-80.123   # 25.8865,-80.1225  #  works for 2015_202111 (Sara's time period)
 miaplpy.load.startDate               = 20190101
 #miaplpy.load.endDate                 = 20210630
+
+###### Railroads ######
+minsar.miaplpyDir.addition           = Rail          #[name / lalo / no ]  auto for no (miaply_$name_startDate_endDate)) 
+#mintpy.subset.lalo                   = 25.76:26.08,-80.22:-80.11    #[S:N,W:E / no], auto for no
+mintpy.subset.yx                      = auto    #[y0:y1,x0:x1 / no], auto for no
+miaplpy.subset.yx                     = 200:14100,5600:9100    #[y0:y1,x0:x1 / no], auto for no
+mintpy.reference.lalo                 = auto # 25.874,-80.123   # 25.8865,-80.1225  #  works for 2015_202111 (Sara's time period)
+miaplpy.load.startDate               = 20170101
+miaplpy.load.endDate                 = auto
 
 ###### Miami-Dade County Beaches ######
 minsar.miaplpyDir.addition           = MDCBeach2          #[name / lalo / no ]  auto for no (miaply_$name_startDate_endDate)) 
 miaplpy.subset.lalo                  = 25.765:25.98,-80.143:-80.129    #[S:N,W:E / no], auto for no
 mintpy.subset.lalo                   = 25.765:25.98,-80.143:-80.129    #[S:N,W:E / no], auto for no
 mintpy.reference.lalo                = auto # 25.874,-80.123   # 25.8865,-80.1225  #  works for 2015_202111 (Sara's time period)
-miaplpy.load.startDate               = auto
-#miaplpy.load.endDate                 = 20210630
+miaplpy.load.startDate               = 20181001
+miaplpy.load.endDate                 = 20210630
 
 miaplpy.multiprocessing.numProcessor = 40
 miaplpy.load.processor               = isce
 miaplpy.interferograms.networkType   = sequential
 miaplpy.interferograms.networkType   = single_reference
+miaplpy.unwrap.snaphu.tileNumPixels  = 10000000000     # number of pixels in a tile, auto for 10000000
 
 # Unwrapping Error Correction (optional)
 #mintpy.unwrapError.method          = bridging
