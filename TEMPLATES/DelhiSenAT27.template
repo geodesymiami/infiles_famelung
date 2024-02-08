@@ -13,7 +13,8 @@ cleanopt                            = 0
 hazard_products_flag                = TRUE                                                                                                
 ssaraopt.platform                   = SENTINEL-1A,SENTINEL-1B                                                                             
 ssaraopt.relativeOrbit              = 27                                                                                                 
-ssaropt.startDate                   = 20141091
+#ssaraopt.startDate                  = 20141091
+#ssaraopt.endDate                    = 20181231
 ####################
 #topsStack.boundingBox               = 28.15 28.5 74.0 79.0                           # '-1 0.15 -91.6 -90.9'                           
 topsStack.boundingBox               = 28.1 28.5 74.0 79.0                           # '-1 0.15 -91.6 -90.9'                           
@@ -118,10 +119,10 @@ miaplpy.load.startDate               = 20141031
 miaplpy.load.endDate                 = 20180930
 #miaplpy.load.endDate                 = 20210731
 miaplpy.load.endDate                 = 20191231
-miaplpy.load.endDate                 = 20161231
 miaplpy.load.endDate               = 20180901
 miaplpy.load.startDate               = 20141031
-miaplpy.load.endDate                 = 20231031
+miaplpy.load.endDate                 = 20161231
+#miaplpy.load.endDate                 = 20231031
 
 #############################################
 miaplpy.load.processor               = isce
@@ -132,9 +133,9 @@ miaplpy.timeseries.tempCohType       = auto     # [full, average], auto for full
 miaplpy.timeseries.minTempCoh        = auto     # auto for 0.5
 miaplpy.interferograms.delaunayBaselineRatio   = 4     # [1, 4, 9] Ratio between perpendiclar and temporal baselines, auto for 4
 miaplpy.interferograms.networkType   = delaunay            # network
-miaplpy.interferograms.networkType   = mini_stacks            # network
 miaplpy.interferograms.networkType   = single_reference    # network
 miaplpy.interferograms.networkType   = sequential    # network
+miaplpy.interferograms.networkType   = mini_stacks            # network
 miaplpy.interferograms.connNum       = 8    # network
 miaplpy.timeseries.residualNorm      = L2     # [L1, L2], auto for L2, norm minimization solution
 miaplpy.interferograms.ministackRefMonth       = 1     # The month of the year that coherence is high to choose reference from, default: 6
