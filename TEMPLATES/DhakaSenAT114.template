@@ -1,12 +1,13 @@
 ssaraopt.platform                   = SENTINEL-1A,SENTINEL-1B                                                                             
 ssaraopt.startDate                  = 20140101
-ssaraopt.relativeOrbit              = 150                                                                                                 
+ssaraopt.endDate                    = 20231101
+ssaraopt.relativeOrbit              = 114                                                                                                 
 ####################
 topsStack.boundingBox                = 23.2 24.2 88.6 91.5                          # '-1 0.15 -91.6 -90.9'                           
-topsStack.subswath                   = 1 2                                             # '1 2'                                           
-topsStack.numConnections             = 2                                                 # comment                                         
-topsStack.azimuthLooks               = 5                                                 # comment                                         
-topsStack.rangeLooks                 = 20                                                # comment                                         
+topsStack.subswath                   = 2                                             # '1 2'                                           
+topsStack.numConnections             = 4                                                 # comment                                         
+topsStack.azimuthLooks               = 4                                                 # comment                                         
+topsStack.rangeLooks                 = 16                                                # comment                                         
 topsStack.filtStrength               = 0.4                                               # comment                                         
 topsStack.unwMethod                  = snaphu                                            # comment                                         
 topsStack.coregistration             = auto                                              # [NESD geometry], auto for NESD                  

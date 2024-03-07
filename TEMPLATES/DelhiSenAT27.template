@@ -121,8 +121,8 @@ miaplpy.load.endDate                 = 20180930
 miaplpy.load.endDate                 = 20191231
 miaplpy.load.endDate               = 20180901
 miaplpy.load.startDate               = 20141031
-miaplpy.load.endDate                 = 20161231
-#miaplpy.load.endDate                 = 20231031
+miaplpy.load.endDate                 = 20191231
+miaplpy.load.endDate                 = 20231031
 
 #############################################
 miaplpy.load.processor               = isce
@@ -138,7 +138,7 @@ miaplpy.interferograms.networkType   = sequential    # network
 miaplpy.interferograms.networkType   = mini_stacks            # network
 miaplpy.interferograms.connNum       = 8    # network
 miaplpy.timeseries.residualNorm      = L2     # [L1, L2], auto for L2, norm minimization solution
-miaplpy.interferograms.ministackRefMonth       = 1     # The month of the year that coherence is high to choose reference from, default: 6
+miaplpy.interferograms.ministackRefMonth       = 5     # The month of the year that coherence is high to choose reference from, default: 6
 
 miaplpy.timeseries.residualNorm      = auto     # [L1, L2], auto for L2, norm minimization solution
 #############################################

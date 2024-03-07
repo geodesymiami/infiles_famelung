@@ -1,13 +1,13 @@
 minsar.processor                             = isce
 #cleanopt                              = 0
 ssaraopt.platform                     = SENTINEL-1A,SENTINEL-1B
-ssaraopt.startDate                    = 20150115
+ssaraopt.startDate                    = 20160401
 ssaraopt.relativeOrbit                = 48
 topsStack.boundingBox                 = 25.60 26.20 -80.45 -80.106  #25.4 26.1 -82.0 -80.0
 topsStack.subswath                    = 2 3
 topsStack.numConnections              = 2
-topsStack.azimuthLooks                = 4
-topsStack.rangeLooks                  = 24
+topsStack.azimuthLooks                = 5
+topsStack.rangeLooks                  = 20
 topsStack.filtStrength                = 0.3
 topsStack.coregistration              = geometry
  
@@ -78,14 +78,6 @@ mintpy.subset.lalo                    = 25.8384:25.909,-80.147:-80.1174    #[S:N
 #mintpy.reference.lalo                = 25.8791,-80.1259  #  ! Good one
 mintpy.reference.lalo                = auto # 25.8865,-80.1225  #  works for 2015_202111 (Sara's time period)
  
-###### Miami-Dade County Beaches ######
-minsar.miaplpyDir.addition           = MDCBeach          #[name / lalo / no ]  auto for no (miaply_$name_startDate_endDate)) 
-miaplpy.subset.lalo                  = 25.765:25.98,-80.147:-80.1146    #[S:N,W:E / no], auto for no
-mintpy.subset.lalo                   = 25.765:25.98,-80.147:-80.1146    #[S:N,W:E / no], auto for no
-mintpy.reference.lalo                = 25.874,-80.123   # 25.8865,-80.1225  #  works for 2015_202111 (Sara's time period)
-miaplpy.load.startDate               = 20190101
-#miaplpy.load.endDate                 = 20210630
- 
 ###### Southern Surfside ######
 minsar.miaplpyDir.addition           = SSurfside                        #[name / lalo / no ]  auto for no (miaply_$name_startDate_endDate)) 
 miaplpy.subset.lalo                  = 25.871:25.92,-80.123:-80.119    #[S:N,W:E / no], auto for no
@@ -107,16 +99,31 @@ miaplpy.subset.lalo                  = 25.85:26.00,-80.42:-80.22             #  
 mintpy.reference.lalo                = auto # 25.8865,-80.1225  #  works for 2015_202111 (Sara's time period)
 miaplpy.load.startDate               = auto
  
+###### Miami-Dade County Beaches ######
+minsar.miaplpyDir.addition           = MDCBeach          #[name / lalo / no ]  auto for no (miaply_$name_startDate_endDate)) 
+miaplpy.subset.lalo                  = 25.765:25.98,-80.147:-80.1146    #[S:N,W:E / no], auto for no
+mintpy.subset.lalo                   = 25.765:25.98,-80.147:-80.1146    #[S:N,W:E / no], auto for no
+miaplpy.load.startDate               = 20160101
+miaplpy.load.endDate                 = 20231031
+mintpy.reference.lalo                = auto # 25.9334,-80.1237                         # W Brickel Marquis condo
+mintpy.reference.lalo                = 25.874,-80.123   # 25.8865,-80.1225  #  works for 2015_202111 (Sara's time period)
+mintpy.reference.lalo                = 25.88009,-80.12318   # 25.8865,-80.1225  #  works for 2015_202111 (Sara's time period)
+mintpy.reference.lalo                = 25.87374,-80.12274   # 25.8865,-80.1225  #  works for 2015_202111 (Sara's time period)
+ 
 #############################################
-miaplpy.load.processor      = isce
+miaplpy.load.processor                       = isce
 #FA: for miaplpy.phase_inversion we should use 40 but for mintpy.phase_to_range 20 as it uses dask and fails with 40
-miaplpy.multiprocessing.numProcessor = 40
-miaplpy.timeseries.tempCohType            = auto     # [full, average], auto for full.
-miaplpy.timeseries.minTempCoh             = auto     # auto for 0.5
-miaplpy.interferograms.networkType = sequential          # qq
-miaplpy.interferograms.networkType = single_reference    # network
-miaplpy.inversion.rangeWindow              = 24   # range window size for searching SHPs, auto for 15
-miaplpy.inversion.azimuthWindow            = 7  # azimuth window size for searching SHPs, auto for 15
+miaplpy.multiprocessing.numProcessor         = 40
+miaplpy.timeseries.tempCohType               = auto     # [full, average], auto for full.
+miaplpy.timeseries.minTempCoh                = auto     # auto for 0.5
+miaplpy.interferograms.networkType           = single_reference    # network
+miaplpy.interferograms.networkType           = delaunay    # network
+miaplpy.interferograms.networkType           = sequential          # qq
+miaplpy.interferograms.networkType           = mini_stacks          # qq
+miaplpy.interferograms.delaunayBaselineRatio = 4     # [1, 4, 9] Ratio between perpendiclar and temporal baselines, auto for 4
+miaplpy.interferograms.connNum               = 6     # Number of connections in sequential interferograms, auto for 3
+miaplpy.inversion.rangeWindow                = 24   # range window size for searching SHPs, auto for 15
+miaplpy.inversion.azimuthWindow              = 7  # azimuth window size for searching SHPs, auto for 15
 #############################################
 mintpy.load.autoPath                 = yes
 mintpy.compute.cluster               = local
