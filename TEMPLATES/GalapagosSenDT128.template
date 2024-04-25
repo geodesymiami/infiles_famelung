@@ -29,6 +29,7 @@ mintpy.reference.lalo             = -0.7,-90.95     # S of SN
 mintpy.networkInversion.parallel  = yes  #[yes / no], auto for no, parallel processing using dask
 mintpy.troposphericDelay.method   = no   # pyaps  #[pyaps / height_correlation / base_trop_cor / no], auto for pyaps
 mintpy.geocode.laloStep             = 0.0008,0.0008                 #[-0.000555556,0.000555556 / None], auto for None
+mintpy.geocode.laloStep             = 0.0020,0.0020                 #[-0.000555556,0.000555556 / None], auto for None
 mintpy.save.hdfEos5               = yes   #[yes / update / no], auto for no, save timeseries to UNAVCO InSAR Archive format
 mintpy.save.hdfEos5.update        = yes   #[yes / no], auto for no, put XXXXXXXX as endDate in output filename
 mintpy.save.hdfEos5.subset        = auto     #[yes / no], auto for no, put subset range info   in output filename

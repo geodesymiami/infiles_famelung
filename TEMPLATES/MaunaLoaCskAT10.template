@@ -12,7 +12,7 @@ ssaraopt.intersectsWithPoint = -155.6 19.45
 ssaraopt.collectionName = "Supersites CSK Hawaii"
 ssaraopt.startDate      = 20220101
 ssaraopt.startDate      = 20140121
-ssaraopt.startDate      = 20200101
+ssaraopt.startDate      = 20140101
 minsar.excludeDates     = 20140110,20210825
 
 ##################### ISCE OPTIONS ####################

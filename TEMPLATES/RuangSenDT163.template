@@ -22,7 +22,6 @@ mintpy.compute.cluster              = local
 mintpy.compute.numWorker            = 32
 mintpy.networkInversion.minTempCoh  = auto
 
-
 ####################
 
 minsar.miaplpyDir.addition           = date          #[name / lalo / no ]  auto for no (miaply_$name_startDate_endDate)) 
@@ -44,6 +43,6 @@ miaplpy.multiprocessing.numProcessor = 40
 miaplpy.inversion.rangeWindow        = 24   # range window size for searching SHPs, auto for 15
 miaplpy.inversion.azimuthWindow      = 7   # azimuth window size for searching SHPs, auto for 15
 miaplpy.timeseries.tempCohType       = average  # [full, average], auto for full.
-miaplpy.timeseries.minTempCoh        = 0.65     # auto for 0.5
+miaplpy.timeseries.minTempCoh        = 0.75     # auto for 0.5
 #############################################
 insarmaps_flag                       = False                                                                                                
