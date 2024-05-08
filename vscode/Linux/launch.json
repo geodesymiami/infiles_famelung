@@ -1,0 +1,149 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "type": "bashdb",
+            "request": "launch",
+            "name": "run_workflow.bash insarmaps",
+            //"cwd": "${workspaceFolder}",
+            "cwd": "/scratch/05861/tg851601/unittestGalapagosSenDT128",
+            "program": "/work2/05861/tg851601/stampede2/code/rsmas_insar/minsar/run_workflow.bash",
+            "args": ["/work2/05861/tg851601/stampede2/code/rsmas_insar/samples/unittestGalapagosSenDT128.template","--job-file","insarmaps_miaplpy_geo.job"],
+            "env": {
+                "SCRATCHDIR": "/scratch/05861/tg851601",
+            }
+        },
+
+
+        {
+            "name": "create_html.py",
+            "type": "debugpy",
+            "request": "launch",
+            "program": "${file}",
+            "console": "integratedTerminal",
+            "justMyCode": true,
+            "cwd": "${env:SCRATCHDIR}/unittestGalapagosSenDT128",
+            "args": ["mintpy/pic"]
+        },
+        {
+            "name": "create_runfiles.py MiamitestTsx",
+            "type": "debugpy",
+            "request": "launch",
+            //"program": "${file}",
+            //"program": "${env:RSMASINSAR_HOME}/minsar/create_runfiles.py",
+            "program": "/work2/05861/tg851601/stampede2/code/rsmas_insar/minsar/create_runfiles.py",          
+            "console": "integratedTerminal",
+            "justMyCode": false,
+            "cwd": "${env:SCRATCHDIR/MiamitestTsxSMDT36}",
+            "args": ["/work2/05861/tg851601/stampede2/code/rsmas_insar/samples/MiamitestTsxSMDT36.template","--jobfiles","--queue","skx","--no-tmp"],
+            //"envFile": "${workspaceFolder}/.env"
+        },    
+        {
+            "name": "unpackFrame_TSX.py MiamitestTsx",
+            "type": "debugpy",
+            "request": "launch",
+            //"program": "${file}",
+            "program": "/work2/05861/tg851601/stampede2/code/rsmas_insar/tools/miniconda3/share/isce2/stripmapStack/unpackFrame_TSX.py",
+            "console": "integratedTerminal",
+            "justMyCode": false,
+            "cwd": "${env:SCRATCHDIR/MiamitestTsxSMDT36}",
+            "args": ["-i","/scratch/05861/tg851601/MiamitestTsxSMDT36/SLC_ORIG/20170901","-o","/scratch/05861/tg851601/MiamitestTsxSMDT36/./SLC/20170901"],
+            //"envFile": "${workspaceFolder}/.env"
+        }, 
+        {
+            "name": "unpackFrame_CSK_raw.py MaunaLoatestCskAT10",
+            "type": "debugpy",
+            "request": "launch",
+            //"program": "${file}",
+            "program": "/work2/05861/tg851601/stampede2/code/rsmas_insar/tools/miniconda3/share/isce2/stripmapStack/unpackFrame_CSK_raw.py",
+            "console": "integratedTerminal",
+            "justMyCode": false,
+            "cwd": "${env:SCRATCHDIR/MaunaLoatestCskAT10}",
+            "args": ["-i","/scratch/05861/tg851601/MaunaLoatestCskAT10/RAW_data/20201126","-o","/scratch/05861/tg851601/MaunaLoatestCskAT10/SLC/20201126"],
+            //"envFile": "${workspaceFolder}/.env"
+        }, 
+        {
+            "name": "unpackFrame_ICEYE.py MaunaLoaIceA1",
+            "type": "debugpy",
+            "request": "launch",
+            //"program": "${file}",
+            "program": "/work2/05861/tg851601/stampede2/code/rsmas_insar/tools/miniconda3/share/isce2/stripmapStack/unpackFrame_ICEYE.py",
+            "console": "integratedTerminal",
+            "justMyCode": false,
+            "cwd": "${env:SCRATCHDIR/MaunaLoaIceA1}",
+            //"args": ["-i","/scratch/05861/tg851601/MiamitestTsxSMDT36/SLC_ORIG/20170901","-o","/scratch/05861/tg851601/MiamitestTsxSMDT36/./SLC/20170901"],
+            //"args": ["-i","/scratch/05861/tg851601/MiamitestTsxSMDT36/SLC_ORIG/20170901","-o","/scratch/05861/tg851601/MiamitestTsxSMDT36/./SLC/20170901"],
+            //"args": ["-i","/scratch/05861/tg851601/MaunaLoaIceA1/SLC_ORIG/SM_2933207_153808/ICEYE_X6_SLC_SM_2933207_20231107T000959","-o","/scratch/05861/tg851601/MaunaLoaIceA1/SLC/20231107"]
+            "args": ["-i","/scratch/05861/tg851601/MaunaLoaIceA1/SLC_ORIG/SM_2933207_153808/","-o","/scratch/05861/tg851601/MaunaLoaIceA1/SLC/20231107"]
+            //"envFile": "${workspaceFolder}/.env"
+        }, 
+        {
+            "name": "stackStripMap.py MiamitestTsx",
+            "type": "debugpy",
+            "request": "launch",
+            //"program": "${file}",
+            "program": "/work2/05861/tg851601/stampede2/code/rsmas_insar/tools/miniconda3/share/isce2/stripmapStack/stackStripMap.py",
+            "console": "integratedTerminal",
+            "justMyCode": false,
+            "cwd": "${env:SCRATCHDIR/MiamitestTsxSMDT36}",
+            "args": ["--slc_directory", "./SLC", "--working_directory", "./", "--dem", "$SCRATCHDIR/MiamitestTsxSMDT36/DEM/demLat_N25_N27_Lon_W081_W079.dem.wgs84", "--bbox", "25.52 26.0 -80.41 -80.1174", "--time_threshold", "90", "--baseline_threshold", "450", "--azimuth_looks", "10", "--range_looks", "10", "--sensor", "tsx", "--unw_method", "snaphu", "--filter_strength", "0.2", "--filter_sigma_x", "100.0", "--filter_sigma_y", "100.0", "--filter_size_x", "800.0", "--filter_size_y", "800.0", "--filter_kernel_rotation", "0.0", "--workflow", "interferogram", "--zero", "--nofocus"],
+            //"args": ["-i","/scratch/05861/tg851601/MiamitestTsxSMDT36/SLC_ORIG/20170901","-o","/scratch/05861/tg851601/MiamitestTsxSMDT36/./SLC/20170901"]]
+            "envFile": "${workspaceFolder}/.env"
+        },    
+        {
+            "name": "create_runfiles.py unittestGalapagosSenDT128",
+            "type": "debugpy",
+            "request": "launch",
+            //"program": "${file}",
+            //"program": "${env:RSMASINSAR_HOME}/minsar/create_runfiles.py",
+            "program": "/work2/05861/tg851601/stampede2/code/rsmas_insar/minsar/create_runfiles.py",          
+            "console": "integratedTerminal",
+            "justMyCode": true,
+            "cwd": "${env:SCRATCHDIR}/unittestGalapagosSenDT128",
+            "args": ["/work2/05861/tg851601/stampede2/code/rsmas_insar/samples/unittestGalapagosSenDT128.template","--jobfiles","--queue","skx","--no-tmp"],
+            "envFile": "${workspaceFolder}/.env"
+        },    
+        {
+            "name": "miaplpyApp.py",
+            "type": "debugpy",
+            "request": "launch",
+            //"program": "${file}",
+            "preLaunchTask": "setupEnvironment",
+            "program": "${env:MIAPLPY_HOME}/src/miaplpy/miaplpyApp.py",
+            "console": "integratedTerminal",
+            "justMyCode": true,
+            "cwd": "${env:SCRATCHDIR/DelhiSenAT27}",
+            "args": ["/work2/05861/tg851601/stampede2/insarlab/infiles/famelung/TEMPLATES/DelhiSenAT27.template","--dir","miaplpy_Gurgaon_201410_201612","--jobfiles"]
+        },
+        {
+            "name": "create_save_hdf5_jobfile.py unittestGalapagos",
+            "type": "debugpy",
+            "request": "launch",
+            //"program": "${file}",
+            "program": "/work2/05861/tg851601/stampede2/code/rsmas_insar/minsar/create_save_hdf5_jobfile.py",
+            "console": "integratedTerminal",
+            "justMyCode": false,
+            "cwd": "${env:SCRATCHDIR/unittestGalapagosSenDT128}",
+            "args": ["/work2/05861/tg851601/stampede2/code/rsmas_insar/samples/unittestGalapagosSenDT128.template","miaplpy_SN_201606_201608/network_single_reference","--queue","skx","--walltime","0:30"],
+            //"envFile": "${workspaceFolder}/.env"
+        }, 
+        {
+            "name": "create_insarmaps_jobfile.py unittestGalapagosSendDT",
+            "type": "debugpy",
+            "request": "launch",
+            //"program": "${file}",
+            "program": "/work2/05861/tg851601/stampede2/code/rsmas_insar/minsar/create_insarmaps_jobfile.py",
+            "console": "integratedTerminal",
+            "justMyCode": false,
+            //"cwd": "${env:SCRATCHDIR}/unittestGalapagosSenDT128",
+            "cwd": "/scratch/05861/tg851601/unittestGalapagosSenDT128",
+            // "args": ["miaplpy_SN_201606_201608/network_single_reference","--data-set","PSDS","--queue","skx","--walltime","0:30"],
+            "args": ["miaplpy_SN_201606_201608/network_single_reference","--data-set","geo","--walltime","0:30"],
+            "envFile": "${workspaceFolder}/.env"
+            
+        }, 
+    ]
+}
