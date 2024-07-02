@@ -1,0 +1,53 @@
+####################
+ssaraopt.relativeOrbit              = 3                                                                                                 
+ssaraopt.startDate                  = 20170101
+#ssaraopt.endDate                    = 20230101
+####################
+topsStack.boundingBox               = 28.8 29.7 112.5 123.0                           # '-1 0.15 -91.6 -90.9'                           
+topsStack.boundingBox               = 29.2 29.4 112.5 123.0                           # '-1 0.15 -91.6 -90.9'                           
+topsStack.boundingBox               = 29.15 29.5 112.5 123.0                           # '-1 0.15 -91.6 -90.9'
+topsStack.subswath                  = 3                                                 # '1 2'                                           
+topsStack.numConnections            = 3                                                 # comment                                         
+topsStack.azimuthLooks              = 10                                                 # comment                                         
+topsStack.rangeLooks                = 30                                              # comment                                         
+topsStack.filtStrength              = 0.4                                               # comment                                         
+topsStack.unwMethod                 = snaphu                                            # comment                                         
+topsStack.coregistration            = auto                                              # [NESD geometry], auto for NESD                  
+####################
+mintpy.load.autoPath               = yes
+mintpy.troposphericDelay.method     = no                                #[pyaps / height_correlation / base_trop_cor / no], auto for pyaps
+mintpy.networkInversion.parallel    = no                                                #[yes / no], auto for no, parallel processing    
+mintpy.save.hdfEos5                 = yes                                               # [yes / update / no], auto for no, save timeseries to UNAVCO InSAR Archive format
+mintpy.save.hdfEos5.subset          = yes     #[yes / no], auto for no, put subset range info   in output filenam
+mintpy.save.hdfEos5.update          = no                                                # [yes / no], auto for no, put XXXXXXXX as endDate in output filename
+mintpy.save.kml                     = yes                                               # [yes / no], auto for yes, save geocoded velocity to Google Earth KMZ file
+mintpy.compute.cluster              = local
+mintpy.compute.numWorker            = 32
+####################
+
+minsar.miaplpyDir.addition           = Slide          #[name / lalo / no ]  auto for no (miaply_$name_startDate_endDate)) 
+miaplpy.subset.lalo                  = 29.26:29.33,120.76:120.80           #[S:N,W:E / no], auto for no
+mintpy.subset.lalo                   = 29.26:29.33,120.76:120.80           #[S:N,W:E / no], auto for no
+miaplpy.load.startDate               = auto
+miaplpy.load.endDate                 = auto
+
+mintpy.reference.lalo                = auto # 25.8248,-80.1222 # auto 
+mintpy.networkInversion.minTempCoh   = 0.80
+mintpy.geocode.laloStep              = 0.0016,0.0016  #[-0.000555556,0.000555556 / None], auto for None, output resolution in degree
+mintpy.geocode.laloStep              = 0.0002,0.0002 
+#############################################
+miaplpy.interferograms.networkType   = single_reference    # network
+miaplpy.interferograms.networkType   = delaunay            # network
+
+#############################################
+miaplpy.load.processor               = isce
+miaplpy.multiprocessing.numProcessor = 40
+miaplpy.inversion.rangeWindow        = 24   # range window size for searching SHPs, auto for 15
+miaplpy.inversion.azimuthWindow      = 9   # azimuth window size for searching SHPs, auto for 15
+miaplpy.timeseries.tempCohType       = auto     # [full, average], auto for full.
+#############################################
+mintpy.networkInversion.minTempCoh   = 0.6     # auto for 0.5
+miaplpy.timeseries.minTempCoh        = 0.6     # auto for 0.5
+minsar.insarmaps_flag                = True                                                                                                
+minsar.upload_flag                   = True                                                                                                
+minsar.insarmaps_dataset             = DS

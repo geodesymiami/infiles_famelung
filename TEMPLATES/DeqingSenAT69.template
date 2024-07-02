@@ -1,0 +1,102 @@
+process_flag                        = TRUE                                                                                                
+frequency                           = 1                                                                                                   
+login                               = pegasus.ccs.miami.edu                                                                               
+user                                = famelung                                                                                            
+####################
+####################
+email_pysar                         = famelung@rsmas.miami.edu jaz101@rsmas.miami.edu bvarugu@rsmas.miami.edu                                                  
+email_insarmaps                     = famelung@rsmas.miami.edu jaz101@rsmas.miami.edu bvarugu@rsmas.miami.edu                                                  
+####################
+every_day_flag                      = yes                                                                                                 
+processor                           = isce                                                                                                
+cleanopt                            = 0                                                                                                   
+hazard_products_flag                = TRUE                                                                                                
+ssaraopt.platform                   = SENTINEL-1A,SENTINEL-1B                                                                             
+ssaraopt.relativeOrbit              = 69                                                                                                 
+ssaraopt.startDate                  = 20140101
+#ssaraopt.endDate                    = 20230101
+####################
+topsStack.boundingBox               = 29.9 31.1 115.5 122.0                           # '-1 0.15 -91.6 -90.9'                           
+topsStack.subswath                  = 1 2 3                                                 # '1 2'                                           
+topsStack.subswath                  = 2 3                                                 # '1 2'                                           
+topsStack.numConnections            = 10                                                 # comment                                         
+topsStack.azimuthLooks              = 10                                                 # comment                                         
+topsStack.rangeLooks                = 30                                              # comment                                         
+topsStack.filtStrength              = 0.4                                               # comment                                         
+topsStack.unwMethod                 = snaphu                                            # comment                                         
+topsStack.coregistration            = auto                                              # [NESD geometry], auto for NESD                  
+####################
+mintpy.load.autoPath               = yes
+mintpy.troposphericDelay.method     = no                                #[pyaps / height_correlation / base_trop_cor / no], auto for pyaps
+mintpy.networkInversion.parallel    = no                                                #[yes / no], auto for no, parallel processing    
+mintpy.save.hdfEos5                 = yes                                               # [yes / update / no], auto for no, save timeseries to UNAVCO InSAR Archive format
+mintpy.save.hdfEos5.subset          = yes     #[yes / no], auto for no, put subset range info   in output filenam
+mintpy.save.hdfEos5.update          = no                                                # [yes / no], auto for no, put XXXXXXXX as endDate in output filename
+mintpy.save.kml                     = yes                                               # [yes / no], auto for yes, save geocoded velocity to Google Earth KMZ file
+mintpy.compute.cluster              = local
+mintpy.compute.numWorker            = 32
+####################
+
+minsar.miaplpyDir.addition           = Deqing          #[name / lalo / no ]  auto for no (miaply_$name_startDate_endDate)) 
+miaplpy.subset.lalo                  = 30.46:30.62,119.91:120.05           #[S:N,W:E / no], auto for no
+mintpy.subset.lalo                   = 30.46:30.62,119.91:120.05           #[S:N,W:E / no], auto for no
+miaplpy.load.startDate               = 20210101
+###### NorthNorthEast #######
+#minsar.miaplpyDir.addition           = NNE          #[name / lalo / no ]  auto for no (miaply_$name_startDate_endDate)) 
+#miaplpy.subset.lalo                  =  39.70:39.905,118.09:118.41           #[S:N,W:E / no], auto for no
+#mintpy.subset.lalo                   =  39.70:39.905,118.09:118.41           #[S:N,W:E / no], auto for no
+####### NorthEastNorthEast #######
+#minsar.miaplpyDir.addition           = NENE          #[name / lalo / no ]  auto for no (miaply_$name_startDate_endDate)) 
+#miaplpy.subset.lalo                  = 39.70:39.905,118.39:118.66           #[S:N,W:E / no], auto for no
+#mintpy.subset.lalo                   = 39.70:39.905,118.39:118.66           #[S:N,W:E / no], auto for no
+####### EastSouthEast  #######
+#minsar.miaplpyDir.addition           = ESE          #[name / lalo / no ]  auto for no (miaply_$name_startDate_endDate)) 
+#miaplpy.subset.lalo                  = 39.295:39.505,118.39:118.66           #[S:N,W:E / no], auto for no
+#mintpy.subset.lalo                   = 39.295:39.505,118.39:118.66           #[S:N,W:E / no], auto for no
+####### EastNorthEast #######
+#minsar.miaplpyDir.addition           = ENE          #[name / lalo / no ]  auto for no (miaply_$name_startDate_endDate)) 
+#miaplpy.subset.lalo                  = 39.495:39.71,118.39:118.66           #[S:N,W:E / no], auto for no
+#mintpy.subset.lalo                   = 39.495:39.71,118.39:118.66           #[S:N,W:E / no], auto for no
+###### SouthWest  #######
+#minsar.miaplpyDir.addition           = SW          #[name / lalo / no ]  auto for no (miaply_$name_startDate_endDate)) 
+#miaplpy.subset.lalo                  = 39.295:39.505,117.79:118.10           #[S:N,W:E / no], auto for no
+#mintpy.subset.lalo                   = 39.295:39.505,117.79:118.10           #[S:N,W:E / no], auto for no
+###### NorthEast #######
+#minsar.miaplpyDir.addition           = NE          #[name / lalo / no ]  auto for no (miaply_$name_startDate_endDate)) 
+#miaplpy.subset.lalo                  =  39.495:39.71,118.09:118.41           #[S:N,W:E / no], auto for no
+#mintpy.subset.lalo                   =  39.495:39.71,118.09:118.41           #[S:N,W:E / no], auto for no
+####### NorthWest #######
+#minsar.miaplpyDir.addition           = NW          #[name / lalo / no ]  auto for no (miaply_$name_startDate_endDate)) 
+#miaplpy.subset.lalo                  = 39.495:39.71,117.79:118.10           #[S:N,W:E / no], auto for no
+#mintpy.subset.lalo                   = 39.495:39.71,117.79:118.10           #[S:N,W:E / no], auto for no
+####### SouthEast  #######
+#minsar.miaplpyDir.addition           = SE          #[name / lalo / no ]  auto for no (miaply_$name_startDate_endDate)) 
+#miaplpy.subset.lalo                  = 39.295:39.505,118.09:118.41           #[S:N,W:E / no], auto for no
+#mintpy.subset.lalo                   = 39.295:39.505,118.09:118.41           #[S:N,W:E / no], auto for no
+
+#miaplpy.interferograms.referenceDate = 20190423 # auto for the middle image
+miaplpy.load.startDate               = auto
+miaplpy.load.endDate                 = 20190331
+mintpy.reference.lalo                = auto # 25.8248,-80.1222 # auto 
+mintpy.networkInversion.minTempCoh   = 0.80
+mintpy.geocode.laloStep              = 0.0004,0.0004 
+mintpy.geocode.laloStep              = 0.0016,0.0016  #[-0.000555556,0.000555556 / None], auto for None, output resolution in degree
+miaplpy.timeseries.minTempCoh        = 0.7     # auto for 0.5
+#############################################
+miaplpy.interferograms.networkType   = single_reference    # network
+miaplpy.interferograms.networkType   = delaunay            # network
+#miaplpy.interferograms.delaunayBaselineRatio   = 9     # [1, 4, 9] Ratio between perpendiclar and temporal baselines, auto for 4
+#miaplpy.interferograms.delaunayTempThresh      = 3000     # [days] temporal threshold for delaunay triangles, auto for 120
+#miaplpy.interferograms.delaunayPerpThresh      = 15     # [meters] Perp baseline threshold for delaunay triangles, auto for 200
+
+#############################################
+miaplpy.load.processor               = isce
+miaplpy.multiprocessing.numProcessor = 40
+miaplpy.inversion.rangeWindow        = 24   # range window size for searching SHPs, auto for 15
+miaplpy.inversion.azimuthWindow      = 9   # azimuth window size for searching SHPs, auto for 15
+miaplpy.timeseries.tempCohType       = auto     # [full, average], auto for full.
+miaplpy.timeseries.minTempCoh        = auto     # auto for 0.5
+#############################################
+minsar.insarmaps_flag                = True                                                                                                
+minsar.upload_flag                   = True                                                                                                
+minsar.insarmaps_dataset             = PS
