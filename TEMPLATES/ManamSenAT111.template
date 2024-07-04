@@ -21,7 +21,6 @@ mintpy.save.hdfEos5.update          = no                                        
 mintpy.save.kml                     = yes                                               # [yes / no], auto for yes, save geocoded velocity to Google Earth KMZ file
 mintpy.compute.cluster              = local
 mintpy.compute.numWorker            = 32
-mintpy.geocode.laloStep             = 0.0008,0.0008   #  auto  # 0.0008  #[-0.000555556,0.000555556 / None], auto for None, output resolution in degree
 mintpy.networkInversion.minTempCoh  = auto
 
 ####################
@@ -31,7 +30,7 @@ miaplpy.subset.lalo                  = -4.125:-4.025,144.985:145.09    #[S:N,W:E
 mintpy.subset.lalo                   = -4.125:-4.025,144.985:145.09    #[S:N,W:E / no], auto for no
 miaplpy.load.startDate               = auto #  20200101
 miaplpy.load.endDate                 = auto
-mintpy.geocode.laloStep              = 0.0005,0.0005 
+mintpy.geocode.laloStep              = 0.0002,0.0002 
 
 miaplpy.interferograms.delaunayTempThresh = 90     # [days] temporal threshold for delaunay triangles, auto for 60
 miaplpy.interferograms.networkType   = single_reference    # network

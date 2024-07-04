@@ -5,14 +5,14 @@ ssaraopt.relativeOrbit              = 39
 topsStack.boundingBox               = -8.80 -8.20 122.0 126.0
 topsStack.subswath                  = 2                                               # '1 2'                                           
 topsStack.numConnections            = 3                                                 # comment                                         
-topsStack.azimuthLooks              = 3                                                 # comment                                         
-topsStack.rangeLooks                = 12                                                # comment                                         
+topsStack.azimuthLooks              = 4                                                 # comment                                         
+topsStack.rangeLooks                = 16                                                # comment                                         
 topsStack.filtStrength              = 0.4                                               # comment                                         
 topsStack.unwMethod                 = snaphu                                            # comment                                         
 topsStack.coregistration            = auto                                              # [NESD geometry], auto for NESD                  
 ####################
 mintpy.load.autoPath               = yes
-mintpy.troposphericDelay.method     = no                                #[pyaps / height_correlation / base_trop_cor / no], auto for pyaps
+mintpy.troposphericDelay.method     = auto                                #[pyaps / height_correlation / base_trop_cor / no], auto for pyaps
 mintpy.networkInversion.parallel    = no                                                #[yes / no], auto for no, parallel processing    
 mintpy.save.hdfEos5                 = yes                                               # [yes / update / no], auto for no, save timeseries to UNAVCO InSAR Archive format
 mintpy.save.hdfEos5.subset          = yes     #[yes / no], auto for no, put subset range info   in output filenam
@@ -31,6 +31,7 @@ mintpy.subset.lalo                   = -8.552:-8.486,123.555:123.591    #[S:N,W:
 miaplpy.load.startDate               = 20170101 #  20200101
 miaplpy.load.endDate                 = auto
 mintpy.geocode.laloStep              = 0.0002,0.0002 
+mintpy.reference.lalo                = -8.549,123.575 #[31.8,130.8 / auto]
 
 miaplpy.interferograms.delaunayTempThresh = 90     # [days] temporal threshold for delaunay triangles, auto for 60
 miaplpy.interferograms.networkType   = single_reference    # network
@@ -44,4 +45,5 @@ miaplpy.inversion.azimuthWindow      = 7   # azimuth window size for searching S
 miaplpy.timeseries.tempCohType       = average  # [full, average], auto for full.
 miaplpy.timeseries.minTempCoh        = 0.65     # auto for 0.5
 #############################################
-insarmaps_flag                       = False                                                                                                
+minsar.insarmaps_dataset              = DS       # [PS,DS,PSDS,geo,all], miaplpy dataset to ingest (Default: geo) (MintPy is always geo)
+minsar.upload_option                  = --geo   

@@ -36,18 +36,25 @@ mintpy.save.hdfEos5.update          = yes                        # [yes / no], a
 mintpy.save.hdfEos5.subset          = yes     #[yes / no], auto for no, put subset range info   in output filename
 
 ####################
-mintpy.networkInversion.minTempCoh   = 0.7 #[0.0-1.0], auto for 0.7, min temporal coherence for mask
-miaplpy.timeseries.minTempCoh        = 0.55     # auto for 0.5
-miaplpy.interferograms.networkType   = delaunay     # [single_reference, sequential, combine, list] default: single_reference
+minsar.miaplpyDir.addition           = date          #[name / lalo / no ]  auto for no (miaply_$name_startDate_endDate))
+miaplpy.multiprocessing.numProcessor = 40
+miaplpy.load.processor               = isce
+miaplpy.load.autoPath                = yes
+miaplpy.inversion.rangeWindow        = 24   # range window size for searching SHPs, auto for 15
+miaplpy.inversion.azimuthWindow      = 7   # azimuth window size for searching SHPs, auto for 15
 mintpy.geocode.laloStep              = 0.0002,0.0002
 
-minsar.miaplpyDir.addition           = date          #[name / lalo / no ]  auto for no (miaply_$name_startDate_endDate))
-miaplpy.load.autoPath                  = yes
-mintpy.subset.lalo                     = -7.6:-7.49,110.39:110.49
-miaplpy.subset.lalo                    = -7.6:-7.49,110.39:110.49
-miaplpy.multiprocessing.numProcessor   = 20
-miaplpy.load.processor                 = isce
-miaplpy.timeseries.tempCohType         = average     # [full, average], auto for full.
+miaplpy.interferograms.networkType   = delaunay     # [single_reference, sequential, combine, list] default: single_reference
+miaplpy.timeseries.tempCohType       = full     # [full, average], auto for full.
+mintpy.networkInversion.minTempCoh   = 0.7 #[0.0-1.0], auto for 0.7, min temporal coherence for mask
+miaplpy.timeseries.minTempCoh        = 0.85     # auto for 0.5
 
+mintpy.subset.lalo                   = -7.6:-7.49,110.39:110.49
+miaplpy.subset.lalo                  = -7.6:-7.49,110.39:110.49
+mintpy.subset.lalo                   = -7.61:-7.49,110.39:110.49
+miaplpy.subset.lalo                  = -7.61:-7.49,110.39:110.49
+
+####################
 insarmaps_flag                      = False                                                                                                
+minsar.insarmaps_dataset            = PSDS       # [PS,DS,PSDS,geo,all], miaplpy dataset to ingest (Default: geo) (MintPy is always geo)
 

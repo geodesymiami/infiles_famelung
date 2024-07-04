@@ -82,7 +82,7 @@ mintpy.reference.lalo                = auto # 25.8865,-80.1225  #  works for 201
 minsar.miaplpyDir.addition           = SSurfside                        #[name / lalo / no ]  auto for no (miaply_$name_startDate_endDate)) 
 miaplpy.subset.lalo                  = 25.871:25.92,-80.123:-80.119    #[S:N,W:E / no], auto for no
 mintpy.subset.lalo                   = 25.871:25.92,-80.123:-80.119    #[S:N,W:E / no], auto for no
-miaplpy.load.startDate               = 20190101
+miaplpy.load.startDate               = 20160101
 mintpy.reference.lalo                = auto # 6/2023: updated because out of mask  
 
 ###### Southern Surfside ######
@@ -103,12 +103,12 @@ miaplpy.load.startDate               = auto
 minsar.miaplpyDir.addition           = MDCBeach          #[name / lalo / no ]  auto for no (miaply_$name_startDate_endDate)) 
 miaplpy.subset.lalo                  = 25.765:25.98,-80.147:-80.1146    #[S:N,W:E / no], auto for no
 mintpy.subset.lalo                   = 25.765:25.98,-80.147:-80.1146    #[S:N,W:E / no], auto for no
-miaplpy.load.startDate               = 20190101
+miaplpy.load.startDate               = 20160101
 miaplpy.load.endDate                 = 20231031
 mintpy.reference.lalo                = auto # 25.9334,-80.1237                         # W Brickel Marquis condo
-mintpy.reference.lalo                = 25.874,-80.123   # 25.8865,-80.1225  #  works for 2015_202111 (Sara's time period)
-mintpy.reference.lalo                = 25.88009,-80.12318   # 25.8865,-80.1225  #  works for 2015_202111 (Sara's time period)
-mintpy.reference.lalo                = 25.87374,-80.12274   # 25.8865,-80.1225  #  works for 2015_202111 (Sara's time period)
+#mintpy.reference.lalo                = 25.874,-80.123   # 25.8865,-80.1225  #  works for 2015_202111 (Sara's time period)
+#mintpy.reference.lalo                = 25.88009,-80.12318   # 25.8865,-80.1225  #  works for 2015_202111 (Sara's time period)
+#mintpy.reference.lalo                = 25.87374,-80.12274   # 25.8865,-80.1225  #  works for 2015_202111 (Sara's time period)
  
 #############################################
 miaplpy.load.processor                       = isce
@@ -138,3 +138,9 @@ mintpy.reference.date               = 20191205   #[reference_date.txt / 20090214
 #mintpy.unwrapError.connCompMinArea  = 200  #[1-inf], auto for 2.5e3, discard regions smaller than the min size in pixels
 #mintpy.reference.yx                 = 349,1393   #[257,151 / auto]
 #mintpy.reference.date                = 20191205   #[reference_date.txt / 20090214 / no], auto for reference_date.txt
+
+miaplpy.timeseries.minTempCoh        = 0.7     # auto for 0.5
+mintpy.networkInversion.minTempCoh   = 0.7
+#############################################
+#minsar.insarmaps_dataset             = DS       # [PS,DS,PSDS,geo,all], miaplpy dataset to ingest (Default: geo) (MintPy is always geo)
+#insarmaps_flag                       = True

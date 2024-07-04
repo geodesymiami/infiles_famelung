@@ -33,23 +33,32 @@ mintpy.save.hdfEos5.update        = yes   #[yes / no], auto for no, put XXXXXXXX
 mintpy.save.hdfEos5.subset        = yes     #[yes / no], auto for no, put subset range info   in output filename
 mintpy.save.kmz                   = yes  #[yes / no], auto for yes, save geocoded velocity to Google Earth KMZ file
 ####################
-minsar.miaplpyDir.addition           = date          #[name / lalo / no ]  auto for no (miaply_$name_startDate_endDate)) 
+minsar.miaplpyDir.addition           = date          #[name / lalo / no ]  auto for no (miaply_$name_startDate_endDate))
 mintpy.subset.lalo                  = -7.59:-7.51,110.4:110.49
 miaplpy.subset.lalo                  = -7.59:-7.51,110.4:110.49    #[S:N,W:E / no], auto for no
 miaplpy.load.startDate               = auto #  20200101
 miaplpy.load.endDate                 = auto
 mintpy.geocode.laloStep              = 0.0002,0.0002
-mintpy.reference.minCoherence        = 0.5   #[0.0-1.0], auto for 0.85, minimum coherence for auto method
+#mintpy.reference.minCoherence        = 0.5   #[0.0-1.0], auto for 0.85, minimum coherence for auto method
 miaplpy.interferograms.delaunayTempThresh = 90     # [days] temporal threshold for delaunay triangles, auto for 60
-miaplpy.interferograms.networkType  = delaunay # network
 miaplpy.interferograms.networkType  = single_reference # network
+miaplpy.interferograms.networkType  = delaunay # network
 #############################################
-miaplpy.load.processor  = isce
+minsar.miaplpyDir.addition           = date          #[name / lalo / no ]  auto for no (miaply_$name_startDate_endDate))
 miaplpy.multiprocessing.numProcessor = 40
-miaplpy.inversion.rangeWindow        = 24   # range window size for searching SHPs, auto for 15
-miaplpy.inversion.azimuthWindow      = 7   # azimuth window size for searching SHPs, auto for 15
-miaplpy.timeseries.tempCohType       = full  # [full, average], auto for full.
-miaplpy.timeseries.minTempCoh        = 0.70     # auto for 0.5
+miaplpy.load.processor               = isce
+miaplpy.load.autoPath                = yes
+miaplpy.inversion.rangeWindow        = 24   # range window size for searching SHPs, auto for 15
+miaplpy.inversion.azimuthWindow      = 7   # azimuth window size for searching SHPs, auto for 15
+mintpy.geocode.laloStep              = 0.0002,0.0002
+
+miaplpy.interferograms.networkType   = delaunay     # [single_reference, sequential, combine, list] default: single_reference
+miaplpy.timeseries.tempCohType       = full     # [full, average], auto for full.
+mintpy.networkInversion.minTempCoh   = 0.7 #[0.0-1.0], auto for 0.7, min temporal coherence for mask
+miaplpy.timeseries.minTempCoh        = 0.85     # auto for 0.5
+
+mintpy.subset.lalo                   = -7.61:-7.49,110.39:110.49
+miaplpy.subset.lalo                  = -7.61:-7.49,110.39:110.49
 #############################################
 insarmaps_flag                       = False
-
+minsar.insarmaps_dataset             = PSDS       # [PS,DS,PSDS,geo,all], miaplpy dataset to ingest (Default: geo) (MintPy is always geo)

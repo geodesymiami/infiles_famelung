@@ -7,6 +7,7 @@ hazard_products_flag                = TRUE
 ssaraopt.platform                   = SENTINEL-1A,SENTINEL-1B                                                                             
 ssaraopt.relativeOrbit              = 124                                                                                                  
 ssaraopt.startDate                  = 20180904                                                                                                  
+ssaraopt.startDate                  = 20230101                                                                                                  
 ####################
 topsStack.boundingBox               = 19.45 19.49 -156.1 -154.5                           # '-1 0.15 -91.6 -90.9'                           
 topsStack.subswath                  = 2                                                # '1 2'                                           

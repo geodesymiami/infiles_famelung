@@ -1,23 +1,15 @@
-process_flag                        = TRUE                                                                                                
-frequency                           = 1                                                                                                   
-login                               = pegasus.ccs.miami.edu                                                                               
-user                                = famelung                                                                                            
-####################
-####################
-email_pysar                         = famelung@rsmas.miami.edu jaz101@rsmas.miami.edu bvarugu@rsmas.miami.edu                                                  
-email_insarmaps                     = famelung@rsmas.miami.edu jaz101@rsmas.miami.edu bvarugu@rsmas.miami.edu                                                  
-####################
-every_day_flag                      = yes                                                                                                 
 processor                           = isce                                                                                                
 cleanopt                            = 0                                                                                                   
 hazard_products_flag                = TRUE                                                                                                
 ssaraopt.platform                   = SENTINEL-1A,SENTINEL-1B                                                                             
-ssaraopt.relativeOrbit              = 34                                                                                                 
+ssaraopt.relativeOrbit              = 107                                                                                                 
+minsar.upload_flag                  = True    # [True / False ], upload to jetstream (Default: False)
+minsar.insarmaps_flag               = True    # [True / False ], ingest into insarmaps (Default: False)
+minsar.insarmaps_dataset            = PSDS       # [PS,DS,PSDS,geo,all], miaplpy dataset to ingest (Default: geo) (MintPy is always geo)
 ####################
-topsStack.boundingBox               = 22.8 23.50 70.0 75.0                          # '-1 0.15 -91.6 -90.9'
-topsStack.subswath                  = 3                                                 # '1 2'                                           
+topsStack.boundingBox               = 23.9 24.4 68.0 75.0                          # '-1 0.15 -91.6 -90.9'
 topsStack.subswath                  = 1 2 3                                             # '1 2'                                           
-topsStack.numConnections            = 4                                                 # comment                                         
+topsStack.numConnections            = 5                                                 # comment                                         
 topsStack.azimuthLooks              = 6                                                 # comment                                         
 topsStack.rangeLooks                = 24                                                # comment                                         
 topsStack.filtStrength              = 0.4                                               # comment                                         
@@ -36,16 +28,31 @@ mintpy.compute.cluster              = local
 mintpy.compute.numWorker            = 32
 ####################
 
-###### Ahmedabad North #######
-mintpy.subset.lalo                   = 23.10:23.3,72.44:72.64
-miaplpy.subset.lalo                  = 23.10:23.3,72.44:72.64
-mintpy.reference.lalo                = auto # 25.8248,-80.1222 # auto refPointLat=25.82477&refPointLon=-80.12222 # 25.8791,-80.1259                          # W Brickel Marquis condo
-minsar.miaplpyDir.addition           = AhmedabadN          #[name / lalo / no ]  auto for no (miaply_$name_startDate_endDate)) 
-###### Ahmedabad South #######
-mintpy.subset.lalo                   = 22.89:23.11,72.44:72.64
-miaplpy.subset.lalo                  = 22.89:23.11,72.44:72.64
-mintpy.reference.lalo                = auto # 25.8248,-80.1222 # auto refPointLat=25.82477&refPointLon=-80.12222 # 25.8791,-80.1259                          # W Brickel Marquis condo
-minsar.miaplpyDir.addition           = AhmedabadS          #[name / lalo / no ]  auto for no (miaply_$name_startDate_endDate)) 
+#miaplpy.subset.lalo                  = 24.11:24.223,71.864:71.992
+###### DeesaW1 #######
+#mintpy.subset.lalo                   = 24.09:24.31,71.79:72.01
+#miaplpy.subset.lalo                  = 24.09:24.31,71.79:72.01
+#minsar.miaplpyDir.addition           = DeesaW1          #[name / lalo / no ]  auto for no (miaply_$name_startDate_endDate)) 
+####### DeesaW2 #######
+#mintpy.subset.lalo                   = 23.89:24.11,71.79:72.01
+#miaplpy.subset.lalo                  = 23.89:24.11,71.79:72.01
+#minsar.miaplpyDir.addition           = DeesaW2          #[name / lalo / no ]  auto for no (miaply_$name_startDate_endDate)) 
+###### DeesaC1 #######
+#mintpy.subset.lalo                   = 24.09:24.31,71.99:72.21
+#miaplpy.subset.lalo                  = 24.09:24.31,71.99:72.21
+#minsar.miaplpyDir.addition           = DeesaC1          #[name / lalo / no ]  auto for no (miaply_$name_startDate_endDate)) 
+###### DeesaC2 #######
+#mintpy.subset.lalo                   = 23.89:24.11,71.99:72.21
+#miaplpy.subset.lalo                  = 23.89:24.11,71.99:72.21
+#minsar.miaplpyDir.addition           = DeesaC2          #[name / lalo / no ]  auto for no (miaply_$name_startDate_endDate)) 
+###### DeesaE1 #######
+#mintpy.subset.lalo                   = 24.09:24.31,72.19:72.41
+#miaplpy.subset.lalo                  = 24.09:24.31,72.19:72.41
+#minsar.miaplpyDir.addition           = DeesaE1          #[name / lalo / no ]  auto for no (miaply_$name_startDate_endDate)) 
+####### DeesaE2 #######
+#mintpy.subset.lalo                   = 23.89:24.11,72.19:72.41
+#miaplpy.subset.lalo                  = 23.89:24.11,72.19:72.41
+#minsar.miaplpyDir.addition           = DeesaE2          #[name / lalo / no ]  auto for no (miaply_$name_startDate_endDate)) 
 #############################################
 miaplpy.load.processor               = isce
 miaplpy.multiprocessing.numProcessor = 40
@@ -64,5 +71,3 @@ miaplpy.interferograms.ministackRefMonth       = 5     # The month of the year t
 
 miaplpy.timeseries.residualNorm      = auto     # [L1, L2], auto for L2, norm minimization solution
 #############################################
-
-insarmaps_flag                       = False                                                                                                

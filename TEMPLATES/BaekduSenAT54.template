@@ -1,13 +1,13 @@
 ssaraopt.platform                   = SENTINEL-1A,SENTINEL-1B                                                                             
 #ssaraopt.startDate                  = 20160101
 #ssaraopt.endDate                    = 20201211
-ssaraopt.relativeOrbit              = 134                                                                                                
+ssaraopt.relativeOrbit              = 54                                                                                                 
 ####################
-topsStack.boundingBox               = 41.7 42.2 126 130                            # '-1 0.15 -91.6 -90.9'                           
-topsStack.subswath                  = 3                                               # '1 2'                                           
-topsStack.numConnections            = 3                                                 # comment                                         
-topsStack.azimuthLooks              = 4                                                 # comment                                         
-topsStack.rangeLooks                = 16                                                # comment                                         
+topsStack.boundingBox               = 41.7 42.2 126.5 129.6
+topsStack.subswath                  = 2 3                                               # '1 2'                                           
+topsStack.numConnections            = 2                                                 # comment                                         
+topsStack.azimuthLooks              = 10                                                 # comment                                         
+topsStack.rangeLooks                = 30                                                # comment                                         
 topsStack.filtStrength              = 0.4                                               # comment                                         
 topsStack.unwMethod                 = snaphu                                            # comment                                         
 topsStack.coregistration            = auto                                              # [NESD geometry], auto for NESD                  
@@ -27,6 +27,9 @@ mintpy.networkInversion.minTempCoh  = auto
 minsar.miaplpyDir.addition           = date          #[name / lalo / no ]  auto for no (miaply_$name_startDate_endDate))
 mintpy.subset.lalo                   = 41.95:42.06,127.97:128.174   #[S:N,W:E / no], auto for no
 miaplpy.subset.lalo                  = 41.95:42.06,127.97:128.174   #[S:N,W:E / no], auto for no
+#mintpy.subset.lalo                   = 41.943:42.074,127.957:128.125    #[S:N,W:E / no], auto for no
+#miaplpy.subset.lalo                  = 41.943:42.074,127.957:128.125    #[S:N,W:E / no], auto for no
+
 miaplpy.start.endDate                 = auto
 miaplpy.load.endDate                 = auto
 mintpy.geocode.laloStep              = 0.0002,0.0002 
@@ -42,7 +45,8 @@ miaplpy.multiprocessing.numProcessor = 40
 miaplpy.inversion.rangeWindow        = 24   # range window size for searching SHPs, auto for 15
 miaplpy.inversion.azimuthWindow      = 7   # azimuth window size for searching SHPs, auto for 15
 miaplpy.timeseries.tempCohType       = full  # [full, average], auto for full.
-miaplpy.timeseries.minTempCoh        = 0.85     # auto for 0.5
+miaplpy.timeseries.minTempCoh        = 0.65     # auto for 0.5
+mintpy.networkInversion.minTempCoh   = 0.65
 #############################################
 minsar.insarmaps_dataset             = DS       # [PS,DS,PSDS,geo,all], miaplpy dataset to ingest (Default: geo) (MintPy is always geo)
-insarmaps_flag                       = False                                                                                                
+insarmaps_flag                       = True                                                                                                

@@ -1,0 +1,51 @@
+# vim: set filetype=cfg:
+topsStack.subswath         = 2                                               # '1 2'
+topsStack.boundingBox               = 18.9 20.0 -156.1 -154.5                           # '-1 0.15 -91.6 -90.9'
+ssaraopt.relativeOrbit              = 999
+relativeOrbit              = 999
+##------------------------  MintPy ----------------------------------##
+mintpy.load.processor      = gamma
+mintpy.load.unwFile        = $SCRATCHDIR/MaunaLoaTsxA1/interferograms/*/diff_*rlks.unw
+mintpy.load.corFile        = $SCRATCHDIR/MaunaLoaTsxA1/interferograms/*/filt_*rlks.cor
+mintpy.load.connCompFile   = None
+mintpy.load.intFile        = None
+
+mintpy.load.demFile        = $SCRATCHDIR/MaunaLoaTsxA1/geometry/sim_*.rdc.dem
+mintpy.load.lookupYFile    = $SCRATCHDIR/MaunaLoaTsxA1/geometry/sim_*.UTM_TO_RDC
+mintpy.load.lookupXFile    = $SCRATCHDIR/MaunaLoaTsxA1/geometry/sim_*.UTM_TO_RDC
+mintpy.load.incAngleFile   = None
+mintpy.load.azAngleFile    = None
+mintpy.load.shadowMaskFile = None
+mintpy.load.waterMaskFile  = None
+
+#mintpy.network.excludeDate     = 20240403,20240331,20230911,20240110,20240405,20231029
+mintpy.network.excludeDate     = 20240403,20231107
+
+mintpy.multilook.method     = auto    #[nearest, mean, median], auto for nearest - lines/rows skipping approach
+mintpy.multilook.ystep      = 4    #[int >= 1], auto for 1 - no multilooking
+mintpy.multilook.xstep      = 4    #[int >= 1], auto for 1 - no multilooking
+mintpy.compute.cluster          = local #[local / slurm / pbs / lsf / none], auto for none, cluster type
+mintpy.compute.numWorker        = 36 #[int > 1 / all], auto for 4 (local) or 40 (non-local), num of workers
+mintpy.troposphericDelay.method = height_correlation   # pyaps  #[pyaps / height_correlation / base_trop_cor / no], auto for pyaps
+
+mintpy.deramp                   = quadratic
+mintpy.deramp                   = linear
+mintpy.network.coherenceBased   = yes       #[yes / no], auto for yes, exclude interferograms with coherence < minCoherence
+mintpy.network.keepMinSpanTree  = no
+mintpy.network.minRedundancy    = 4
+mintpy.reference.lalo           = 19.52,-155.56   # 19.52,-155.56 for Asc, 19.52,-155.51 for Desc
+mintpy.reference.lalo           = 19.54,-155.54   # 19.52,-155.56 for Asc, 19.52,-155.51 for Desc
+mintpy.save.hdfEos5             = yes                        # [yes / update / no], auto for no, save timeseries to UNAVCO InSAR Archive format
+mintpy.save.hdfEos5.update      = yes                        # [yes / no], auto for no, put XXXXXXXX as endDate in output filename
+mintpy.save.hdfEos5.subset      = yes     #[yes / no], auto for no, put subset range info   in output filename
+
+##------------------------  HDF-EOS5 --------------------------------##
+mission             = TSX                 # ERS,ENV,S1,RS1,RS2,CSK,TSX,JERS,ALOS,ALOS2
+relative_orbit      = 999
+first_frame         = 2781
+last_frame          = 2781
+beam_mode           = IS                   # S2,FB08,IW
+processing_software = GAMMA
+
+
+
