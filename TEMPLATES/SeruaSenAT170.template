@@ -49,6 +49,6 @@ miaplpy.timeseries.minTempCoh        = 0.65     # auto for 0.5
 mintpy.networkInversion.minTempCoh   = 0.65     # auto for 0.5
 #############################################
 minsar.insarmaps_flag                = True
-minsar.insarmaps_dataset             = DS
+minsar.insarmaps_dataset             = filt*DS
 minsar.upload_option                 = --geo
 ##############################################

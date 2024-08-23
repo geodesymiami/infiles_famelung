@@ -40,6 +40,6 @@ miaplpy.interferograms.networkType   = delaunay
 
 ####################
 minsar.insarmaps_flag                = True
-minsar.insarmaps_dataset             = DS
+minsar.insarmaps_dataset             = filt*DS
 minsar.upload_option                 = --geo
 
