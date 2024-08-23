@@ -1,6 +1,6 @@
 ssaraopt.platform                   = SENTINEL-1A,SENTINEL-1B                                                                             
 ssaraopt.startDate                  = 20140101
-ssaraopt.endDate                  = 20200101
+ssaraopt.endDate                    = 20200101
 ssaraopt.relativeOrbit              = 170                                                                                                
 ####################
 topsStack.boundingBox               = -6.4 -6.2 128.0 131.0
@@ -46,5 +46,9 @@ miaplpy.inversion.rangeWindow        = 24   # range window size for searching SH
 miaplpy.inversion.azimuthWindow      = 7   # azimuth window size for searching SHPs, auto for 15
 miaplpy.timeseries.tempCohType       = average  # [full, average], auto for full.
 miaplpy.timeseries.minTempCoh        = 0.65     # auto for 0.5
+mintpy.networkInversion.minTempCoh   = 0.65     # auto for 0.5
 #############################################
-insarmaps_flag                       = False                                                                                                
+minsar.insarmaps_flag                = True
+minsar.insarmaps_dataset             = DS
+minsar.upload_option                 = --geo
+##############################################

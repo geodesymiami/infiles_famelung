@@ -1,7 +1,21 @@
-Stampede:
--rwxrwx--- 1 tg851601 2688 Jul 19 10:31 KokoxiliBigSenDT4.template
--rwxrwx--- 1 tg851601 2690 Jul 19 10:49 KokoxiliBigSenDT106.template
--rwxrwx--- 1 tg851601 2689 Jul 19 10:49 KokoxiliBigSenDT33.template
-Frontera:
--rwxrwx--- 1 tg851601 2690 Jul 19 10:51 KokoxiliBigSenAT172.template
--rwxrwx--- 1 tg851601 2689 Jul 19 10:52 KokoxiliBigSenAT99.template
+UlawunSenAT67.template BatuTaraSenAT039.template KadovarSenDT133.template BatuTaraSenDT163.template SeruaSenDT119.template KrakatoaSenAT171.template KrakatoaSenDT47.template ManamSenDT60.template WetarSenDT17.template BandaApiSenDT119.template SeruaSenAT170.template BamSenDT133.template SangeangSenDT134.template GamalamaSenDT90.template KadovarSenAT111.template LangilaSenDT162.template LangilaSenAT38.template RuangSenDT163.template NilaSenDT119.template UlawunSenDT16.template 
+
+UlawunSenAT67.template:miaplpy.timeseries.tempCohType       = average  # [full, average], auto for full.
+BatuTaraSenAT039.template:miaplpy.timeseries.tempCohType       = average  # [full, average], auto for full.
+KadovarSenDT133.template:miaplpy.timeseries.tempCohType       = full  # [full, average], auto for full.
+BatuTaraSenDT163.template:miaplpy.timeseries.tempCohType       = average  # [full, average], auto for full.
+SeruaSenDT119.template:miaplpy.timeseries.tempCohType       = full  # [full, average], auto for full.
+KrakatoaSenDT47.template:miaplpy.timeseries.tempCohType         = auto  # [full, average], auto for full.
+ManamSenDT60.template:miaplpy.timeseries.tempCohType       = full #  average  # [full, average], auto for full.
+WetarSenDT17.template:miaplpy.timeseries.tempCohType       = average  # [full, average], auto for full.
+BandaApiSenDT119.template:miaplpy.timeseries.tempCohType       = average  # [full, average], auto for full.
+SeruaSenAT170.template:miaplpy.timeseries.tempCohType       = average  # [full, average], auto for full.
+BamSenDT133.template:miaplpy.timeseries.tempCohType       = average  # [full, average], auto for full.
+SangeangSenDT134.template:miaplpy.timeseries.tempCohType       = average  # [full, average], auto for full.
+GamalamaSenDT90.template:miaplpy.timeseries.tempCohType       = average  # [full, average], auto for full.
+KadovarSenAT111.template:miaplpy.timeseries.tempCohType       = average  # [full, average], auto for full.
+LangilaSenDT162.template:miaplpy.timeseries.tempCohType       = average  # [full, average], auto for full.
+LangilaSenAT38.template:miaplpy.timeseries.tempCohType       = average  # [full, average], auto for full.
+RuangSenDT163.template:miaplpy.timeseries.tempCohType       = full     # [full, average], auto for full.
+NilaSenDT119.template:miaplpy.timeseries.tempCohType       = average  # [full, average], auto for full.
+UlawunSenDT16.template:miaplpy.timeseries.tempCohType       = average  # [full, average], auto for full.

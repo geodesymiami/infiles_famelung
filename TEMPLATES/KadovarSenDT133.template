@@ -1,5 +1,5 @@
 ssaraopt.platform                   = SENTINEL-1A,SENTINEL-1B                                                                             
-ssaraopt.startDate                  = 20220101
+ssaraopt.startDate                  = 20170101
 ssaraopt.endDate                    = 20291215
 ssaraopt.relativeOrbit              = 133                                                                                                 
 ####################
@@ -30,8 +30,7 @@ minsar.miaplpyDir.addition           = date          #[name / lalo / no ]  auto 
 miaplpy.subset.lalo                  = -3.620:-3.54,144.550:144.6    #[S:N,W:E / no], auto for no
 mintpy.subset.lalo                   = -3.620:-3.54,144.550:144.6    #[S:N,W:E / no], auto for no
 mintpy.geocode.laloStep              = 0.0002,0.0002   #  auto  # 0.0008  #[-0.000555556,0.000555556 / None], auto for None, output resolution in degree
-miaplpy.load.startDate               = 20180701 #  20200101
-miaplpy.load.endDate                 = 20201231
+miaplpy.load.startDate               = 20170101 #  20200101
 mintpy.reference.minCoherence        = 0.7   #[0.0-1.0], auto for 0.85, minimum coherence for auto method
 
 
@@ -47,4 +46,9 @@ miaplpy.inversion.azimuthWindow      = 7   # azimuth window size for searching S
 miaplpy.timeseries.tempCohType       = full  # [full, average], auto for full.
 miaplpy.timeseries.minTempCoh        = 0.5     # auto for 0.5
 #############################################
-insarmaps_flag                       = False                                                                                                
+miaplpy.timeseries.tempCohType       = full  # [full, average], auto for full.
+miaplpy.timeseries.minTempCoh        = 0.70     # auto for 0.5
+mintpy.networkInversion.minTempCoh   = 0.70     # auto for 0.5
+minsar.insarmaps_flag                = True
+minsar.insarmaps_dataset             = DS
+minsar.upload_option                 = --geo

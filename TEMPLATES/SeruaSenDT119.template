@@ -30,7 +30,7 @@ minsar.miaplpyDir.addition           = date          #[name / lalo / no ]  auto 
 miaplpy.subset.lalo                  = -6.324:-6.297,129.998:130.033    #[S:N,W:E / no], auto for no
 mintpy.subset.lalo                   = -6.324:-6.297,129.998:130.033    #[S:N,W:E / no], auto for no
 mintpy.geocode.laloStep              = 0.0002,0.0002   #  auto  # 0.0008  #[-0.000555556,0.000555556 / None], auto for None, output resolution in degree
-miaplpy.load.startDate               = 2020 #  20200101
+miaplpy.load.startDate               = auto #  20200101
 miaplpy.load.endDate                 = auto
 mintpy.reference.minCoherence        = 0.7   #[0.0-1.0], auto for 0.85, minimum coherence for auto method
 
@@ -45,6 +45,8 @@ miaplpy.multiprocessing.numProcessor = 40
 miaplpy.inversion.rangeWindow        = 24   # range window size for searching SHPs, auto for 15
 miaplpy.inversion.azimuthWindow      = 7   # azimuth window size for searching SHPs, auto for 15
 miaplpy.timeseries.tempCohType       = full  # [full, average], auto for full.
-miaplpy.timeseries.minTempCoh        = 0.65     # auto for 0.5
-#############################################
-insarmaps_flag                       = False                                                                                                
+miaplpy.timeseries.minTempCoh        = 0.75     # auto for 0.5
+mintpy.networkInversion.minTempCoh   = 0.75     # auto for 0.5
+minsar.insarmaps_flag                = True
+minsar.insarmaps_dataset             = DS
+minsar.upload_option                 = --geo

@@ -1,17 +1,8 @@
-process_flag                        = TRUE                                                                                                
-frequency                           = 1                                                                                                   
-user                                = famelung                                                                                            
 ####################
 ####################
-every_day_flag                      = yes                                                                                                 
-processor                           = isce                                                                                                
-parallel                            = yes
-cleanopt                            = 0                                                                                                   
-hazard_products_flag                = TRUE                                                                                                
 ssaraopt.platform                   = SENTINEL-1A,SENTINEL-1B                                                                             
 ssaraopt.relativeOrbit              = 171                                                                                                  
-ssaraopt.startDate                  = 20140101
-ssaraopt.endDate                    = 20181221
+ssaraopt.startDate                  = 20210501
 ####################
 topsStack.boundingBox               = -6.4 -6.0 105.1 106.1                            # '-1 0.15 -91.6 -90.9'                           
 topsStack.subswath                  = 3                                                 # '1 2'                                           
@@ -33,16 +24,22 @@ mintpy.save.hdfEos5                 = yes                        # [yes / update
 mintpy.save.hdfEos5.update          = no                        # [yes / no], auto for no, put XXXXXXXX as endDate in output filename
 mintpy.save.hdfEos5.subset          = yes     #[yes / no], auto for no, put subset range info   in output filename
 ####################
-#mintpy.reference.lalo                = -6.0906, 105.4230                                 #
-mintpy.subset.lalo                   = -6.112:-6.089,105.414:105.436    #[31.5:32.5,130.5:131.0 / no], auto for no
-mintpy.subset.lalo                   = -6.12:-6.08,105.41:105.44    #[31.5:32.5,130.5:131.0 / no], auto for no
-mintpy.networkInversion.minTempCoh  = 0.50 #[0.0-1.0], auto for 0.7, min temporal coherence for mask
-####################
+minsar.miaplpyDir.addition           = date          #[name / lalo / no ]  auto for no (miaply_$name_startDate_endDate))
 miaplpy.load.autoPath                = yes
 miaplpy.load.processor               = isce
 miaplpy.multiprocessing.numProcessor = 40
-miaplpy.timeseries.minTempCoh        = 0.50     # auto for 0.5
-miaplpy.interferograms.networkType   = single_reference
+miaplpy.interferograms.networkType   = delaunay            # network
+#mintpy.reference.lalo                = -6.0906, 105.4230                                 #
+mintpy.subset.lalo                   = -6.12:-6.08,105.41:105.44    #[31.5:32.5,130.5:131.0 / no], auto for no
+miaplpy.subset.lalo                  = -6.12:-6.08,105.41:105.44    #[31.5:32.5,130.5:131.0 / no], auto for no
 ####################
-insarmaps_flag                      = False                                                                                                
+mintpy.networkInversion.minTempCoh   = 0.65 #[0.0-1.0], auto for 0.7, min temporal coherence for mask
+miaplpy.timeseries.minTempCoh        = 0.65     # auto for 0.5
+miaplpy.interferograms.networkType   = single_reference
+miaplpy.interferograms.networkType   = delaunay
+
+####################
+minsar.insarmaps_flag                = True
+minsar.insarmaps_dataset             = DS
+minsar.upload_option                 = --geo
 

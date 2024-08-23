@@ -1,8 +1,8 @@
 ssaraopt.platform                   = SENTINEL-1A,SENTINEL-1B                                                                             
-ssaraopt.startDate                  = 20160101
+ssaraopt.startDate                  = 20160301
 ssaraopt.relativeOrbit              = 67                                                                                                 
 ####################
-topsStack.boundingBox               = -5.25 -4.85 150.0 154.0
+topsStack.boundingBox               = -5.4 -4.60 150.0 154.0
 topsStack.subswath                  = 1 2                                               # '1 2'                                           
 topsStack.numConnections            = 3                                                 # comment                                         
 topsStack.azimuthLooks              = 3                                                 # comment                                         
@@ -33,7 +33,6 @@ miaplpy.load.startDate               = auto #  20200101
 miaplpy.load.endDate                 = auto
 mintpy.reference.minCoherence        = 0.7   #[0.0-1.0], auto for 0.85, minimum coherence for auto method
 
-
 miaplpy.interferograms.delaunayTempThresh = 90     # [days] temporal threshold for delaunay triangles, auto for 60
 miaplpy.interferograms.networkType   = single_reference    # network
 miaplpy.interferograms.networkType   = delaunay            # network
@@ -43,7 +42,11 @@ miaplpy.load.processor               = isce
 miaplpy.multiprocessing.numProcessor = 40
 miaplpy.inversion.rangeWindow        = 24   # range window size for searching SHPs, auto for 15
 miaplpy.inversion.azimuthWindow      = 7   # azimuth window size for searching SHPs, auto for 15
-miaplpy.timeseries.tempCohType       = average  # [full, average], auto for full.
-miaplpy.timeseries.minTempCoh        = 0.65     # auto for 0.5
+miaplpy.timeseries.tempCohType       = full  # [full, average], auto for full.
+miaplpy.timeseries.minTempCoh        = 0.75     # auto for 0.5
+mintpy.networkInversion.minTempCoh   = 0.75     # auto for 0.5
 #############################################
-insarmaps_flag                       = False                                                                                                
+minsar.insarmaps_flag                = True
+minsar.insarmaps_dataset             = DS
+minsar.upload_option                 = --geo
+#############################################
