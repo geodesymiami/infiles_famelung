@@ -1,53 +1,50 @@
 ssaraopt.platform                   = SENTINEL-1A,SENTINEL-1B                                                                             
-#ssaraopt.startDate                 = 20160101
-#ssaraopt.endDate                   = 20220101
-ssaraopt.relativeOrbit              = 47                                                                                                 
-
+ssaraopt.startDate                  = 20170101     # 2016 does not cover area
+ssaraopt.relativeOrbit              = 60                                                                                                 
 ####################
-topsStack.boundingBox               = -25.5 -25.0 -71.0 -65.0                          # -25.1, -25.4, -68.7, -68.3
-topsStack.subswath                  = 3                                                # '1 2'                                           
-topsStack.numConnections            = 5                                                # comment                                         
-topsStack.azimuthLooks              = 5                                               # comment                                         
-topsStack.rangeLooks                = 15                                                # comment                                         
+topsStack.boundingBox               = -4.3 -3.8 142.0 146.0
+topsStack.boundingBox               = -4.3 -3.0 142.0 146.0
+topsStack.subswath                  = 3                                               # '1 2'                                           
+topsStack.numConnections            = 2                                                 # comment                                         
+topsStack.azimuthLooks              = 3                                                 # comment                                         
+topsStack.rangeLooks                = 12                                                # comment                                         
 topsStack.filtStrength              = 0.4                                               # comment                                         
 topsStack.unwMethod                 = snaphu                                            # comment                                         
 topsStack.coregistration            = auto                                              # [NESD geometry], auto for NESD                  
 ####################
 mintpy.load.autoPath                = yes
+mintpy.compute.cluster              = local
+mintpy.compute.numWorker            = 32
+mintpy.plot.maxMemory               = auto  #[float], auto for 4, max memory used by one call of view.py for plotting.
 mintpy.troposphericDelay.method     = no                                #[pyaps / height_correlation / base_trop_cor / no], auto for pyaps
 mintpy.networkInversion.parallel    = no                                                #[yes / no], auto for no, parallel processing    
 mintpy.save.hdfEos5                 = yes                                               # [yes / update / no], auto for no, save timeseries to UNAVCO InSAR Archive format
-mintpy.subset.lalo                  = -25.23:-25.10,-68.58:-68.44    #[S:N,W:E / no], auto for no
-miaplpy.subset.lalo                 = -25.23:-25.10,-68.58:-68.44    #[S:N,W:E / no], auto for no
+mintpy.save.hdfEos5.subset          = yes     #[yes / no], auto for no, put subset range info   in output filenam
 mintpy.save.hdfEos5.update          = no                                                # [yes / no], auto for no, put XXXXXXXX as endDate in output filename
 mintpy.save.kml                     = yes                                               # [yes / no], auto for yes, save geocoded velocity to Google Earth KMZ file
-mintpy.compute.cluster              = local
-mintpy.compute.numWorker            = 32
+mintpy.networkInversion.minTempCoh  = 0.6
 
 ####################
-
+miaplpy.load.processor               = isce
 minsar.miaplpyDir.addition           = date          #[name / lalo / no ]  auto for no (miaply_$name_startDate_endDate)) 
-#mintpy.subset.lalo                   = 2.731:2.814,125.367:125.459    #[S:N,W:E / no], auto for no
-#mintpy.subset.lalo                   = 63.79:64.15,-22.8:-21.6    #[S:N,W:E / no], auto for no
+
+miaplpy.subset.lalo                  = -4.125:-4.025,144.985:145.09    #[S:N,W:E / no], auto for no
+mintpy.subset.lalo                   = -4.125:-4.025,144.985:145.09    #[S:N,W:E / no], auto for no
 miaplpy.load.startDate               = auto #  20200101
 miaplpy.load.endDate                 = auto
-mintpy.geocode.laloStep              = 0.0008,0.0008 
+mintpy.geocode.laloStep              = 0.0002,0.0002 
+#mintpy.reference.lalo                = -4.12367,145.02666
 
-miaplpy.interferograms.delaunayTempThresh = 90     # [days] temporal threshold for delaunay triangles, auto for 60
-miaplpy.interferograms.networkType   = single_reference    # network
 miaplpy.interferograms.networkType   = delaunay            # network
 
 #############################################
-miaplpy.load.processor               = isce
 miaplpy.multiprocessing.numProcessor = 40
 miaplpy.inversion.rangeWindow        = 24   # range window size for searching SHPs, auto for 15
 miaplpy.inversion.azimuthWindow      = 7   # azimuth window size for searching SHPs, auto for 15
-miaplpy.timeseries.tempCohType       = average  # [full, average], auto for full.              #FA 6/2024:  used in first version
-mintpy.networkInversion.minTempCoh   = auto     # auto for 0.5                                 #FA 6/2024:  used in first version
-miaplpy.timeseries.tempCohType       = full  # [full, average], auto for full.
+miaplpy.timeseries.tempCohType       = full #  average  # [full, average], auto for full.
 miaplpy.timeseries.minTempCoh        = 0.65     # auto for 0.5
-mintpy.networkInversion.minTempCoh   = 0.65     # auto for 0.5
+mintpy.networkInversion.minTempCoh   = 0.6     # auto for 0.5
 #############################################
-minsar.insarmaps_flag                = True
+minsar.insarmaps_flag                = True                                                                                                
 minsar.insarmaps_dataset             = filt*DS
 minsar.upload_option                 = --geo

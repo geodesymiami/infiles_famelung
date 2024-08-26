@@ -22,7 +22,7 @@ topsStack.rangeLooks            = 15   # comment
 topsStack.filtStrength          = 0.2  # comment
 topsStack.unwMethod             = snaphu  # comment
 topsStack.coregistration        = geometry  # [NESD geometry], auto for NESD
-topsStack.slcDir                = $TESTDATA_ISCE/unittestGalapagosSenDT128/SLC
+#topsStack.slcDir                = $TESTDATA_ISCE/unittestGalapagosSenDT128/SLC
 
 ######################################################
 
@@ -52,4 +52,4 @@ mintpy.networkInversion.minTempCoh   = 0.6     # auto for 0.5
 miaplpy.timeseries.minTempCoh        = 0.6     # auto for 0.5
 minsar.insarmaps_flag                = True
 minsar.upload_flag                   = True
-minsar.insarmaps_dataset             = DS
+minsar.insarmaps_dataset             = filt*DS
