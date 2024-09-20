@@ -2,10 +2,10 @@ ssaraopt.platform                   = SENTINEL-1A,SENTINEL-1B
 ssaraopt.startDate                  = 20140101
 ssaraopt.startDate                  = 20161231
 ssaraopt.relativeOrbit              = 163                                                                                                 
-ssaraopt.intersectsWith             = POLYGON((125.3814 2.7461,125.437 2.7461,125.437 2.8015,125.3814 2.8015,125.3814 2.7461))
+#ssaraopt.intersectsWith             = POLYGON((125.3814 2.7461,125.437 2.7461,125.437 2.8015,125.3814 2.8015,125.3814 2.7461))
 
 ####################
-topsStack.boundingBox               = 2.5 3.1 124.0 127.0
+#topsStack.boundingBox               = 2.5 3.1 124.0 127.0
 topsStack.subswath                  = 1                                               # '1 2'                                           
 topsStack.numConnections            = 3                                                 # comment                                         
 topsStack.azimuthLooks              = 5                                                 # comment                                         
