@@ -101,6 +101,135 @@
             ]
         },
         {
+            "name": "viewPS.py HawaiiKoaeSenD87",
+            "type": "debugpy",
+            "request": "launch",
+            "program": "${env:PLOTDATA_HOME}/src/plotdata/cli/viewPS.py",
+            "console": "integratedTerminal",
+            "cwd": "${env:SCRATCHDIR}/HawaiiKoaeSenD87/miaplpy/network_delaunay_4/",
+            "justMyCode": true,
+            // "args": [ "HawaiiKoaeSenD87/miaplpy/network_delaunay_4/S1_IW12_087_0527_0531_20141116_XXXXXXXX_N19280_N19400_W155355_W155200_filtDel4DS.he5","--dem","HawaiiKoaeSenA124/DEM/elevation_N16_N22_W158_W153.dem","--vlim","-20","20","--subset-lalo=19.32:19.35,-155.325:-155.290" ]
+            // "args": [ "S1_IW12_087_0527_0531_20141116_XXXXXXXX_N19280_N19400_W155355_W155200_filtDel4DS.he5","--dem","../../../HawaiiKoaeSenA124/DEM/elevation_N16_N22_W158_W153.dem","--vlim","-20","20","--subset-lalo=19.32:19.35,-155.325:-155.290","--period","20240116-20241217" ]
+            // "args": [ "S1_IW12_087_0527_0531_20141116_XXXXXXXX_N19280_N19400_W155355_W155200_filtDel4DS.he5","--dem","../../../HawaiiKoaeSenA124/DEM/elevation_N16_N22_W158_W153.dem","--vlim","-20","20","--subset-lalo=19.32:19.35,-155.325:-155.290"] 
+            "args":
+            [
+                "S1_IW12_087_0527_0531_20141116_XXXXXXXX_N19280_N19400_W155355_W155200_filtDel4DS.he5",
+                "velocity",
+                "--ref-lalo",
+                "19.340,-155.273",
+                "--subset-lalo=19.344:19.353,-155.278:-155.264",
+                "--vlim",
+                "-20.0",
+                "20.0",
+                "--point-size",
+                "10",
+                "--mask",
+                "mask.h5",
+                "--dem",
+                "geometryRadar.h5"
+                // "--dem",
+                // "../../../HawaiiKoaeSenA124/DEM/elevation_N16_N22_W158_W153.dem"
+            ]
+
+        },
+        {
+            "name": "viewPS.py unittestGalapagosSenD128/miaplpy",
+            "type": "debugpy",
+            "request": "launch",
+            "program": "${env:PLOTDATA_HOME}/src/plotdata/cli/viewPS.py",
+            "console": "integratedTerminal",
+            "cwd": "${env:SCRATCHDIR}/unittestGalapagosSenD128/miaplpy_SN_201606_201608/network_single_reference/",
+            "justMyCode": true,
+            // "args": [ "HawaiiKoaeSenD87/miaplpy/network_delaunay_4/S1_IW12_087_0527_0531_20141116_XXXXXXXX_N19280_N19400_W155355_W155200_filtDel4DS.he5","--dem","HawaiiKoaeSenA124/DEM/elevation_N16_N22_W158_W153.dem","--vlim","-20","20","--subset-lalo=19.32:19.35,-155.325:-155.290" ]
+            // "args": [ "S1_IW12_087_0527_0531_20141116_XXXXXXXX_N19280_N19400_W155355_W155200_filtDel4DS.he5","--dem","../../../HawaiiKoaeSenA124/DEM/elevation_N16_N22_W158_W153.dem","--vlim","-20","20","--subset-lalo=19.32:19.35,-155.325:-155.290","--period","20240116-20241217" ]
+            // "args": [ "S1_IW12_087_0527_0531_20141116_XXXXXXXX_N19280_N19400_W155355_W155200_filtDel4DS.he5","--dem","../../../HawaiiKoaeSenA124/DEM/elevation_N16_N22_W158_W153.dem","--vlim","-20","20","--subset-lalo=19.32:19.35,-155.325:-155.290"] 
+            "args": 
+            
+            [
+                "S1_IW1_128_0596_0597_20160605_XXXXXXXX_S00860_S00810_W091190_W091130_SingDS.he5",
+                "velocity",
+                "--mask",
+                "mask.h5",
+                "--subset-lalo=-0.842:-0.816,-91.166:-91.127",
+                "--vlim",
+                "-60.0",
+                "60.0",
+                "--point-size",
+                "10",
+                "--dem",
+                "geo_geometryRadar.h5"
+            ]
+        }, 
+        {
+            "name": "URL2plot.py",
+            "type": "debugpy",
+            "request": "launch",
+            "program": "${env:RSMASINSAR_HOME}/minsar/utils/URL2plot.py",
+            "console": "integratedTerminal",
+            "cwd": "${env:SCRATCHDIR}/HawaiiKoaeSenD87/miaplpy/network_delaunay_4/",
+            "justMyCode": true,
+            "args": [ "https://insarmaps.miami.edu/start/19.3535/-155.2734/13.4117?flyToDatasetCenter=false&startDataset=S1_IW23_124_0059_0061_20150530_XXXXXXXX_N19280_N19400_W155355_W155200_filtDel4DS&pointLat=19.33585&pointLon=-155.30316&refPointLat=19.35468&refPointLon=-155.28842&minScale=-1&maxScale=1&startDate=20150530&endDate=20250206&colorscale=velocity" ]
+        },
+        {
+            "name": "extract_hdfeos5.py",
+            "type": "debugpy",
+            "request": "launch",
+            "program": "${env:RSMASINSAR_HOME}/minsar/utils/extract_hdfeos5.py",
+            "console": "integratedTerminal",
+            "cwd": "${env:SCRATCHDIR}/unittestGalapagosSenD128/mintpy/",
+            // "cwd": "${env:SCRATCHDIR}/unittestGalapagosSenD128/mintpy/",
+            "justMyCode": true,
+            // "args": [ "S1_*.he5" ]
+            "args": [ "S1_*.he5", "--all" ]
+        },
+        {
+            "name": "dem_error.py",
+            "type": "debugpy",
+            "request": "launch",
+            "program": "${env:MINTPY_HOME}/src/mintpy/cli/dem_error.py",
+            "console": "integratedTerminal",
+            // "cwd": "${env:SCRATCHDIR}/unitGalapagosSenD128/miaplpy/network_delaunay_4/",
+            "cwd": "${env:SCRATCHDIR}/unittestGalapagosSenD128/mintpy/",
+            "justMyCode": true,
+            "args": [ 
+                    "/Users/famelung/Library/CloudStorage/OneDrive-UniversityofMiami/scratch/FernandinaSenDT128/mintpy/timeseries_ERA5_ramp.h5",
+                    "-t",
+                    "/Users/famelung/Library/CloudStorage/OneDrive-UniversityofMiami/scratch/FernandinaSenDT128/mintpy/smallbaselineApp.cfg",
+                    "-o",
+                    "/Users/famelung/Library/CloudStorage/OneDrive-UniversityofMiami/scratch/FernandinaSenDT128/mintpy/timeseries_ERA5_ramp_demErr.h5",
+                    "--update",
+                    "-g",
+                    "/Users/famelung/Library/CloudStorage/OneDrive-UniversityofMiami/scratch/FernandinaSenDT128/mintpy/inputs/geometryRadar.h5"
+                ]
+        },
+        {
+            "name": "ifgram_inversion.py",
+            "type": "debugpy",
+            "request": "launch",
+            "program": "${env:MINTPY_HOME}/src/mintpy/cli/ifgram_inversion.py",
+            "console": "integratedTerminal",
+            "cwd": "${env:SCRATCHDIR}/unittestGalapagosSenD128/mintpy/",
+            "justMyCode": true,
+            "args": 
+                [
+                    "/Users/famelung/Library/CloudStorage/OneDrive-UniversityofMiami/scratch/twopatchesGalapagosSenDT128/mintpy/inputs/ifgramStack.h5",
+                    "-t",
+                    "/Users/famelung/Library/CloudStorage/OneDrive-UniversityofMiami/scratch/twopatchesGalapagosSenDT128/mintpy/smallbaselineApp.cfg",
+                    "--update"
+                ]
+        },
+
+        {
+            "name": "info.py",
+            "type": "debugpy",
+            "request": "launch",
+            "program": "${env:MINTPY_HOME}/src/mintpy/cli/info.py",
+            "console": "integratedTerminal",
+            "cwd": "${env:SCRATCHDIR}/unittestGalapagosSenD128/mintpy/",
+            "justMyCode": true,
+            "args": [ "S1_IW1_128_0596_0597_20160605_XXXXXXXX_S00887_S00783_W091208_W091105.he5" ]
+        },
+        {
             "name": "create_runfiles.py",
             "type": "debugpy",
             "request": "launch",
@@ -155,14 +284,24 @@
             "args": ["geo_velocity.h5","--lat","-0.825","-0.8","--lon","-91.19","-91.16"]
         },
         {
-            "name": "view.py geo_velocity.py",
+            "name": "view.py geo_timeseries.h5",
             "type": "debugpy",
             "request": "launch",
             "program": "${env:RSMASINSAR_HOME}/tools/MintPy/src/mintpy/cli/view.py",
             "console": "integratedTerminal",
-            "cwd": "/Users/famelung/Downloads/scratch/unittestGalapagosSenDT128/mintpy/geo",
+            "cwd": "/Users/famelung/Downloads/scratch/unittestGalapagosSenD128/mintpy/",
             "justMyCode": true,
-            "args": ["geo_velocity.h5","velocity"]
+            "args": ["geo_timeseries.h5"]]
+        },
+        {
+            "name": "view.py geo/geo_timeseries.h5",
+            "type": "debugpy",
+            "request": "launch",
+            "program": "${env:RSMASINSAR_HOME}/tools/MintPy/src/mintpy/cli/view.py",
+            "console": "integratedTerminal",
+            "cwd": "${env:SCRATCHDIR}/unittestGalapagosSenD128/mintpy",
+            "justMyCode": true,
+            "args": ["geo/geo_timeseries_demErr.h5"]
         },
         {
             "name": "view.py velocity.py",
@@ -170,7 +309,7 @@
             "request": "launch",
             "program": "${env:RSMASINSAR_HOME}/tools/MintPy/src/mintpy/cli/view.py",
             "console": "integratedTerminal",
-            "cwd": "/Users/famelung/Downloads/scratch/unittestGalapagosSenDT128/mintpy",
+            "cwd": "${env:SCRATCHDIR}/unittestGalapagosSenDT128/mintpy",
             "justMyCode": true,
             "args": ["velocity.h5","velocity"]
         },
