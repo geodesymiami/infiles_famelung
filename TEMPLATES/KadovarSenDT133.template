@@ -23,16 +23,15 @@ mintpy.compute.cluster              = local
 mintpy.compute.numWorker            = 32
 mintpy.networkInversion.minTempCoh  = auto
 
-
 ####################
 
 minsar.miaplpyDir.addition           = date          #[name / lalo / no ]  auto for no (miaply_$name_startDate_endDate)) 
 miaplpy.subset.lalo                  = -3.620:-3.54,144.550:144.6    #[S:N,W:E / no], auto for no
 mintpy.subset.lalo                   = -3.620:-3.54,144.550:144.6    #[S:N,W:E / no], auto for no
 mintpy.geocode.laloStep              = 0.0002,0.0002   #  auto  # 0.0008  #[-0.000555556,0.000555556 / None], auto for None, output resolution in degree
-miaplpy.load.startDate               = 20170101 #  20200101
+miaplpy.load.startDate               = 20171101 #  20200101
+miaplpy.load.endDate                 = 20180630 #  20200101
 mintpy.reference.minCoherence        = 0.7   #[0.0-1.0], auto for 0.85, minimum coherence for auto method
-
 
 miaplpy.interferograms.delaunayTempThresh = 90     # [days] temporal threshold for delaunay triangles, auto for 60
 miaplpy.interferograms.networkType   = single_reference    # network
@@ -47,8 +46,8 @@ miaplpy.timeseries.tempCohType       = full  # [full, average], auto for full.
 miaplpy.timeseries.minTempCoh        = 0.5     # auto for 0.5
 #############################################
 miaplpy.timeseries.tempCohType       = full  # [full, average], auto for full.
-miaplpy.timeseries.minTempCoh        = 0.70     # auto for 0.5
-mintpy.networkInversion.minTempCoh   = 0.70     # auto for 0.5
+miaplpy.timeseries.minTempCoh        = 0.60     # auto for 0.5
+mintpy.networkInversion.minTempCoh   = 0.60     # auto for 0.5
 minsar.insarmaps_flag                = True
 minsar.insarmaps_dataset             = filt*DS
 minsar.upload_option                 = --geo

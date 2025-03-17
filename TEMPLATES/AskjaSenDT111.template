@@ -3,6 +3,8 @@ ssaraopt.startDate                  = 20140101
 ssaraopt.startDate                  = 20180101
 ssaraopt.relativeOrbit              = 111                                                                                                 
 ssaraopt.intersectsWith             = POLYGON((-16.9271 64.9448,-16.5047 64.9448,-16.5047 65.1075,-16.9271 65.1075,-16.9271 64.9448))
+ssaraopt.intersectsWith             = POLYGON((-16.9271 64.9448,-16.5047 64.9448,-16.5047 65.1075,-16.9271 65.1075,-16.9271 64.9448))
+ssaraopt.intersectsWith             = Polygon((-16.92 64.94,-16.50 64.94,-16.50 65.10,-16.92 65.10,-16.92 64.94))
 
 ####################
 topsStack.boundingBox               = auto                                             # 12.2 12.6 -88.1 -85.0

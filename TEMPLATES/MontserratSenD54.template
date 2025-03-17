@@ -24,15 +24,16 @@ mintpy.networkInversion.minTempCoh  = auto
 ####################
 
 minsar.miaplpyDir.addition           = date          #[name / lalo / no ]  auto for no (miaply_$name_startDate_endDate)) 
-miaplpy.load.startDate               = 20170101 #  20200101
+miaplpy.load.startDate               = 20230101 #  20200101
+miaplpy.load.endDate                 = 20240101 #  20200101
 mintpy.subset.lalo                   = 16.67:16.767,-62.233:-62.136    #[S:N,W:E / no], auto for no
 miaplpy.subset.lalo                  = 16.67:16.767,-62.233:-62.136    #[S:N,W:E / no], auto for no
 
 mintpy.geocode.laloStep              = 0.0002,0.0002 
 
 miaplpy.interferograms.delaunayTempThresh = 90     # [days] temporal threshold for delaunay triangles, auto for 60
-miaplpy.interferograms.networkType   = single_reference    # network
 miaplpy.interferograms.networkType   = delaunay            # network
+miaplpy.interferograms.networkType   = single_reference    # network
 
 #############################################
 miaplpy.load.processor               = isce

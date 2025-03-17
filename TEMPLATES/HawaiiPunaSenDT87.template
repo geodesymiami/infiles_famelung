@@ -11,9 +11,9 @@ hazard_products_flag                = TRUE
 ssaraopt.platform                   = SENTINEL-1A,SENTINEL-1B                                                                             
 ssaraopt.relativeOrbit              = 87                                                                                                  
 ssaraopt.startDate                  = 20180901
-ssaraopt.endDate                    = 20231231
+ssaraopt.startDate                  = 20151101
 ####################
-topsStack.boundingBox               = 19.1 19.9 -155.8 -154.5                           # '-1 0.15 -91.6 -90.9'                           
+#topsStack.boundingBox               = 19.1 19.9 -155.8 -154.5                           # '-1 0.15 -91.6 -90.9'                           
 topsStack.subswath                  = 1 2                                               # '1 2'                                           
 topsStack.subswath                  = 1                                                 # '1 2'                                           
 topsStack.numConnections            = 2                                                # comment                                         
@@ -32,16 +32,14 @@ miaplpy.load.processor      = isce  #[isce,snap,gamma,roipac], auto for isceTops
 miaplpy.load.updateMode     = auto  #[yes / no], auto for yes, skip re-loading if HDF5 files are complete
 miaplpy.load.compression    = no  #[gzip / lzf / no], auto for no.
 miaplpy.load.autoPath       = yes    # [yes, no] auto for no
-mintpy.subset.lalo         = 19.44:19.50,-154.93:-154.840    #[S:N,W:E / no], auto for no
+mintpy.subset.lalo          = 19.44:19.50,-154.93:-154.840    #[S:N,W:E / no], auto for no
 miaplpy.subset.lalo         = 19.44:19.50,-154.93:-154.840    #[S:N,W:E / no], auto for no
-mintpy.subset.lalo         = 19.44:19.50,-154.93:-154.840    #[S:N,W:E / no], auto for no
-/bin/bash: line 1: q: command not found
-miaplpy.subset.lalo         = 19.44:19.50,-154.93:-154.80    #[S:N,W:E / no], auto for no
-#mintpy.reference.lalo       = 19.57,-155.575
-miaplpy.load.startDate      = auto #  20200101
-miaplpy.load.endDate        = auto
-#miaplpy.load.startDate      = 20140701 #  20200101
-#miaplpy.load.endDate        = 20180429
+mintpy.subset.lalo          = 19.44:19.50,-154.93:-154.840    #[S:N,W:E / no], auto for no
+mintpy.subset.lalo          = 19.41:19.54,-155.02:-154.78    #[S:N,W:E / no], auto for no
+miaplpy.subset.lalo         = 19.41:19.54,-155.02:-154.78    #[S:N,W:E / no], auto for no
+#mintpy.reference.lalo      = 19.57,-155.575
+miaplpy.load.startDate      = 20151101 #  20200101
+miaplpy.load.startDate      = 20180901
 
 miaplpy.inversion.rangeWindow              = 19   # range window size for searching SHPs, auto for 15
 miaplpy.inversion.azimuthWindow            = 9   # azimuth window size for searching SHPs, auto for 15

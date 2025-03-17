@@ -2,7 +2,6 @@ ssaraopt.platform                   = SENTINEL-1A,SENTINEL-1B
 ssaraopt.startDate                  = 20170301
 ssaraopt.relativeOrbit              = 119                                                                                                 
 ####################
-topsStack.boundingBox               = -6.4 -6.2 128.0 131.0
 topsStack.excludeDates              = 20180206
 topsStack.subswath                  = 1                                               # '1 2'                                           
 topsStack.numConnections            = 3                                                 # comment                                         
@@ -22,7 +21,6 @@ mintpy.save.kml                     = yes                                       
 mintpy.compute.cluster              = local
 mintpy.compute.numWorker            = 32
 mintpy.networkInversion.minTempCoh  = auto
-
 
 ####################
 

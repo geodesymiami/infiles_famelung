@@ -1,0 +1,57 @@
+ssaraopt.platform                     = SENTINEL-1A,SENTINEL-1B
+ssaraopt.startDate                    = 20170101
+ssaraopt.relativeOrbit                = 121
+topsStack.subswath                    = 3
+topsStack.numConnections              = 2
+topsStack.azimuthLooks                = 5
+topsStack.rangeLooks                  = 20
+topsStack.filtStrength                = 0.3
+topsStack.coregistration              = geometry
+ 
+miaplpy.subset.lalo                    =  25.784:25.808,-80.295:-80.261            #[S:N,W:E / no], auto for no
+mintpy.reference.lalo                 = auto # 25.8248,-80.1222 # auto refPointLat=25.82477&refPointLon=-80.12222 # 25.8791,-80.1259                          # W Brickel Marquis condo
+minsar.miaplpyDir.addition           = Airport          #[name / lalo / no ]  auto for no (miaply_$name_startDate_endDate)) 
+#miaplpy.load.startDate              = 20200101
+mintpy.reference.minCoherence       = 0.7
+
+ 
+#############################################
+miaplpy.load.processor                       = isce
+#FA: for miaplpy.phase_inversion we should use 40 but for mintpy.phase_to_range 20 as it uses dask and fails with 40
+miaplpy.multiprocessing.numProcessor         = 40
+miaplpy.timeseries.tempCohType               = auto     # [full, average], auto for full.
+miaplpy.timeseries.minTempCoh                = auto     # auto for 0.5
+miaplpy.interferograms.networkType           = single_reference    # network
+miaplpy.interferograms.networkType           = sequential          # qq
+miaplpy.interferograms.networkType           = mini_stacks          # qq
+miaplpy.interferograms.networkType           = delaunay    # network
+miaplpy.interferograms.delaunayBaselineRatio = 4     # [1, 4, 9] Ratio between perpendiclar and temporal baselines, auto for 4
+miaplpy.inversion.rangeWindow                = 24   # range window size for searching SHPs, auto for 15
+miaplpy.inversion.azimuthWindow              = 7  # azimuth window size for searching SHPs, auto for 15
+#############################################
+mintpy.load.autoPath                 = yes
+mintpy.compute.cluster               = local
+mintpy.compute.numWorker             = 20
+mintpy.troposphericDelay.method      = no # auto  #[pyaps / height_correlation / no / gacos], auto for pyaps
+mintpy.save.hdfEos5                  = yes                        # [yes / update / no], auto for no, save timeseries to UNAVCO InSAR Archive format
+mintpy.save.hdfEos5.update           = no                                                # [yes / no], auto for no, put XXXXXXXX as endDate in output filename
+mintpy.save.hdfEos5.subset           = yes     #[yes / no], auto for no, put subset range info   in output filename
+#mintpy.reference.date                = 20191205   #[reference_date.txt / 20090214 / no], auto for reference_date.txt
+miaplpy.timeseries.minTempCoh        = 0.7     # auto for 0.5
+mintpy.networkInversion.minTempCoh   = 0.7
+
+###### CapeCoral ######
+minsar.miaplpyDir.addition           = CapeCoral          #[name / lalo / no ]  auto for no (miaply_$name_startDate_endDate)) 
+mintpy.subset.lalo                   = 26.534:26.612,-82.044:-81.916    #[S:N,W:E / no], auto for no
+miaplpy.subset.lalo                  = 26.534:26.612,-82.044:-81.916    #[S:N,W:E / no], auto for no
+
+###### Sanibel ######
+minsar.miaplpyDir.addition           = Sanibel          #[name / lalo / no ]  auto for no (miaply_$name_startDate_endDate)) 
+mintpy.subset.lalo                   = 26.415:26.499,-82.189:-82.007    #[S:N,W:E / no], auto for no
+miaplpy.subset.lalo                  = 26.415:26.499,-82.189:-82.007    #[S:N,W:E / no], auto for no
+
+
+#############################################
+minsar.insarmaps_dataset             = PS       # [PS,DS,PSDS,geo,all], miaplpy dataset to ingest (Default: geo) (MintPy is always geo)
+minsar.insarmaps_flag                       = True
+minsar.upload_flag                       = True

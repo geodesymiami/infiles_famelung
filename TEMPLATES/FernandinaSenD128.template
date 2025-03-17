@@ -1,0 +1,35 @@
+######################################################
+ssaraopt.platform                 = SENTINEL-1A,SENTINEL-1B
+ssaraopt.relativeOrbit            = 128
+ssaraopt.startDate                = 20180901
+
+######################################################
+topsStack.subswath                = 1 2    # '1 2'
+topsStack.numConnections          = 4    # comment
+topsStack.azimuthLooks            = 3    # comment
+topsStack.rangeLooks              = 11  # comment
+topsStack.filtStrength            = 0.1  # comment
+topsStack.unwMethod               = snaphu  # comment
+topsStack.coregistration          = auto  # [NESD geometry], auto for NESD
+#topsStack.referenceDate           = 20151220
+
+######################################################
+mintpy.load.autoPath              = yes
+mintpy.subset.lalo                  = -0.515:-0.26,-91.67:-91.36
+mintpy.compute.cluster            = local #[local / slurm / pbs / lsf / none], auto for none, cluster type
+mintpy.compute.numWorker          = 30 #[int > 1 / all], auto for 4 (local) or 40 (non-local), num of workers
+mintpy.plot.maxMemory             = 128      #[float > 0.0], auto for 4, max memory to allocate in GB
+mintpy.unwrapError.method         = phase_closure  #[bridging / phase_closure / bridging+phase_closure / no], auto for no
+mintpy.unwrapError.method         = auto  #[bridging / phase_closure / bridging+phase_closure / no], auto for no
+mintpy.unwrapError.method         = bridging+phase_closure  #[bridging / phase_closure / bridging+phase_closure / no], auto for no
+mintpy.unwrapError.method         = no  #[bridging / phase_closure / bridging+phase_closure / no], auto for no
+mintpy.networkInversion.parallel  = yes  #[yes / no], auto for no, parallel processing using dask
+mintpy.troposphericDelay.method   = auto   # pyaps  #[pyaps / height_correlation / base_trop_cor / no], auto for pyaps
+mintpy.geocode.laloStep             = 0.0020,0.0020                 #[-0.000555556,0.000555556 / None], auto for None
+mintpy.geocode.laloStep             = 0.0010,0.0010                 #[-0.000555556,0.000555556 / None], auto for None
+mintpy.geocode.laloStep             = 0.0005,0.0005                 #[-0.000555556,0.000555556 / None], auto for None
+mintpy.save.hdfEos5               = yes   #[yes / update / no], auto for no, save timeseries to UNAVCO InSAR Archive format
+mintpy.save.hdfEos5.update        = yes   #[yes / no], auto for no, put XXXXXXXX as endDate in output filename
+mintpy.save.hdfEos5.subset        = auto     #[yes / no], auto for no, put subset range info   in output filename
+mintpy.save.kmz                   = yes  #[yes / no], auto for yes, save geocoded velocity to Google Earth KMZ file
+

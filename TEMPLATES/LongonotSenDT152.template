@@ -1,6 +1,3 @@
-process_flag                        = TRUE                                                                                                
-frequency                           = 1                                                                                                   
-login                               = pegasus.ccs.miami.edu                                                                               
 user                                = famelung                                                                                            
 ####################
 email_pysar                         = famelung@rsmas.miami.edu jaz101@rsmas.miami.edu sara.mirzaee@rsmas.miami.edu                                                  

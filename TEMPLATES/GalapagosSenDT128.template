@@ -3,10 +3,7 @@ cleanopt                          = 0   # [ 0 / 1 / 2 / 3 / 4]   0,1: none 2: ke
 processor                         = isce
 ssaraopt.platform                 = SENTINEL-1A,SENTINEL-1B
 ssaraopt.relativeOrbit            = 128
-ssaraopt.startDate                = 20140101
-ssaraopt.startDate                = 20181001
-hazard_products_flag              = False
-insarmaps_flag                     = True
+ssaraopt.startDate                = 20180901
 
 ######################################################
 topsStack.boundingBox             = -1 -0.6 -91.4 -90.86    # -1 0.15 -91.6 -90.9
@@ -31,7 +28,7 @@ mintpy.unwrapError.method         = auto  #[bridging / phase_closure / bridging+
 mintpy.unwrapError.method         = bridging+phase_closure  #[bridging / phase_closure / bridging+phase_closure / no], auto for no
 mintpy.reference.lalo             = -0.7,-90.95     # S of SN
 mintpy.networkInversion.parallel  = yes  #[yes / no], auto for no, parallel processing using dask
-mintpy.troposphericDelay.method   = no   # pyaps  #[pyaps / height_correlation / base_trop_cor / no], auto for pyaps
+mintpy.troposphericDelay.method   = auto   # pyaps  #[pyaps / height_correlation / base_trop_cor / no], auto for pyaps
 mintpy.geocode.laloStep             = 0.0008,0.0008                 #[-0.000555556,0.000555556 / None], auto for None
 mintpy.geocode.laloStep             = 0.0020,0.0020                 #[-0.000555556,0.000555556 / None], auto for None
 mintpy.geocode.laloStep             = 0.0010,0.0010                 #[-0.000555556,0.000555556 / None], auto for None

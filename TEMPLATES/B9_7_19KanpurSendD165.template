@@ -1,0 +1,50 @@
+ssaraopt.platform                    = SENTINEL-1A,SENTINEL-1B                                                                             
+ssaraopt.startDate                   = 20240101
+ssaraopt.startDate                   = 20240331
+ssaraopt.relativeOrbit               = 165                                                                                                 
+###########################################
+topsStack.subswath                   = 1 2 3                           # '1 2'                                           
+topsStack.numConnections             = 3                           # comment                                         
+topsStack.azimuthLooks               = 7                           # comment                                         
+topsStack.rangeLooks                 = 19                          # comment                                         
+topsStack.filtStrength               = 0.2                         # comment                                         
+topsStack.unwMethod                  = snaphu                      # comment                                         
+topsStack.coregistration             = auto                        # [NESD geometry], auto for NESD                  
+###########################################
+mintpy.load.autoPath                 = yes
+mintpy.compute.cluster               = local
+mintpy.compute.numWorker             = 32
+mintpy.save.hdfEos5                  = yes                         # [yes / update / no], auto for no, save timeseries to UNAVCO InSAR Archive format
+mintpy.save.hdfEos5.subset           = yes                         # [yes / no], auto for no, put subset range info   in output filenam
+mintpy.save.hdfEos5.update           = no                          # [yes / no], auto for no, put XXXXXXXX as endDate in output filename
+mintpy.save.kml                      = yes                         # [yes / no], auto for yes, save geocoded velocity to Google Earth KMZ file
+###########################################
+miaplpy.load.processor               = isce
+miaplpy.multiprocessing.numProcessor = 40
+miaplpy.inversion.rangeWindow        = 24                          # range window size for searching SHPs, auto for 15
+miaplpy.inversion.azimuthWindow      = 7                           # azimuth window size for searching SHPs, auto for 15
+mintpy.geocode.laloStep              = 0.0002,0.0002               # [-0.000555556,0.000555556 / None], auto for None, output resolution in degree
+mintpy.reference.minCoherence        = 0.5                         # [0.0-1.0], auto for 0.85, minimum coherence for auto method
+###########################################
+miaplpy.interferograms.networkType   = delaunay                    # network
+miaplpy.interferograms.delaunayTempThresh = 90                     # [days] temporal threshold for delaunay triangles, auto for 60
+minsar.miaplpyDir.addition           = date                        # [name / lalo / no ]  auto for no (miaply_$name_startDate_endDate)) 
+###########################################
+############ Modify here : ################
+miaplpy.load.startDate               = auto                        #  20200101
+miaplpy.load.endDate                 = auto
+mintpy.subset.lalo                   = 26.358:26.554,80.227:80.458    #[S:N,W:E / no], auto for no
+miaplpy.subset.lalo                  = 26.358:26.554,80.227:80.458    #[S:N,W:E / no], auto for no
+mintpy.subset.lalo                   = 26.358:26.454,80.227:80.358    #[S:N,W:E / no], auto for no
+miaplpy.subset.lalo                  = 26.358:26.454,80.227:80.358    #[S:N,W:E / no], auto for no
+mintpy.subset.lalo                   = 26.453:26.454,80.227:80.358    #[S:N,W:E / no], auto for no
+miaplpy.subset.lalo                  = 26.453:26.454,80.227:80.358    #[S:N,W:E / no], auto for no
+mintpy.troposphericDelay.method      = no                          # [pyaps / height_correlation / base_trop_cor / no], auto for pyaps
+miaplpy.timeseries.tempCohType       = full                        # [full, average], auto for full.
+miaplpy.timeseries.minTempCoh        = 0.85                         # auto for 0.5
+mintpy.networkInversion.minTempCoh   = 0.85                         # [0.0-1.0], auto for 0.7, min temporal coherence for mask
+###########################################
+minsar.insarmaps_flag                = True
+minsar.insarmaps_dataset             = filt*DS
+minsar.upload_option                 = --geo
+###########################################
