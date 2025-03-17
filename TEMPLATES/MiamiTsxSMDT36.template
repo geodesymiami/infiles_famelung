@@ -1,35 +1,28 @@
-###################################################
-### ATTENTION:  Remove 2013 and 20171220 images ###
-###################################################
-processor                             = isce
-ssaraopt.startDate                    = 20170101
-ssaraopt.relativeOrbit                = 036
-unavco.relative_orbit                = 036
-ssaraopt.collectionName              = "TSX ARC_famelung_COA3837" 
-ssaraopt.beamSwath                   = strip_014
-
+ssaraopt.collectionName               = TSX ARC_famelung_COA3837
+ssaraopt.beamSwath                    = strip_014
+ssaraopt.relativeOrbit                = 36
+unavco.relative_orbit                 = 36
+ssaraopt.startDate                    = 20160101           # DON'T REMOVE!!!  Needed to avoid using 2013 image which causes problem stackStripMap
+#ssaraopt.endDate                      = 20171110
+#################################################
+raw_image_dir                         =  ./SLC_ORIG
 acquisition_mode                      = stripmap
+
 stripmapStack.sensor                  = tsx
 stripmapStack.zerodop                 = True
 stripmapStack.nofocus                 = True
 
 stripmapStack.boundingBox             = 25.8384 25.9184 -80.1656 -80.1174
-stripmapStack.boundingBox             = 25.72 26.0 -80.41 -80.1174
-stripmapStack.boundingBox             = 25.60 26.3 -80.71 -80.116
-stripmapStack.boundingBox             = 25.70 26.2 -80.51 -80.1174  # works
-stripmapStack.boundingBox             = 25.70 26.2 -80.71 -80.1174  # works
+stripmapStack.boundingBox             = 25.52 26.0 -80.41 -80.1174
 stripmapStack.azimuthLooks            = 10
 stripmapStack.rangeLooks              = 10
-stripmapStack.timeThreshold           = 120
-stripmapStack.baselineThreshold       = 650
+stripmapStack.timeThreshold           = 90
+stripmapStack.baselineThreshold       = 4500
 stripmapStack.golsteinFilterStrength  = 0.2          
 stripmapStack.unwMethod               = snaphu     
-
+#################################################
 mintpy.troposphericDelay.method       = no
 mintpy.reference.minCoherence         = 0.7   #[0.0-1.0], auto for 0.85, minimum coherence for auto method
-
-raw_image_dir                         = $SCRATCHDIR/MiamiTsxSMDT36/SLC_ORIG
-raw_image_dir                         = ./SLC_ORIG
 
 mintpy.load.autoPath                  = yes
 mintpy.compute.cluster                = local
@@ -37,88 +30,49 @@ mintpy.compute.numWorker              = 20
 mintpy.save.hdfEos5                   = yes
 mintpy.save.hdfEos5.update            = no
 mintpy.save.hdfEos5.subset            = yes   #[yes / no], auto for no, put subset range info   in output filename
-insarmaps_flag                        = False
-
-###### South Surfside #
-#mintpy.reference.lalo                = 25.8791,-80.1259                         # W Brickel Marquis condo
-#mintpy.subset.lalo                   = 25.89:25.906,-80.129:-80.115            # Surfside_only
-
-###### MiamiBeach
-#mintpy.subset.lalo                    = 25.763:25.860,-80.147:-80.1195            #[S:N,W:E / no], auto for no
-#mintpy.reference.lalo                 = auto # 25.8248,-80.1222 # auto refPointLat=25.82477&refPointLon=-80.12222 
-
-###### Miramar
-#mintpy.subset.yx                      = 7500:10000,14224:16224    #[y0:y1,x0:x1 / no], auto for no
-#mintpy.subset.lalo                    =  25.70:26.2,-80.71:-80.1174       # for H5 file only
-#mintpy.reference.yx                   = auto # 25.8248,-80.1222 # auto refPointLat=25.82477&refPointLon=-80.12222 
-
-###### Sara Surfside
-#mintpy.subset.yx                     = 3651:10024,5848:14215              #     3651, 10024, 5848, 14215
-#mintpy.subset.lalo                   = 25.8384:25.909,-80.147:-80.1174    #[S:N,W:E / no], auto for no
-#mintpy.reference.lalo                = 25.87937,-80.12414                       # NW or Surf CLub Hotel
-
-###### Airport (MIA)
-#mintpy.subset.lalo                    =  25.785:25.801,-80.295:-80.264            #[S:N,W:E / no], auto for no
-#mintpy.reference.lalo                 = auto # 25.8248,-80.1222 # auto refPointLat=25.82477&refPointLon=-80.12222 # 25.8791,-80.1259                          # W Brickel Marquis condo
-#minsar.miaplpyDir.addition           = Airport          #[name / lalo / no ]  auto for no (miaply_$name_startDate_endDate)) 
-
-###### Venetian Causeway ######
-#minsar.miaplpyDir.addition           = Venetian          #[name / lalo / no ]  auto for no (miaply_$name_startDate_endDate)) 
-#mintpy.subset.lalo                   =  25.779:25.798,-80.189:-80.137             #[S:N,W:E / no], auto for no
-#miaplpy.subset.lalo                  =  25.779:25.798,-80.189:-80.137             #[S:N,W:E / no], auto for no
-#mintpy.reference.lalo                = auto # 25.8248,-80.1222 # auto refPointLat=25.82477&refPointLon=-80.12222 # 25.8791,-80.1259                          # W Brickel Marquis condo
-
-###### Rickenbacker Causeway ######
-#minsar.miaplpyDir.addition           = Rickenbacker          #[name / lalo / no ]  auto for no (miaply_$name_startDate_endDate)) 
-#miaplpy.subset.lalo                  =  25.723:25.7526,-80.2054:-80.1454               #[S:N,W:E / no], auto for no
-#miaplpy.subset.lalo                  =  25.723:25.7526,-80.2054:-80.1454               #[S:N,W:E / no], auto for no
-#mintpy.reference.lalo                = auto # 25.8248,-80.1222 # auto refPointLat=25.82477&refPointLon=-80.12222 # 25.8791,-80.1259                          # W Brickel Marquis condo
-
-###### MiamiLakes
-minsar.miaplpyDir.addition           = MLakes          #[name / lalo / no ]  auto for no (miaply_$name_startDate_endDate)) 
-#mintpy.subset.yx                     = 9800:13000,14224:16224    #[y0:y1,x0:x1 / no], auto for no
-#mintpy.subset.lalo                    =  25.70:26.2,-80.71:-80.1174       # for H5 file only
-#mintpy.reference.yx                   = auto # 25.8248,-80.1222 # auto refPointLat=25.82477&refPointLon=-80.12222 
-
-###### Southern Surfside ######
-minsar.miaplpyDir.addition           = SSurfside3                        #[name / lalo / no ]  auto for no (miaply_$name_startDate_endDate)) 
-#miaplpy.subset.lalo                  = 25.871:25.90,-80.123:-80.119    #[S:N,W:E / no], auto for no
-#mintpy.subset.lalo                   = 25.871:25.90,-80.123:-80.119    #[S:N,W:E / no], auto for no
-miaplpy.load.startDate               = 20190101
-mintpy.reference.lalo                = auto # 6/2023: updated because out of mask  
-
-###### Miami-Dade County Beaches ######
-minsar.miaplpyDir.addition           = MDCBeach          #[name / lalo / no ]  auto for no (miaply_$name_startDate_endDate)) 
-#miaplpy.subset.lalo                  = 25.765:25.98,-80.147:-80.1146    #[S:N,W:E / no], auto for no
-#mintpy.subset.lalo                   = 25.765:25.98,-80.147:-80.1146    #[S:N,W:E / no], auto for no
-mintpy.reference.lalo                = 25.874,-80.123   # 25.8865,-80.1225  #  works for 2015_202111 (Sara's time period)
-miaplpy.load.startDate               = 20190101
-#miaplpy.load.endDate                 = 20210630
-
-###### Railroads ######
-minsar.miaplpyDir.addition           = Rail          #[name / lalo / no ]  auto for no (miaply_$name_startDate_endDate)) 
-#mintpy.subset.lalo                   = 25.76:26.08,-80.22:-80.11    #[S:N,W:E / no], auto for no
-mintpy.subset.yx                      = auto    #[y0:y1,x0:x1 / no], auto for no
-miaplpy.subset.yx                     = 200:14100,5600:9100    #[y0:y1,x0:x1 / no], auto for no
-mintpy.reference.lalo                 = auto # 25.874,-80.123   # 25.8865,-80.1225  #  works for 2015_202111 (Sara's time period)
-miaplpy.load.startDate               = 20170101
-miaplpy.load.endDate                 = auto
-
-###### Miami-Dade County Beaches ######
-minsar.miaplpyDir.addition           = MDCBeach2          #[name / lalo / no ]  auto for no (miaply_$name_startDate_endDate)) 
-miaplpy.subset.lalo                  = 25.765:25.98,-80.143:-80.129    #[S:N,W:E / no], auto for no
-mintpy.subset.lalo                   = 25.765:25.98,-80.143:-80.129    #[S:N,W:E / no], auto for no
-mintpy.reference.lalo                = auto # 25.874,-80.123   # 25.8865,-80.1225  #  works for 2015_202111 (Sara's time period)
-miaplpy.load.startDate               = 20181001
-miaplpy.load.endDate                 = 20210630
-
+#################################################
 miaplpy.multiprocessing.numProcessor = 40
 miaplpy.load.processor               = isce
-miaplpy.interferograms.networkType   = sequential
-miaplpy.interferograms.networkType   = single_reference
-miaplpy.unwrap.snaphu.tileNumPixels  = 10000000000     # number of pixels in a tile, auto for 10000000
 
-# Unwrapping Error Correction (optional)
-#mintpy.unwrapError.method          = bridging
-#mintpy.unwrapError.connCompMinArea = 200
-#mintpy.deramp                      = no
+###### Surfside_only ######
+mintpy.subset.lalo                   = 25.89:25.906,-80.129:-80.115            # Surfside_only
+
+###### Downtown ######
+minsar.miaplpyDir.addition           = Downtown          #[name / lalo / no ]  auto for no (miaply_$name_startDate_endDate))
+mintpy.subset.lalo                   = 25.75:25.817,-80.202:-80.182    #[S:N,W:E / no], auto for no
+miaplpy.subset.lalo                  = 25.75:25.817,-80.202:-80.182    #[S:N,W:E / no], auto for no
+miaplpy.load.startDate               = auto
+miaplpy.load.endDate                 = auto
+mintpy.reference.lalo                = auto # 25.9334,-80.1237                         # W Brickel Marquis condo
+
+miaplpy.interferograms.networkType   = sequential
+miaplpy.interferograms.networkType   = delaunay
+
+###### Miami-Dade County Beaches ######
+minsar.miaplpyDir.addition           = MDCBeach          #[name / lalo / no ]  auto for no (miaply_$name_startDate_endDate))
+miaplpy.subset.lalo                  = 25.765:25.98,-80.147:-80.1146    #[S:N,W:E / no], auto for no
+mintpy.subset.lalo                   = 25.765:25.98,-80.147:-80.1146    #[S:N,W:E / no], auto for no
+miaplpy.load.endDate                 = auto
+mintpy.reference.lalo                = auto # 25.9334,-80.1237                         # W Brickel Marquis condo
+
+###### Grove ######
+minsar.miaplpyDir.addition           = Grove          #[name / lalo / no ]  auto for no (miaply_$name_startDate_endDate))
+mintpy.subset.lalo                   = 25.722:25.738,-80.263:-80.225    #[S:N,W:E / no], auto for no
+miaplpy.subset.lalo                  = 25.722:25.738,-80.263:-80.225    #[S:N,W:E / no], auto for no
+miaplpy.load.startDate               = auto
+miaplpy.load.endDate                 = auto
+mintpy.reference.lalo                = auto # 25.9334,-80.1237                         # W Brickel Marquis condo
+
+###### Rickenbacker ######
+minsar.miaplpyDir.addition           = Rickenbaer          #[name / lalo / no ]  auto for no (miaply_$name_startDate_endDate))
+mintpy.subset.lalo                   = 25.727:25.753,-80.208:-80.158    #[S:N,W:E / no], auto for no
+miaplpy.subset.lalo                  = 25.727:25.753,-80.208:-80.158    #[S:N,W:E / no], auto for no
+
+miaplpy.load.startDate               = auto
+miaplpy.load.endDate                 = auto
+mintpy.reference.lalo                = auto # 25.9334,-80.1237                         # W Brickel Marquis condo
+
+#################################################
+minsar.insarmaps_flag               = True
+minsar.upload_flag                  = True
+minsar.insarmaps_dataset            = PS
