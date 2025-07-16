@@ -1,5 +1,5 @@
 ssaraopt.platform                    = SENTINEL-1A,SENTINEL-1B                                                                             
-ssaraopt.startDate                   = 20200101
+ssaraopt.startDate                   = 20170101
 ssaraopt.relativeOrbit               = 163                                                                                                 
 ###########################################
 topsStack.subswath                   = 1 2                         # '1 2'                                           
@@ -15,7 +15,7 @@ mintpy.compute.cluster               = local
 mintpy.compute.numWorker             = 32
 mintpy.save.hdfEos5                  = yes                         # [yes / update / no], auto for no, save timeseries to UNAVCO InSAR Archive format
 mintpy.save.hdfEos5.subset           = yes                         # [yes / no], auto for no, put subset range info   in output filenam
-mintpy.save.hdfEos5.update           = no                          # [yes / no], auto for no, put XXXXXXXX as endDate in output filename
+mintpy.save.hdfEos5.update           = yes                          # [yes / no], auto for no, put XXXXXXXX as endDate in output filename
 mintpy.save.kml                      = yes                         # [yes / no], auto for yes, save geocoded velocity to Google Earth KMZ file
 ###########################################
 miaplpy.load.processor               = isce
@@ -37,10 +37,10 @@ miaplpy.subset.lalo                  = 3.594:3.739,125.395:125.547    #[S:N,W:E 
 mintpy.subset.lalo                   = 3.50:3.739,125.396:125.597    #[S:N,W:E / no], auto for no
 miaplpy.subset.lalo                  = 3.50:3.739,125.396:125.597    #[S:N,W:E / no], auto for no
 
-mintpy.networkInversion.minTempCoh   = 0.7                         # [0.0-1.0], auto for 0.7, min temporal coherence for mask
+mintpy.networkInversion.minTempCoh   = 0.75                         # [0.0-1.0], auto for 0.7, min temporal coherence for mask
 mintpy.troposphericDelay.method      = no                          # [pyaps / height_correlation / base_trop_cor / no], auto for pyaps
 miaplpy.timeseries.tempCohType       = full                        # [full, average], auto for full.
-miaplpy.timeseries.minTempCoh        = 0.70                        # auto for 0.5
+miaplpy.timeseries.minTempCoh        = 0.75                        # auto for 0.5
 ###########################################
 minsar.insarmaps_flag                = True
 minsar.insarmaps_dataset             = filt*DS
