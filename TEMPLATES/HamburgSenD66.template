@@ -1,0 +1,51 @@
+minsar.processor                             = isce
+#cleanopt                              = 0
+ssaraopt.platform                     = SENTINEL-1A,SENTINEL-1B
+ssaraopt.startDate                    = 2020101
+ssaraopt.relativeOrbit                = 66
+
+topsStack.subswath                    = 2
+topsStack.numConnections              = 2
+topsStack.azimuthLooks                = 5
+topsStack.rangeLooks                  = 20
+topsStack.filtStrength                = 0.3
+topsStack.coregistration              = geometry
+ 
+###### Mission  District ######
+minsar.miaplpyDir.addition           = ElbPhil                #[name / lalo / no ]  auto for no (miaply_$name_startDate_endDate)) 
+mintpy.subset.lalo                   = 53.537:53.546,9.975:9.993    #[S:N,W:E / no], auto for no
+miaplpy.subset.lalo                  = 53.537:53.546,9.975:9.993    #[S:N,W:E / no], auto for no
+miaplpy.load.startDate               = auto
+miaplpy.load.endDate                 = auto
+mintpy.reference.lalo                = auto    # 25.9334,-80.1237                         # W Brickel Marquis condo
+ 
+#############################################
+miaplpy.load.processor                       = isce
+#FA: for miaplpy.phase_inversion we should use 40 but for mintpy.phase_to_range 20 as it uses dask and fails with 40
+miaplpy.multiprocessing.numProcessor         = 40
+miaplpy.timeseries.tempCohType               = auto     # [full, average], auto for full.
+miaplpy.timeseries.minTempCoh                = auto     # auto for 0.5
+miaplpy.interferograms.networkType           = single_reference    # network
+miaplpy.interferograms.networkType           = delaunay    # network
+miaplpy.interferograms.delaunayBaselineRatio = 4     # [1, 4, 9] Ratio between perpendiclar and temporal baselines, auto for 4
+#############################################
+mintpy.load.autoPath                 = yes
+mintpy.compute.cluster               = local
+mintpy.compute.numWorker             = 20
+mintpy.troposphericDelay.method      = no # auto  #[pyaps / height_correlation / no / gacos], auto for pyaps
+mintpy.save.hdfEos5                  = yes                        # [yes / update / no], auto for no, save timeseries to UNAVCO InSAR Archive format
+mintpy.save.hdfEos5.update           = no                                                # [yes / no], auto for no, put XXXXXXXX as endDate in output filename
+mintpy.save.hdfEos5.subset           = yes     #[yes / no], auto for no, put subset range info   in output filename
+#mintpy.reference.date               = 20191205   #[reference_date.txt / 20090214 / no], auto for reference_date.txt
+#mintpy.topographicResidual.excludeDate = 20161015,20191006  #[20070321 / txtFile / no], auto for exclude_date.txt
+#mintpy.unwrapError.method           = bridging  #[bridging / phase_closure / bridging+phase_closure / no], auto for no
+#mintpy.unwrapError.connCompMinArea  = 200  #[1-inf], auto for 2.5e3, discard regions smaller than the min size in pixels
+#mintpy.reference.yx                 = 349,1393   #[257,151 / auto]
+#mintpy.reference.date                = 20191205   #[reference_date.txt / 20090214 / no], auto for reference_date.txt
+
+miaplpy.timeseries.minTempCoh        = 0.7     # auto for 0.5
+mintpy.networkInversion.minTempCoh   = 0.7
+#############################################
+minsar.insarmaps_dataset             = PS       # [PS,DS,PSDS,geo,all], miaplpy dataset to ingest (Default: geo) (MintPy is always geo)
+minsar.insarmaps_flag                = true       # [PS,DS,PSDS,geo,all], miaplpy dataset to ingest (Default: geo) (MintPy is always geo)
+minsar.upload_flag                   = true       # [PS,DS,PSDS,geo,all], miaplpy dataset to ingest (Default: geo) (MintPy is always geo)
