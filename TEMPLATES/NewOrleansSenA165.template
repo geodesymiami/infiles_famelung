@@ -1,6 +1,6 @@
 ssaraopt.platform                   = SENTINEL-1A,SENTINEL-1B                                                                             
 ssaraopt.startDate                  = 20170101
-ssaraopt.relativeOrbit              = 63                                                                                                 
+ssaraopt.relativeOrbit              = 165                                                                                                 
 ####################
 topsStack.subswath                  = 1 2 3                                               # '1 2'                                           
 topsStack.numConnections            = 2                                                 # comment                                         
