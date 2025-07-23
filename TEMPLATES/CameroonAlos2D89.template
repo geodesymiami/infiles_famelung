@@ -1,0 +1,98 @@
+ssaraopt.platform                     = ALOS2
+ssaraopt.relativeOrbit                = 89
+ssaraopt.frame                        = 3550
+ssaraopt.startDate                    = 20160101           # DON'T REMOVE!!!  Needed to avoid using 2013 image which causes problem stackStripMap
+#################################################
+raw_image_dir                         =  ./SLC_ORIG
+acquisition_mode                      = stripmap
+
+stripmapStack.sensor                  = tsx
+stripmapStack.zerodop                 = True
+stripmapStack.nofocus                 = True
+
+stripmapStack.boundingBox             = 25.8384 25.9184 -80.1656 -80.1174
+stripmapStack.boundingBox             = 25.52 26.0 -80.41 -80.1174
+stripmapStack.azimuthLooks            = 10
+stripmapStack.rangeLooks              = 10
+stripmapStack.timeThreshold           = 400
+stripmapStack.timeThreshold           = 400
+stripmapStack.baselineThreshold       = 4500
+stripmapStack.golsteinFilterStrength  = 0.2          
+stripmapStack.unwMethod               = snaphu     
+stripmapStack.workflow                = slc
+#################################################
+mintpy.troposphericDelay.method       = no
+mintpy.reference.minCoherence         = 0.7   #[0.0-1.0], auto for 0.85, minimum coherence for auto method
+
+mintpy.load.autoPath                  = yes
+mintpy.compute.cluster                = local
+mintpy.compute.numWorker              = 20
+mintpy.save.hdfEos5                   = yes
+mintpy.save.hdfEos5.update            = no
+mintpy.save.hdfEos5.subset            = yes   #[yes / no], auto for no, put subset range info   in output filename
+#################################################
+miaplpy.multiprocessing.numProcessor = 40
+miaplpy.load.processor               = isce
+
+###### Surfside_only ######
+mintpy.subset.lalo                   = 25.89:25.906,-80.129:-80.115            # Surfside_only
+
+miaplpy.interferograms.networkType   = sequential
+miaplpy.interferograms.networkType   = delaunay
+
+###### Rickenbacker ######
+minsar.miaplpyDir.addition           = Rickenbaer          #[name / lalo / no ]  auto for no (miaply_$name_startDate_endDate))
+mintpy.subset.lalo                   = 25.727:25.753,-80.208:-80.158    #[S:N,W:E / no], auto for no
+miaplpy.subset.lalo                  = 25.727:25.753,-80.208:-80.158    #[S:N,W:E / no], auto for no
+miaplpy.load.startDate               = auto
+miaplpy.load.endDate                 = auto
+mintpy.reference.lalo                = auto # 25.9334,-80.1237                         # W Brickel Marquis condo
+
+###### Surfside_only ######
+minsar.miaplpyDir.addition           = Surfside          #[name / lalo / no ]  auto for no (miaply_$name_startDate_endDate))
+mintpy.subset.lalo                  = 25.8720:25.89,-80.129:-80.115            # Surfside_only
+miaplpy.subset.lalo                  = 25.8720:25.89,-80.129:-80.115            # Surfside_only
+miaplpy.load.endDate                 = auto
+mintpy.reference.lalo                = auto # 25.9334,-80.1237                         # W Brickel Marquis condo
+
+###### North Miami-Dade County Beaches ######
+minsar.miaplpyDir.addition           = NMDCBeach          #[name / lalo / no ]  auto for no (miaply_$name_startDate_endDate))
+mintpy.subset.lalo                   = 25.848:25.96,-80.147:-80.118    #[S:N,W:E / no], auto for no
+miaplpy.subset.lalo                  = 25.848:25.96,-80.147:-80.118    #[S:N,W:E / no], auto for no
+miaplpy.load.endDate                 = auto
+mintpy.reference.lalo                = auto # 25.9334,-80.1237                         # W Brickel Marquis condo
+
+###### SunnyIsled_only ######
+minsar.miaplpyDir.addition           = SunnyIsles          #[name / lalo / no ]  auto for no (miaply_$name_startDate_endDate))
+mintpy.subset.lalo                   = 25.92:25.957,-80.13:-80.118    #[S:N,W:E / no], auto for no
+miaplpy.subset.lalo                  = 25.92:25.957,-80.13:-80.118    #[S:N,W:E / no], auto for no
+miaplpy.load.endDate                 = auto
+mintpy.reference.lalo                = auto 
+
+###### Miami-Dade County Beaches ######
+minsar.miaplpyDir.addition           = MDCBeach          #[name / lalo / no ]  auto for no (miaply_$name_startDate_endDate))
+miaplpy.subset.lalo                  = 25.765:25.98,-80.147:-80.1146    #[S:N,W:E / no], auto for no
+mintpy.subset.lalo                   = 25.765:25.98,-80.147:-80.1146    #[S:N,W:E / no], auto for no
+miaplpy.load.endDate                 = auto
+mintpy.reference.lalo                = auto # 25.9334,-80.1237                         # W Brickel Marquis condo
+
+###### Grove ######
+minsar.miaplpyDir.addition           = Grove          #[name / lalo / no ]  auto for no (miaply_$name_startDate_endDate))
+mintpy.subset.lalo                   = 25.722:25.738,-80.263:-80.225    #[S:N,W:E / no], auto for no
+miaplpy.subset.lalo                  = 25.722:25.738,-80.263:-80.225    #[S:N,W:E / no], auto for no
+miaplpy.load.startDate               = auto
+miaplpy.load.endDate                 = auto
+mintpy.reference.lalo                = auto # 25.9334,-80.1237                         # W Brickel Marquis condo
+
+###### Downtown ######
+minsar.miaplpyDir.addition           = Downtown          #[name / lalo / no ]  auto for no (miaply_$name_startDate_endDate))
+mintpy.subset.lalo                   = 25.75:25.817,-80.202:-80.182    #[S:N,W:E / no], auto for no
+miaplpy.subset.lalo                  = 25.75:25.817,-80.202:-80.182    #[S:N,W:E / no], auto for no
+miaplpy.load.startDate               = auto
+miaplpy.load.endDate                 = 20211031
+mintpy.reference.lalo                = auto # 25.9334,-80.1237                         # W Brickel Marquis condo
+
+#################################################
+minsar.insarmaps_flag               = True
+minsar.upload_flag                  = True
+minsar.insarmaps_dataset            = PS
