@@ -1,7 +1,7 @@
 ssaraopt.platform                     = TERRASAR-X,TANDEM-X
-ssaraopt.beamSwath                    = strip_014
-ssaraopt.relativeOrbit                = 36
-unavco.relative_orbit                 = 36
+ssaraopt.beamSwath                    = strip_003
+ssaraopt.relativeOrbit                = 135
+unavco.relative_orbit                 = 135
 ssaraopt.startDate                    = 20160101           # DON'T REMOVE!!!  Needed to avoid using 2013 image which causes problem stackStripMap
 #################################################
 raw_image_dir                         =  ./SLC_ORIG
