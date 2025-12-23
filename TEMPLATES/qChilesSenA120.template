@@ -1,12 +1,13 @@
 ######################################################
 ssaraopt.platform                  = SENTINEL-1  # [Sentinel-1 / ALOS2 / RADARSAT2 / TerraSAR-X / COSMO-Skymed]
 ssaraopt.relativeOrbit             = 120
-#ssaraopt.startDate                 = 20240501  # YYYYMMDD
+ssaraopt.startDate                 = 20220601  # YYYYMMDD
+ssaraopt.startDate                 = 20221011  # YYYYMMDD
 ######################################################
 topsStack.subswath                 = 1 2 3 # '1 2'
 topsStack.numConnections           = 4    # comment
-topsStack.azimuthLooks             = 4    # comment
-topsStack.rangeLooks               = 16   # comment
+topsStack.azimuthLooks             = 2    # comment
+topsStack.rangeLooks               = 8    # comment
 topsStack.filtStrength             = 0.2  # comment
 topsStack.unwMethod                = snaphu  # comment
 topsStack.coregistration           = auto  # [NESD geometry], auto for NESD

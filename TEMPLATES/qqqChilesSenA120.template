@@ -9,7 +9,7 @@ topsStack.azimuthLooks             = 4    # comment
 topsStack.rangeLooks               = 16   # comment
 topsStack.filtStrength             = 0.2  # comment
 topsStack.unwMethod                = snaphu  # comment
-topsStack.coregistration           = auto  # [NESD geometry], auto for NESD
+topsStack.coregistration           = geometry  # [NESD geometry], auto for NESD
 ######################################################
 mintpy.load.autoPath               = yes
 mintpy.compute.cluster             = local #[local / slurm / pbs / lsf / none], auto for none, cluster type

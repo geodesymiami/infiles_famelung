@@ -1,0 +1,58 @@
+processor                           = isce                                                                                                
+cleanopt                            = 0                                                                                                   
+hazard_products_flag                = TRUE                                                                                                
+ssaraopt.platform                   = SENTINEL-1A,SENTINEL-1B                                                                             
+ssaraopt.startDate                  = 20150501                                                                                                
+ssaraopt.endDate                    = 20180101                                                                                                 
+ssaraopt.relativeOrbit              = 120                                                                                                 
+####################
+topsStack.boundingBox               = 0.5 0.93 -81.0 -76.0
+
+topsStack.subswath                  = 2                                                 # '1 2'                                           
+topsStack.numConnections            = 4                                                 # comment                                         
+topsStack.azimuthLooks              = 7                                                 # comment                                         
+topsStack.rangeLooks                = 28                                                # comment                                         
+topsStack.filtStrength              = 0.4                                               # comment                                         
+topsStack.unwMethod                 = snaphu                                            # comment                                         
+topsStack.coregistration            = auto                                              # [NESD geometry], auto for NESD                  
+####################
+mintpy.load.autoPath               = yes
+mintpy.troposphericDelay.method     = no                                #[pyaps / height_correlation / base_trop_cor / no], auto for pyaps
+mintpy.networkInversion.parallel    = no                                                #[yes / no], auto for no, parallel processing    
+#mintpy.networkInversion.minTempCoh  = 0.7 #[0.0-1.0], auto for 0.7, min temporal coherence for mask
+mintpy.save.hdfEos5                 = yes                                               # [yes / update / no], auto for no, save timeseries to UNAVCO InSAR Archive format
+mintpy.save.hdfEos5.subset          = yes     #[yes / no], auto for no, put subset range info   in output filenam
+mintpy.save.hdfEos5.update          = no                                                # [yes / no], auto for no, put XXXXXXXX as endDate in output filename
+mintpy.save.kml                     = yes                                               # [yes / no], auto for yes, save geocoded velocity to Google Earth KMZ file
+mintpy.compute.cluster              = local
+mintpy.compute.numWorker            = 32
+####################
+mintpy.geocode.laloStep             = 0.0008,0.0008   #  auto  # 0.00
+
+########################
+minsar.miaplpyDir.addition           = date          #[name / lalo / no ]  auto for no (miaply_$name_startDate_endDate)) 
+miaplpy.subset.lalo                  = 0.63:0.88,-78.02:-77.81           #[S:N,W:E / no], auto for no
+miaplpy.subset.lalo                  = 0.5963:0.9282,-78.0493:-77.7205           #[S:N,W:E / no], auto for no
+mintpy.subset.lalo                   = 0.5963:0.9282,-78.0493:-77.7205           #[S:N,W:E / no], auto for no
+miaplpy.subset.lalo                  = 0.5963:0.9282,-77.99:-77.84           #[S:N,W:E / no], auto for no
+miaplpy.subset.lalo                  = 0.63:0.85,-77.99:-77.84           #[S:N,W:E / no], auto for no
+mintpy.subset.lalo                   = 0.63:0.85,-77.99:-77.84           #[S:N,W:E / no], auto for no
+miaplpy.load.startDate               = # auto # 20200101
+miaplpy.load.endDate                 = # auto
+#mintpy.networkInversion.minTempCoh   = 0.80
+miaplpy.timeseries.minTempCoh        = 0.75     # auto for 0.5
+
+miaplpy.interferograms.delaunayPerpThresh      = 90     # [meters] Perp baseline threshold for delaunay triangles, auto for 200
+miaplpy.interferograms.networkType   = single_reference    # network
+miaplpy.interferograms.networkType   = delaunay            # network
+
+
+#############################################
+miaplpy.load.processor               = isce
+miaplpy.multiprocessing.numProcessor = 40
+miaplpy.inversion.rangeWindow        = 24   # range window size for searching SHPs, auto for 15
+miaplpy.inversion.azimuthWindow      = 7   # azimuth window size for searching SHPs, auto for 15
+miaplpy.timeseries.tempCohType       = average     # [full, average], auto for full.
+#############################################
+
+insarmaps_flag                       = False                                                                                                

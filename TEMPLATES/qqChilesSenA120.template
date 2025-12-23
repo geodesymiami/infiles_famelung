@@ -1,7 +1,7 @@
 ######################################################
 ssaraopt.platform                  = SENTINEL-1  # [Sentinel-1 / ALOS2 / RADARSAT2 / TerraSAR-X / COSMO-Skymed]
 ssaraopt.relativeOrbit             = 120
-#ssaraopt.startDate                 = 20240501  # YYYYMMDD
+ssaraopt.startDate                 = 20230101  # YYYYMMDD
 ######################################################
 topsStack.subswath                 = 1 2 3 # '1 2'
 topsStack.numConnections           = 4    # comment
@@ -9,12 +9,12 @@ topsStack.azimuthLooks             = 4    # comment
 topsStack.rangeLooks               = 16   # comment
 topsStack.filtStrength             = 0.2  # comment
 topsStack.unwMethod                = snaphu  # comment
-topsStack.coregistration           = auto  # [NESD geometry], auto for NESD
+topsStack.coregistration           = NESD  # [NESD geometry], auto for NESD
 ######################################################
 mintpy.load.autoPath               = yes
 mintpy.compute.cluster             = local #[local / slurm / pbs / lsf / none], auto for none, cluster type
 mintpy.compute.numWorker           = 40 #[int > 1 / all], auto for 4 (local) or 40 (non-local), num of workers
-mintpy.plot.maxMemory              = 180  #[float], auto for 4, max memory used by one call of view.py for plotting.
+mintpy.plot.maxMemory              = 4  #[float], auto for 4, max memory used by one call of view.py for plotting.
 mintpy.networkInversion.parallel   = yes  #[yes / no], auto for no, parallel processing using dask
 mintpy.save.hdfEos5                = yes   #[yes / update / no], auto for no, save timeseries to UNAVCO InSAR Archive format
 mintpy.save.hdfEos5.update         = yes   #[yes / no], auto for no, put XXXXXXXX as endDate in output filename
@@ -23,7 +23,7 @@ mintpy.save.kmz                    = yes   #[yes / no], auto for yes, save geoco
 mintpy.reference.minCoherence      = auto      #[0.0-1.0], auto for 0.85, minimum coherence for auto method
 mintpy.troposphericDelay.method    = auto   # pyaps  #[pyaps / height_correlation / base_trop_cor / no], auto for pyaps
 mintpy.networkInversion.minTempCoh = 0.6 #[0.0-1.0], auto for 0.7, min temporal coherence for mask
-mintpy.network.excludeDate          = 20241125,20250325,20250418
+#mintpy.network.excludeDate          = 20241125,20250325,20250418
 
 ######################################################
 miaplpy.load.processor               = isce

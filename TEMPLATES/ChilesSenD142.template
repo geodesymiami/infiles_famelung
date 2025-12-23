@@ -1,6 +1,6 @@
 ######################################################
 ssaraopt.platform                  = SENTINEL-1  # [Sentinel-1 / ALOS2 / RADARSAT2 / TerraSAR-X / COSMO-Skymed]
-ssaraopt.relativeOrbit             = 120
+ssaraopt.relativeOrbit             = 142
 #ssaraopt.startDate                 = 20240501  # YYYYMMDD
 ######################################################
 topsStack.subswath                 = 1 2 3 # '1 2'
@@ -41,8 +41,8 @@ miaplpy.subset.lalo                  = 0.74:0.84,-77.95:-77.85           #[S:N,W
 miaplpy.load.startDate               = auto  # 20200101
 miaplpy.load.endDate                 = auto
 mintpy.geocode.laloStep              = 0.0008,0.0008
-miaplpy.timeseries.minTempCoh        = 0.65      # auto for 0.5
-mintpy.networkInversion.minTempCoh   = 0.65
+miaplpy.timeseries.minTempCoh        = 0.70      # auto for 0.5
+mintpy.networkInversion.minTempCoh   = 0.70
 ######################################################
 minsar.insarmaps_flag                = True
 minsar.upload_flag                   = True

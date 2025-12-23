@@ -1,15 +1,17 @@
 ######################################################
 ssaraopt.platform                  = SENTINEL-1  # [Sentinel-1 / ALOS2 / RADARSAT2 / TerraSAR-X / COSMO-Skymed]
-ssaraopt.relativeOrbit             = 120
-#ssaraopt.startDate                 = 20240501  # YYYYMMDD
+ssaraopt.relativeOrbit             = 142
+ssaraopt.startDate                 = 20141031  # YYYYMMDD
+ssaraopt.endDate                   = 20150701    # YYYYMMDD
 ######################################################
 topsStack.subswath                 = 1 2 3 # '1 2'
-topsStack.numConnections           = 4    # comment
-topsStack.azimuthLooks             = 4    # comment
-topsStack.rangeLooks               = 16   # comment
+topsStack.numConnections           = 3    # comment
+topsStack.azimuthLooks             = 5    # comment
+topsStack.rangeLooks               = 20   # comment
 topsStack.filtStrength             = 0.2  # comment
 topsStack.unwMethod                = snaphu  # comment
 topsStack.coregistration           = auto  # [NESD geometry], auto for NESD
+#topsStack.excludeDates            =  20240926
 ######################################################
 mintpy.load.autoPath               = yes
 mintpy.compute.cluster             = local #[local / slurm / pbs / lsf / none], auto for none, cluster type
@@ -23,27 +25,29 @@ mintpy.save.kmz                    = yes   #[yes / no], auto for yes, save geoco
 mintpy.reference.minCoherence      = auto      #[0.0-1.0], auto for 0.85, minimum coherence for auto method
 mintpy.troposphericDelay.method    = auto   # pyaps  #[pyaps / height_correlation / base_trop_cor / no], auto for pyaps
 mintpy.networkInversion.minTempCoh = 0.6 #[0.0-1.0], auto for 0.7, min temporal coherence for mask
-mintpy.network.excludeDate          = 20241125,20250325,20250418
-
+mintpy.network.minCoherence         = 0.6 #[0.0-1.0], auto for 0.7
+mintpy.network.keepMinSpanTree      = no  #[yes / no], auto for yes, keep interferograms in Min Span Tree network
+mintpy.network.aoiLALO              = 0.65:0.8,-78.0:-77.8  #[S:N,W:E / no], auto for no - use the whole area
 ######################################################
-miaplpy.load.processor               = isce
+miaplpy.load.processor            = isce
 miaplpy.multiprocessing.numProcessor = 40
-miaplpy.inversion.rangeWindow        = 24   # range window size for searching SHPs, auto for 15
-miaplpy.inversion.azimuthWindow      = 7    # azimuth window size for searching SHPs, auto for 15
-miaplpy.timeseries.tempCohType       = full     # [full, average], auto for full.
-miaplpy.interferograms.networkType   = delaunay # network
+miaplpy.inversion.rangeWindow     = 24   # range window size for searching SHPs, auto for 15
+miaplpy.inversion.azimuthWindow   = 7    # azimuth window size for searching SHPs, auto for 15
+miaplpy.timeseries.tempCohType    = full     # [full, average], auto for full.
+miaplpy.interferograms.networkType = delaunay # network
 miaplpy.unwrap.snaphu.tileNumPixels  = 10000000000     # number of pixels in a tile, auto for 10000000
 ######################################################
-minsar.miaplpyDir.addition           = VolcCenter  #[name / lalo / no] auto for no (miaply_$name_startDate_endDate))
-mintpy.subset.lalo                   = 0.60:0.89,-78.19:-77.75           #[S:N,W:E / no], auto for no
-miaplpy.subset.lalo                  = 0.60:0.89,-78.19:-77.75           #[S:N,W:E / no], auto for no
-miaplpy.subset.lalo                  = 0.74:0.84,-77.95:-77.85           #[S:N,W:E / no], auto for no
-miaplpy.load.startDate               = auto  # 20200101
-miaplpy.load.endDate                 = auto
-mintpy.geocode.laloStep              = 0.0008,0.0008
-miaplpy.timeseries.minTempCoh        = 0.65      # auto for 0.5
-mintpy.networkInversion.minTempCoh   = 0.65
+minsar.miaplpyDir.addition         = date  #[name / lalo / no] auto for no (miaply_$name_startDate_endDate))
+miaplpy.subset.lalo                = 0.60:0.89,-78.09:-77.80           #[S:N,W:E / no], auto for no
+#mintpy.subset.lalo                 = 0.60:0.89,-78.09:-77.80           #[S:N,W:E / no], auto for no
+#mintpy.subset.lalo                 = 0.60:0.826,-78.087:-77.842    #[S:N,W:E / no], auto for no
+miaplpy.subset.lalo                = 0.60:0.826,-78.087:-77.842    #[S:N,W:E / no], auto for no
+mintpy.geocode.laloStep            = 0.0008,0.0008                     #  auto  # 0.0008  #[-0.000555556,0.000555556 / None], auto for None, output resolution in degree
+miaplpy.load.startDate             = auto  # 20200101
+miaplpy.load.endDate               = auto
+miaplpy.timeseries.minTempCoh      = 0.7      # auto for 0.5
+mintpy.networkInversion.minTempCoh = 0.7
 ######################################################
-minsar.insarmaps_flag                = True
-minsar.upload_flag                   = True
-minsar.insarmaps_dataset             = filt*DS
+minsar.insarmaps_flag              = False
+minsar.upload_flag                 = True
+minsar.insarmaps_dataset           = filt*DS
