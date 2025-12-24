@@ -27,6 +27,8 @@ mintpy.troposphericDelay.method    = auto   # pyaps  #[pyaps / height_correlatio
 mintpy.network.coherenceBased      = yes  #[yes / no], auto for no, exclude interferograms with coherence < minCoherence
 mintpy.network.minCoherence        = 0.65  #[0.0-1.0], auto for 0.7
 mintpy.networkInversion.minTempCoh = 0.75 #[0.0-1.0], auto for 0.7, min temporal coherence for mask
+mintpy.network.aoiYX               = 170700<400:700 #[S:N,W:E / no], auto for no - use the whole area
+mintpy.network.aoiLALO             = 0.641:0.839,-78.004:-77.841  #[S:N,W:E / no], auto for no - use the whole area
 
 ######################################################
 miaplpy.load.processor               = isce
