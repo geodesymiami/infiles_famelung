@@ -1,5 +1,5 @@
 ############## DOWNLOAD, GENERAL OPTIONS ##############
-
+minsar.remoteDataDir    = $REMOTEUSER@$REMOTEHOST_DATA:$REMOTE_DATADIR/Envisat/AlcedoTestEnvD140/*
 acquisition_mode        = stripmap
 ssaraopt.platform       = ENVISAT
 ssaraopt.relativeOrbit  = 140         # This is not teh correct orbit_number. copied from Mauna Loa
@@ -10,7 +10,7 @@ ssaraopt.collectionName = Supersites CSK Hawaii
 ssaraopt.startDate      = 20001001
 ssaraopt.endDate        = 20150331
 ##################### ISCE OPTIONS ####################
-stripmapStack.boundingBox          = -0.5 -0.3 -91.17 -91.07                          # '-1 0.15 -91.6 -90.9'                           
+stripmapStack.boundingBox          = -0.5 -0.3 -91.17 -91.07                          # '-1 0.15 -91.6 -90.9'
 stripmapStack.azimuthLooks         = 20
 stripmapStack.rangeLooks           = 10
 stripmapStack.timeThreshold        = 300
@@ -22,7 +22,7 @@ stripmapStack.sensor               = csk
 #stripmapStack.nofocus              = False
 #stripmapStack.golsteinFilterStrength  = 0.5
 #stripmapStack.boundingBox                 = 19 20 -156 -155
-#stripmapStack.demDir                      = /scratch/projects/insarlab/bkv3/MaunaloaT10CskAsc/DEM/output.dem 
+#stripmapStack.demDir                      = /scratch/projects/insarlab/bkv3/MaunaloaT10CskAsc/DEM/output.dem
 
 ##################### MINTPY OPTIONS ###################
 mintpy.compute.cluster            = local #[local / slurm / pbs / lsf / none], auto for none, cluster type
@@ -42,7 +42,7 @@ mintpy.subset.lalo                = -0.5:-0.31,-91.165:-91.081    #[S:N,W:E / no
 miaplpy.subset.lalo               = -0.464:-0.381,-91.165:-91.081    #[S:N,W:E / no], auto for no
 
 
-miaplpy.load.processor      = isce  
+miaplpy.load.processor      = isce
 miaplpy.load.autoPath       = yes
 miaplpy.multiprocessing.numProcessor = 40
 
