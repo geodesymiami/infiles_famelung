@@ -1,8 +1,8 @@
 ######################################################
 ssaraopt.platform                  = SENTINEL-1  # [Sentinel-1 / ALOS2 / RADARSAT2 / TerraSAR-X / COSMO-Skymed]
 ssaraopt.relativeOrbit             = 124
-ssaraopt.startDate                 = 20140101  # YYYYMMDD
-ssaraopt.endDate                   = 20170601  # YYYYMMDD
+ssaraopt.startDate                 = 20181001  # YYYYMMDD
+ssaraopt.endDate                   = auto  # YYYYMMDD
 ######################################################
 topsStack.subswath                 = 1 2 3 # '1 2'
 topsStack.numConnections           = 4    # comment
@@ -11,7 +11,6 @@ topsStack.rangeLooks               = 16   # comment
 topsStack.filtStrength             = 0.2  # comment
 topsStack.unwMethod                = snaphu  # comment
 topsStack.coregistration           = auto  # [NESD geometry], auto for NESD
-#topsStack.excludeDates            =  20240926
 ######################################################
 mintpy.load.autoPath               = yes
 mintpy.compute.cluster             = local #[local / slurm / pbs / lsf / none], auto for none, cluster type
@@ -35,13 +34,13 @@ miaplpy.interferograms.networkType   = delaunay # network
 miaplpy.unwrap.snaphu.tileNumPixels  = 10000000000     # number of pixels in a tile, auto for 10000000
 ######################################################
 minsar.miaplpyDir.addition           = date  #[name / lalo / no] auto for no (miaply_$name_startDate_endDate))
-mintpy.subset.lalo                   = 19.28:19.4,-155.355:-155.200  #[S:N,W:E / no], auto for no
-miaplpy.subset.lalo                  = 19.28:19.4,-155.355:-155.200  #[S:N,W:E / no], auto for no
+mintpy.subset.lalo                   = 19.4:19.54,-155.02:-154.80   #[S:N,W:E / no], auto for no
+miaplpy.subset.lalo                  = 19.4:19.54,-155.02:-154.80   #[S:N,W:E / no], auto for no
 miaplpy.load.startDate               = auto  # 20200101
 miaplpy.load.endDate                 = auto
 mintpy.geocode.laloStep              = 0.0008,0.0008
-miaplpy.timeseries.minTempCoh        = 0.70      # auto for 0.5
-mintpy.networkInversion.minTempCoh   = 0.70
+miaplpy.timeseries.minTempCoh        = 0.75      # auto for 0.5
+mintpy.networkInversion.minTempCoh   = 0.75
 ######################################################
 minsar.insarmaps_flag                = True
 minsar.upload_flag                   = True
